@@ -1,31 +1,36 @@
-<div class="container h-full mx-auto flex flex-col justify-center items-center">
-<h2>MagicFind</h2>
+<script lang="ts">
+	import Section from './Section.svelte';
+	import data from '../../assets/magicfind.json';
+</script>
 
-<div class="table-container">
-	<!-- Native Table Element -->
-	<table class="table table-hover">
-		<thead>
-			<tr>
-				<th>Position</th>
-				<th>Name</th>
-				<th>Symbol</th>
-				<th>Weight</th>
-			</tr>
-		</thead>
-		<tbody>
+<div class="container h-full mx-auto flex flex-col justify-center items-center">
+	<h2 class="py-8">MagicFind Checklist</h2>
+
+	<div class="table-container mx-auto">
+		<!-- Native Table Element -->
+		<table class="table table-hover table-compact leading-3">
+			<thead>
 				<tr>
-					<td>test</td>
-					<td>test2</td>
-					<td>test3</td>
-					<td>test4</td>
+					<th></th>
+					<th class="text-right">value</th>
+					<th></th>
+					<th>info</th>
 				</tr>
-		</tbody>
-		<tfoot>
-			<tr>
-				<th colspan="3">Calculated Total Weight</th>
-				<td>xtest</td>
-			</tr>
-		</tfoot>
-	</table>
+			</thead>
+			<tbody>
+				{#each data as category}
+					<Section {category} />
+				{/each}
+			</tbody>
+			<tfoot class="sticky bottom">
+				<tr>
+					<td></td>
+					<td colspan="3">testssssssss s dfsaf asf fsa sfa</td>
+				</tr>
+			</tfoot>
+		</table>
+	</div>
 </div>
-</div>
+
+<style>
+</style>

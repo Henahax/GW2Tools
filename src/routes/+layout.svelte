@@ -36,3 +36,9 @@
 	<!-- Page Route Content -->
 	<slot />
 </AppShell>
+
+<style>
+	:global(h2) {
+		@apply text-2xl;
+	}
+</style>
