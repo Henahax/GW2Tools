@@ -16,19 +16,19 @@
 					<span>
 						<i class="fa-solid fa-house"></i>
 					</span>
-					<span>Home</span>
+					<span class="hidden md:block">Home</span>
 				</a>
 				<a href="/reset" class="btn hover:variant-soft-primary">
 					<span>
 						<i class="fa-solid fa-arrows-rotate"></i>
 					</span>
-					<span>Reset</span>
+					<span class="hidden md:block">Reset</span>
 				</a>
 				<a href="/magicfind" class="btn hover:variant-soft-primary">
 					<span>
 						<i class="fa-solid fa-clover"></i>
 					</span>
-					<span>MagicFind</span>
+					<span class="hidden md:block">MagicFind</span>
 				</a>
 			</svelte:fragment>
 		</AppBar>
