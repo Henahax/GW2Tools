@@ -118,7 +118,10 @@
 			{
 				"type": "checkbox",
 				"value": 15,
-				"icons": ["https://wiki.guildwars2.com/images/c/c6/Guild_Magic_Find_Banner_Boost.png"],
+				"icons": [
+					"https://wiki.guildwars2.com/images/a/ae/Guild_Heroes_Banner.png",
+					"https://wiki.guildwars2.com/images/0/0f/10_Kill_Gold_and_15_Magic_Find_Banner.png"
+				],
 				"names": [
 					{
 						"name": "Guild Magic Find Banner Boost",
@@ -134,7 +137,7 @@
 				"names": [
 					{
 						"name": "Spirit Banner Boost",
-						"link": "https://wiki.guildwars2.com/wiki/Spirit_Banner_Boost"
+						"link": "https://wiki.guildwars2.com/images/9/9d/Spirit_Banner.png"
 					}
 				],
 				"description": "Spirit Banner"

@@ -1,25 +1,50 @@
 <script lang="ts">
 	export let item: any;
 	export let calculate: any;
+
+	let id = generateShortHash(item);
+
+	function selectText(event: Event) {
+		event.target.select();
+	}
+
+	function generateShortHash(obj) {
+		const jsonString = JSON.stringify(obj);
+		let hash = 0;
+
+		for (let i = 0; i < jsonString.length; i++) {
+			const char = jsonString.charCodeAt(i);
+			hash = (hash << 5) - hash + char;
+		}
+
+		return Math.abs(hash).toString(36).substring(0, 6); // Return the first 6 characters
+	}
+
+	function focusInput() {
+		document.getElementById(id)?.focus();
+		document.getElementById(id).checked = !document.getElementById(id).checked;
+		calculate();
+	}
 </script>
 
-<tr>
+<tr class="item" on:click={focusInput}>
 	{#if item.type === 'number'}
 		<td colspan="2" class="value text-right">
 			<input
-				id="account"
+				{id}
 				class="input text-right"
 				type="number"
 				min="0"
 				max="350"
 				value="0"
 				on:change={calculate}
+				on:click={selectText}
 			/>
 		</td>
 	{/if}
 	{#if item.type === 'checkbox'}
-		<td>
-			<input class="checkbox" type="checkbox" on:change={calculate} />
+		<td class="w-fit">
+			<input {id} class="checkbox" type="checkbox" on:click={focusInput} />
 		</td>
 		<td class="value text-right">
 			{item.value}
@@ -43,10 +68,6 @@
 </tr>
 
 <style>
-	input:disabled {
-		@apply opacity-50;
-	}
-
 	input[type='checkbox'] {
 		@apply size-8;
 	}
@@ -55,17 +76,8 @@
 		@apply size-6 mx-1;
 	}
 
-	input[type='number'] {
-		border-radius: 1rem;
-		padding: 0.5rem;
-	}
-
 	img {
 		@apply size-8 min-w-8;
-	}
-
-	td {
-		padding: 0.5rem;
 	}
 
 	td,
@@ -75,5 +87,9 @@
 
 	div {
 		text-wrap: wrap;
+	}
+
+	:global(th) {
+		padding: 1rem 0.75rem !important;
 	}
 </style>

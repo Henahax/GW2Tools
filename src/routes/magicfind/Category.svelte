@@ -6,7 +6,7 @@
 </script>
 
 <tr>
-	<th colspan="4" class="text-left px-3 pt-3 pb-1">{category.name}</th>
+	<th colspan="4" class="text-left px-4 py-2">{category.name}</th>
 </tr>
 {#each category.items as item}
 	<Item {item} {calculate} />

@@ -1,41 +1,44 @@
 <script lang="ts">
-	import Section from './Section.svelte';
+	import Category from './Category.svelte';
 	import data from '../../assets/magicfind.json';
 
 	let sum = 0;
 
-  let calculate = function calculate() {
-    let calc = 0;
+	let calculate = function calculate() {
+		let calc = 0;
+		let items = document.getElementsByClassName('item');
 
-    let checkboxes = document.getElementsByClassName("checkbox");
-    let values = document.getElementsByClassName("value");
+		for (let item of items) {
+			let numberInput = item.querySelector('input[type="number"]');
+			if (numberInput) {
+				calc += Number(numberInput?.value);
+			} else {
+				let checkbox = item.querySelector('.checkbox');
+				let value = item.querySelector('.value');
 
-    calc += Number(document.getElementById("account")!.value);
+				if (checkbox && checkbox.checked) {
+					calc += Number(value?.textContent);
+				}
+			}
+		}
+		sum = calc;
 
-    for (var i = 0; i < checkboxes.length; i++) {
-      if (checkboxes[i].checked) {
-        calc += Number(values[i].textContent);
-      }
-    }
-    sum = calc;
-
-    var elementSum = document.getElementById("sum")!;
-    elementSum.classList.remove("text-red-500");
-    elementSum.classList.remove("text-green-500");
-    if (sum >= 750) {
-      elementSum.classList.add("text-green-500");
-    } else {
-      elementSum.classList.add("text-red-500");
-    }
-  };
+		var elementSum = document.getElementById('sum')!;
+		elementSum.classList.remove('text-red-500');
+		elementSum.classList.remove('text-green-500');
+		if (sum >= 750) {
+			elementSum.classList.add('text-green-500');
+		} else {
+			elementSum.classList.add('text-red-500');
+		}
+	};
 </script>
 
 <div class="container h-full max-h-full mx-auto flex flex-col justify-center items-center">
-	<h2 class="h2 py-8">MagicFind Checklist</h2>
+	<h2 class="h2 py-4">MagicFind Checklist</h2>
 
 	<div class="table-container mx-auto">
-		<!-- Native Table Element -->
-		<table class="table table-hover table-compact leading-3">
+		<table class="table table-hover table-compact leading-3 max-w-fit mx-auto">
 			<thead>
 				<tr>
 					<th></th>
@@ -46,7 +49,7 @@
 			</thead>
 			<tbody>
 				{#each data as category}
-					<Section {category} {calculate} />
+					<Category {category} {calculate} />
 				{/each}
 			</tbody>
 			<tfoot>
@@ -61,12 +64,14 @@
 </div>
 
 <style>
-		.table tfoot th{
-		padding: 1rem 0.5rem;
-	}
-	tfoot{
+	table thead,
+	table tfoot {
 		position: sticky;
-		bottom: 0;
-		z-index: 10;
+	}
+	table thead {
+		inset-block-start: 0; /* "top" */
+	}
+	table tfoot {
+		inset-block-end: 0; /* "bottom" */
 	}
 </style>

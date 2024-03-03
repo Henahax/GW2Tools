@@ -35,10 +35,10 @@
 	</svelte:fragment>
 	<!-- Page Route Content -->
 	<slot />
+	<svelte:fragment slot="pageFooter">
+		<div class="p-4 text-center opacity-50">© henahax.de 2024</div>
+	</svelte:fragment>
 </AppShell>
 
 <style>
-	:global(h2) {
-		@apply text-2xl;
-	}
 </style>
