@@ -38,9 +38,9 @@
 
     <h2 class="h2 py-4">MagicFind Checklist</h2>
 
-    <div class="table-container mx-auto">
+    <div class="mx-auto">
         <table class="table table-hover table-compact leading-3 max-w-fit mx-auto">
-            <thead>
+            <thead class="sticky z-10">
                 <tr>
                     <th></th>
                     <th class="text-right">value</th>
@@ -53,7 +53,7 @@
                     <Category {category} {calculate} />
                 {/each}
             </tbody>
-            <tfoot>
+            <tfoot class="sticky z-10 text-lg py-4 leading-3">
                 <tr>
                     <th></th>
                     <th id="sum" class="text-right text-red-500">{sum}</th>
@@ -65,10 +65,14 @@
 </div>
 
 <style>
+	table{
+		overflow: auto;
+	}
+	
+	thead{
+		inset-block-start: 0;
+	}
 	tfoot{
-		position: sticky;
-		bottom: 0;
-		z-index: 10;
 		inset-block-end: 0;
 	}
 </style>
