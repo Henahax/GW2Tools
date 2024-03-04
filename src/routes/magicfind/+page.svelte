@@ -34,44 +34,41 @@
 	};
 </script>
 
-<div class="container h-full max-h-full mx-auto flex flex-col justify-center items-center">
-	<h2 class="h2 py-4">MagicFind Checklist</h2>
+<div class="container mx-auto flex flex-col justify-center items-center">
 
-	<div class="table-container mx-auto">
-		<table class="table table-hover table-compact leading-3 max-w-fit mx-auto">
-			<thead>
-				<tr>
-					<th></th>
-					<th class="text-right">value</th>
-					<th></th>
-					<th>info</th>
-				</tr>
-			</thead>
-			<tbody>
-				{#each data as category}
-					<Category {category} {calculate} />
-				{/each}
-			</tbody>
-			<tfoot>
-				<tr>
-					<th></th>
-					<th id="sum" class="text-right text-red-500">{sum}</th>
-					<th colspan="2">% (of max 750%)</th>
-				</tr>
-			</tfoot>
-		</table>
-	</div>
+    <h2 class="h2 py-4">MagicFind Checklist</h2>
+
+    <div class="table-container mx-auto">
+        <table class="table table-hover table-compact leading-3 max-w-fit mx-auto">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th class="text-right">value</th>
+                    <th></th>
+                    <th>info</th>
+                </tr>
+            </thead>
+            <tbody>
+                {#each data as category}
+                    <Category {category} {calculate} />
+                {/each}
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th></th>
+                    <th id="sum" class="text-right text-red-500">{sum}</th>
+                    <th colspan="2" class="normal-case">% (of max 750%)</th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
 </div>
 
 <style>
-	table thead,
-	table tfoot {
+	tfoot{
 		position: sticky;
-	}
-	table thead {
-		inset-block-start: 0; /* "top" */
-	}
-	table tfoot {
-		inset-block-end: 0; /* "bottom" */
+		bottom: 0;
+		z-index: 10;
+		inset-block-end: 0;
 	}
 </style>

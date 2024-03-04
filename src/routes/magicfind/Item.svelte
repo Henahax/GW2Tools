@@ -68,6 +68,9 @@
 </tr>
 
 <style>
+	input[type="number"]{
+		@apply py-1
+	}
 	input[type='checkbox'] {
 		@apply size-8;
 	}
@@ -83,6 +86,11 @@
 	td,
 	td * {
 		vertical-align: middle;
+	}
+
+	td{
+		padding-top: 0.125rem !important;
+		padding-bottom: 0.125rem !important;
 	}
 
 	div {

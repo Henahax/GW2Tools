@@ -36,7 +36,7 @@
 	<!-- Page Route Content -->
 	<slot />
 	<svelte:fragment slot="pageFooter">
-		<div class="p-4 text-center opacity-50">© henahax.de 2024</div>
+		<div class="p-3 text-center opacity-50">© henahax.de 2024</div>
 	</svelte:fragment>
 </AppShell>
 
