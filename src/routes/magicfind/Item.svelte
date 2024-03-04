@@ -68,15 +68,12 @@
 </tr>
 
 <style>
-	input[type="number"]{
-		@apply py-1
-	}
-	input[type='checkbox'] {
-		@apply size-8;
+	input[type='number'] {
+		@apply py-1;
 	}
 
-	input[type='checkbox']:disabled {
-		@apply size-6 mx-1;
+	input[type='checkbox'] {
+		@apply size-8;
 	}
 
 	img {
@@ -88,16 +85,12 @@
 		vertical-align: middle;
 	}
 
-	td{
+	td {
 		padding-top: 0.125rem !important;
 		padding-bottom: 0.125rem !important;
 	}
 
 	div {
 		text-wrap: wrap;
-	}
-
-	:global(th) {
-		padding: 1rem 0.75rem !important;
 	}
 </style>
