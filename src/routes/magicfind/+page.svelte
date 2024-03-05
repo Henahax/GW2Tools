@@ -1,50 +1,7 @@
 <script lang="ts">
 	import Item from './Item.svelte';
 	import data from '../../assets/magicfind.json';
-
-	let sum = 0;
-
-	function calculate() {
-		let calc = 0;
-		let items = document.getElementsByClassName('item');
-
-		for (let item of items) {
-			let numberInput = item.querySelector('input[type="number"]');
-			if (numberInput) {
-				calc += Number(numberInput?.value);
-			} else {
-				let checkbox = item.querySelector('.checkbox');
-				let value = item.querySelector('.value');
-
-				if (checkbox && checkbox.checked) {
-					calc += Number(value?.textContent);
-				}
-			}
-		}
-		sum = calc;
-
-		var elementSum = document.getElementById('sum')!;
-		elementSum.classList.remove('text-red-500');
-		elementSum.classList.remove('text-green-500');
-		if (sum >= 750) {
-			elementSum.classList.add('text-green-500');
-		} else {
-			elementSum.classList.add('text-red-500');
-		}
-	}
-
-	function focusInput(id) {
-		var element = document.getElementById(id);
-		if (element) {
-			element.focus();
-			element.checked = !element.checked;
-			calculate();
-		}
-	}
-
-	function selectText(event: Event) {
-		event.target.select();
-	}
+	import {sumStore} from "./store";
 </script>
 
 <div class="container mx-auto flex flex-col justify-center items-center">
@@ -66,14 +23,14 @@
 						<th colspan="4" class="text-left px-4 py-2">{category.name}</th>
 					</tr>
 					{#each category.items as item}
-						<Item {item} {calculate} />
+						<Item {item} />
 					{/each}
 				{/each}
 			</tbody>
 			<tfoot class="sticky z-10 text-lg py-4 leading-3">
 				<tr>
 					<th></th>
-					<th id="sum" class="text-right text-red-500">{sum}</th>
+					<th id="sum" class="text-right {$sumStore < 750 ? 'text-red-500' : 'text-green-500'}">{$sumStore}</th>
 					<th colspan="2" class="normal-case">% (of max 750%)</th>
 				</tr>
 			</tfoot>
