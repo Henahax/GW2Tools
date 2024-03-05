@@ -4,6 +4,7 @@
 		"name": "Character (Account & Gear)",
 		"items": [
 			{
+				"id": "AccountBonuses",
 				"type": "number",
 				"value": 0,
 				"icons": [
@@ -18,6 +19,7 @@
 				"description": "Magic Find value from Hero Panel in 'Achievements' tab"
 			},
 			{
+				"id": "Enrichment",
 				"type": "checkbox",
 				"value": 20,
 				"icons": [
@@ -43,6 +45,7 @@
 		"name": "Effects (Event & Preparations)",
 		"items": [
 			{
+				"id" : "MemoriesOfHome",
 				"type": "checkbox",
 				"value": 15,
 				"icons": ["https://wiki.guildwars2.com/images/f/f1/Memories_of_Home.png"],
@@ -55,6 +58,7 @@
 				"description": "Active during Lunar New Year festival"
 			},
 			{
+				"id" : "GuildItemResearch",
 				"type": "checkbox",
 				"value": 10,
 				"icons": ["https://wiki.guildwars2.com/images/e/ee/Endless_Toymaker%27s_Tonic.png"],
@@ -67,6 +71,7 @@
 				"description": "Guild Tavern"
 			},
 			{
+				"id" : "Enlightenment",
 				"type": "checkbox",
 				"value": 10,
 				"icons": ["https://wiki.guildwars2.com/images/f/fa/Enlightenment.png"],
@@ -79,6 +84,7 @@
 				"description": "Buff from completing Monastery Training Renown Heart (6 hours)"
 			},
 			{
+				"id" : "WardsRemembrance",
 				"type": "checkbox",
 				"value": 15,
 				"icons": ["https://wiki.guildwars2.com/images/e/e6/Dominion_Tribune_Inspiration.png"],
@@ -91,6 +97,7 @@
 				"description": "Astral Ward Memorial in the Wizard's Tower (30 minutes)"
 			},
 			{
+				"id" : "Perseverance",
 				"type": "checkbox",
 				"value": 200,
 				"icons": [
@@ -116,6 +123,7 @@
 		"name": "Banners (Guild or Items)",
 		"items": [
 			{
+				"id" : "GuildMagicFindBannerBoost",
 				"type": "checkbox",
 				"value": 15,
 				"icons": [
@@ -131,13 +139,14 @@
 				"description": "Guild Gold and Magic Find Banner / Guild Heroes Banner / Guild Anniversary Banner"
 			},
 			{
+				"id" : "SpiritBannerBoost",
 				"type": "checkbox",
 				"value": 10,
 				"icons": ["https://wiki.guildwars2.com/images/9/9d/Spirit_Banner.png"],
 				"names": [
 					{
 						"name": "Spirit Banner Boost",
-						"link": "https://wiki.guildwars2.com/images/9/9d/Spirit_Banner.png"
+						"link": "https://wiki.guildwars2.com/wiki/Spirit_Banner"
 					}
 				],
 				"description": "Spirit Banner"
@@ -149,6 +158,7 @@
 		"name": "Consumables (Crafting & Trading Post)",
 		"items": [
 			{
+				"id" : "Nourishment",
 				"type": "checkbox",
 				"value": 40,
 				"icons": [
@@ -168,6 +178,7 @@
 				"description": "Noodles (during Lunar New Year) / Chocolate Cream (with active boons)"
 			},
 			{
+				"id" : "Enhancement",
 				"type": "checkbox",
 				"value": 30,
 				"icons": [
@@ -192,6 +203,7 @@
 				"description": ""
 			},
 			{
+				"id:" :"NewYearsGift",
 				"type": "checkbox",
 				"value": 10,
 				"icons": [
@@ -208,7 +220,7 @@
 						"link": "https://wiki.guildwars2.com/wiki/Lucky_New_Year_Firework"
 					}
 				],
-				"description": "Stack duration"
+				"description": "New Year's Gift (Stack duration)"
 			}
 		]
 	},
@@ -217,6 +229,7 @@
 		"name": "Boosters (Accountbound)",
 		"items": [
 			{
+				"id" : "CelebrationBonus",
 				"type": "checkbox",
 				"value": 100,
 				"icons": [
@@ -233,9 +246,10 @@
 						"link": "https://wiki.guildwars2.com/wiki/Birthday_Booster"
 					}
 				],
-				"description": ""
+				"description": "Celebration Bonus"
 			},
 			{
+				"id" : "BlackLionBooster",
 				"type": "checkbox",
 				"value": 100,
 				"icons": ["https://wiki.guildwars2.com/images/a/a4/Black_Lion_Booster.png"],
@@ -248,6 +262,7 @@
 				"description": "Available for Black Lion Statuettes"
 			},
 			{
+				"id" : "MagicFindBoost",
 				"type": "checkbox",
 				"value": 50,
 				"icons": [
@@ -282,6 +297,7 @@
 				"description": "Magic Find Boost (Bonfires and Fireworks can buff multiple people)"
 			},
 			{
+				"id" : "ItemBooster",
 				"type": "checkbox",
 				"value": 50,
 				"icons": [
