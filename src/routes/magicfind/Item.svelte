@@ -1,50 +1,63 @@
 <script lang="ts">
+	import { sumStore } from './store';
 	export let item: any;
-	export let calculate: any;
 
-	let id = generateShortHash(item);
+	let value = item.value;
+	let isChecked = false;
 
-	function selectText(event: Event) {
-		event.target.select();
-	}
+    function handleChange(event) {
+        if (event.target.type === 'checkbox') {
+            isChecked = event.target.checked;
+            updateSum();
+        } else if (event.target.type === 'number') {
+            const newValue = Number(event.target.value);
+            const change = newValue - value;
 
-	function generateShortHash(obj) {
-		const jsonString = JSON.stringify(obj);
-		let hash = 0;
+            sumStore.update((currentSum) => currentSum + change);
 
-		for (let i = 0; i < jsonString.length; i++) {
-			const char = jsonString.charCodeAt(i);
-			hash = (hash << 5) - hash + char;
-		}
+            value = newValue;
+        }
+    }
 
-		return Math.abs(hash).toString(36).substring(0, 6); // Return the first 6 characters
-	}
+    function updateSum() {
+        sumStore.update((currentSum) => {
+            if (isChecked) {
+                return currentSum + value;
+            } else {
+                return currentSum - value;
+            }
+        });
+    }
 
-	function focusInput() {
-		document.getElementById(id)?.focus();
-		document.getElementById(id).checked = !document.getElementById(id).checked;
-		calculate();
-	}
+	function handleRowClick() {
+        if (item.type === 'checkbox') {
+            isChecked = !isChecked;
+            updateSum();
+        } else if (item.type === 'number') {
+            const input = document.getElementById(item.id) as HTMLInputElement;
+            input.focus();
+			input.select();
+        }
+    }
 </script>
 
-<tr class="item" on:click={focusInput}>
+<tr class="item" on:click={handleRowClick}>
 	{#if item.type === 'number'}
 		<td colspan="2" class="value text-right">
 			<input
-				{id}
+				id={item.id}
 				class="input text-right"
 				type="number"
 				min="0"
 				max="350"
-				value="0"
-				on:change={calculate}
-				on:click={selectText}
+				value={value}
+				on:change={handleChange}
 			/>
 		</td>
 	{/if}
 	{#if item.type === 'checkbox'}
 		<td class="w-fit">
-			<input {id} class="checkbox" type="checkbox" on:click={focusInput} />
+			<input id={item.id} class="checkbox" type="checkbox" bind:checked={isChecked} on:change={handleChange} />
 		</td>
 		<td class="value text-right">
 			{item.value}
