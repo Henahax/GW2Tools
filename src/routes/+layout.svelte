@@ -6,6 +6,19 @@
 
 	import { storePopup } from '@skeletonlabs/skeleton';
 	storePopup.set({ computePosition, autoUpdate, offset, shift, flip, arrow });
+
+	import { onNavigate } from '$app/navigation';
+
+	onNavigate((navigation) => {
+		if (!document.startViewTransition) return;
+
+		return new Promise((resolve) => {
+			document.startViewTransition(async () => {
+				resolve();
+				await navigation.complete;
+			});
+		});
+	});
 </script>
 
 <!-- App Shell -->
@@ -48,4 +61,7 @@
 </AppShell>
 
 <style>
+	:global(main) {
+		@apply max-w-screen-2xl w-full mx-auto;
+	}
 </style>

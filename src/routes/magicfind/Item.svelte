@@ -5,40 +5,40 @@
 	let value = item.value;
 	let isChecked = false;
 
-    function handleChange(event) {
-        if (event.target.type === 'checkbox') {
-            isChecked = event.target.checked;
-            updateSum();
-        } else if (event.target.type === 'number') {
-            const newValue = Number(event.target.value);
-            const change = newValue - value;
+	function handleChange(event) {
+		if (event.target.type === 'checkbox') {
+			isChecked = event.target.checked;
+			updateSum();
+		} else if (event.target.type === 'number') {
+			const newValue = Number(event.target.value);
+			const change = newValue - value;
 
-            sumStore.update((currentSum) => currentSum + change);
+			sumStore.update((currentSum) => currentSum + change);
 
-            value = newValue;
-        }
-    }
+			value = newValue;
+		}
+	}
 
-    function updateSum() {
-        sumStore.update((currentSum) => {
-            if (isChecked) {
-                return currentSum + value;
-            } else {
-                return currentSum - value;
-            }
-        });
-    }
+	function updateSum() {
+		sumStore.update((currentSum) => {
+			if (isChecked) {
+				return currentSum + value;
+			} else {
+				return currentSum - value;
+			}
+		});
+	}
 
 	function handleRowClick() {
-        if (item.type === 'checkbox') {
-            isChecked = !isChecked;
-            updateSum();
-        } else if (item.type === 'number') {
-            const input = document.getElementById(item.id) as HTMLInputElement;
-            input.focus();
+		if (item.type === 'checkbox') {
+			isChecked = !isChecked;
+			updateSum();
+		} else if (item.type === 'number') {
+			const input = document.getElementById(item.id) as HTMLInputElement;
+			input.focus();
 			input.select();
-        }
-    }
+		}
+	}
 </script>
 
 <tr class="item" on:click={handleRowClick}>
@@ -50,14 +50,20 @@
 				type="number"
 				min="0"
 				max="350"
-				value={value}
+				{value}
 				on:change={handleChange}
 			/>
 		</td>
 	{/if}
 	{#if item.type === 'checkbox'}
 		<td class="w-fit">
-			<input id={item.id} class="checkbox" type="checkbox" bind:checked={isChecked} on:change={handleChange} />
+			<input
+				id={item.id}
+				class="checkbox"
+				type="checkbox"
+				bind:checked={isChecked}
+				on:change={handleChange}
+			/>
 		</td>
 		<td class="value text-right">
 			{item.value}
@@ -71,12 +77,14 @@
 		</div>
 	</td>
 	<td>
-		<div class="inline-flex flex-wrap gap-x-2">
-			{#each item.names as name}
-				<a class="anchor" href={name.link}>{name.name}</a>
-			{/each}
+		<div class="flex flex-col">
+			<div>{item.description}</div>
+			<div class="inline-flex flex-wrap gap-x-2">
+				{#each item.names as name}
+					<a class="anchor text-xs" href={name.link}>{name.name}</a>
+				{/each}
+			</div>
 		</div>
-		<div>{item.description}</div>
 	</td>
 </tr>
 
@@ -86,11 +94,11 @@
 	}
 
 	input[type='checkbox'] {
-		@apply size-8;
+		@apply size-6;
 	}
 
 	img {
-		@apply size-8 min-w-8;
+		@apply size-6 min-w-6;
 	}
 
 	td,

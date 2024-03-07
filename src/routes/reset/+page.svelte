@@ -1,9 +1,10 @@
 <script lang="ts">
 	import data from '../../assets/reset.json';
-	import Card from "./Card.svelte"
+	import ResetTimer from './ResetTimer.svelte';
+	import Card from './Card.svelte';
 </script>
 
-<div class="p-4 flex flex-row justify-between items-center">
+<div class="p-4 flex flex-row justify-between items-center gap-2">
 	<div>
 		<h2 class="h3">Reset Checklist</h2>
 		<div class="text-sm">Timegated tasks without an ingame tracking system</div>
@@ -12,11 +13,11 @@
 		<div class="flex flex-row gap-4 text-sm">
 			<div class="flex flex-col">
 				<div>Daily:</div>
-				<div>02:35:55</div>
+				<ResetTimer mode={1} />
 			</div>
 			<div class="flex flex-col">
 				<div>Weekly:</div>
-				<div>8:02:35:55</div>
+				<ResetTimer mode={2} />
 			</div>
 		</div>
 		<button><i class="fa-solid fa-gear"></i></button>
@@ -24,7 +25,7 @@
 </div>
 <div class="cardContainer mx-auto px-4">
 	{#each data as category}
-		<Card {category}/>
+		<Card {category} />
 	{/each}
 </div>
 

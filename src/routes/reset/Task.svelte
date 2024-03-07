@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { popup } from '@skeletonlabs/skeleton';
 	import type { PopupSettings } from '@skeletonlabs/skeleton';
+	import EventTimer from './EventTimer.svelte';
 
 	export let task;
 
@@ -12,12 +13,15 @@
 
 	let show = false;
 	show = task.default;
+	show = true;
+
+	let checked = false;
 </script>
 
 {#if show}
-	<li class="w-full flex flex-row py-1">
+	<li class="w-full flex flex-row py-1 {checked ? 'opacity-50' : ''}">
 		<label class="flex flex-row items-center w-full">
-			<input type="checkbox" class="checkbox size-6" />
+			<input type="checkbox" class="checkbox size-6" bind:checked />
 			<img src={task.icon} alt={task.name} class="size-8 mx-2" />
 			<div class="flex flex-col">
 				<div class="text-sm">
@@ -26,35 +30,35 @@
 				<div class="text-xs opacity-50">{task.info}</div>
 			</div>
 		</label>
-		<div class="text-xs text-right">
-			<div class="flex flex-row justify-end gap-1 opacity-50">
+		<div class="flex flex-col justify-center text-xs text-right">
+			<div class="flex flex-row justify-end gap-1">
 				{#if task.link}
-					<a href={task.link}>
+					<a href={task.link} class="opacity-50">
 						<i class="fa-regular fa-circle-question"></i>
 					</a>
 				{/if}
 				{#if task.interval == 'daily'}
-                <div class="[&>*]:pointer-events-none" use:popup={popupHover}>
-                    <i class="fa-regular fa-clock"></i>
+					<div class="[&>*]:pointer-events-none opacity-50" use:popup={popupHover}>
+						<i class="fa-regular fa-clock"></i>
 					</div>
-                    <div class="card p-4 variant-filled-secondary" data-popup="popupHover">
-                        <p>resets daily</p>
-                        <div class="arrow variant-filled-secondary" />
-                    </div>
+					<div class="card p-4 variant-filled-secondary" data-popup="popupHover">
+						<p>resets daily</p>
+						<div class="arrow variant-filled-secondary" />
+					</div>
 				{/if}
 				{#if task.interval == 'weekly'}
-					<div class="[&>*]:pointer-events-none" use:popup={popupHover}>
+					<div class="[&>*]:pointer-events-none opacity-50" use:popup={popupHover}>
 						<i class="fa-regular fa-calendar"></i>
 					</div>
-                    <div class="card p-4 variant-filled-secondary" data-popup="popupHover">
-                        <p>resets weekly</p>
-                        <div class="arrow variant-filled-secondary" />
-                    </div>
+					<div class="card p-4 variant-filled-secondary" data-popup="popupHover">
+						<p>resets weekly</p>
+						<div class="arrow variant-filled-secondary" />
+					</div>
 				{/if}
 			</div>
-			<div class="flex flex-row justify-end">a</div>
-			<div class="flex flex-row justify-end">t</div>
+			{#if !checked && task.timer}
+				<EventTimer timer={task.timer} />
+			{/if}
 		</div>
 	</li>
 {/if}
-
