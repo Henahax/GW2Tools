@@ -5,7 +5,7 @@
 </script>
 
 <div class="container mx-auto flex flex-col justify-center items-center">
-	<h2 class="h2 py-4">MagicFind Checklist</h2>
+	<h3 class="h3 py-4">MagicFind Checklist</h3>
 
 	<div class="mx-auto">
 		<table class="table table-hover table-compact leading-3 max-w-fit mx-auto">

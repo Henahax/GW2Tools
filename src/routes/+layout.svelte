@@ -1,6 +1,11 @@
 <script lang="ts">
 	import '../app.postcss';
 	import { AppShell, AppBar } from '@skeletonlabs/skeleton';
+
+	import { computePosition, autoUpdate, offset, shift, flip, arrow } from '@floating-ui/dom';
+
+	import { storePopup } from '@skeletonlabs/skeleton';
+	storePopup.set({ computePosition, autoUpdate, offset, shift, flip, arrow });
 </script>
 
 <!-- App Shell -->
@@ -13,25 +18,25 @@
 			</svelte:fragment>
 			<svelte:fragment slot="trail">
 				<div class="gap-0">
-				<a href="/" class="btn hover:variant-soft-primary">
-					<span>
-						<i class="fa-solid fa-house"></i>
-					</span>
-					<span class="hidden md:block">Home</span>
-				</a>
-				<a href="/reset" class="btn hover:variant-soft-primary">
-					<span>
-						<i class="fa-solid fa-arrows-rotate"></i>
-					</span>
-					<span class="hidden md:block">Reset</span>
-				</a>
-				<a href="/magicfind" class="btn hover:variant-soft-primary">
-					<span>
-						<i class="fa-solid fa-clover"></i>
-					</span>
-					<span class="hidden md:block">MagicFind</span>
-				</a>
-			</div>
+					<a href="/" class="btn hover:variant-soft-primary">
+						<span>
+							<i class="fa-solid fa-house"></i>
+						</span>
+						<span class="hidden md:block">Home</span>
+					</a>
+					<a href="/reset" class="btn hover:variant-soft-primary">
+						<span>
+							<i class="fa-solid fa-arrows-rotate"></i>
+						</span>
+						<span class="hidden md:block">Reset</span>
+					</a>
+					<a href="/magicfind" class="btn hover:variant-soft-primary">
+						<span>
+							<i class="fa-solid fa-clover"></i>
+						</span>
+						<span class="hidden md:block">MagicFind</span>
+					</a>
+				</div>
 			</svelte:fragment>
 		</AppBar>
 	</svelte:fragment>
