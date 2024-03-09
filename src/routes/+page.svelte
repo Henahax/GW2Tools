@@ -1,8 +1,8 @@
 <!-- YOU CAN DELETE EVERYTHING IN THIS PAGE -->
 
-<div class="container h-full mx-auto flex justify-center items-center">
+<div class="container h-full mx-auto flex flex-col justify-center items-center">
 	<div class="space-y-10 text-center flex flex-col items-center">
-		<h2 class="h2">Welcome to Skeleton.</h2>
+		<h2 class="h2">GW2 tool collection</h2>
 		<!-- Animated Logo -->
 		<figure>
 			<section class="img-bg" />
@@ -17,26 +17,47 @@
 				/>
 			</svg>
 		</figure>
-		<!-- / -->
-		<div class="flex justify-center space-x-2">
-			<a
-				class="btn variant-filled"
-				href="https://skeleton.dev/"
-				target="_blank"
-				rel="noreferrer"
-			>
-				Launch Documentation
-			</a>
-		</div>
-		<div class="space-y-2">
-			<p>Try editing the following:</p>
-			<p><code class="code">/src/routes/+layout.svelte</code></p>
-			<p><code class="code">/src/routes/+page.svelte</code></p>
-		</div>
+	</div>
+	<div>available tools:</div>
+	<div class="container grid grid-cols-2 justify-center items-center p-4 gap-4 w-fit">
+		<a href="/reset" class="card card-hover flex flex-col gap-4 p-4 h-full">
+			<h2 class="h2 text-center p-4">
+				<i class="fa-solid fa-arrows-rotate"></i>
+			</h2>
+			<div>
+				<h6 class="h6">Checklist</h6>
+				<h3 class="h3">Reset</h3>
+			</div>
+			<ul>
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+			</ul>
+		</a>
+		<a href="/magicfind" class="card card-hover flex flex-col gap-4 p-4 h-full">
+			<h2 class="h2 text-center p-4">
+				<i class="fa-solid fa-clover"></i>
+			</h2>
+			<div>
+				<h6 class="h6">Checklist</h6>
+				<h3 class="h3">Magicfind</h3>
+			</div>
+			<ul>
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+			</ul>
+		</a>
 	</div>
 </div>
 
 <style lang="postcss">
+	.card {
+		@apply w-64;
+	}
+
 	figure {
 		@apply flex relative flex-col;
 	}
@@ -46,7 +67,8 @@
 	}
 	.img-bg {
 		@apply absolute z-[-1] rounded-full blur-[50px] transition-all;
-		animation: pulse 5s cubic-bezier(0, 0, 0, 0.5) infinite,
+		animation:
+			pulse 5s cubic-bezier(0, 0, 0, 0.5) infinite,
 			glow 5s linear infinite;
 	}
 	@keyframes glow {
