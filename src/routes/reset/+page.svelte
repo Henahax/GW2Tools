@@ -20,7 +20,7 @@
 				<ResetTimer mode={2} />
 			</div>
 		</div>
-		<button><i class="fa-solid fa-gear"></i></button>
+		<button class="text-2xl"><i class="fa-solid fa-gear"></i></button>
 	</div>
 </div>
 <div class="cardContainer mx-auto px-4">

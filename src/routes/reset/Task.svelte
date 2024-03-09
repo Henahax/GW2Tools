@@ -13,7 +13,6 @@
 
 	let show = false;
 	show = task.default;
-	show = true;
 
 	let checked = false;
 </script>

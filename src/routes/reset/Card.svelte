@@ -32,6 +32,6 @@
 	}
 
 	.card:has(ul:empty) {
-		@apply invisible;
+		@apply hidden;
 	}
 </style>
