@@ -2,28 +2,23 @@
 	import data from '../../assets/reset.json';
 	import ResetTimer from './ResetTimer.svelte';
 	import Card from './Card.svelte';
-</script>
 
-<div class="h-96">
-	<div class="flex flex-col flex-wrap w-fit gap-4 p-4 h-full">
-		{#each data as category}
-			<div class="break-inside-avoid">
-				<div class="px-1">{category.name}</div>
-				<ul class="text-sm">
-					{#each category.tasks as task}
-						<li class="p-1">
-							<label class="flex flex-row items-center gap-2">
-								<input type="checkbox" class="checkbox size-6" />
-								<img class="size-6" src={task.icon} alt={task.name} />
-								{task.name}
-							</label>
-						</li>
-					{/each}
-				</ul>
-			</div>
-		{/each}
-	</div>
-</div>
+	import Settings from './Settings.svelte';
+
+	import { getModalStore } from '@skeletonlabs/skeleton';
+	const modalStore = getModalStore();
+
+	const modalComponent: ModalComponent = { ref: Settings };
+
+	const modal: ModalSettings = {
+		type: 'component',
+		component: modalComponent
+	};
+
+	function openSettings() {
+		modalStore.trigger(modal);
+	}
+</script>
 
 <div class="p-4 flex flex-row justify-between items-center gap-2">
 	<div>
@@ -41,7 +36,9 @@
 				<ResetTimer mode={2} />
 			</div>
 		</div>
-		<button class="text-2xl"><i class="fa-solid fa-gear"></i></button>
+		<button class="text-2xl" on:click={openSettings}>
+			<i class="fa-solid fa-gear"></i>
+		</button>
 	</div>
 </div>
 <div class="cardContainer mx-auto px-4">

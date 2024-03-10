@@ -19,8 +19,16 @@
 			});
 		});
 	});
+
+	import { Modal, getModalStore } from '@skeletonlabs/skeleton';
+	import type { ModalSettings, ModalComponent, ModalStore } from '@skeletonlabs/skeleton';
+
+	import { initializeStores } from '@skeletonlabs/skeleton';
+
+	initializeStores();
 </script>
 
+<Modal />
 <!-- App Shell -->
 <AppShell>
 	<svelte:fragment slot="header">
@@ -56,7 +64,7 @@
 	<!-- Page Route Content -->
 	<slot />
 	<svelte:fragment slot="pageFooter">
-		<div class="p-3 text-center opacity-50">© henahax.de 2024</div>
+		<div class="p-3 text-center opacity-50 text-xs">© henahax.de 2024</div>
 	</svelte:fragment>
 </AppShell>
 
