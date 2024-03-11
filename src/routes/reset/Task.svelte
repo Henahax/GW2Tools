@@ -29,7 +29,7 @@
 				<div class="text-xs opacity-50">{task.info}</div>
 			</div>
 		</label>
-		<div class="flex flex-col justify-center text-xs text-right">
+		<div class="flex flex-col justify-center text-sm text-right">
 			<div class="flex flex-row justify-end gap-1">
 				{#if task.link}
 					<a href={task.link} class="opacity-50">

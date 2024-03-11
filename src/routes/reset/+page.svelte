@@ -1,9 +1,9 @@
 <script lang="ts">
 	import data from '../../assets/reset.json';
-	import ResetTimer from './ResetTimer.svelte';
-	import Card from './Card.svelte';
+	import ResetTimer from '../../lib/reset/ResetTimer.svelte';
+	import Card from '../../lib/reset/Card.svelte';
 
-	import Settings from './Settings.svelte';
+	import Settings from '../../lib/reset/Settings.svelte';
 
 	import { getModalStore } from '@skeletonlabs/skeleton';
 	const modalStore = getModalStore();
@@ -26,13 +26,13 @@
 		<div class="text-sm">Timegated tasks without an ingame tracking system</div>
 	</div>
 	<div class="flex flex-row gap-4 text-right">
-		<div class="flex flex-row gap-4 text-sm">
+		<div class="flex flex-row flex-wrap justify-end gap-4 text-sm">
 			<div class="flex flex-col">
-				<div>Daily:</div>
+				<div class="text-xs">Daily:</div>
 				<ResetTimer mode={1} />
 			</div>
 			<div class="flex flex-col">
-				<div>Weekly:</div>
+				<div class="text-xs">Weekly:</div>
 				<ResetTimer mode={2} />
 			</div>
 		</div>
