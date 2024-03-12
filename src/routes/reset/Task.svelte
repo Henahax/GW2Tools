@@ -1,7 +1,21 @@
 <script lang="ts">
-	import { popup } from '@skeletonlabs/skeleton';
+	import { Toast, popup } from '@skeletonlabs/skeleton';
 	import type { PopupSettings } from '@skeletonlabs/skeleton';
 	import EventTimer from './EventTimer.svelte';
+
+	import { getCookie } from './functions';
+	import { setCookie } from './functions';
+
+	function getChecked() {
+		let checked = getCookie('check.' + task.id);
+		if (checked === null) {
+			return false;
+		}
+	}
+	function setChecked(event) {
+		checked = event.target.checked;
+		setCookie('check.' + task.id, checked.toString(), task.interval);
+	}
 
 	export let task;
 
@@ -14,13 +28,13 @@
 	let show = false;
 	show = task.default;
 
-	let checked = false;
+	let checked = getChecked();
 </script>
 
 {#if show}
 	<li class="w-full flex flex-row py-1 {checked ? 'opacity-50' : ''}">
 		<label class="flex flex-row items-center w-full">
-			<input type="checkbox" class="checkbox size-6" bind:checked />
+			<input type="checkbox" class="checkbox size-6" bind:checked on:change={setChecked} />
 			<img src={task.icon} alt={task.name} class="size-8 mx-2" />
 			<div class="flex flex-col">
 				<div class="text-sm">

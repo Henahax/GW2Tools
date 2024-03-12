@@ -13,7 +13,7 @@
 			<svelte:fragment slot="summary"><p class="font-bold">{category.name}</p></svelte:fragment>
 			<svelte:fragment slot="content">
 				<ul class="divide-black divide-y">
-					{#each category.tasks as task}
+					{#each category.tasks.sort((a, b) => a.interval.localeCompare(a.name)) as task}
 						<Task {task} />
 					{/each}
 				</ul>
