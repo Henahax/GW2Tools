@@ -1,9 +1,9 @@
 <script lang="ts">
 	import data from '../../assets/reset.json';
-	import ResetTimer from '../../lib/reset/ResetTimer.svelte';
-	import Card from '../../lib/reset/Card.svelte';
+	import ResetTimer from './ResetTimer.svelte';
+	import Card from './Card.svelte';
 
-	import Settings from '../../lib/reset/Settings.svelte';
+	import Settings from './Settings.svelte';
 
 	import { getModalStore } from '@skeletonlabs/skeleton';
 	const modalStore = getModalStore();

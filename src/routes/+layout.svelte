@@ -1,6 +1,7 @@
 <script lang="ts">
 	import '../app.postcss';
 	import { AppShell, AppBar } from '@skeletonlabs/skeleton';
+	import { AppRail, AppRailTile, AppRailAnchor } from '@skeletonlabs/skeleton';
 
 	import { computePosition, autoUpdate, offset, shift, flip, arrow } from '@floating-ui/dom';
 
@@ -26,13 +27,14 @@
 	import { initializeStores } from '@skeletonlabs/skeleton';
 
 	initializeStores();
+
+	let currentTile: number = 0;
 </script>
 
 <Modal />
 <!-- App Shell -->
 <AppShell>
-	<svelte:fragment slot="header">
-		<!-- App Bar -->
+	<svelte:fragment slot="pageHeader">
 		<AppBar>
 			<svelte:fragment slot="lead">
 				<strong class="text-xl uppercase">GW2 Tools</strong>
@@ -61,8 +63,9 @@
 			</svelte:fragment>
 		</AppBar>
 	</svelte:fragment>
-	<!-- Page Route Content -->
+
 	<slot />
+	
 	<svelte:fragment slot="pageFooter">
 		<div class="p-3 text-center opacity-50 text-xs">© henahax.de 2024</div>
 	</svelte:fragment>
