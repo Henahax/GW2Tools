@@ -24,7 +24,6 @@ function getUTCTimeForStartOfNextWeek() {
 
 export function getCookie(cookieName: string) {
 	if (typeof document === 'undefined') {
-		console.log('null');
 		return null; // Return null if document is not available (e.g., during SSR)
 	}
 

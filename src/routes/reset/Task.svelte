@@ -2,20 +2,38 @@
 	import { Toast, popup } from '@skeletonlabs/skeleton';
 	import type { PopupSettings } from '@skeletonlabs/skeleton';
 	import EventTimer from './EventTimer.svelte';
+	import { onMount } from 'svelte';
 
 	import { getCookie } from './functions';
 	import { setCookie } from './functions';
+
+
+	onMount(() => {
+    checked = getChecked();
+  });
 
 	function getChecked() {
 		let checked = getCookie('check.' + task.id);
 		if (checked === null) {
 			return false;
 		}
+		return checked;
 	}
 	function setChecked(event) {
 		checked = event.target.checked;
 		setCookie('check.' + task.id, checked.toString(), task.interval);
 	}
+
+	function getDisplayed() {
+    let displayed = getCookie("display." + task.id);
+    if (displayed === null) {
+      if (task.default) {
+        return true;
+      }
+      return false;
+    }
+    return displayed;
+  }
 
 	export let task;
 
@@ -25,8 +43,7 @@
 		placement: 'top'
 	};
 
-	let show = false;
-	show = task.default;
+	let show = getDisplayed();
 
 	let checked = getChecked();
 </script>

@@ -1,8 +1,8 @@
 <script lang="ts">
 	import data from '../../assets/reset.json';
+	import SettingsTask from "./SettingsTask.svelte";
 
-	import type { SvelteComponent } from 'svelte';
-	//export let parent: SvelteComponent;
+	export let parent: SvelteComponent;
 
 	import { getModalStore } from '@skeletonlabs/skeleton';
 	const modalStore = getModalStore();
@@ -22,13 +22,7 @@
 					<div class="font-bold">{category.name}</div>
 					<ul>
 						{#each category.tasks as task}
-							<li class="py-1">
-								<label class="flex flex-row items-center gap-2">
-									<input type="checkbox" class="checkbox size-6" data-focusindex="0" />
-									<img class="size-6" src={task.icon} alt={task.name} />
-									{task.name}
-								</label>
-							</li>
+							<SettingsTask {task}/>
 						{/each}
 					</ul>
 				</div>
