@@ -1,16 +1,26 @@
 <script lang="ts">
-	import { Toast, popup } from '@skeletonlabs/skeleton';
-	import type { PopupSettings } from '@skeletonlabs/skeleton';
-	import EventTimer from './EventTimer.svelte';
 	import { onMount } from 'svelte';
-
+	import { get } from 'svelte/store';
+	import { settingsStore } from './store';
 	import { getCookie } from './functions';
 	import { setCookie } from './functions';
+	import EventTimer from './EventTimer.svelte';
 
+	export let task: any;
+
+	let show = false;
+	let checked = getChecked();
 
 	onMount(() => {
-    checked = getChecked();
-  });
+		checked = getChecked();
+
+		let test: any = get(settingsStore);
+		for (let i = 0; i < test.length; i++) {
+			if (test[i].name === task.id) {
+				show = test[i].value;
+			}
+		}
+	});
 
 	function getChecked() {
 		let checked = getCookie('check.' + task.id);
@@ -19,33 +29,11 @@
 		}
 		return checked;
 	}
+
 	function setChecked(event) {
 		checked = event.target.checked;
 		setCookie('check.' + task.id, checked.toString(), task.interval);
 	}
-
-	function getDisplayed() {
-    let displayed = getCookie("display." + task.id);
-    if (displayed === null) {
-      if (task.default) {
-        return true;
-      }
-      return false;
-    }
-    return displayed;
-  }
-
-	export let task;
-
-	const popupHover: PopupSettings = {
-		event: 'hover',
-		target: 'popupHover',
-		placement: 'top'
-	};
-
-	let show = getDisplayed();
-
-	let checked = getChecked();
 </script>
 
 {#if show}
@@ -68,21 +56,13 @@
 					</a>
 				{/if}
 				{#if task.interval == 'daily'}
-					<div class="[&>*]:pointer-events-none opacity-50" use:popup={popupHover}>
+					<div class="[&>*]:pointer-events-none opacity-50">
 						<i class="fa-regular fa-clock"></i>
-					</div>
-					<div class="card p-4 variant-filled-secondary" data-popup="popupHover">
-						<p>resets daily</p>
-						<div class="arrow variant-filled-secondary" />
 					</div>
 				{/if}
 				{#if task.interval == 'weekly'}
-					<div class="[&>*]:pointer-events-none opacity-50" use:popup={popupHover}>
+					<div class="[&>*]:pointer-events-none opacity-50">
 						<i class="fa-regular fa-calendar"></i>
-					</div>
-					<div class="card p-4 variant-filled-secondary" data-popup="popupHover">
-						<p>resets weekly</p>
-						<div class="arrow variant-filled-secondary" />
 					</div>
 				{/if}
 			</div>

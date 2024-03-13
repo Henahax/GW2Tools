@@ -1,9 +1,6 @@
 <script lang="ts">
 	import data from '../../assets/reset.json';
-	import SettingsTask from "./SettingsTask.svelte";
-
-	export let parent: SvelteComponent;
-
+	import SettingsTask from './SettingsTask.svelte';
 	import { getModalStore } from '@skeletonlabs/skeleton';
 	const modalStore = getModalStore();
 </script>
@@ -22,7 +19,7 @@
 					<div class="font-bold">{category.name}</div>
 					<ul>
 						{#each category.tasks as task}
-							<SettingsTask {task}/>
+							<SettingsTask {task} />
 						{/each}
 					</ul>
 				</div>

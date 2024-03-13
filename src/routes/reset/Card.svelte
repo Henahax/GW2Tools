@@ -1,8 +1,7 @@
 <script lang="ts">
-	import { Accordion, AccordionItem } from '@skeletonlabs/skeleton';
-
+	import { Accordion, AccordionItem, Toast } from '@skeletonlabs/skeleton';
 	import Task from './Task.svelte';
-	export let category;
+	export let category: any;
 
 	let open = true;
 </script>

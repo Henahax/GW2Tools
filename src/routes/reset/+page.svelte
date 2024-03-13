@@ -1,22 +1,43 @@
 <script lang="ts">
+	import { getModalStore } from '@skeletonlabs/skeleton';
+	import { settingsStore } from './store';
+	import { getCookie } from './functions';
+	import { onMount } from 'svelte';
 	import data from '../../assets/reset.json';
 	import ResetTimer from './ResetTimer.svelte';
 	import Card from './Card.svelte';
-
 	import Settings from './Settings.svelte';
 
-	import { getModalStore } from '@skeletonlabs/skeleton';
 	const modalStore = getModalStore();
-
 	const modalComponent: ModalComponent = { ref: Settings };
-
 	const modal: ModalSettings = {
 		type: 'component',
 		component: modalComponent
 	};
 
+	onMount(() => {
+		$settingsStore = getSettings();
+	});
+
 	function openSettings() {
 		modalStore.trigger(modal);
+	}
+
+	function getSettings() {
+		let settings = [];
+		for (let category = 0; category < data.length; category++) {
+			for (let task = 0; task < data[category].tasks.length; task++) {
+				let value = getCookie('display.' + data[category].tasks[task].id);
+				if (value === null && data[category].tasks[task].default) {
+					value = true;
+				} else if (value === null) {
+					value = false;
+				}
+				let setting = { name: data[category].tasks[task].id, value: value };
+				settings.push(setting);
+			}
+		}
+		return settings;
 	}
 </script>
 
