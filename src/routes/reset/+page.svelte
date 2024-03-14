@@ -78,7 +78,7 @@
 		</button>
 	</div>
 </div>
-<div class="cardContainer mx-auto px-2">
+<div class="cardContainer mx-auto px-4">
 	{#each data as category}
 		<Card {category} />
 	{/each}
