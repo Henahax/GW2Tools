@@ -3,6 +3,8 @@
 	import SettingsTask from './SettingsTask.svelte';
 	import { getModalStore } from '@skeletonlabs/skeleton';
 	const modalStore = getModalStore();
+
+	//settings sortieren sich um wenn man menü 2 mal aufmacht
 </script>
 
 {#if $modalStore[0]}
@@ -18,7 +20,7 @@
 				<div class="category break-inside-avoid">
 					<div class="font-bold">{category.name}</div>
 					<ul>
-						{#each category.tasks as task}
+						{#each category.tasks.sort((a, b) => a.interval.localeCompare(a.ic)) as task}
 							<SettingsTask {task} />
 						{/each}
 					</ul>

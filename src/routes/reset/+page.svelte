@@ -62,7 +62,7 @@
 		</button>
 	</div>
 </div>
-<div class="cardContainer mx-auto px-4">
+<div class="cardContainer mx-auto px-2">
 	{#each data as category}
 		<Card {category} />
 	{/each}
@@ -72,5 +72,6 @@
 	.cardContainer {
 		columns: 3 24rem;
 		column-fill: balance;
+		column-gap: 1rem;
 	}
 </style>
