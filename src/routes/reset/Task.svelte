@@ -11,16 +11,20 @@
 	let show = false;
 	let checked = getChecked();
 
+	$: $settingsStore, getShown();
+
 	onMount(() => {
 		checked = getChecked();
+	});
 
+	function getShown(){
 		let test: any = get(settingsStore);
 		for (let i = 0; i < test.length; i++) {
 			if (test[i].name === task.id) {
 				show = test[i].value;
 			}
 		}
-	});
+	}
 
 	function getChecked() {
 		let checked = getCookie('check.' + task.id);
