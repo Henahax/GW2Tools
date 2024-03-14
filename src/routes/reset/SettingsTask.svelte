@@ -2,8 +2,8 @@
 	import { onMount } from 'svelte';
 	import { getCookie } from './functions';
 	import { setCookie } from './functions';
-    import { get } from 'svelte/store';
-    import { settingsStore } from './store';
+	import { get } from 'svelte/store';
+	import { settingsStore } from './store';
 
 	export let task;
 
@@ -28,13 +28,13 @@
 	function setChecked(event) {
 		checked = event.target.checked;
 		setCookie('display.' + task.id, checked.toString(), '');
-        let test: any = get(settingsStore);
-        for(let i = 0; i < test.length; i++){
-            if(test[i].name === task.id){
-                test[i].value = checked;
-                $settingsStore = test;
-            }
-        }
+		let checks: any = get(settingsStore);
+		for (let i = 0; i < checks.length; i++) {
+			if (checks[i].name === task.id) {
+				checks[i].value = checked;
+				$settingsStore = checks;
+			}
+		}
 	}
 
 	let checked;

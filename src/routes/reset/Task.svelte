@@ -1,42 +1,50 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { get } from 'svelte/store';
-	import { settingsStore } from './store';
-	import { getCookie } from './functions';
+	import { settingsStore, checksStore } from './store';
 	import { setCookie } from './functions';
 	import EventTimer from './EventTimer.svelte';
 
 	export let task: any;
 
 	let show = false;
-	let checked = getChecked();
+	let checked = false;
 
 	$: $settingsStore, getShown();
+	$: $checksStore, getChecked();
 
 	onMount(() => {
-		checked = getChecked();
+		getChecked();
 	});
 
-	function getShown(){
-		let test: any = get(settingsStore);
-		for (let i = 0; i < test.length; i++) {
-			if (test[i].name === task.id) {
-				show = test[i].value;
+	function getShown() {
+		let shows: any = get(settingsStore);
+		for (let i = 0; i < shows.length; i++) {
+			if (shows[i].name === task.id) {
+				show = shows[i].value;
 			}
 		}
 	}
 
 	function getChecked() {
-		let checked = getCookie('check.' + task.id);
-		if (checked === null) {
-			return false;
+		let checks: any = get(checksStore);
+		for (let i = 0; i < checks.length; i++) {
+			if (checks[i].name === task.id) {
+				checked = checks[i].value;
+			}
 		}
-		return checked;
 	}
 
-	function setChecked(event) {
+	function setChecked(event: Event) {
 		checked = event.target.checked;
 		setCookie('check.' + task.id, checked.toString(), task.interval);
+		let checks: any = get(checksStore);
+		for (let i = 0; i < checks.length; i++) {
+			if (checks[i].name === task.id) {
+				checks[i].value = checked;
+				$checksStore = checks;
+			}
+		}
 	}
 </script>
 

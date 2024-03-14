@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { getModalStore } from '@skeletonlabs/skeleton';
-	import { settingsStore } from './store';
+	import { settingsStore, checksStore } from './store';
 	import { getCookie } from './functions';
 	import { onMount } from 'svelte';
 	import data from '../../assets/reset.json';
@@ -17,6 +17,7 @@
 
 	onMount(() => {
 		$settingsStore = getSettings();
+		$checksStore = getChecks();
 	});
 
 	function openSettings() {
@@ -38,6 +39,21 @@
 			}
 		}
 		return settings;
+	}
+
+	function getChecks() {
+		let checks = [];
+		for (let category = 0; category < data.length; category++) {
+			for (let task = 0; task < data[category].tasks.length; task++) {
+				let value = getCookie('check.' + data[category].tasks[task].id);
+				if (value === null) {
+					value = false;
+				}
+				let check = { name: data[category].tasks[task].id, value: value };
+				checks.push(check);
+			}
+		}
+		return checks;
 	}
 </script>
 

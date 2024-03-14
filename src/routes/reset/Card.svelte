@@ -4,6 +4,15 @@
 	export let category: any;
 
 	let open = true;
+
+	import { get } from 'svelte/store';
+	import { settingsStore } from './store';
+
+	function getOpen() {
+		//TODO
+		let settings = get(settingsStore);
+		for (let i = 0; i < category.tasks.length; i++) {}
+	}
 </script>
 
 <div class="card card-hover break-inside-avoid">
