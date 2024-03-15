@@ -3,10 +3,13 @@
 	import { getCookie } from './functions';
 	import { setCookie } from './functions';
 	import { get } from 'svelte/store';
-	import { settingsStore } from './store';
+	import { dataStore } from './store';
 
-	export let task;
+	export let task: any;
 
+	let checked = task.display;
+
+	/*
 	onMount(() => {
 		checked = getChecked();
 	});
@@ -38,17 +41,12 @@
 	}
 
 	let checked;
+	*/
 </script>
 
 <li class="py-1">
 	<label class="flex flex-row items-center gap-2">
-		<input
-			type="checkbox"
-			class="checkbox size-6"
-			data-focusindex="0"
-			bind:checked
-			on:change={setChecked}
-		/>
+		<input type="checkbox" class="checkbox size-6" data-focusindex="0" bind:checked />
 		<img class="size-6" src={task.icon} alt={task.name} />
 		{task.name}
 	</label>

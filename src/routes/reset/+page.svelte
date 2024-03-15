@@ -1,9 +1,9 @@
 <script lang="ts">
 	import { getModalStore } from '@skeletonlabs/skeleton';
-	import { settingsStore, checksStore } from './store';
+	import { dataStore } from './store';
 	import { getCookie } from './functions';
 	import { onMount } from 'svelte';
-	import data from '../../assets/reset.json';
+	import json from '../../assets/reset.json';
 	import ResetTimer from './ResetTimer.svelte';
 	import Card from './Card.svelte';
 	import Settings from './Settings.svelte';
@@ -16,44 +16,31 @@
 	};
 
 	onMount(() => {
-		$settingsStore = getSettings();
-		$checksStore = getChecks();
+		$dataStore = getData();
 	});
 
 	function openSettings() {
 		modalStore.trigger(modal);
 	}
 
-	function getSettings() {
-		let settings = [];
-		for (let category = 0; category < data.length; category++) {
-			for (let task = 0; task < data[category].tasks.length; task++) {
-				let value = getCookie('display.' + data[category].tasks[task].id);
-				if (value === null && data[category].tasks[task].default) {
-					value = true;
-				} else if (value === null) {
-					value = false;
+	function getData() {
+		for (let category = 0; category < json.length; category++) {
+			for (let task = 0; task < json[category].tasks.length; task++) {
+				let display = getCookie('display.' + json[category].tasks[task].id);
+				if (display === null && json[category].tasks[task].default) {
+					display = true;
+				} else if (display === null) {
+					display = false;
 				}
-				let setting = { name: data[category].tasks[task].id, value: value };
-				settings.push(setting);
+				let checked = getCookie('display.' + json[category].tasks[task].id);
+				if (checked === null) {
+					checked = false;
+				}
+				json[category].tasks[task].display = display;
+				json[category].tasks[task].checked = checked;
 			}
 		}
-		return settings;
-	}
-
-	function getChecks() {
-		let checks = [];
-		for (let category = 0; category < data.length; category++) {
-			for (let task = 0; task < data[category].tasks.length; task++) {
-				let value = getCookie('check.' + data[category].tasks[task].id);
-				if (value === null) {
-					value = false;
-				}
-				let check = { name: data[category].tasks[task].id, value: value };
-				checks.push(check);
-			}
-		}
-		return checks;
+		return json;
 	}
 </script>
 
@@ -78,15 +65,15 @@
 		</button>
 	</div>
 </div>
-<div class="cardContainer mx-auto px-4">
-	{#each data as category}
+
+<div class="cardContainer mx-auto px-2 columns-1 md:px-4 md:columns-2 xl:columns-3">
+	{#each $dataStore as category}
 		<Card {category} />
 	{/each}
 </div>
 
 <style>
 	.cardContainer {
-		columns: 3 24rem;
 		column-fill: balance;
 		column-gap: 1rem;
 	}
