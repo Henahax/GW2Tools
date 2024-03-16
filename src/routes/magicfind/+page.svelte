@@ -1,7 +1,12 @@
 <script lang="ts">
-	import { sumStore } from './store';
+	import { dataStore as dataStore } from './store';
+	import { onMount } from 'svelte';
 	import Item from './Item.svelte';
 	import data from '../../assets/magicfind.json';
+
+	onMount(() => {
+		$dataStore = data;
+	});
 </script>
 
 <div class="p-4 flex flex-row justify-between items-center">
@@ -22,7 +27,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			{#each data as category}
+			{#each $dataStore as category}
 				<tr>
 					<th colspan="4" class="text-left text-sm px-4">{category.name}</th>
 				</tr>
@@ -34,8 +39,8 @@
 		<tfoot class="sticky z-10 text-lg py-4 leading-3">
 			<tr>
 				<th></th>
-				<th id="sum" class="text-right {$sumStore < 750 ? 'text-red-500' : 'text-green-500'}"
-					>{$sumStore}</th
+				<th id="sum" class="text-right {$dataStore < 750 ? 'text-red-500' : 'text-green-500'}"
+					>{$dataStore}</th
 				>
 				<th colspan="2" class="normal-case">% (of max 750%)</th>
 			</tr>

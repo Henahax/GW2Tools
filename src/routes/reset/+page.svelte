@@ -32,7 +32,7 @@
 				} else if (display === null) {
 					display = false;
 				}
-				let checked = getCookie('display.' + json[category].tasks[task].id);
+				let checked = getCookie('check.' + json[category].tasks[task].id);
 				if (checked === null) {
 					checked = false;
 				}
@@ -65,7 +65,6 @@
 		</button>
 	</div>
 </div>
-
 <div class="cardContainer mx-auto px-2 columns-1 md:px-4 md:columns-2 xl:columns-3">
 	{#each $dataStore as category}
 		<Card {category} />

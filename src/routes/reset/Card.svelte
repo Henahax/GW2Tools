@@ -3,35 +3,36 @@
 	import Task from './Task.svelte';
 	export let category: any;
 
-	$: category, getOpen();
+	$: category, getNotAllChecked();
 
-	let open = true;
+	let notAllChecked = true;
 
-	function getOpen() {
+	function getNotAllChecked() {
 		let tasks = 0;
 		let checked = 0;
 
 		for (let i = 0; i < category.tasks.length; i++) {
-			tasks++;
-			if (category.tasks[i].checked) {
-				checked++;
+			if (category.tasks[i].display) {
+				tasks++;
+				if (category.tasks[i].checked) {
+					checked++;
+				}
 			}
 		}
-
-		open = tasks > checked;
+		notAllChecked = tasks > checked;
 	}
 </script>
 
 {#if category.tasks.filter((task) => task.display).length > 0}
-	<div class="card card-hover break-inside-avoid">
+	<div class="card card-hover break-inside-avoid {!notAllChecked ? 'opacity-50' : ''}">
 		<Accordion transitionInParams={{ duration: 1250 }} transitionOutParams={{ duration: 1250 }}>
-			<AccordionItem {open}>
+			<AccordionItem open={notAllChecked}>
 				<svelte:fragment slot="summary"><p class="font-bold">{category.name}</p></svelte:fragment>
 				<svelte:fragment slot="content">
 					<ul class="divide-black divide-y">
 						{#each category.tasks
 							.filter((task) => task.display === true)
-							.sort((a, b) => a.interval.localeCompare(a.id)) as task}
+							.sort((a, b) => a.interval.localeCompare(b.interval)) as task}
 							<Task {task} />
 						{/each}
 					</ul>

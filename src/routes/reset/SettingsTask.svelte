@@ -1,52 +1,33 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
-	import { getCookie } from './functions';
 	import { setCookie } from './functions';
-	import { get } from 'svelte/store';
 	import { dataStore } from './store';
 
 	export let task: any;
-
 	let checked = task.display;
 
-	/*
-	onMount(() => {
-		checked = getChecked();
-	});
-
-	function getChecked() {
-		let isChecked = getCookie('display.' + task.id);
-		if (isChecked === null) {
-			if (task.default === true) {
-				return true;
-			} else {
-				return false;
-			}
-		} else {
-			checked = isChecked;
-			return isChecked;
-		}
-	}
-
-	function setChecked(event) {
+	function handleChange(event: Event) {
 		checked = event.target.checked;
-		setCookie('display.' + task.id, checked.toString(), '');
-		let checks: any = get(settingsStore);
-		for (let i = 0; i < checks.length; i++) {
-			if (checks[i].name === task.id) {
-				checks[i].value = checked;
-				$settingsStore = checks;
+		task.display = checked;
+		for (let i = 0; i < $dataStore.length; i++) {
+			for (let j = 0; j < $dataStore[i].tasks.length; j++) {
+				if ($dataStore[i].tasks[j].id === task.id) {
+					$dataStore[i].tasks[j].display = checked;
+				}
 			}
 		}
+		setCookie('display.' + task.id, checked.toString(), '');
 	}
-
-	let checked;
-	*/
 </script>
 
 <li class="py-1">
 	<label class="flex flex-row items-center gap-2">
-		<input type="checkbox" class="checkbox size-6" data-focusindex="0" bind:checked />
+		<input
+			type="checkbox"
+			class="checkbox size-6"
+			data-focusindex="0"
+			bind:checked
+			on:change={handleChange}
+		/>
 		<img class="size-6" src={task.icon} alt={task.name} />
 		{task.name}
 	</label>

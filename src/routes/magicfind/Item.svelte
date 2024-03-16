@@ -1,5 +1,6 @@
 <script lang="ts">
-	import { sumStore } from './store';
+	import type { ChangeEventHandler } from 'svelte/elements';
+	import { dataStore } from './store';
 	export let item: any;
 
 	let value = item.value;
