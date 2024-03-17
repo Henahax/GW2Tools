@@ -16,7 +16,8 @@
 						"link": "https://wiki.guildwars2.com/images/e/e9/Account_Bonuses.jpg"
 					}
 				],
-				"description": "Magic Find value from Hero Panel in 'Achievements' tab"
+				"description": "Magic Find value from Hero Panel in 'Achievements' tab",
+				"checked" : true
 			},
 			{
 				"id": "Enrichment",

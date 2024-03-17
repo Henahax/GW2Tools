@@ -7,6 +7,21 @@
 	onMount(() => {
 		$dataStore = data;
 	});
+
+	$: $dataStore, getSum();
+
+	let sum = 0;
+
+	function getSum(){
+		sum = 0;
+		for(let c = 0; c < $dataStore.length; c++){
+			for(let i = 0; i < $dataStore[c].items.length; i++){
+				if($dataStore[c].items[i].checked){
+					sum += $dataStore[c].items[i].value;
+				}
+			}
+		}
+	}
 </script>
 
 <div class="p-4 flex flex-row justify-between items-center">
@@ -39,8 +54,8 @@
 		<tfoot class="sticky z-10 text-lg py-4 leading-3">
 			<tr>
 				<th></th>
-				<th id="sum" class="text-right {$dataStore < 750 ? 'text-red-500' : 'text-green-500'}"
-					>{$dataStore}</th
+				<th class="text-right {sum < 750 ? 'text-red-500' : 'text-green-500'}"
+					>{sum}</th
 				>
 				<th colspan="2" class="normal-case">% (of max 750%)</th>
 			</tr>

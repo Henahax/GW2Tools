@@ -1,43 +1,36 @@
 <script lang="ts">
-	import type { ChangeEventHandler } from 'svelte/elements';
 	import { dataStore } from './store';
 	export let item: any;
 
 	let value = item.value;
-	let isChecked = false;
+	let isChecked = item.checked;
 
-	function handleChange(event) {
-		if (event.target.type === 'checkbox') {
-			isChecked = event.target.checked;
-			updateSum();
-		} else if (event.target.type === 'number') {
-			const newValue = Number(event.target.value);
-			const change = newValue - value;
-
-			sumStore.update((currentSum) => currentSum + change);
-
-			value = newValue;
-		}
-	}
-
-	function updateSum() {
-		sumStore.update((currentSum) => {
-			if (isChecked) {
-				return currentSum + value;
-			} else {
-				return currentSum - value;
-			}
-		});
+	function handleChange(event: any) {
+		update(event.target.type);
 	}
 
 	function handleRowClick() {
 		if (item.type === 'checkbox') {
 			isChecked = !isChecked;
-			updateSum();
+			update(item.type);
 		} else if (item.type === 'number') {
 			const input = document.getElementById(item.id) as HTMLInputElement;
 			input.focus();
 			input.select();
+		}
+	}
+
+	function update(type:any){
+		for (let c = 0; c < $dataStore.length; c++) {
+			for (let i = 0; i < $dataStore[c].items.length; i++) {
+				if (item.id === $dataStore[c].items[i].id) {
+					if (type === 'checkbox') {
+						$dataStore[c].items[i].checked = isChecked;
+					} else if (type === 'number') {
+						$dataStore[c].items[i].value = value;
+					}
+				}
+			}
 		}
 	}
 </script>
@@ -51,7 +44,7 @@
 				type="number"
 				min="0"
 				max="350"
-				{value}
+				bind:value={value}
 				on:change={handleChange}
 			/>
 		</td>

@@ -40,7 +40,7 @@
 				<strong class="text-xl uppercase">GW2 Tools</strong>
 			</svelte:fragment>
 			<svelte:fragment slot="trail">
-				<div class="gap-0">
+				<div>
 					<a href="/" class="btn hover:variant-soft-primary">
 						<span>
 							<i class="fa-solid fa-house"></i>
