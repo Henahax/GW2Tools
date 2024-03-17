@@ -59,13 +59,19 @@
 						</span>
 						<span class="hidden md:block">MagicFind</span>
 					</a>
+					<a href="/ecto" class="btn hover:variant-soft-primary">
+						<span>
+							<i class="fa-solid fa-screwdriver-wrench"></i>
+						</span>
+						<span class="hidden md:block">Ecto Salvage</span>
+					</a>
 				</div>
 			</svelte:fragment>
 		</AppBar>
 	</svelte:fragment>
 
 	<slot />
-	
+
 	<svelte:fragment slot="pageFooter">
 		<div class="p-3 text-center opacity-50 text-xs">© henahax.de 2024</div>
 	</svelte:fragment>
