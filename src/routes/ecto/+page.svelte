@@ -70,8 +70,8 @@
 	}
 </script>
 
-<div class="flex mx-auto gap-4">
-	<div class="card p-4 flex flex-col gap-2 w-fit">
+<div class="grid grid-cols-1 md:grid-cols-2 mx-auto gap-4">
+	<div class="card p-4 flex flex-col gap-2 w-full">
 		<h3 class="h3">Ecto</h3>
 		<div>
 			<label class="label px-2" for="ectoBuy">Buy</label>
@@ -82,7 +82,7 @@
 			<input id="ectoSell" class="input text-right" type="number" bind:value={ectoSell} />
 		</div>
 	</div>
-	<div class="card p-4 flex flex-col gap-2 w-fit">
+	<div class="card p-4 flex flex-col gap-2 w-full">
 		<h3 class="h3">Dust</h3>
 		<div>
 			<label class="label px-2" for="dustBuy">Buy</label>
@@ -95,10 +95,10 @@
 	</div>
 </div>
 
-<div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mx-auto">
 	{#each salvage as kit}
 		<div class="card">
-			<div class="flex flex-row gap-2 items-center">
+			<div class="flex flex-row gap-2 items-center p-4">
 				<img class="size-8" src={kit.icon} alt={kit.name} />
 				<div>{kit.name}</div>
 			</div>
