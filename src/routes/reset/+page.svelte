@@ -44,8 +44,8 @@
 	}
 </script>
 
-<div class="p-4 flex flex-row justify-between items-center gap-2">
-	<div>
+<div class="flex flex-row items-center justify-between gap-2 px-2 py-4 md:px-4">
+	<div class="flex-start">
 		<h2 class="h3">Reset Checklist</h2>
 		<div class="text-sm">Timegated tasks without an ingame tracking system</div>
 	</div>
@@ -65,7 +65,7 @@
 		</button>
 	</div>
 </div>
-<div class="cardContainer mx-auto px-2 columns-1 md:px-4 md:columns-2 xl:columns-3">
+<div class="cardContainer mx-auto columns-1 px-2 md:columns-2 md:px-4 xl:columns-3">
 	{#each $dataStore as category}
 		<Card {category} />
 	{/each}

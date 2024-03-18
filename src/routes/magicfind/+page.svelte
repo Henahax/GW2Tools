@@ -24,14 +24,14 @@
 	}
 </script>
 
-<div class="flex flex-row items-center justify-between p-4">
+<div class="flex flex-row items-center justify-between p-4 px-2 md:px-4">
 	<div>
 		<h2 class="h3">MagicFind Checklist</h2>
 		<div class="text-sm">Reach the magic find cap efficiently</div>
 	</div>
 </div>
 
-<div class="mx-auto px-4">
+<div class="mx-auto px-2 md:px-4">
 	<table class="table-hover table-compact table leading-3">
 		<thead class="sticky z-10">
 			<tr>
