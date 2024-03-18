@@ -12,11 +12,11 @@
 
 	let sum = 0;
 
-	function getSum(){
+	function getSum() {
 		sum = 0;
-		for(let c = 0; c < $dataStore.length; c++){
-			for(let i = 0; i < $dataStore[c].items.length; i++){
-				if($dataStore[c].items[i].checked){
+		for (let c = 0; c < $dataStore.length; c++) {
+			for (let i = 0; i < $dataStore[c].items.length; i++) {
+				if ($dataStore[c].items[i].checked) {
 					sum += $dataStore[c].items[i].value;
 				}
 			}
@@ -24,7 +24,7 @@
 	}
 </script>
 
-<div class="p-4 flex flex-row justify-between items-center">
+<div class="flex flex-row items-center justify-between p-4">
 	<div>
 		<h2 class="h3">MagicFind Checklist</h2>
 		<div class="text-sm">Reach the magic find cap efficiently</div>
@@ -32,7 +32,7 @@
 </div>
 
 <div class="mx-auto px-4">
-	<table class="table table-hover table-compact leading-3">
+	<table class="table-hover table-compact table leading-3">
 		<thead class="sticky z-10">
 			<tr>
 				<th></th>
@@ -44,19 +44,17 @@
 		<tbody>
 			{#each $dataStore as category}
 				<tr>
-					<th colspan="4" class="text-left text-sm px-4">{category.name}</th>
+					<th colspan="4" class="px-4 text-left text-sm">{category.name}</th>
 				</tr>
 				{#each category.items as item}
 					<Item {item} />
 				{/each}
 			{/each}
 		</tbody>
-		<tfoot class="sticky z-10 text-lg py-4 leading-3">
+		<tfoot class="sticky z-10 py-4 text-lg leading-3">
 			<tr>
 				<th></th>
-				<th class="text-right {sum < 750 ? 'text-red-500' : 'text-green-500'}"
-					>{sum}</th
-				>
+				<th class="text-right {sum < 750 ? 'text-red-500' : 'text-green-500'}">{sum}</th>
 				<th colspan="2" class="normal-case">% (of max 750%)</th>
 			</tr>
 		</tfoot>
