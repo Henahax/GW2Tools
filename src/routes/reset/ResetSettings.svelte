@@ -1,19 +1,19 @@
 <script lang="ts">
 	import data from '../../assets/reset.json';
-	import SettingsTask from './SettingsTask.svelte';
+	import SettingsTask from './ResetSettingsTask.svelte';
 	import { getModalStore } from '@skeletonlabs/skeleton';
 	const modalStore = getModalStore();
 </script>
 
 {#if $modalStore[0]}
-	<div class="flex flex-col card p-4">
-		<div class="w-full flex flex-row justify-between">
+	<div class="card flex flex-col p-4">
+		<div class="flex w-full flex-row justify-between">
 			<h3>Displayed items</h3>
 			<button class="btn-icon btn-icon-sm variant-soft" on:click={modalStore.close}>
 				<i class="fa-solid fa-x"></i>
 			</button>
 		</div>
-		<div class="columns-1 md:columns-2 xl:columns-3 2xl:columns-4 m-2">
+		<div class="m-2 columns-1 md:columns-2 xl:columns-3 2xl:columns-4">
 			{#each data as category}
 				<div class="category break-inside-avoid">
 					<div class="font-bold">{category.name}</div>

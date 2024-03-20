@@ -9,10 +9,10 @@ export interface Category {
 	id: string;
 	name: string;
 	index: number;
-	tasks: [Item[]];
+	tasks: [Task[]];
 }
 
-export interface Item {
+export interface Task {
 	id: string;
 	name: string;
 	category: string;

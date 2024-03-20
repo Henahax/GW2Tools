@@ -1,5 +1,5 @@
 <script lang="ts">
-	import EventTimer from './EventTimer.svelte';
+	import EventTimer from './ResetEventTimer.svelte';
 	import { setCookie } from './functions';
 	import { dataStore } from './store';
 
@@ -38,7 +38,7 @@
 
 <li
 	class="flex w-full flex-row py-1 {checked
-		? 'opacity-50 hover:opacity-50'
+		? 'line-through opacity-50 hover:opacity-50'
 		: 'opacity-90 hover:opacity-100'}"
 >
 	<label class="flex w-full flex-row items-center">

@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { Accordion, AccordionItem, Toast } from '@skeletonlabs/skeleton';
-	import Task from './Task.svelte';
+	import { Accordion, AccordionItem } from '@skeletonlabs/skeleton';
+	import Task from './ResetTask.svelte';
 	export let category: any;
 
 	$: category, getNotAllChecked();
@@ -29,7 +29,7 @@
 			<AccordionItem open={notAllChecked}>
 				<svelte:fragment slot="summary"><p class="font-bold">{category.name}</p></svelte:fragment>
 				<svelte:fragment slot="content">
-					<ul class="divide-black divide-y">
+					<ul class="divide-y divide-black">
 						{#each category.tasks
 							.filter((task) => task.display === true)
 							.sort((a, b) => a.interval.localeCompare(b.interval)) as task}

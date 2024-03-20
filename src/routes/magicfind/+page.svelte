@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { dataStore as dataStore } from './store';
 	import { onMount } from 'svelte';
-	import Item from './Item.svelte';
+	import Item from './MagicfindItem.svelte';
 	import data from '../../assets/magicfind.json';
 
 	onMount(() => {

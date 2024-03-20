@@ -4,9 +4,9 @@
 	import { getCookie } from './functions';
 	import { onMount } from 'svelte';
 	import json from '../../assets/reset.json';
-	import ResetTimer from './ResetTimer.svelte';
-	import Card from './Card.svelte';
-	import Settings from './Settings.svelte';
+	import ResetTimer from './ResetIntervalTimer.svelte';
+	import Card from './ResetCard.svelte';
+	import Settings from './ResetSettings.svelte';
 
 	const modalStore = getModalStore();
 	const modalComponent: ModalComponent = { ref: Settings };

@@ -20,7 +20,7 @@
 		}
 	}
 
-	function update(type:any){
+	function update(type: any) {
 		for (let c = 0; c < $dataStore.length; c++) {
 			for (let i = 0; i < $dataStore[c].items.length; i++) {
 				if (item.id === $dataStore[c].items[i].id) {
@@ -44,7 +44,7 @@
 				type="number"
 				min="0"
 				max="350"
-				bind:value={value}
+				bind:value
 				on:change={handleChange}
 			/>
 		</td>
