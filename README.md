@@ -5,6 +5,7 @@ Tool Collection for Guild Wars 2
 ## 🎯 Goal
 
 - Combine my previous Guild Wars 2 projects into a single one
+- Add new tools
 - prettier unified visual design
 - Try out and learn new technologies
 
