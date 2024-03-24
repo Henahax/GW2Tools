@@ -16,8 +16,8 @@
 		]
 	},
 	{
-		"id": "merchants",
-		"name": "Merchants",
+		"id": "vendors",
+		"name": "Vendors",
 		"index": 1,
 		"tasks": [
 			{
@@ -125,7 +125,7 @@
 				"name": "Guild Hall",
 				"interval": "daily",
 				"icon": "https://wiki.guildwars2.com/images/8/89/Guild_Hall_Obtained.png",
-				"info": "Harvesting Nodes, Merchants, Bartender Boosts",
+				"info": "Harvesting Nodes, Vendors, Bartender Boosts",
 				"link": "https://wiki.guildwars2.com/wiki/Guild_hall#Features",
 				"default": true
 			}

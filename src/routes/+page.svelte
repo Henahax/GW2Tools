@@ -28,8 +28,8 @@
 	<title>GW2 Tools: Home</title>
 </svelte:head>
 
-<div class="container mx-auto flex h-full flex-col items-center justify-center p-4">
-	<h4 class="h4 p-4">available tools:</h4>
+<div class="container mx-auto flex flex-col justify-center p-4">
+	<h4 class="h4 p-4">Available tools:</h4>
 	<div
 		class="container-hover container grid grid-cols-1 grid-rows-1 gap-4 sm:grid-cols-2 md:grid-cols-3"
 	>
