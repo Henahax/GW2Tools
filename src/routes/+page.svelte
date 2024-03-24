@@ -9,7 +9,7 @@
 		},
 		{
 			name: 'Magicfind',
-			path: '/magicfins',
+			path: '/magicfind',
 			icon: 'fa-solid fa-clover',
 			description: 'calculator for optimising magic find',
 			bulletpoints: ['account', 'equipment', 'effects', 'consumables']
