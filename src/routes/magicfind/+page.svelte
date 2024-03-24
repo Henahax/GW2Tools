@@ -24,9 +24,12 @@
 	}
 </script>
 
+<svelte:head>
+	<title>GW2 Tools: Magic Fins</title>
+</svelte:head>
 <div class="flex flex-row items-center justify-between p-4 px-2 md:px-4">
 	<div>
-		<h2 class="h3">MagicFind Checklist</h2>
+		<h2 class="h3">Magic Find Checklist</h2>
 		<div class="text-sm">Reach the magic find cap efficiently</div>
 	</div>
 </div>

@@ -1,7 +1,6 @@
 <script lang="ts">
 	import '../app.postcss';
 	import { AppShell, AppBar } from '@skeletonlabs/skeleton';
-	import { AppRail, AppRailTile, AppRailAnchor } from '@skeletonlabs/skeleton';
 
 	import { computePosition, autoUpdate, offset, shift, flip, arrow } from '@floating-ui/dom';
 
@@ -21,9 +20,7 @@
 		});
 	});
 
-	import { Modal, getModalStore } from '@skeletonlabs/skeleton';
-	import type { ModalSettings, ModalComponent, ModalStore } from '@skeletonlabs/skeleton';
-
+	import { Modal } from '@skeletonlabs/skeleton';
 	import { initializeStores } from '@skeletonlabs/skeleton';
 
 	initializeStores();
@@ -37,29 +34,33 @@
 	<svelte:fragment slot="pageHeader">
 		<AppBar>
 			<svelte:fragment slot="lead">
-				<strong class="text-xl uppercase">GW2 Tools</strong>
+				<strong class="hidden text-2xl uppercase sm:block">GW2 Tools</strong>
+				<strong class="text-xs uppercase sm:hidden">
+					<div>GW2</div>
+					<div>Tools</div>
+				</strong>
 			</svelte:fragment>
 			<svelte:fragment slot="trail">
 				<div>
-					<a href="/" class="btn hover:variant-soft-primary">
+					<a href="/" class="btn hover:variant-soft-primary px-4">
 						<span>
 							<i class="fa-solid fa-house"></i>
 						</span>
 						<span class="hidden md:block">Home</span>
 					</a>
-					<a href="/reset" class="btn hover:variant-soft-primary">
+					<a href="/reset" class="btn hover:variant-soft-primary px-4">
 						<span>
 							<i class="fa-solid fa-arrows-rotate"></i>
 						</span>
 						<span class="hidden md:block">Reset</span>
 					</a>
-					<a href="/magicfind" class="btn hover:variant-soft-primary">
+					<a href="/magicfind" class="btn hover:variant-soft-primary px-4">
 						<span>
 							<i class="fa-solid fa-clover"></i>
 						</span>
-						<span class="hidden md:block">MagicFind</span>
+						<span class="hidden md:block">Magic Find</span>
 					</a>
-					<a href="/ecto" class="btn hover:variant-soft-primary">
+					<a href="/ecto" class="btn hover:variant-soft-primary px-4">
 						<span>
 							<i class="fa-solid fa-screwdriver-wrench"></i>
 						</span>
@@ -73,12 +74,12 @@
 	<slot />
 
 	<svelte:fragment slot="pageFooter">
-		<div class="p-3 text-center opacity-50 text-xs">© henahax.de 2024</div>
+		<div class="p-3 text-center text-xs opacity-50">© henahax.de 2024</div>
 	</svelte:fragment>
 </AppShell>
 
 <style>
 	:global(main) {
-		@apply max-w-screen-2xl w-full mx-auto;
+		@apply mx-auto w-full max-w-screen-2xl;
 	}
 </style>

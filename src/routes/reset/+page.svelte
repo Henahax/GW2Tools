@@ -44,10 +44,14 @@
 	}
 </script>
 
+<svelte:head>
+	<title>GW2 Tools: Reset</title>
+</svelte:head>
+
 <div class="flex flex-row items-center justify-between gap-2 px-2 py-4 md:px-4">
 	<div class="flex-start">
 		<h2 class="h3">Reset Checklist</h2>
-		<div class="text-sm">Timegated tasks without an ingame tracking system</div>
+		<div class="text-sm">Choose displayed Timegated tasks in the options and track progress.</div>
 	</div>
 	<div class="flex flex-row gap-4 text-right">
 		<div class="flex flex-row flex-wrap justify-end gap-4 text-sm">

@@ -1,0 +1,12 @@
+version: "2.1"
+services:
+  nginx:
+    image: henahax/gw2tools:latest
+    container_name: henahax-gw2tools
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Berlin
+    ports:
+      - 8080:80
+    restart: unless-stopped

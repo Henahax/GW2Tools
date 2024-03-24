@@ -87,6 +87,9 @@
 	}
 </script>
 
+<svelte:head>
+	<title>GW2 Tools: Ecto Salvage</title>
+</svelte:head>
 <div class="flex flex-row items-center justify-between p-4 px-2 md:px-4">
 	<div>
 		<h2 class="h3">Ecto Salvage</h2>
