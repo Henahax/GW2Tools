@@ -1,2 +1,3 @@
 FROM node
-COPY dist /usr/share/nginx/html
+RUN mkdir /app
+COPY . /app
