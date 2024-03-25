@@ -197,7 +197,12 @@
 				</div>
 
 				<div class="flex flex-row items-center justify-between gap-2">
-					<div class="text-sm">salvaging profit after fees</div>
+					<div class="flex flex-col">
+						<div class="text-sm">salvaging profit after fees</div>
+						{#if kit.id === 1}
+							<div class="text-sm">salvaging cost ignored</div>
+						{/if}
+					</div>
 					<div class="flex flex-row items-center gap-1">
 						<img
 							class="size-6"
