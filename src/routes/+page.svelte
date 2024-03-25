@@ -5,14 +5,19 @@
 			path: '/reset',
 			icon: 'fa-solid fa-arrows-rotate',
 			description: 'checklist for daily and weekly tasks',
-			bulletpoints: ['vendors', 'crafting', 'harvesting', 'events & timers']
+			bulletpoints: [
+				'select displayed tasks from 50+ in the options',
+				'vendors with daily/weekly reset',
+				'crafting & harversting',
+				'events & world bosses with timers'
+			]
 		},
 		{
 			name: 'Magicfind',
 			path: '/magicfind',
 			icon: 'fa-solid fa-clover',
 			description: 'calculator for optimising magic find',
-			bulletpoints: ['account', 'equipment', 'effects', 'consumables']
+			bulletpoints: ['account bonusses', 'equipment', 'effects', 'consumables']
 		},
 		{
 			name: 'Ecto Salvage',
