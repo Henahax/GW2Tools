@@ -30,9 +30,3 @@
 		</div>
 	</div>
 {/if}
-
-<style>
-	.category:not(:last-child) {
-		@apply mb-4;
-	}
-</style>

@@ -29,7 +29,7 @@
 			<AccordionItem open={notAllChecked}>
 				<svelte:fragment slot="summary"><p class="font-bold">{category.name}</p></svelte:fragment>
 				<svelte:fragment slot="content">
-					<ul class="divide-y divide-black">
+					<ul class="divide-surface-700 divide-y">
 						{#each category.tasks
 							.filter((task) => task.display === true)
 							.sort((a, b) => a.interval.localeCompare(b.interval)) as task}
@@ -43,6 +43,6 @@
 
 <style>
 	.card:not(:last-child) {
-		@apply mb-4;
+		@apply mb-3;
 	}
 </style>

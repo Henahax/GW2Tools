@@ -91,25 +91,9 @@
 		]
 	},
 	{
-		"id": "crafting",
-		"name": "Crafting",
-		"index": 2,
-		"tasks": [
-			{
-				"id": "AscendedCrafting",
-				"name": "Ascended Crafting",
-				"interval": "daily",
-				"icon": "https://wiki.guildwars2.com/images/c/cf/Crafting_icon.png",
-				"info": "Mithrillium, Spirit Residue, Elonian Cord, Weaving Thread",
-				"link": "https://wiki.guildwars2.com/wiki/Server_reset#Crafted_items",
-				"default": true
-			}
-		]
-	},
-	{
 		"id": "harvesting",
 		"name": "Harvesting",
-		"index": 3,
+		"index": 2,
 		"tasks": [
 			{
 				"id": "HomeInstance",
@@ -127,6 +111,22 @@
 				"icon": "https://wiki.guildwars2.com/images/8/89/Guild_Hall_Obtained.png",
 				"info": "Harvesting Nodes, Vendors, Bartender Boosts",
 				"link": "https://wiki.guildwars2.com/wiki/Guild_hall#Features",
+				"default": true
+			}
+		]
+	},
+	{
+		"id": "crafting",
+		"name": "Crafting",
+		"index": 3,
+		"tasks": [
+			{
+				"id": "AscendedCrafting",
+				"name": "Ascended Crafting",
+				"interval": "daily",
+				"icon": "https://wiki.guildwars2.com/images/c/cf/Crafting_icon.png",
+				"info": "Mithrillium, Spirit Residue, Elonian Cord, Weaving Thread",
+				"link": "https://wiki.guildwars2.com/wiki/Server_reset#Crafted_items",
 				"default": true
 			}
 		]

@@ -36,15 +36,15 @@
 <div class="container mx-auto flex flex-col justify-center p-4">
 	<h4 class="h4 p-4">Available tools:</h4>
 	<div
-		class="container-hover container grid grid-cols-1 grid-rows-1 gap-4 sm:grid-cols-2 md:grid-cols-3"
+		class="container-hover container grid grid-cols-1 grid-rows-1 gap-4 md:grid-cols-2 lg:grid-cols-3"
 	>
 		{#each tools as tool}
 			<a href={tool.path}>
 				<div class="card card-hover h-full w-full p-4 text-center">
-					<i class="p-4 text-center text-4xl {tool.icon}"></i>
+					<i class="p-4 text-center text-2xl {tool.icon}"></i>
 					<h3 class="h3">{tool.name}</h3>
 					<p class="py-2">{tool.description}</p>
-					<ul class="mx-auto w-fit list-disc text-left">
+					<ul class="mx-auto w-fit list-disc px-4 text-left text-sm">
 						{#if tool.bulletpoints}
 							{#each tool.bulletpoints as bulletpoint}
 								<li>{bulletpoint}</li>

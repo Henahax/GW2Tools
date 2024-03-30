@@ -69,15 +69,8 @@
 		</button>
 	</div>
 </div>
-<div class="cardContainer mx-auto columns-1 px-2 md:columns-2 md:px-4 xl:columns-3">
+<div class="cardContainer mx-auto columns-1 gap-x-3 gap-y-3 px-2 md:columns-2 md:px-4 xl:columns-3">
 	{#each $dataStore as category}
 		<Card {category} />
 	{/each}
 </div>
-
-<style>
-	.cardContainer {
-		column-fill: balance;
-		column-gap: 1rem;
-	}
-</style>
