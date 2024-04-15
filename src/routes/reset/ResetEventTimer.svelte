@@ -27,6 +27,8 @@
 		active = !isCountingDown;
 		soon = false;
 		if (!active && difference < 1000 * 60 * 5) {
+			var audio = new Audio('../../assets/mixkit-phone-ring-bell-593.mp3');
+			audio.play();
 			soon = true;
 		}
 

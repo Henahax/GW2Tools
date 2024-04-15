@@ -21,6 +21,7 @@
 	};
 
 	let checked = task.checked;
+	let alarm = task.alarm;
 
 	function handleChange(event: Event) {
 		checked = event.target.checked;
@@ -33,6 +34,20 @@
 			}
 		}
 		setCookie('check.' + task.id, checked.toString(), task.interval);
+	}
+
+	function test(event: Event) {
+		console.log('Alarm: ' + alarm);
+		alarm = event.target.checked;
+		task.alarm = alarm;
+		console.log('task.alarm: ' + task.alarm);
+		for (let i = 0; i < $dataStore.length; i++) {
+			for (let j = 0; j < $dataStore[i].tasks.length; j++) {
+				if ($dataStore[i].tasks[j].id === task.id) {
+					$dataStore[i].tasks[j].alarm = alarm;
+				}
+			}
+		}
 	}
 </script>
 
@@ -68,9 +83,34 @@
 					<i class="fa-regular fa-calendar"></i>
 				</div>
 			{/if}
+			{#if task.timer}
+				<div class="chk fa-solid flex items-center">
+					<label for="box">
+						<input type="checkbox" id="box" bind:checked={alarm} on:change={test} />
+					</label>
+				</div>
+			{/if}
 		</div>
 		{#if !checked && task.timer}
 			<EventTimer timer={task.timer} />
 		{/if}
 	</div>
 </li>
+
+<style>
+	.chk input {
+		display: none;
+	}
+
+	.chk label::before {
+		content: '\f0f3';
+		font-family: 'Font Awesome 5 Free';
+		opacity: 0.5;
+	}
+
+	.chk label:has(input:checked)::before {
+		content: '\f0f3';
+		opacity: 1;
+		color: white;
+	}
+</style>
