@@ -72,8 +72,8 @@
 				</div>
 			{/if}
 			{#if task.timer}
-				<div class="chk fa-solid flex items-center" title="set alarm">
-					<label>
+				<div class="chk flex items-center" title="set alarm">
+					<label class={alarm ? 'fa-solid' : 'fa-regular'}>
 						<input type="checkbox" bind:checked={alarm} on:change={setAlarm} />
 					</label>
 				</div>
