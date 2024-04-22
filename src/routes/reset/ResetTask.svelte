@@ -3,44 +3,32 @@
 	import { setCookie } from './functions';
 	import { dataStore } from './store';
 
-	import { popup } from '@skeletonlabs/skeleton';
-	import type { PopupSettings } from '@skeletonlabs/skeleton';
-
 	export let task: any;
-
-	const popupHoverDaily: PopupSettings = {
-		event: 'hover',
-		target: 'popupHoverDaily',
-		placement: 'top'
-	};
-
-	const popupHoverWeekly: PopupSettings = {
-		event: 'hover',
-		target: 'popupHoverWeekly',
-		placement: 'top'
-	};
 
 	let checked = task.checked;
 	let alarm = task.alarm;
 
-	function handleChange(event: Event) {
+	function checkTask(event: Event) {
 		checked = event.target.checked;
 		task.checked = checked;
 		for (let i = 0; i < $dataStore.length; i++) {
 			for (let j = 0; j < $dataStore[i].tasks.length; j++) {
 				if ($dataStore[i].tasks[j].id === task.id) {
 					$dataStore[i].tasks[j].checked = checked;
+					if (checked) {
+						alarm = false;
+						task.alarm = false;
+						$dataStore[i].tasks[j].alarm = false;
+					}
 				}
 			}
 		}
 		setCookie('check.' + task.id, checked.toString(), task.interval);
 	}
 
-	function test(event: Event) {
-		console.log('Alarm: ' + alarm);
+	function setAlarm(event: Event) {
 		alarm = event.target.checked;
 		task.alarm = alarm;
-		console.log('task.alarm: ' + task.alarm);
 		for (let i = 0; i < $dataStore.length; i++) {
 			for (let j = 0; j < $dataStore[i].tasks.length; j++) {
 				if ($dataStore[i].tasks[j].id === task.id) {
@@ -57,7 +45,7 @@
 		: 'opacity-90 hover:opacity-100'}"
 >
 	<label class="flex w-full flex-row items-center">
-		<input type="checkbox" class="checkbox size-6" bind:checked on:change={handleChange} />
+		<input type="checkbox" class="checkbox size-6" bind:checked on:change={checkTask} />
 		<img src={task.icon} alt={task.name} class="mx-2 size-8" />
 		<div class="flex flex-col">
 			<div class="text-sm">
@@ -69,30 +57,30 @@
 	<div class="flex flex-col justify-center text-right text-sm">
 		<div class="flex flex-row justify-end gap-1">
 			{#if task.link}
-				<a href={task.link} class="opacity-50 hover:opacity-100">
+				<a href={task.link} class="opacity-50 hover:opacity-100" title="open more info">
 					<i class="fa-regular fa-circle-question"></i>
 				</a>
 			{/if}
 			{#if task.interval == 'daily'}
-				<div class="opacity-50">
+				<div class="opacity-50" title="resets daily">
 					<i class="fa-regular fa-clock"></i>
 				</div>
 			{/if}
 			{#if task.interval == 'weekly'}
-				<div class="opacity-50">
+				<div class="opacity-50" title="resets weekly">
 					<i class="fa-regular fa-calendar"></i>
 				</div>
 			{/if}
 			{#if task.timer}
-				<div class="chk fa-solid flex items-center">
-					<label for="box">
-						<input type="checkbox" id="box" bind:checked={alarm} on:change={test} />
+				<div class="chk fa-solid flex items-center" title="set alarm">
+					<label>
+						<input type="checkbox" bind:checked={alarm} on:change={setAlarm} />
 					</label>
 				</div>
 			{/if}
 		</div>
 		{#if !checked && task.timer}
-			<EventTimer timer={task.timer} />
+			<EventTimer {task} />
 		{/if}
 	</div>
 </li>

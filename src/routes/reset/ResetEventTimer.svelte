@@ -1,7 +1,9 @@
 <script lang="ts">
+	import { dataStore } from './store';
 	import { onDestroy } from 'svelte';
 	import type { TimeRemaining } from './types';
-	export let timer: object;
+
+	export let task;
 
 	let nextEventTime: [Date, object, string];
 	let targetTime: Date;
@@ -11,12 +13,14 @@
 	let add: string;
 	let timeRemaining = calculateTimeRemaining();
 
+	import audioSrc from '../../assets/mixkit-phone-ring-bell-593.mp3';
+
 	function calculateTimeRemaining(): TimeRemaining {
-		nextEventTime = getNextEventTime(timer);
+		nextEventTime = getNextEventTime(task.timer);
 		targetTime = nextEventTime[0];
 		duration = [
-			timer.duration[0].toString().padStart(2, '0'),
-			timer.duration[1].toString().padStart(2, '0')
+			task.timer.duration[0].toString().padStart(2, '0'),
+			task.timer.duration[1].toString().padStart(2, '0')
 		];
 		add = nextEventTime[2];
 
@@ -25,10 +29,13 @@
 		const difference = isCountingDown ? targetTime - now : now - targetTime;
 
 		active = !isCountingDown;
-		soon = false;
 		if (!active && difference < 1000 * 60 * 5) {
-			var audio = new Audio('../../assets/mixkit-phone-ring-bell-593.mp3');
-			audio.play();
+			if (!soon) {
+				if (task.alarm) {
+					const audio = new Audio(audioSrc);
+					audio.play();
+				}
+			}
 			soon = true;
 		}
 
