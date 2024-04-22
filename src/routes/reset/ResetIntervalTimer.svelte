@@ -72,7 +72,7 @@
 			nextMonday.setUTCDate(nextMonday.getUTCDate() + 1);
 		}
 
-		nextMonday.setHours(7, 30, 0, 0);
+		nextMonday.setUTCHours(7, 30, 0, 0);
 		if (nextMonday < now) {
 			nextMonday.setUTCDate(nextMonday.getUTCDate() + 7);
 		}
