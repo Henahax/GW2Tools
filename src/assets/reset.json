@@ -9,7 +9,7 @@
 				"name": "Converters",
 				"interval": "daily",
 				"icon": "https://wiki.guildwars2.com/images/9/96/Ley-Energy_Matter_Converter.png",
-				"info": "Currency and Crafting Marterial Converters",
+				"info": "Currency and Crafting Material Converters",
 				"link": "https://wiki.guildwars2.com/wiki/Converter",
 				"default": true
 			}
@@ -395,55 +395,55 @@
 					"times": [
 						[
 							1,
-							45
+							15
 						],
 						[
 							3,
-							45
+							15
 						],
 						[
 							5,
-							45
+							15
 						],
 						[
 							7,
-							45
+							15
 						],
 						[
 							9,
-							45
+							15
 						],
 						[
 							11,
-							45
+							15
 						],
 						[
 							13,
-							45
+							15
 						],
 						[
 							15,
-							45
+							15
 						],
 						[
 							17,
-							45
+							15
 						],
 						[
 							19,
-							45
+							15
 						],
 						[
 							21,
-							45
+							15
 						],
 						[
 							23,
-							45
+							15
 						],
 						[
 							25,
-							45
+							15
 						]
 					]
 				}
@@ -982,11 +982,11 @@
 		"index": 8,
 		"tasks": [
 			{
-				"id": "VerdantBrink",
-				"name": "Verdant Brink",
+				"id": "NightBosses",
+				"name": "Night Bosses",
 				"interval": "daily",
 				"icon": "https://render.guildwars2.com/file/08DC26975002D02B68BEF2A46EF2A89E7243FD63/1424065.png",
-				"info": "Night Bosses",
+				"info": "Verdant Brink",
 				"link": "https://wiki.guildwars2.com/wiki/Verdant_Brink:_Hero%27s_Choice_Chest",
 				"timer": {
 					"duration": [
@@ -1050,11 +1050,11 @@
 				}
 			},
 			{
-				"id": "AuricBasin",
-				"name": "Auric Basin",
+				"id": "BattleInTarir",
+				"name": "Battle in Tarir",
 				"interval": "daily",
 				"icon": "https://wiki.guildwars2.com/images/2/24/Auric_Basin-_Hero%27s_Choice_Chest.png",
-				"info": "Battle in Tarir",
+				"info": "Auric Basin",
 				"link": "https://wiki.guildwars2.com/wiki/Auric_Basin:_Hero%27s_Choice_Chest",
 				"timer": {
 					"duration": [
@@ -1118,11 +1118,11 @@
 				}
 			},
 			{
-				"id": "TangledDepths",
-				"name": "Tangled Depths",
+				"id": "AgainstTheChakGerent",
+				"name": "Against the Chak Gerent",
 				"interval": "daily",
 				"icon": "https://wiki.guildwars2.com/images/2/27/Tangled_Depths-_Hero%27s_Choice_Chest.png",
-				"info": "Against the Chak Gerent",
+				"info": "Tangled Depths",
 				"link": "https://wiki.guildwars2.com/wiki/Tangled_Depths:_Hero%27s_Choice_Chest",
 				"timer": {
 					"duration": [
@@ -1190,7 +1190,7 @@
 				"name": "Dragon's Stand",
 				"interval": "daily",
 				"icon": "https://wiki.guildwars2.com/images/e/e7/Dragon%27s_Stand-_Hero%27s_Choice_Chest.png",
-				"info": "Dragon's Stand Meta event",
+				"info": "Dragon's Stand",
 				"link": "https://wiki.guildwars2.com/wiki/Dragon%27s_Stand:_Hero%27s_Choice_Chest",
 				"timer": {
 					"duration": [
@@ -1261,11 +1261,11 @@
 		"index": 9,
 		"tasks": [
 			{
-				"id": "CrystalOasis",
-				"name": "Crystal Oasis",
+				"id": "CasinoBlitz",
+				"name": "Casino Blitz",
 				"interval": "daily",
 				"icon": "https://wiki.guildwars2.com/images/e/eb/The_Spearmarshal%27s_Gift.png",
-				"info": "Casino Blitz",
+				"info": "Crystal Oasis",
 				"link": "https://wiki.guildwars2.com/wiki/Crystal_Oasis:_Hero%27s_Choice_Chest",
 				"timer": {
 					"duration": [
@@ -1329,11 +1329,11 @@
 				}
 			},
 			{
-				"id": "DesertHighlands",
-				"name": "Desert Highlands",
+				"id": "TheSearchForBuriedTreasure",
+				"name": "The Search for Buried Treasure",
 				"interval": "daily",
 				"icon": "https://wiki.guildwars2.com/images/c/c1/Buried_Treasure.png",
-				"info": "The Search for Buried Treasure",
+				"info": "Desert Highlands",
 				"link": "https://wiki.guildwars2.com/wiki/The_Search_for_Buried_Treasure",
 				"timer": {
 					"duration": [
@@ -1397,11 +1397,11 @@
 				}
 			},
 			{
-				"id": "ElonRiverlands",
-				"name": "Elon Riverlands",
+				"id": "ThePathToAscension",
+				"name": "The Path to Ascension",
 				"interval": "daily",
 				"icon": "https://wiki.guildwars2.com/images/8/89/Glint%27s_Crystalline_Chest.png",
-				"info": "The Path to Ascension",
+				"info": "Elon Riverlands",
 				"link": "https://wiki.guildwars2.com/wiki/Elon_Riverlands:_Hero%27s_Choice_Chest",
 				"timer": {
 					"duration": [
@@ -1543,11 +1543,11 @@
 				}
 			},
 			{
-				"id": "TheDesolation",
-				"name": "The Desolation",
+				"id": "MawsOfTorment",
+				"name": "Maws of Torment",
 				"interval": "daily",
 				"icon": "https://wiki.guildwars2.com/images/a/a1/Chest_of_the_Warbeast_Conqueror.png",
-				"info": "Maws of Torment / Junundu Rising",
+				"info": "The Desolation",
 				"link": "https://wiki.guildwars2.com/wiki/The_Desolation:_Hero%27s_Choice_Chest",
 				"timer": {
 					"duration": [
@@ -1689,11 +1689,11 @@
 				}
 			},
 			{
-				"id": "DomainOfVabbi",
-				"name": "Domain of Vabbi",
+				"id": "ForgedWithFire",
+				"name": "Forged with Fire",
 				"interval": "daily",
 				"icon": "https://wiki.guildwars2.com/images/d/dd/Kito%27s_Secret_Cache.png",
-				"info": "Forged with Fire / Serpents' Ire",
+				"info": "Domain of Vabbi",
 				"link": "https://wiki.guildwars2.com/wiki/Domain_of_Vabbi:_Hero%27s_Choice_Chest",
 				"timer": {
 					"duration": [
@@ -1895,11 +1895,11 @@
 				}
 			},
 			{
-				"id": "DomainOfIstan",
-				"name": "Domain of Istan",
+				"id": "Palawadan",
+				"name": "Palawadan",
 				"interval": "daily",
 				"icon": "https://wiki.guildwars2.com/images/d/d8/Grasp_of_Joko.png",
-				"info": "Palawadan, Jewel of Istan",
+				"info": "Domain of Istan",
 				"link": "https://wiki.guildwars2.com/wiki/Palawadan,_Jewel_of_Istan_(meta_event)",
 				"timer": {
 					"duration": [
@@ -1963,11 +1963,11 @@
 				}
 			},
 			{
-				"id": "JahaiBluffs",
-				"name": "Jahai Bluffs",
+				"id": "DeathBrandedShatterer",
+				"name": "Death-Branded Shatterer",
 				"interval": "daily",
 				"icon": "https://wiki.guildwars2.com/images/d/d7/Crystal_Infusion.png",
-				"info": "Destroy the Death-Branded Shatterer",
+				"info": "Jahai Bluffs",
 				"link": "https://wiki.guildwars2.com/wiki/Destroy_the_Death-Branded_Shatterer",
 				"timer": {
 					"duration": [
@@ -2031,11 +2031,11 @@
 				}
 			},
 			{
-				"id": "ThunderheadPeaks",
-				"name": "Thunderhead Peaks",
+				"id": "ThunderheadKeep",
+				"name": "Thunderhead Keep",
 				"interval": "daily",
 				"icon": "https://wiki.guildwars2.com/images/0/00/Light_of_Deldrimor_Plate.png",
-				"info": "Thunderhead Keep / The Oil Floes",
+				"info": "Thunderhead Peaks",
 				"link": "https://wiki.guildwars2.com/wiki/Thunderhead_Keep_(meta_event)",
 				"timer": {
 					"duration": [
@@ -2179,11 +2179,11 @@
 		"index": 10,
 		"tasks": [
 			{
-				"id": "BjoraMarches",
-				"name": "Bjora Marches",
+				"id": "ChampionOfTheIceDragon",
+				"name": "Champion of the Ice Dragon",
 				"interval": "daily",
 				"icon": "https://wiki.guildwars2.com/images/3/37/Drakkar%27s_Hoard.png",
-				"info": "Storms of Winter / Champion of the Ice Dragon",
+				"info": "Bjora Marches",
 				"link": "https://wiki.guildwars2.com/wiki/Champion_of_the_Ice_Dragon",
 				"timer": {
 					"duration": [
@@ -2605,11 +2605,11 @@
 		"index": 11,
 		"tasks": [
 			{
-				"id": "SeitungProvince",
-				"name": "Seitung Province",
+				"id": "AetherbladeAssault",
+				"name": "Aetherblade Assault",
 				"interval": "daily",
 				"icon": "https://wiki.guildwars2.com/images/0/0a/Deluxe_Gear_Box_%28End_of_Dragons%29.png",
-				"info": "Aetherblade Assault",
+				"info": "Seitung Province",
 				"link": "https://wiki.guildwars2.com/wiki/Seitung_Province:_Hero%27s_Choice_Chest",
 				"timer": {
 					"duration": [
@@ -2673,11 +2673,11 @@
 				}
 			},
 			{
-				"id": "NewKainengCity",
-				"name": "New Kaineng City",
+				"id": "KainengBlackout",
+				"name": "Kaineng Blackout",
 				"interval": "daily",
 				"icon": "https://wiki.guildwars2.com/images/0/0a/Deluxe_Gear_Box_%28End_of_Dragons%29.png",
-				"info": "Kaineng Blackout",
+				"info": "New Kaineng City",
 				"link": "https://wiki.guildwars2.com/wiki/New_Kaineng_City:_Hero%27s_Choice_Chest",
 				"timer": {
 					"duration": [
@@ -2741,11 +2741,11 @@
 				}
 			},
 			{
-				"id": "EchovaldWilds",
-				"name": "Echovald Wilds",
+				"id": "GangWar",
+				"name": "Gang War",
 				"interval": "daily",
 				"icon": "https://wiki.guildwars2.com/images/0/0a/Deluxe_Gear_Box_%28End_of_Dragons%29.png",
-				"info": "The Gang War of Echovald",
+				"info": "Echovald Wilds",
 				"link": "https://wiki.guildwars2.com/wiki/Echovald_Wilds:_Hero%27s_Choice_Chest",
 				"timer": {
 					"duration": [
@@ -2809,11 +2809,11 @@
 				}
 			},
 			{
-				"id": "DragonsEnd",
-				"name": "Dragon's End",
+				"id": "BattleForJadeSea",
+				"name": "The Battle for the Jade Sea",
 				"interval": "daily",
 				"icon": "https://wiki.guildwars2.com/images/0/0a/Deluxe_Gear_Box_%28End_of_Dragons%29.png",
-				"info": "The Battle for the Jade Sea",
+				"info": "Dragon's End",
 				"link": "https://wiki.guildwars2.com/wiki/Dragon%27s_End:_Hero%27s_Choice_Chest",
 				"timer": {
 					"duration": [
@@ -2877,11 +2877,11 @@
 				}
 			},
 			{
-				"id": "GyalaDelve",
-				"name": "Gyala Delve",
+				"id": "JadeCrisis",
+				"name": "The Jade Crisis",
 				"interval": "daily",
 				"icon": "https://wiki.guildwars2.com/images/0/0a/Deluxe_Gear_Box_%28End_of_Dragons%29.png",
-				"info": "The Jade Crisis",
+				"info": "Gyala Delve",
 				"link": "https://wiki.guildwars2.com/wiki/Gyala_Delve:_Hero%27s_Choice_Chest"
 			}
 		]
@@ -2892,11 +2892,11 @@
 		"index": 12,
 		"tasks": [
 			{
-				"id": "SkywatchArchipelago",
-				"name": "Skywatch Archipelago",
+				"id": "UnlockingWizardsTower",
+				"name": "Unlocking the Wizard's Tower",
 				"interval": "daily",
 				"icon": "https://wiki.guildwars2.com/images/e/e4/Wizard%27s_Hoard.png",
-				"info": "Unlocking the Wizard's Tower",
+				"info": "Skywatch Archipelago",
 				"link": "https://wiki.guildwars2.com/wiki/Skywatch_Archipelago:_Hero%27s_Choice_Chest",
 				"timer": {
 					"duration": [
@@ -2960,11 +2960,11 @@
 				}
 			},
 			{
-				"id": "Amnytas",
-				"name": "Amnytas",
+				"id": "DefenseOfAmnytas",
+				"name": "The Defense of Amnytas",
 				"interval": "daily",
 				"icon": "https://wiki.guildwars2.com/images/7/79/Amnytas_Chest.png",
-				"info": "The Defense of Amnytas",
+				"info": "Amnytas",
 				"link": "https://wiki.guildwars2.com/wiki/Amnytas:_Hero%27s_Choice_Chest",
 				"timer": {
 					"duration": [
@@ -3028,11 +3028,11 @@
 				}
 			},
 			{
-				"id": "InnerNayos",
-				"name": "Inner Nayos",
+				"id": "FangsThatGnash",
+				"name": "The Fangs That Gnash",
 				"interval": "daily",
 				"icon": "https://wiki.guildwars2.com/images/e/e5/Nayos_Hoard.png",
-				"info": "The Road to Heitor",
+				"info": "Inner Nayos",
 				"link": "https://wiki.guildwars2.com/wiki/Inner_Nayos:_Hero%27s_Choice_Chest"
 			},
 			{
