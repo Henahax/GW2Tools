@@ -1,4 +1,4 @@
-<script lang="ts">
+<script>
 	let tools = [
 		{
 			name: 'Reset',
@@ -30,28 +30,28 @@
 </script>
 
 <svelte:head>
-	<title>GW2 Tools: Home</title>
+	<title>GW2Tools: Home</title>
 </svelte:head>
 
-<div class="container mx-auto flex flex-col justify-center p-4">
-	<h4 class="h4 p-4">Available tools:</h4>
-	<div
-		class="container-hover container grid grid-cols-1 grid-rows-1 gap-4 md:grid-cols-2 lg:grid-cols-3"
-	>
+<div class="mx-auto flex flex-col justify-center">
+	<div class="mx-auto grid grid-cols-1 grid-rows-1 gap-4 py-8 md:grid-cols-2 lg:grid-cols-3">
 		{#each tools as tool}
-			<a href={tool.path}>
-				<div class="card card-hover h-full w-full p-4 text-center">
-					<i class="p-4 text-center text-2xl {tool.icon}"></i>
-					<h3 class="h3">{tool.name}</h3>
-					<p class="py-2">{tool.description}</p>
-					<ul class="mx-auto w-fit list-disc px-4 text-left text-sm">
-						{#if tool.bulletpoints}
-							{#each tool.bulletpoints as bulletpoint}
-								<li>{bulletpoint}</li>
-							{/each}
-						{/if}
-					</ul>
+			<a
+				class="card card-bordered bg-base-200 hover:bg-base-300 flex flex-col gap-2 p-8 text-center"
+				href={tool.path}
+			>
+				<i class="px-4 text-4xl {tool.icon}"></i>
+				<div>
+					<h3 class="text-xl">{tool.name}</h3>
+					<h4 class="text-sm">{tool.description}</h4>
 				</div>
+				<ul class="mx-auto w-fit list-disc text-left text-xs">
+					{#if tool.bulletpoints}
+						{#each tool.bulletpoints as bulletpoint}
+							<li>{bulletpoint}</li>
+						{/each}
+					{/if}
+				</ul>
 			</a>
 		{/each}
 	</div>

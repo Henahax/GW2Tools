@@ -1,85 +1,47 @@
-<script lang="ts">
-	import '../app.postcss';
-	import { AppShell, AppBar } from '@skeletonlabs/skeleton';
-
-	import { computePosition, autoUpdate, offset, shift, flip, arrow } from '@floating-ui/dom';
-
-	import { storePopup } from '@skeletonlabs/skeleton';
-	storePopup.set({ computePosition, autoUpdate, offset, shift, flip, arrow });
-
-	import { onNavigate } from '$app/navigation';
-
-	onNavigate((navigation) => {
-		if (!document.startViewTransition) return;
-
-		return new Promise((resolve) => {
-			document.startViewTransition(async () => {
-				resolve();
-				await navigation.complete;
-			});
-		});
-	});
-
-	import { Modal } from '@skeletonlabs/skeleton';
-	import { initializeStores } from '@skeletonlabs/skeleton';
-
-	initializeStores();
-
-	let currentTile: number = 0;
+<script>
+	import './styles.css';
 </script>
 
-<Modal />
-<!-- App Shell -->
-<AppShell>
-	<svelte:fragment slot="pageHeader">
-		<AppBar>
-			<svelte:fragment slot="lead">
-				<strong class="hidden text-2xl uppercase sm:block">GW2 Tools</strong>
-				<strong class="text-xs uppercase sm:hidden">
-					<div>GW2</div>
-					<div>Tools</div>
-				</strong>
-			</svelte:fragment>
-			<svelte:fragment slot="trail">
-				<div>
-					<a href="/" class="btn hover:variant-soft-primary px-4">
-						<span>
-							<i class="fa-solid fa-house"></i>
-						</span>
-						<span class="hidden md:block">Home</span>
-					</a>
-					<a href="/reset" class="btn hover:variant-soft-primary px-4">
-						<span>
-							<i class="fa-solid fa-arrows-rotate"></i>
-						</span>
-						<span class="hidden md:block">Reset</span>
-					</a>
-					<a href="/magicfind" class="btn hover:variant-soft-primary px-4">
-						<span>
-							<i class="fa-solid fa-clover"></i>
-						</span>
-						<span class="hidden md:block">Magic Find</span>
-					</a>
-					<a href="/ecto" class="btn hover:variant-soft-primary px-4">
-						<span>
-							<i class="fa-solid fa-screwdriver-wrench"></i>
-						</span>
-						<span class="hidden md:block">Ecto Salvage</span>
-					</a>
-				</div>
-			</svelte:fragment>
-		</AppBar>
-	</svelte:fragment>
+<div class="app flex min-h-dvh flex-col">
+	<div class="bg-base-200 w-full">
+		<div class="navbar mx-auto max-w-screen-2xl">
+			<div class="flex-1">
+				<a href="/" class="btn btn-ghost text-xl">GW2Tools</a>
+			</div>
+			<div class="flex-none">
+				<ul class="menu menu-horizontal px-1">
+					<li class="hidden sm:block"><a href="/"><i class="fa-solid fa-house"></i>Home</a></li>
+					<li class="hidden sm:block">
+						<a href="/reset"><i class="fa-solid fa-arrows-rotate"></i>Reset</a>
+					</li>
+					<li class="hidden sm:block">
+						<a href="/magicfind"><i class="fa-solid fa-clover"></i>Magic Find</a>
+					</li>
+					<li class="hidden sm:block">
+						<a href="/ecto"><i class="fa-solid fa-screwdriver-wrench"></i>Ecto Salvage</a>
+					</li>
+					<li class="sm:hidden">
+						<details>
+							<summary><i class="fa-solid fa-bars"></i>Menu</summary>
+							<ul class="menu bg-base-200 z-50 rounded-t-none p-2">
+								<li><a href="/"><i class="fa-solid fa-house"></i>Home</a></li>
+								<li><a href="/reset"><i class="fa-solid fa-arrows-rotate"></i>Reset</a></li>
+								<li><a href="/magicfind"><i class="fa-solid fa-clover"></i>Magic Find</a></li>
+								<li>
+									<a href="/ecto"><i class="fa-solid fa-screwdriver-wrench"></i>Ecto Salvage</a>
+								</li>
+							</ul>
+						</details>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
 
-	<slot />
-
-	<svelte:fragment slot="pageFooter">
-		<div class="p-3 text-center text-xs opacity-50">© henahax.de 2024</div>
-	</svelte:fragment>
-</AppShell>
+	<main class="mx-auto max-w-screen-2xl p-2">
+		<slot />
+	</main>
+</div>
 
 <style>
-	:global(main) {
-		@apply mx-auto w-full max-w-screen-2xl;
-	}
 </style>

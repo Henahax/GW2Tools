@@ -36,6 +36,7 @@
 			luck: 105
 		}
 	];
+
 	let ectoBuy = 0;
 	let dustSell = 0;
 	let luckExchange = 704;
@@ -88,7 +89,7 @@
 </script>
 
 <svelte:head>
-	<title>GW2 Tools: Ecto Salvage</title>
+	<title>GW2Tools: Ecto Salvage</title>
 </svelte:head>
 <div class="flex flex-row items-center justify-between p-4 px-2 md:px-4">
 	<div>

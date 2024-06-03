@@ -35,12 +35,12 @@
 	}
 </script>
 
-<tr class="item" on:click={handleRowClick}>
+<tr class="tr-hover" on:click={handleRowClick}>
 	{#if item.type === 'number'}
 		<td colspan="2" class="value text-right">
 			<input
 				id={item.id}
-				class="input text-right"
+				class="input input-bordered h-8 px-2 text-right"
 				type="number"
 				min="0"
 				max="350"
@@ -66,7 +66,7 @@
 	<td>
 		<div class="flex flex-row flex-wrap items-center">
 			{#each item.icons as icon}
-				<img src={icon} alt={item.description} />
+				<img class="size-6 min-w-6" src={icon} alt={item.description} />
 			{/each}
 		</div>
 	</td>
@@ -75,37 +75,9 @@
 			<div>{item.description}</div>
 			<div class="inline-flex flex-wrap gap-x-2">
 				{#each item.names as name}
-					<a class="anchor text-xs" href={name.link}>{name.name}</a>
+					<a class="link link-primary text-xs" href={name.link}>{name.name}</a>
 				{/each}
 			</div>
 		</div>
 	</td>
 </tr>
-
-<style>
-	input[type='number'] {
-		@apply py-1;
-	}
-
-	input[type='checkbox'] {
-		@apply size-6;
-	}
-
-	img {
-		@apply size-6 min-w-6;
-	}
-
-	td,
-	td * {
-		vertical-align: middle;
-	}
-
-	td {
-		padding-top: 0.125rem !important;
-		padding-bottom: 0.125rem !important;
-	}
-
-	div {
-		text-wrap: wrap;
-	}
-</style>

@@ -25,55 +25,33 @@
 </script>
 
 <svelte:head>
-	<title>GW2 Tools: Magic Fins</title>
+	<title>GW2Tools: Magicfind</title>
 </svelte:head>
-<div class="flex flex-row items-center justify-between p-4 px-2 md:px-4">
-	<div>
-		<h2 class="h3">Magic Find Checklist</h2>
-		<div class="text-sm">Reach the magic find cap efficiently</div>
-	</div>
-</div>
 
-<div class="mx-auto px-2 md:px-4">
-	<table class="table-hover table-compact table leading-3">
-		<thead class="sticky z-10">
+<table class="table-zebra table-xs sm:table-sm table-pin-rows border-neutral table">
+	<thead class="bg-green-500">
+		<tr class="bg-base-200">
+			<th></th>
+			<th class="text-right">value</th>
+			<th></th>
+			<th>info</th>
+		</tr>
+	</thead>
+	<tbody>
+		{#each $dataStore as category}
 			<tr>
-				<th></th>
-				<th class="text-right">value</th>
-				<th></th>
-				<th>info</th>
+				<th colspan="4">{category.name}</th>
 			</tr>
-		</thead>
-		<tbody>
-			{#each $dataStore as category}
-				<tr>
-					<th colspan="4" class="px-4 text-left text-sm">{category.name}</th>
-				</tr>
-				{#each category.items as item}
-					<Item {item} />
-				{/each}
+			{#each category.items as item}
+				<Item {item} />
 			{/each}
-		</tbody>
-		<tfoot class="sticky z-10 py-4 text-lg leading-3">
-			<tr>
-				<th></th>
-				<th class="text-right {sum < 750 ? 'text-red-500' : 'text-green-500'}">{sum}</th>
-				<th colspan="2" class="normal-case">% (of max 750%)</th>
-			</tr>
-		</tfoot>
-	</table>
-</div>
-
-<style>
-	table {
-		overflow: auto;
-	}
-
-	thead {
-		inset-block-start: 0;
-	}
-
-	tfoot {
-		inset-block-end: 0;
-	}
-</style>
+		{/each}
+	</tbody>
+	<tfoot>
+		<tr class="bg-base-200 text-lg">
+			<th></th>
+			<th class="text-right {sum < 750 ? 'text-red-500' : 'text-green-500'}">{sum}</th>
+			<th colspan="2" class="normal-case">% (of max 750%)</th>
+		</tr>
+	</tfoot>
+</table>

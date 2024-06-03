@@ -12,6 +12,6 @@ Tool Collection for Guild Wars 2
 ## 💡 Technologies
 
 - [SvelteKit](https://kit.svelte.dev/)
-- [Svelte Skeleton](https://www.skeleton.dev/)
 - [Tailwind](https://tailwindcss.com/)
+- [daisyUI](https://daisyui.com/)
 - [Docker](https://www.docker.com/)
