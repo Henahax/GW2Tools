@@ -91,7 +91,7 @@
 <svelte:head>
 	<title>GW2Tools: Ecto Salvage</title>
 </svelte:head>
-<div class="flex flex-row items-center justify-between p-4 px-2 md:px-4">
+<div class="flex flex-row items-center justify-between p-4">
 	<div>
 		<h2 class="text-lg">Ecto Salvage</h2>
 		<div class="text-sm">Is salvaging Ectos to Dust profitable?</div>
@@ -100,7 +100,7 @@
 </div>
 
 <div class="flex flex-col gap-4">
-	<div class="mx-auto grid w-full grid-cols-1 gap-4 px-2 sm:grid-cols-2 md:px-4 lg:grid-cols-3">
+	<div class="mx-auto grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
 		<div class="card border-neutral bg-base-200 flex flex-col gap-2 border p-4">
 			<div class="flex flex-row items-center justify-start gap-2">
 				<img
@@ -189,7 +189,7 @@
 		</div>
 	</div>
 
-	<div class="grid grid-cols-1 gap-4 px-2 sm:grid-cols-2 md:px-4 xl:grid-cols-4">
+	<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
 		{#each salvage as kit}
 			<div class="card bg-base-200 border-neutral flex flex-col gap-2 border p-4">
 				<div class="flex flex-row items-center justify-start gap-2">
