@@ -108,19 +108,23 @@
 			{add}
 		</div>
 	{/if}
-	<div class="inline-flex">
+	<div class="flex items-center gap-2">
 		{#if active}
-			<div class="mr-1.5"><i class="fa-solid fa-play"></i></div>
+			<i class="fa-solid fa-play"></i>
 		{/if}
 		{#if soon}
-			<div class="mr-1.5"><i class="fa-solid fa-stopwatch"></i></div>
+			<i class="fa-solid fa-stopwatch"></i>
 		{/if}
-		<div>
-			{timeRemaining.hours}:{timeRemaining.minutes}:{timeRemaining.seconds}
-		</div>
+		<span class="countdown font-mono text-xs">
+			<span style="--value:{timeRemaining.hours};"></span>:
+			<span style="--value:{timeRemaining.minutes};"></span>:
+			<span style="--value:{timeRemaining.seconds};"></span>
+		</span>
 		{#if active}
-			<div class="mx-0.5">/</div>
-			<div>{duration[0]}:{duration[1]}:00</div>
+			<span class="flex gap-2 font-mono text-xs">
+				<span>/</span>
+				<span>{duration[0]}:{duration[1]}:00</span>
+			</span>
 		{/if}
 	</div>
 </div>

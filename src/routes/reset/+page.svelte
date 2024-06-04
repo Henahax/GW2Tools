@@ -40,7 +40,7 @@
 			<input type="checkbox" />
 			<div class="collapse-title text-xl font-medium">{category.name}</div>
 			<div class="collapse-content">
-				<ul>
+				<ul class="divide-neutral divide-y divide-solid">
 					{#each category.tasks as task}
 						<Task {task} />
 					{/each}
