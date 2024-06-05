@@ -107,8 +107,33 @@
             },
             {
                 "id": "Perseverance",
-                "type": "checkbox",
-                "value": 200,
+                "type": "select",
+                "value": [
+                    [
+                        30,
+                        "30 (1 Stack)"
+                    ],
+                    [
+                        60,
+                        "60 (2 Stacks)"
+                    ],
+                    [
+                        90,
+                        "90 (3 Stacks)"
+                    ],
+                    [
+                        120,
+                        "120 (4 Stacks)"
+                    ],
+                    [
+                        150,
+                        "150 (5 Stacks)"
+                    ],
+                    [
+                        200,
+                        "200 (5 Stacks + HotW)"
+                    ]
+                ],
                 "icons": [
                     "https://wiki.guildwars2.com/images/7/7f/Perseverance.png",
                     "https://wiki.guildwars2.com/images/7/74/Hero_of_the_Wastes.png"

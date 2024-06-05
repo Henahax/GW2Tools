@@ -6,28 +6,16 @@
 	let isChecked = item.checked;
 
 	function handleChange(event: any) {
-		update(event.target.type);
-	}
-
-	function handleRowClick() {
-		if (item.type === 'checkbox') {
-			isChecked = !isChecked;
-			update(item.type);
-		} else if (item.type === 'number') {
-			const input = document.getElementById(item.id) as HTMLInputElement;
-			input.focus();
-			input.select();
-		}
-	}
-
-	function update(type: any) {
 		for (let c = 0; c < $dataStore.length; c++) {
 			for (let i = 0; i < $dataStore[c].items.length; i++) {
 				if (item.id === $dataStore[c].items[i].id) {
-					if (type === 'checkbox') {
+					if (event.target.type === 'checkbox') {
 						$dataStore[c].items[i].checked = isChecked;
-					} else if (type === 'number') {
+					} else if (event.target.type === 'number') {
 						$dataStore[c].items[i].value = value;
+					} else if (event.target.type === 'select-one') {
+						console.log(value);
+						$dataStore[c].items[i].value = 0;
 					}
 				}
 			}
@@ -35,12 +23,12 @@
 	}
 </script>
 
-<tr class="tr-hover" on:click={handleRowClick}>
+<tr class="tr-hover">
 	{#if item.type === 'number'}
 		<td colspan="2" class="value text-right">
 			<input
 				id={item.id}
-				class="input input-bordered h-8 px-2 text-right"
+				class="input input-bordered h-8 w-full text-right"
 				type="number"
 				min="0"
 				max="350"
@@ -61,6 +49,16 @@
 		</td>
 		<td class="value text-right">
 			{item.value}
+		</td>
+	{/if}
+	{#if item.type === 'select'}
+		<td colspan="2" class="value text-right">
+			<select class="select select-bordered w-full max-w-xs" on:change={handleChange}>
+				<option selected value={0}>-</option>
+				{#each item.value as option, iterator}
+					<option class="" value={option[0]}>{option[1]}</option>
+				{/each}
+			</select>
 		</td>
 	{/if}
 	<td>

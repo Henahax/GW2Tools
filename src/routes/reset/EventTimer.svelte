@@ -28,9 +28,7 @@
 		active = !isCountingDown;
 		if (!active && difference < 1000 * 60 * 5) {
 			if (!soon) {
-				if (task.alarm) {
-					//alarm
-				}
+				//alarm
 			}
 			soon = true;
 		} else {
@@ -99,7 +97,6 @@
 
 <div
 	class="eventTimer flex flex-col items-end text-xs"
-	class:opacity-50={!active && !soon}
 	class:text-lime-500={active}
 	class:text-yellow-300={soon}
 >
@@ -108,23 +105,23 @@
 			{add}
 		</div>
 	{/if}
-	<div class="flex items-center gap-2">
+	<div class="flex items-center gap-1.5 font-mono text-xs">
 		{#if active}
 			<i class="fa-solid fa-play"></i>
 		{/if}
 		{#if soon}
 			<i class="fa-solid fa-stopwatch"></i>
 		{/if}
-		<span class="countdown font-mono text-xs">
-			<span style="--value:{timeRemaining.hours};"></span>:
-			<span style="--value:{timeRemaining.minutes};"></span>:
-			<span style="--value:{timeRemaining.seconds};"></span>
-		</span>
-		{#if active}
-			<span class="flex gap-2 font-mono text-xs">
+		<div class="flex items-center gap-0.5">
+			<span class="countdown">
+				<span style="--value:{timeRemaining.hours};"></span>:
+				<span style="--value:{timeRemaining.minutes};"></span>:
+				<span style="--value:{timeRemaining.seconds};"></span>
+			</span>
+			{#if active}
 				<span>/</span>
 				<span>{duration[0]}:{duration[1]}:00</span>
-			</span>
-		{/if}
+			{/if}
+		</div>
 	</div>
 </div>

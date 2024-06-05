@@ -43,5 +43,12 @@
 	</main>
 </div>
 
+<footer class="footer bg-base-200 text-neutral-content flex justify-center p-2 text-center">
+	<div class="flex flex-col items-center">
+		<div>© henahax.de 2024</div>
+		<a class="link text-xs" href="https://github.com/Henahax/GW2Tools">Sourcecode</a>
+	</div>
+</footer>
+
 <style>
 </style>
