@@ -4,6 +4,7 @@
 
 	let value = item.value;
 	let isChecked = item.checked;
+	let selected = item.value;
 
 	function handleChange(event: any) {
 		for (let c = 0; c < $dataStore.length; c++) {
@@ -14,8 +15,7 @@
 					} else if (event.target.type === 'number') {
 						$dataStore[c].items[i].value = value;
 					} else if (event.target.type === 'select-one') {
-						console.log(value);
-						$dataStore[c].items[i].value = 0;
+						$dataStore[c].items[i].value = selected;
 					}
 				}
 			}
@@ -28,7 +28,7 @@
 		<td colspan="2" class="value text-right">
 			<input
 				id={item.id}
-				class="input input-bordered h-8 w-full text-right"
+				class="input input-bordered h-8 w-full text-right text-xs sm:text-sm"
 				type="number"
 				min="0"
 				max="350"
@@ -47,35 +47,39 @@
 				on:change={handleChange}
 			/>
 		</td>
-		<td class="value text-right">
-			{item.value}
+		<td>
+			<label class="flex h-full w-full justify-end" for={item.id}>{item.value}</label>
 		</td>
 	{/if}
 	{#if item.type === 'select'}
 		<td colspan="2" class="value text-right">
-			<select class="select select-bordered w-full max-w-xs" on:change={handleChange}>
-				<option selected value={0}>-</option>
-				{#each item.value as option, iterator}
-					<option class="" value={option[0]}>{option[1]}</option>
+			<select
+				id={item.id}
+				class="select select-bordered w-full text-xs sm:text-sm"
+				bind:value={selected}
+				on:change={handleChange}
+			>
+				{#each item.options as option}
+					<option value={option[0]}>{option[1]}</option>
 				{/each}
 			</select>
 		</td>
 	{/if}
 	<td>
-		<div class="flex flex-row flex-wrap items-center">
+		<label class="flex flex-row flex-wrap items-center" for={item.id}>
 			{#each item.icons as icon}
 				<img class="size-6 min-w-6" src={icon} alt={item.description} />
 			{/each}
-		</div>
+		</label>
 	</td>
 	<td>
-		<div class="flex flex-col">
+		<label for={item.id} class="flex flex-col">
 			<div>{item.description}</div>
 			<div class="inline-flex flex-wrap gap-x-2">
 				{#each item.names as name}
 					<a class="link link-primary text-xs" href={name.link}>{name.name}</a>
 				{/each}
 			</div>
-		</div>
+		</label>
 	</td>
 </tr>

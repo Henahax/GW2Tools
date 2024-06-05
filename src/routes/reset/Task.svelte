@@ -35,7 +35,7 @@
 			<div class="text-sm">
 				{task.name}
 			</div>
-			<div class="text-xs">{task.info}</div>
+			<div class="text-xs text-neutral-500">{task.info}</div>
 		</div>
 	</label>
 	<div class="flex flex-col justify-center text-right text-sm">

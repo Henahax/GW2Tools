@@ -101,7 +101,7 @@
 
 <div class="flex flex-col gap-2">
 	<div class="mx-auto grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3">
-		<div class="card bg-base-200 flex flex-col gap-2 p-4">
+		<div class="card bg-base-200 border-neutral flex flex-col gap-2 border p-4 shadow-xl">
 			<div class="flex flex-row items-center justify-start gap-2">
 				<img
 					class="size-8"
@@ -130,7 +130,7 @@
 				fulfilled
 			</div>
 		</div>
-		<div class="card bg-base-200 flex flex-col gap-2 p-4">
+		<div class="card border-neutral bg-base-200 flex flex-col gap-2 border p-4 shadow-xl">
 			<div class="flex flex-row items-center justify-start gap-2">
 				<img
 					class="size-8"
@@ -157,7 +157,7 @@
 				list Piles of Crystalline Dust for this price on the trading post and wait unti it is sold
 			</div>
 		</div>
-		<div class="card bg-base-200 flex flex-col gap-2 p-4">
+		<div class="card border-neutral bg-base-200 flex flex-col gap-2 border p-4 shadow-xl">
 			<div class="flex flex-row items-center justify-start gap-2">
 				<img
 					class="size-8"
@@ -191,7 +191,7 @@
 
 	<div class="grid grid-cols-1 gap-2 sm:grid-cols-2 xl:grid-cols-4">
 		{#each salvage as kit}
-			<div class="card bg-base-200 flex flex-col gap-2 p-4">
+			<div class="card border-neutral bg-base-200 flex flex-col gap-2 border p-4 shadow-xl">
 				<div class="flex flex-row items-center justify-start gap-2">
 					<img class="size-8" src={kit.icon} alt={kit.name} />
 					<div class="text-lg">{kit.name}</div>

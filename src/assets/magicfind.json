@@ -108,47 +108,59 @@
             {
                 "id": "Perseverance",
                 "type": "select",
-                "value": [
+                "value": 0,
+                "options": [
+                    [
+                        0,
+                        "0 Stacks"
+                    ],
                     [
                         30,
-                        "30 (1 Stack)"
+                        "1 Stack"
                     ],
                     [
                         60,
-                        "60 (2 Stacks)"
+                        "2 Stacks"
                     ],
                     [
                         90,
-                        "90 (3 Stacks)"
+                        "3 Stacks"
                     ],
                     [
                         120,
-                        "120 (4 Stacks)"
+                        "4 Stacks"
                     ],
                     [
                         150,
-                        "150 (5 Stacks)"
-                    ],
-                    [
-                        200,
-                        "200 (5 Stacks + HotW)"
+                        "5 Stacks"
                     ]
                 ],
                 "icons": [
-                    "https://wiki.guildwars2.com/images/7/7f/Perseverance.png",
-                    "https://wiki.guildwars2.com/images/7/74/Hero_of_the_Wastes.png"
+                    "https://wiki.guildwars2.com/images/7/7f/Perseverance.png"
                 ],
                 "names": [
                     {
                         "name": "Perseverance",
                         "link": "https://wiki.guildwars2.com/wiki/Perseverance"
-                    },
+                    }
+                ],
+                "description": "Silverwastes Event Buffs 30% per stack",
+                "checked": true
+            },
+            {
+                "id": "HeroOfTheWastes",
+                "type": "checkbox",
+                "value": 50,
+                "icons": [
+                    "https://wiki.guildwars2.com/images/7/74/Hero_of_the_Wastes.png"
+                ],
+                "names": [
                     {
                         "name": "Hero of the Wastes",
                         "link": "https://wiki.guildwars2.com/wiki/Hero_of_the_Wastes"
                     }
                 ],
-                "description": "Silverwastes Event Buffs + Meta Completion: 5 x 30% + 50%"
+                "description": "The Breach"
             }
         ]
     },
@@ -239,7 +251,7 @@
                 "description": ""
             },
             {
-                "id:": "NewYearsGift",
+                "id": "NewYearsGift",
                 "type": "checkbox",
                 "value": 10,
                 "icons": [

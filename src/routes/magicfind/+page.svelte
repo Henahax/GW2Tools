@@ -14,6 +14,7 @@
 
 	function getSum() {
 		sum = 0;
+		console.log($dataStore);
 		for (let c = 0; c < $dataStore.length; c++) {
 			for (let i = 0; i < $dataStore[c].items.length; i++) {
 				if ($dataStore[c].items[i].checked) {
