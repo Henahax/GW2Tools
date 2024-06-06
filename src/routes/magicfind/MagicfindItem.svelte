@@ -28,7 +28,7 @@
 		<td colspan="2" class="value text-right">
 			<input
 				id={item.id}
-				class="input input-bordered h-8 w-full text-right text-xs sm:text-sm"
+				class="input input-bordered input-sm h-8 w-full text-right text-xs"
 				type="number"
 				min="0"
 				max="350"
@@ -55,7 +55,7 @@
 		<td colspan="2" class="value text-right">
 			<select
 				id={item.id}
-				class="select select-bordered w-full text-xs sm:text-sm"
+				class="select select-bordered select-sm w-full text-xs"
 				bind:value={selected}
 				on:change={handleChange}
 			>
@@ -74,12 +74,12 @@
 	</td>
 	<td>
 		<label for={item.id} class="flex flex-col">
-			<div>{item.description}</div>
 			<div class="inline-flex flex-wrap gap-x-2">
 				{#each item.names as name}
-					<a class="link link-primary text-xs" href={name.link}>{name.name}</a>
+					<a class="link link-primary text-sm font-semibold" href={name.link}>{name.name}</a>
 				{/each}
 			</div>
+			<div class="text-xs">{item.description}</div>
 		</label>
 	</td>
 </tr>

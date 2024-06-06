@@ -12,6 +12,15 @@
                 "info": "Currency and Crafting Material Converters",
                 "link": "https://wiki.guildwars2.com/wiki/Converter",
                 "default": true
+            },
+            {
+                "id": "CurrencyExchanges",
+                "name": "Currency Exchanges",
+                "interval": "daily",
+                "icon": "https://wiki.guildwars2.com/images/c/cd/Portable_Wizard%27s_Tower_Exchange.png",
+                "info": "Wizard's Tower or Portable Wizard's Tower Exchange",
+                "link": "https://wiki.guildwars2.com/wiki/Gharr_Leadclaw",
+                "default": true
             }
         ]
     },
@@ -86,15 +95,6 @@
                 "icon": "https://wiki.guildwars2.com/images/a/ad/Mist-Hardened_Lockbox_Key.png",
                 "info": "Dugan on WvW-Maps",
                 "link": "https://wiki.guildwars2.com/wiki/Mist-Hardened_Lockbox_Key",
-                "default": true
-            },
-            {
-                "id": "CurrencyExchanges",
-                "name": "Currency Exchanges",
-                "interval": "daily",
-                "icon": "https://wiki.guildwars2.com/images/c/cd/Portable_Wizard%27s_Tower_Exchange.png",
-                "info": "Wizard's Tower or Portable Wizard's Tower Exchange",
-                "link": "https://wiki.guildwars2.com/wiki/Gharr_Leadclaw",
                 "default": true
             }
         ]

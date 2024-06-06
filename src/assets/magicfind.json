@@ -25,25 +25,22 @@
                 "value": 20,
                 "icons": [
                     "https://wiki.guildwars2.com/images/1/11/Magical_Infusion.png",
-                    "https://wiki.guildwars2.com/images/9/9c/Otter%27s_Blessing_Enrichment.png"
+                    "https://wiki.guildwars2.com/images/9/9c/Otter%27s_Blessing_Enrichment.png",
+                    "https://wiki.guildwars2.com/images/f/f7/Wurm%27s_Karmic_Blessing_Enrichment.png"
                 ],
                 "names": [
                     {
-                        "name": "Magical Enrichment",
-                        "link": "https://wiki.guildwars2.com/wiki/Magical_Enrichment"
-                    },
-                    {
-                        "name": "Otter's Blessing Enrichment",
-                        "link": "https://wiki.guildwars2.com/wiki/Otter%27s_Blessing_Enrichment"
+                        "name": "Magic Find Enrichment",
+                        "link": "https://wiki.guildwars2.com/wiki/Enrichment"
                     }
                 ],
-                "description": "Enrichtment (Amulet)"
+                "description": "Amulet Slot: Magical, Otter's Blessing, Wurm's"
             }
         ]
     },
     {
         "id": "effects",
-        "name": "Effects (Event & Preparations)",
+        "name": "Effects (Events & Festivals)",
         "items": [
             {
                 "id": "MemoriesOfHome",
@@ -88,7 +85,7 @@
                         "link": "https://wiki.guildwars2.com/wiki/Enlightenment"
                     }
                 ],
-                "description": "Buff from completing Monastery Training Renown Heart (6 hours)"
+                "description": "Completing  Monastery Training Renown Heart in Seitung Province (6 hours)"
             },
             {
                 "id": "WardsRemembrance",
@@ -144,7 +141,7 @@
                         "link": "https://wiki.guildwars2.com/wiki/Perseverance"
                     }
                 ],
-                "description": "Silverwastes Event Buffs 30% per stack",
+                "description": "Gained by assisting Pact forces in the Silverwastes (30% per Event)",
                 "checked": true
             },
             {
@@ -160,13 +157,13 @@
                         "link": "https://wiki.guildwars2.com/wiki/Hero_of_the_Wastes"
                     }
                 ],
-                "description": "The Breach"
+                "description": "Participating in the Mordrem Vinewrath meta event"
             }
         ]
     },
     {
         "id": "banners",
-        "name": "Banners (Guild or Items)",
+        "name": "Banners (Guild & Items)",
         "items": [
             {
                 "id": "GuildMagicFindBannerBoost",
@@ -182,7 +179,7 @@
                         "link": "https://wiki.guildwars2.com/wiki/Guild_Magic_Find_Banner_Boost"
                     }
                 ],
-                "description": "Guild Gold and Magic Find Banner / Guild Heroes Banner / Guild Anniversary Banner"
+                "description": "Guild Gold and Magic Find Banners, Guild Heroes Banners, Guild Anniversary Banners."
             },
             {
                 "id": "SpiritBannerBoost",
@@ -223,7 +220,7 @@
                         "link": "https://wiki.guildwars2.com/wiki/Chocolate_Omnomberry_Cream"
                     }
                 ],
-                "description": "Noodles (during Lunar New Year) / Chocolate Cream (with active boons)"
+                "description": "Longevity Noodles (during Lunar New Year) / Chocolate Cream (with active boons)"
             },
             {
                 "id": "Enhancement",
@@ -236,19 +233,19 @@
                 ],
                 "names": [
                     {
-                        "name": "Sharpening Skull",
+                        "name": "Feline Blessing",
                         "link": "https://wiki.guildwars2.com/wiki/Sharpening_Skull"
                     },
                     {
-                        "name": "Flask of Pumpkin Oil",
-                        "link": "https://wiki.guildwars2.com/images/7/71/Flask_of_Pumpkin_Oil.png"
+                        "name": "Pumpkin's Blessing",
+                        "link": "https://wiki.guildwars2.com/wiki/Flask_of_Pumpkin_Oil"
                     },
                     {
-                        "name": "Lump of Crystallized_Nougat",
+                        "name": "Ghoul's Blessing",
                         "link": "https://wiki.guildwars2.com/wiki/Lump_of_Crystallized_Nougat"
                     }
                 ],
-                "description": ""
+                "description": "Sharpening Skull, Flask of Pumpkin Oil, Lump of Crystallized Nougat"
             },
             {
                 "id": "NewYearsGift",
@@ -260,15 +257,11 @@
                 ],
                 "names": [
                     {
-                        "name": "Lucky Draketail",
-                        "link": "https://wiki.guildwars2.com/wiki/Lucky_Draketail"
-                    },
-                    {
-                        "name": "Lucky New Year Firework",
-                        "link": "https://wiki.guildwars2.com/wiki/Lucky_New_Year_Firework"
+                        "name": "New Year's Gift",
+                        "link": "https://wiki.guildwars2.com/wiki/New_Year%27s_Gift"
                     }
                 ],
-                "description": "New Year's Gift (Stack duration)"
+                "description": "Lucky Draketail, Lucky New Year Firework (Stack duration)"
             }
         ]
     },
@@ -286,15 +279,11 @@
                 ],
                 "names": [
                     {
-                        "name": "Celebration Booster",
-                        "link": "https://wiki.guildwars2.com/wiki/Celebration_Booster"
-                    },
-                    {
-                        "name": "Birthday Booster",
-                        "link": "https://wiki.guildwars2.com/wiki/Birthday_Booster"
+                        "name": "Celebration Bonus",
+                        "link": "https://wiki.guildwars2.com/wiki/Celebration_Bonus"
                     }
                 ],
-                "description": "Celebration Bonus"
+                "description": "Celebration Booster, Birthday Booster"
             },
             {
                 "id": "BlackLionBooster",
@@ -324,27 +313,11 @@
                 ],
                 "names": [
                     {
-                        "name": "Magic Find Booster",
-                        "link": "https://wiki.guildwars2.com/wiki/Magic_Find_Booster"
-                    },
-                    {
-                        "name": "Enchanted Reward Boost (Magic Find Booster)",
-                        "link": "https://wiki.guildwars2.com/wiki/Enchanted_Reward_Boost"
-                    },
-                    {
-                        "name": "Communal Boost Bonfire",
-                        "link": "https://wiki.guildwars2.com/wiki/Communal_Boost_Bonfire"
-                    },
-                    {
-                        "name": "Dragon's Fortune Fireworks",
-                        "link": "https://wiki.guildwars2.com/wiki/Dragon%27s_Fortune_Fireworks"
-                    },
-                    {
-                        "name": "Hallows Fortune Fireworks",
-                        "link": "https://wiki.guildwars2.com/wiki/Hallows_Fortune_Fireworks"
+                        "name": "Magic Find Boost",
+                        "link": "https://wiki.guildwars2.com/wiki/Magic_Find_Boost"
                     }
                 ],
-                "description": "Magic Find Boost (Bonfires and Fireworks can buff multiple people)"
+                "description": "Magic Find Boosters, Communal Boost Bonfires, Kite Fortunes, Dragon's Fortune Fireworks Hallows Fortune Fireworks."
             },
             {
                 "id": "ItemBooster",
@@ -359,22 +332,10 @@
                 "names": [
                     {
                         "name": "Item Booster",
-                        "link": "https://wiki.guildwars2.com/wiki/Item_Booster"
-                    },
-                    {
-                        "name": "Enchanted Reward Boost (Item Booster)",
-                        "link": "https://wiki.guildwars2.com/wiki/Enchanted_Reward_Boost"
-                    },
-                    {
-                        "name": "Heroic Booster",
-                        "link": "https://wiki.guildwars2.com/wiki/Heroic_Booster"
-                    },
-                    {
-                        "name": "Candy Corn Gobbler",
-                        "link": "https://wiki.guildwars2.com/wiki/Candy_Corn_Gobbler"
+                        "link": "https://wiki.guildwars2.com/wiki/Item_Booster_(effect)"
                     }
                 ],
-                "description": "Item Booster"
+                "description": "Item Booster, Item Booster (masterwork), Heroic Booster, Enchanted Reward Boost, Candy Corn Gobbler"
             }
         ]
     }

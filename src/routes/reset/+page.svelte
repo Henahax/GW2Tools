@@ -3,6 +3,7 @@
 	import { getCookie } from './functions';
 	import { onMount } from 'svelte';
 	import json from '../../assets/reset.json';
+	import Header from '$lib/header.svelte';
 	import IntervalTimer from './IntervalTimer.svelte';
 	import Task from './Task.svelte';
 
@@ -29,19 +30,39 @@
 		}
 		return json;
 	}
+
+	/*
+Converters:
+
+https://wiki.guildwars2.com/wiki/Portable_exchanger
+
+Material
+Mawdrey II, Princess, Star of Gratitude, Spearmarshal's Plea, Gleam of Sentience
+
+PvP, WvW
+Shards of Glory Converter, Memory Gobbler
+
+Currency
+Karmic Converter, Ley-Energy Matter Converter, Sentient Singularity, Volatile Singularity, Fractal Reliquary
+
+Ecto Gamble
+
+Portable Wizard's Tower Exchange
+Daily/Weekly
+*/
 </script>
 
 <svelte:head>
 	<title>GW2Tools: Reset</title>
 </svelte:head>
 
-<div class="flex flex-row items-center justify-between gap-4 py-4">
-	<div>
-		<h2 class="text-2xl font-bold">Reset Checklist</h2>
+<div class="flex flex-row items-center justify-between">
+	<Header title="Reset Checklist">
 		<span class="text-sm"
 			>Choose displayed timegated tasks in the options menu and track progress</span
 		>
-	</div>
+	</Header>
+
 	<div class="flex flex-row items-center gap-4 text-right text-sm">
 		<div class="flex flex-row flex-wrap justify-end gap-x-4 gap-y-2">
 			<div class="flex flex-col">
@@ -53,19 +74,19 @@
 				<IntervalTimer mode={2} />
 			</div>
 		</div>
-		<button class="btn btn-circle border-neutral border text-2xl">
+		<button class="btn btn-circle text-2xl">
 			<i class="fa-solid fa-gear"></i>
 		</button>
 	</div>
 </div>
 
-<div class="container columns-1 gap-8 md:columns-2 2xl:columns-3">
+<div class="container mx-auto columns-1 gap-8 md:columns-2 2xl:columns-3">
 	{#each $dataStore as category}
-		<div class="bg-base-200 collapse-arrow border-neutral collapse w-full border shadow-xl">
+		<div class="card bg-base-200 collapse-arrow collapse w-full shadow-xl">
 			<input type="checkbox" checked={true} />
 			<div class="collapse-title text-lg font-medium">{category.name}</div>
 			<div class="collapse-content">
-				<ul class="divide-neutral divide-y">
+				<ul class="divide-base-300 divide-y">
 					{#each category.tasks.sort((a, b) => a.interval.localeCompare(b.interval)) as task}
 						<Task {task} />
 					{/each}
@@ -78,5 +99,10 @@
 <style>
 	:is(.container .collapse:not(:last-child)) {
 		margin-bottom: 1rem;
+	}
+
+	.collapse,
+	.collapse-content {
+		transition-duration: 700ms;
 	}
 </style>

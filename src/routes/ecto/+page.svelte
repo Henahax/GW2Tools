@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { storeEcto, storeDust } from './store';
+	import Header from '$lib/header.svelte';
 
 	let salvage = [
 		{
@@ -91,24 +92,22 @@
 <svelte:head>
 	<title>GW2Tools: Ecto Salvage</title>
 </svelte:head>
-<div class="flex flex-row items-center justify-between p-4">
-	<div>
-		<h2 class="text-lg">Ecto Salvage</h2>
-		<div class="text-sm">Is salvaging Ectos to Dust profitable?</div>
-		<div class="text-sm">initial prices are the current prices from the trading post</div>
-	</div>
-</div>
+
+<Header title="Ecto Salvage">
+	<span class="text-sm">Is salvaging Ectos to Dust profitable?</span>
+	<span class="text-sm">initial prices are the current prices from the trading post</span>
+</Header>
 
 <div class="flex flex-col gap-2">
 	<div class="mx-auto grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3">
-		<div class="card bg-base-200 border-neutral flex flex-col gap-2 border p-4 shadow-xl">
+		<div class="card bg-base-200 flex flex-col gap-2 p-4 shadow-xl">
 			<div class="flex flex-row items-center justify-start gap-2">
 				<img
 					class="size-8"
 					src="https://wiki.guildwars2.com/images/9/9b/Glob_of_Ectoplasm.png"
 					alt="Glob of Ectoplasm"
 				/>
-				<div class="text-lg">Ectoplasm</div>
+				<div class="text-lg">Glob of Ectoplasm</div>
 			</div>
 			<span>order price</span>
 
@@ -130,7 +129,7 @@
 				fulfilled
 			</div>
 		</div>
-		<div class="card border-neutral bg-base-200 flex flex-col gap-2 border p-4 shadow-xl">
+		<div class="card bg-base-200 flex flex-col gap-2 p-4 shadow-xl">
 			<div class="flex flex-row items-center justify-start gap-2">
 				<img
 					class="size-8"
@@ -157,14 +156,14 @@
 				list Piles of Crystalline Dust for this price on the trading post and wait unti it is sold
 			</div>
 		</div>
-		<div class="card border-neutral bg-base-200 flex flex-col gap-2 border p-4 shadow-xl">
+		<div class="card bg-base-200 flex flex-col gap-2 p-4 shadow-xl">
 			<div class="flex flex-row items-center justify-start gap-2">
 				<img
 					class="size-8"
 					src="https://wiki.guildwars2.com/images/8/83/Essence_of_Luck_%28exotic%29.png"
 					alt="Essence of Luck"
 				/>
-				<div class="text-lg">Luck</div>
+				<div class="text-lg">Essence of Luck</div>
 			</div>
 
 			<span>exchange 1000 for</span>
@@ -191,7 +190,7 @@
 
 	<div class="grid grid-cols-1 gap-2 sm:grid-cols-2 xl:grid-cols-4">
 		{#each salvage as kit}
-			<div class="card border-neutral bg-base-200 flex flex-col gap-2 border p-4 shadow-xl">
+			<div class="card bg-base-200 flex flex-col gap-2 p-4 shadow-xl">
 				<div class="flex flex-row items-center justify-start gap-2">
 					<img class="size-8" src={kit.icon} alt={kit.name} />
 					<div class="text-lg">{kit.name}</div>

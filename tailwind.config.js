@@ -2,7 +2,12 @@
 export default {
 	content: ['./src/**/*.{html,svelte,js,ts}'],
 	theme: {
-		extend: {}
+		extend: {
+			colors: {}
+		}
 	},
-	plugins: [require('daisyui')]
+	plugins: [require('daisyui')],
+	daisyui: {
+		themes: ['dark', 'light']
+	}
 };

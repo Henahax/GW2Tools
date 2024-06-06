@@ -30,7 +30,7 @@
 <li class="flex w-full flex-row gap-4 py-1 {checked ? 'line-through' : ''}">
 	<label class="flex w-full flex-row items-center">
 		<input type="checkbox" class="checkbox size-6" bind:checked on:change={checkTask} />
-		<img src={task.icon} alt={task.name} class="mx-2 size-8" />
+		<img src={task.icon} alt={task.name} class="mx-2 size-8 rounded-md" />
 		<div class="flex flex-col">
 			<div class="text-sm">
 				{task.name}

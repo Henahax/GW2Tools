@@ -97,8 +97,8 @@
 
 <div
 	class="eventTimer flex flex-col items-end text-xs"
-	class:text-lime-500={active}
-	class:text-yellow-300={soon}
+	class:text-success={active}
+	class:text-warning={soon}
 >
 	{#if add.length > 0}
 		<div class="w-max">
