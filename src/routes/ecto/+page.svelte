@@ -2,6 +2,7 @@
 	import { onMount } from 'svelte';
 	import { storeEcto, storeDust } from './store';
 	import Header from '$lib/header.svelte';
+	import Card from './Card.svelte';
 
 	let salvage = [
 		{
@@ -100,15 +101,10 @@
 
 <div class="flex flex-col gap-2">
 	<div class="mx-auto grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3">
-		<div class="card bg-base-200 flex flex-col gap-2 p-4 shadow-xl">
-			<div class="flex flex-row items-center justify-start gap-2">
-				<img
-					class="size-8"
-					src="https://wiki.guildwars2.com/images/9/9b/Glob_of_Ectoplasm.png"
-					alt="Glob of Ectoplasm"
-				/>
-				<div class="text-lg">Glob of Ectoplasm</div>
-			</div>
+		<Card
+			icon="https://wiki.guildwars2.com/images/9/9b/Glob_of_Ectoplasm.png"
+			title="Glob of Ectoplasm"
+		>
 			<span>order price</span>
 
 			<label class="input input-bordered flex items-center gap-2">
@@ -128,16 +124,11 @@
 				order Globs of Ectoplasm for this price on the trading post and wait until your order is
 				fulfilled
 			</div>
-		</div>
-		<div class="card bg-base-200 flex flex-col gap-2 p-4 shadow-xl">
-			<div class="flex flex-row items-center justify-start gap-2">
-				<img
-					class="size-8"
-					src="https://wiki.guildwars2.com/images/3/3a/Pile_of_Crystalline_Dust.png"
-					alt="Pile of Crystalline Dust"
-				/>
-				<div class="text-lg">Crystalline Dust</div>
-			</div>
+		</Card>
+		<Card
+			icon="https://wiki.guildwars2.com/images/3/3a/Pile_of_Crystalline_Dust.png"
+			title="Crystalline Dust"
+		>
 			<span>listing price</span>
 			<label class="input input-bordered flex items-center gap-2">
 				<input
@@ -155,17 +146,11 @@
 			<div class="text-xs">
 				list Piles of Crystalline Dust for this price on the trading post and wait unti it is sold
 			</div>
-		</div>
-		<div class="card bg-base-200 flex flex-col gap-2 p-4 shadow-xl">
-			<div class="flex flex-row items-center justify-start gap-2">
-				<img
-					class="size-8"
-					src="https://wiki.guildwars2.com/images/8/83/Essence_of_Luck_%28exotic%29.png"
-					alt="Essence of Luck"
-				/>
-				<div class="text-lg">Essence of Luck</div>
-			</div>
-
+		</Card>
+		<Card
+			icon="https://wiki.guildwars2.com/images/8/83/Essence_of_Luck_%28exotic%29.png"
+			title="Essence of Luck"
+		>
 			<span>exchange 1000 for</span>
 			<label class="input input-bordered flex items-center gap-2">
 				<input
@@ -185,17 +170,12 @@
 				<div>Drooburt rewards junk worth 704c per 1000 luck during Lunar New Year festival.</div>
 				<div>Set to 0 to ignore luck value.</div>
 			</div>
-		</div>
+		</Card>
 	</div>
 
 	<div class="grid grid-cols-1 gap-2 sm:grid-cols-2 xl:grid-cols-4">
 		{#each salvage as kit}
-			<div class="card bg-base-200 flex flex-col gap-2 p-4 shadow-xl">
-				<div class="flex flex-row items-center justify-start gap-2">
-					<img class="size-8" src={kit.icon} alt={kit.name} />
-					<div class="text-lg">{kit.name}</div>
-				</div>
-
+			<Card icon={kit.icon} title={kit.name}>
 				<div class="flex flex-row items-center justify-between gap-2">
 					<div class="flex flex-col">
 						<div class="text-sm">salvaging profit after fees</div>
@@ -204,11 +184,6 @@
 						{/if}
 					</div>
 					<div class="flex flex-row items-center gap-1">
-						<img
-							class="size-6"
-							src="https://wiki.guildwars2.com/images/1/11/Copper_coin_%28highres%29.png"
-							alt="copper"
-						/>
 						<div
 							class="flex flex-row items-center gap-1 text-xl {getProfit(
 								kit.id,
@@ -221,9 +196,14 @@
 						>
 							{getProfit(kit.id, ectoBuy, dustSell, luckExchange)}
 						</div>
+						<img
+							class="size-6"
+							src="https://wiki.guildwars2.com/images/1/11/Copper_coin_%28highres%29.png"
+							alt="copper"
+						/>
 					</div>
 				</div>
-			</div>
+			</Card>
 		{/each}
 	</div>
 </div>

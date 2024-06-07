@@ -38,7 +38,7 @@
 		</td>
 	{/if}
 	{#if item.type === 'checkbox'}
-		<td class="w-fit">
+		<td>
 			<input
 				id={item.id}
 				class="checkbox"

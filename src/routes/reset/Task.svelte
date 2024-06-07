@@ -27,7 +27,7 @@
 	}
 </script>
 
-<li class="flex w-full flex-row gap-4 py-1 {checked ? 'line-through' : ''}">
+<li class="flex w-full flex-row gap-4 py-1 {checked ? 'line-through opacity-25' : ''}">
 	<label class="flex w-full flex-row items-center">
 		<input type="checkbox" class="checkbox size-6" bind:checked on:change={checkTask} />
 		<img src={task.icon} alt={task.name} class="mx-2 size-8 rounded-md" />
@@ -35,7 +35,7 @@
 			<div class="text-sm">
 				{task.name}
 			</div>
-			<div class="text-xs text-neutral-500">{task.info}</div>
+			<div class="text-xs opacity-70">{task.info}</div>
 		</div>
 	</label>
 	<div class="flex flex-col justify-center text-right text-sm">

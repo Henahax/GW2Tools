@@ -5,22 +5,103 @@
         "index": 0,
         "tasks": [
             {
-                "id": "Converters",
-                "name": "Converters",
+                "id": "LeyEnergyMatterConverter",
+                "name": "Ley-Energy Matter Converter",
                 "interval": "daily",
                 "icon": "https://wiki.guildwars2.com/images/9/96/Ley-Energy_Matter_Converter.png",
-                "info": "Currency and Crafting Material Converters",
-                "link": "https://wiki.guildwars2.com/wiki/Converter",
+                "info": "Consumes HoT map currencies",
+                "link": "https://wiki.guildwars2.com/wiki/Ley-Energy_Matter_Converter"
+            },
+            {
+                "id": "SpearmarshalsPlea",
+                "name": "Spearmarshal's Plea",
+                "interval": "daily",
+                "icon": "https://wiki.guildwars2.com/images/8/8e/Spearmarshal%27s_Plea.png",
+                "info": "Consumes Eyes of Kormir",
+                "link": "https://wiki.guildwars2.com/wiki/Spearmarshal%27s_Plea"
+            },
+            {
+                "id": "Mawdrey",
+                "name": "Mawdrey II",
+                "interval": "daily",
+                "icon": "https://wiki.guildwars2.com/images/d/d2/Mawdrey_II.png",
+                "info": "Consumes Piles of Bloodstone Dust",
+                "link": "https://wiki.guildwars2.com/wiki/Mawdrey_II",
                 "default": true
             },
             {
-                "id": "CurrencyExchanges",
-                "name": "Currency Exchanges",
+                "id": "Princess",
+                "name": "Princess",
+                "interval": "daily",
+                "icon": "https://wiki.guildwars2.com/images/f/f2/Princess.png",
+                "info": "Consumes Dragonite Ore",
+                "link": "https://wiki.guildwars2.com/wiki/Princess",
+                "default": true
+            },
+            {
+                "id": "StarOfGratitude",
+                "name": "Star of Gratitude",
+                "interval": "daily",
+                "icon": "https://wiki.guildwars2.com/images/5/52/Star_of_Gratitude.png",
+                "info": "Consumes Empyreal Fragments",
+                "link": "https://wiki.guildwars2.com/wiki/Star_of_Gratitude",
+                "default": true
+            },
+            {
+                "id": "GleamOfSentience",
+                "name": "Gleam of Sentience",
+                "interval": "daily",
+                "icon": "https://wiki.guildwars2.com/images/1/1e/Sentient_Singularity.png",
+                "info": "Consumes ascended crafting materials and Unbound Magic",
+                "link": "https://wiki.guildwars2.com/wiki/Gleam_of_Sentience"
+            },
+            {
+                "id": "VolatileSingularity",
+                "name": "Volatile Singularity",
+                "interval": "daily",
+                "icon": "https://wiki.guildwars2.com/images/1/1e/Sentient_Singularity.png",
+                "info": "Consumes Volatile Magic",
+                "link": "https://wiki.guildwars2.com/wiki/Volatile_Singularity"
+            },
+            {
+                "id": "FractalReliquary",
+                "name": "Fractal Reliquary",
+                "interval": "daily",
+                "icon": "https://wiki.guildwars2.com/images/7/70/Fractal_Reliquary.png",
+                "info": "Consumes Fractal Relics",
+                "link": "https://wiki.guildwars2.com/wiki/Fractal_Reliquary"
+            },
+            {
+                "id": "KarmicConverter",
+                "name": "Karmic Converter",
+                "interval": "daily",
+                "icon": "https://wiki.guildwars2.com/images/c/cb/Karmic_Converter.png",
+                "info": "Consumes Karma",
+                "link": "https://wiki.guildwars2.com/wiki/Karmic_Converter"
+            },
+            {
+                "id": "WizardsTowerExchange",
+                "name": "Wizard's Tower Exchange",
                 "interval": "daily",
                 "icon": "https://wiki.guildwars2.com/images/c/cd/Portable_Wizard%27s_Tower_Exchange.png",
                 "info": "Wizard's Tower or Portable Wizard's Tower Exchange",
-                "link": "https://wiki.guildwars2.com/wiki/Gharr_Leadclaw",
-                "default": true
+                "link": "https://wiki.guildwars2.com/wiki/Gharr_Leadclaw"
+            },
+            {
+                "id": "ShardsOfGloryConverter",
+                "name": "Shards of Glory Converter",
+                "interval": "daily",
+                "icon": "https://wiki.guildwars2.com/images/4/47/Shards_of_Glory_Converter.png",
+                "info": "Consumes Shards of Glory",
+                "link": "https://wiki.guildwars2.com/wiki/Shards_of_Glory_Converter"
+            },
+            {
+                "id": "MemoryGobbler",
+                "name": "Memory Gobbler",
+                "interval": "daily",
+                "icon": "https://wiki.guildwars2.com/images/b/b9/Memory_Gobbler.png",
+                "info": "Consumes Memories of Battle",
+                "link": "https://wiki.guildwars2.com/wiki/Memory_Gobbler"
             }
         ]
     },

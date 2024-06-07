@@ -6,6 +6,8 @@
 	import Header from '$lib/header.svelte';
 	import IntervalTimer from './IntervalTimer.svelte';
 	import Task from './Task.svelte';
+	import SettingsTask from './SettingsTask.svelte';
+	import Category from './Category.svelte';
 
 	onMount(() => {
 		$dataStore = getData();
@@ -30,31 +32,38 @@
 		}
 		return json;
 	}
-
-	/*
-Converters:
-
-https://wiki.guildwars2.com/wiki/Portable_exchanger
-
-Material
-Mawdrey II, Princess, Star of Gratitude, Spearmarshal's Plea, Gleam of Sentience
-
-PvP, WvW
-Shards of Glory Converter, Memory Gobbler
-
-Currency
-Karmic Converter, Ley-Energy Matter Converter, Sentient Singularity, Volatile Singularity, Fractal Reliquary
-
-Ecto Gamble
-
-Portable Wizard's Tower Exchange
-Daily/Weekly
-*/
 </script>
 
 <svelte:head>
 	<title>GW2Tools: Reset</title>
 </svelte:head>
+
+<div class="drawer z-50">
+	<input id="my-drawer" type="checkbox" class="drawer-toggle" />
+	<div class="drawer-content">
+		<!-- Page content here -->
+	</div>
+	<div class="drawer-side">
+		<label for="my-drawer" aria-label="close sidebar" class="drawer-overlay"></label>
+		<div class="menu bg-base-200 text-base-content min-h-full w-fit p-4">
+			<!-- Sidebar content here -->
+			<h2 class="text-lg font-bold">Displayed tasks</h2>
+
+			<div class="columns-1 md:columns-2 xl:columns-3 2xl:columns-4">
+				{#each $dataStore as category}
+					<div class="break-inside-avoid py-2">
+						<div class="text-sm font-semibold">{category.name}</div>
+						<ul>
+							{#each category.tasks as task}
+								<SettingsTask {task} />
+							{/each}
+						</ul>
+					</div>
+				{/each}
+			</div>
+		</div>
+	</div>
+</div>
 
 <div class="flex flex-row items-center justify-between">
 	<Header title="Reset Checklist">
@@ -74,35 +83,14 @@ Daily/Weekly
 				<IntervalTimer mode={2} />
 			</div>
 		</div>
-		<button class="btn btn-circle text-2xl">
-			<i class="fa-solid fa-gear"></i>
-		</button>
+		<label for="my-drawer" class="btn btn-circle drawer-button text-2xl"
+			><i class="fa-solid fa-gear"></i></label
+		>
 	</div>
 </div>
 
-<div class="container mx-auto columns-1 gap-8 md:columns-2 2xl:columns-3">
+<div class="container mx-auto columns-1 gap-4 md:columns-2 2xl:columns-3">
 	{#each $dataStore as category}
-		<div class="card bg-base-200 collapse-arrow collapse w-full shadow-xl">
-			<input type="checkbox" checked={true} />
-			<div class="collapse-title text-lg font-medium">{category.name}</div>
-			<div class="collapse-content">
-				<ul class="divide-base-300 divide-y">
-					{#each category.tasks.sort((a, b) => a.interval.localeCompare(b.interval)) as task}
-						<Task {task} />
-					{/each}
-				</ul>
-			</div>
-		</div>
+		<Category {category} />
 	{/each}
 </div>
-
-<style>
-	:is(.container .collapse:not(:last-child)) {
-		margin-bottom: 1rem;
-	}
-
-	.collapse,
-	.collapse-content {
-		transition-duration: 700ms;
-	}
-</style>
