@@ -1,13 +1,15 @@
 <script lang="ts">
 	import { setCookie } from './functions';
 	import { dataStore } from './store';
+	import type { Task } from './types';
 
-	export let task: any;
+	export let task: Task;
 
 	let checked = task.display;
 
 	function handleChange(event: Event) {
-		checked = event.target.checked;
+		const target = event.target as HTMLInputElement;
+		checked = target.checked;
 		task.display = checked;
 		for (let i = 0; i < $dataStore.length; i++) {
 			for (let j = 0; j < $dataStore[i].tasks.length; j++) {

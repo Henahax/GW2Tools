@@ -27,7 +27,7 @@
                 "icon": "https://wiki.guildwars2.com/images/d/d2/Mawdrey_II.png",
                 "info": "Consumes Piles of Bloodstone Dust",
                 "link": "https://wiki.guildwars2.com/wiki/Mawdrey_II",
-                "default": true
+                "display": true
             },
             {
                 "id": "Princess",
@@ -36,7 +36,7 @@
                 "icon": "https://wiki.guildwars2.com/images/f/f2/Princess.png",
                 "info": "Consumes Dragonite Ore",
                 "link": "https://wiki.guildwars2.com/wiki/Princess",
-                "default": true
+                "display": true
             },
             {
                 "id": "StarOfGratitude",
@@ -45,7 +45,7 @@
                 "icon": "https://wiki.guildwars2.com/images/5/52/Star_of_Gratitude.png",
                 "info": "Consumes Empyreal Fragments",
                 "link": "https://wiki.guildwars2.com/wiki/Star_of_Gratitude",
-                "default": true
+                "display": true
             },
             {
                 "id": "GleamOfSentience",
@@ -141,7 +141,7 @@
                 "icon": "https://wiki.guildwars2.com/images/9/9d/Provisioner_Token.png",
                 "info": "Central Tyria & HoT & SotO",
                 "link": "https://wiki.guildwars2.com/wiki/Faction_Provisioner#Faction_Provisioners",
-                "default": true
+                "display": true
             },
             {
                 "id": "PactScoutsMappingMaterials",
@@ -150,7 +150,7 @@
                 "icon": "https://wiki.guildwars2.com/images/3/3c/Pact_Scout%27s_Mapping_Materials.png",
                 "info": "Pact Supply Network Agents",
                 "link": "https://wiki.guildwars2.com/wiki/Pact_Supply_Network_Agent#Locations",
-                "default": true
+                "display": true
             },
             {
                 "id": "DivineLuckyEnvelopes",
@@ -167,7 +167,7 @@
                 "icon": "https://wiki.guildwars2.com/images/f/f6/Antique_Summoning_Stone.png",
                 "info": "Arborstone",
                 "link": "https://wiki.guildwars2.com/wiki/Leivas#Weekly_Sales",
-                "default": true
+                "display": true
             },
             {
                 "id": "MistHardenedLockboxKey",
@@ -176,7 +176,7 @@
                 "icon": "https://wiki.guildwars2.com/images/a/ad/Mist-Hardened_Lockbox_Key.png",
                 "info": "Dugan on WvW-Maps",
                 "link": "https://wiki.guildwars2.com/wiki/Mist-Hardened_Lockbox_Key",
-                "default": true
+                "display": true
             }
         ]
     },
@@ -192,7 +192,7 @@
                 "icon": "https://wiki.guildwars2.com/images/5/56/Home_Portal_Stone.png",
                 "info": "Charged Quartz Crystal, Harvesting Nodes, Chests",
                 "link": "https://wiki.guildwars2.com/wiki/Home_instance#List_of_home_instance_upgrades",
-                "default": true
+                "display": true
             },
             {
                 "id": "GuildHall",
@@ -201,7 +201,7 @@
                 "icon": "https://wiki.guildwars2.com/images/8/89/Guild_Hall_Obtained.png",
                 "info": "Harvesting Nodes, Vendors, Bartender Boosts",
                 "link": "https://wiki.guildwars2.com/wiki/Guild_hall#Features",
-                "default": true
+                "display": true
             }
         ]
     },
@@ -217,7 +217,7 @@
                 "icon": "https://wiki.guildwars2.com/images/c/cf/Crafting_icon.png",
                 "info": "Mithrillium, Spirit Residue, Elonian Cord, Weaving Thread",
                 "link": "https://wiki.guildwars2.com/wiki/Server_reset#Crafted_items",
-                "default": true
+                "display": true
             }
         ]
     },
@@ -233,7 +233,7 @@
                 "icon": "https://wiki.guildwars2.com/images/7/70/Character_Slot_Expansion.png",
                 "info": "Open Chests with Alt-Charactes",
                 "link": "https://fast.farming-community.eu/open-world/alt-parking",
-                "default": true
+                "display": true
             },
             {
                 "id": "FuneraryIncense",
@@ -989,7 +989,7 @@
                 "icon": "https://wiki.guildwars2.com/images/6/67/Ley-Line_Anomaly_portrait.png",
                 "info": "Legendary Ley-Line Anomaly",
                 "link": "https://wiki.guildwars2.com/wiki/Legendary_Ley-Line_Anomaly",
-                "default": true,
+                "display": true,
                 "timer": {
                     "duration": [
                         0,
@@ -2625,7 +2625,7 @@
                 "icon": "https://wiki.guildwars2.com/images/d/da/Gift_of_Aurene_%28container%29.png",
                 "info": "Eye of the North",
                 "link": "https://wiki.guildwars2.com/wiki/Dragonstorm",
-                "default": true,
+                "display": true,
                 "timer": {
                     "duration": [
                         0,
@@ -3132,7 +3132,7 @@
                 "icon": "https://wiki.guildwars2.com/images/5/51/Kryptis_Rift_Extraction.png",
                 "info": "Wizard's Tower",
                 "link": "https://wiki.guildwars2.com/wiki/Convergences",
-                "default": true,
+                "display": true,
                 "timer": {
                     "duration": [
                         0,

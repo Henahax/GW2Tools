@@ -9,7 +9,8 @@
 	let alarm = task.alarm;
 
 	function checkTask(event: Event) {
-		checked = event.target.checked;
+		const target = event.target as HTMLInputElement;
+		checked = target.checked;
 		task.checked = checked;
 		for (let i = 0; i < $dataStore.length; i++) {
 			for (let j = 0; j < $dataStore[i].tasks.length; j++) {

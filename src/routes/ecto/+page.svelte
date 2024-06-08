@@ -84,7 +84,10 @@
 			}
 		}
 
-		profit = kit?.dust * dustPrice * 0.85 + (kit.luck / 1000) * luckPrice - (ectoPrice + kit?.cost);
+		if (kit) {
+			profit =
+				kit?.dust * dustPrice * 0.85 + (kit.luck / 1000) * luckPrice - (ectoPrice + kit?.cost);
+		}
 
 		return Math.round(profit);
 	}

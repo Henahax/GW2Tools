@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Task from './Task.svelte';
-	export let category;
+	import type { Category } from './types';
+	export let category: Category;
 
 	$: category, getNotAllChecked();
 
@@ -24,12 +25,12 @@
 
 {#if category.tasks.filter((task) => task.display).length > 0}
 	<div
-		class="card bg-base-100 collapse-arrow collapse w-full shadow {!notAllChecked
+		class="card bg-base-100 collapse-arrow collapse min-h-12 w-full shadow {!notAllChecked
 			? 'opacity-50'
 			: ''}"
 	>
 		<input type="checkbox" checked={notAllChecked} />
-		<div class="collapse-title text-lg font-medium">{category.name}</div>
+		<div class="collapse-title font-medium">{category.name}</div>
 		<div class="collapse-content">
 			<ul class="divide-base-300 divide-y">
 				{#each category.tasks
@@ -44,6 +45,6 @@
 
 <style>
 	:is(.container .collapse:not(:last-child)) {
-		margin-bottom: 1rem;
+		@apply mb-2;
 	}
 </style>

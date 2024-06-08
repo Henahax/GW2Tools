@@ -1,20 +1,26 @@
 <script lang="ts">
 	import { onDestroy } from 'svelte';
-	import type { TimeRemaining } from './types';
+	import type { Task, TimeRemaining } from './types';
 
-	export let task;
+	export let task: Task;
 
 	let nextEventTime: [Date, object, string];
-	let targetTime: Date;
+	let targetTime: number;
 	let active = false;
 	let soon = false;
-	let duration: [number, number];
+	let duration: [string, string];
 	let add: string;
 	let timeRemaining = calculateTimeRemaining();
 
 	function calculateTimeRemaining(): TimeRemaining {
+		if (!task.timer) {
+			return {
+				seconds: ''
+			};
+		}
+
 		nextEventTime = getNextEventTime(task.timer);
-		targetTime = nextEventTime[0];
+		targetTime = nextEventTime[0].getTime();
 		duration = [
 			task.timer.duration[0].toString().padStart(2, '0'),
 			task.timer.duration[1].toString().padStart(2, '0')
