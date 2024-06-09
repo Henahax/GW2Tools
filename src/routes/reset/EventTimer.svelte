@@ -106,7 +106,9 @@
 
 	function notify() {
 		if (Notification.permission === 'granted') {
-			const notification = new Notification(task.name + '\nis starting soon.');
+			let body = task.name + '\nis starting soon.';
+			let icon = task.icon;
+			const notification = new Notification('Event Notifiaction', { body: body, icon: icon });
 		}
 	}
 

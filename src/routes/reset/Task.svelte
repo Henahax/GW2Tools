@@ -8,7 +8,7 @@
 	let checked = task.checked;
 	let alarm = task.alarm;
 
-	//TODO Reload Dom when alarm in dataStore changes (maybe in category)
+	$: $dataStore, getAlarm();
 
 	function checkTask(event: Event) {
 		const target = event.target as HTMLInputElement;
@@ -29,17 +29,21 @@
 		setCookie('check.' + task.id, checked.toString(), task.interval);
 	}
 
+	function getAlarm() {
+		for (let i = 0; i < $dataStore.length; i++) {
+			for (let j = 0; j < $dataStore[i].tasks.length; j++) {
+				if ($dataStore[i].tasks[j].id === task.id) {
+					alarm = $dataStore[i].tasks[j].alarm;
+				}
+			}
+		}
+	}
+
 	function setAlarm() {
 		if (alarm) {
-			if (Notification.permission === 'granted') {
-				// Check whether notification permissions have already been granted;
-			} else if (Notification.permission !== 'denied') {
-				// We need to ask the user for permission
+			if (Notification.permission !== 'denied') {
 				Notification.requestPermission().then((permission) => {
-					if (permission === 'granted') {
-						//const notification = new Notification('Hi there!');
-						// …
-					} else {
+					if (permission !== 'granted') {
 						alarm = false;
 					}
 				});

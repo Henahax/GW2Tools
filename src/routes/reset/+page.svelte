@@ -75,8 +75,8 @@
 		>
 	</Header>
 
-	<div class="flex flex-row items-center gap-4 text-right text-sm">
-		<div class="flex flex-row flex-wrap justify-end gap-x-4 gap-y-2">
+	<div class="flex flex-row items-center gap-4 text-sm">
+		<div class="flex flex-row flex-wrap justify-end gap-x-4 gap-y-2 text-right">
 			<div class="flex flex-col">
 				<span>Daily:</span>
 				<IntervalTimer mode={1} />
@@ -86,6 +86,74 @@
 				<IntervalTimer mode={2} />
 			</div>
 		</div>
+		<button class="btn btn-circle text-2xl" onclick="my_modal_2.showModal()"
+			><i class="fa-solid fa-info"></i></button
+		>
+
+		<dialog id="my_modal_2" class="modal modal-bottom sm:modal-middle">
+			<div class="modal-box">
+				<h3 class="text-lg font-bold">Instructions</h3>
+				<div class="info-grid grid items-center gap-4 p-4">
+					<div class="flex items-center justify-center text-2xl">
+						<i class="fa-solid fa-gear"></i>
+					</div>
+
+					<div class="flex flex-col">
+						<p>select displayed tasks</p>
+						<p class="text-xs opacity-50">items, vendors, actions, events</p>
+					</div>
+
+					<div class="flex items-center justify-center text-2xl">
+						<i class="fa-solid fa-square-check"></i>
+					</div>
+					<div class="flex flex-col">
+						<p>check completed tasks</p>
+						<p class="text-xs opacity-50">tasks will reset on daily/weeky reset</p>
+					</div>
+
+					<div class="flex items-center justify-center text-2xl">
+						<i class="fa-regular fa-circle-question"></i>
+					</div>
+					<div class="flex flex-col">
+						<p>link to relevant information</p>
+						<p class="text-xs opacity-50">wiki, calculators</p>
+					</div>
+					<div class="flex flex-col items-center justify-center text-2xl">
+						<i class="fa-regular fa-clock text-lg"></i>
+						<i class="fa-regular fa-calendar text-lg"></i>
+					</div>
+					<div class="flex flex-col">
+						<p>reset interval</p>
+						<p class="text-xs opacity-50">daily, weekly</p>
+					</div>
+					<div class="flex items-center justify-center">
+						<span class="countdown font-mono">00:13:37</span>
+					</div>
+					<div class="flex flex-col">
+						<p>countdown to next event</p>
+						<div class="flex flex-row gap-4 text-xs opacity-50">
+							<div class="flex items-center gap-2">
+								<i class="fa-solid fa-play"></i><span>active</span>
+							</div>
+							<div class="flex items-center gap-2">
+								<i class="fa-solid fa-stopwatch"></i><span>soon</span>
+							</div>
+						</div>
+					</div>
+					<div class="flex items-center justify-center text-2xl">
+						<i class="fa-solid fa-bell text-2xl"></i>
+					</div>
+					<div class="flex flex-col">
+						<p>set alarm for next event</p>
+						<p class="text-xs opacity-50">requires permission for browser notifications</p>
+					</div>
+				</div>
+			</div>
+			<form method="dialog" class="modal-backdrop">
+				<button>close</button>
+			</form>
+		</dialog>
+
 		<label for="my-drawer" class="btn btn-circle drawer-button text-2xl"
 			><i class="fa-solid fa-gear"></i></label
 		>
@@ -97,3 +165,9 @@
 		<CategoryItem {category} />
 	{/each}
 </div>
+
+<style>
+	.info-grid {
+		grid-template-columns: fit-content(0) 1fr;
+	}
+</style>
