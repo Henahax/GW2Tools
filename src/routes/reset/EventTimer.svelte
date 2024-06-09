@@ -1,22 +1,27 @@
 <script lang="ts">
 	import { onDestroy } from 'svelte';
-	import type { TimeRemaining } from './types';
+	import type { Task, TimeRemaining } from './types';
+	import { dataStore } from './store';
 
-	export let task;
+	export let task: Task;
 
 	let nextEventTime: [Date, object, string];
-	let targetTime: Date;
+	let targetTime: number;
 	let active = false;
 	let soon = false;
-	let duration: [number, number];
+	let duration: [string, string];
 	let add: string;
 	let timeRemaining = calculateTimeRemaining();
 
-	import audioSrc from '../../assets/mixkit-phone-ring-bell-593.mp3';
-
 	function calculateTimeRemaining(): TimeRemaining {
+		if (!task.timer) {
+			return {
+				seconds: ''
+			};
+		}
+
 		nextEventTime = getNextEventTime(task.timer);
-		targetTime = nextEventTime[0];
+		targetTime = nextEventTime[0].getTime();
 		duration = [
 			task.timer.duration[0].toString().padStart(2, '0'),
 			task.timer.duration[1].toString().padStart(2, '0')
@@ -31,8 +36,8 @@
 		if (!active && difference < 1000 * 60 * 5) {
 			if (!soon) {
 				if (task.alarm) {
-					const audio = new Audio(audioSrc);
-					audio.play();
+					notify();
+					resetAlarm();
 				}
 			}
 			soon = true;
@@ -98,32 +103,53 @@
 		tomorrow.setUTCHours(0, 0, 0, 0);
 		return tomorrow;
 	}
+
+	function notify() {
+		if (Notification.permission === 'granted') {
+			let body = task.name + '\nis starting soon.';
+			let icon = task.icon;
+			const notification = new Notification('Event Notifiaction', { body: body, icon: icon });
+		}
+	}
+
+	function resetAlarm() {
+		for (let i = 0; i < $dataStore.length; i++) {
+			for (let j = 0; j < $dataStore[i].tasks.length; j++) {
+				if ($dataStore[i].tasks[j].id === task.id) {
+					$dataStore[i].tasks[j].alarm = false;
+				}
+			}
+		}
+	}
 </script>
 
 <div
 	class="eventTimer flex flex-col items-end text-xs"
-	class:opacity-50={!active && !soon}
-	class:text-lime-500={active}
-	class:text-yellow-300={soon}
+	class:text-success={active}
+	class:text-warning={soon}
 >
 	{#if add.length > 0}
 		<div class="w-max">
 			{add}
 		</div>
 	{/if}
-	<div class="inline-flex">
+	<div class="flex items-center gap-1.5 font-mono text-xs">
 		{#if active}
-			<div class="mr-1.5"><i class="fa-solid fa-play"></i></div>
+			<i class="fa-solid fa-play"></i>
 		{/if}
 		{#if soon}
-			<div class="mr-1.5"><i class="fa-solid fa-stopwatch"></i></div>
+			<i class="fa-solid fa-stopwatch"></i>
 		{/if}
-		<div>
-			{timeRemaining.hours}:{timeRemaining.minutes}:{timeRemaining.seconds}
+		<div class="flex items-center gap-0.5">
+			<span class="countdown">
+				<span style="--value:{timeRemaining.hours};"></span>:
+				<span style="--value:{timeRemaining.minutes};"></span>:
+				<span style="--value:{timeRemaining.seconds};"></span>
+			</span>
+			{#if active}
+				<span>/</span>
+				<span>{duration[0]}:{duration[1]}:00</span>
+			{/if}
 		</div>
-		{#if active}
-			<div class="mx-0.5">/</div>
-			<div>{duration[0]}:{duration[1]}:00</div>
-		{/if}
 	</div>
 </div>

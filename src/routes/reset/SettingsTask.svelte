@@ -1,12 +1,15 @@
 <script lang="ts">
 	import { setCookie } from './functions';
 	import { dataStore } from './store';
+	import type { Task } from './types';
 
-	export let task: any;
+	export let task: Task;
+
 	let checked = task.display;
 
 	function handleChange(event: Event) {
-		checked = event.target.checked;
+		const target = event.target as HTMLInputElement;
+		checked = target.checked;
 		task.display = checked;
 		for (let i = 0; i < $dataStore.length; i++) {
 			for (let j = 0; j < $dataStore[i].tasks.length; j++) {
@@ -19,16 +22,16 @@
 	}
 </script>
 
-<li class="py-1">
-	<label class="flex flex-row items-center gap-2">
-		<input
-			type="checkbox"
-			class="checkbox size-6"
-			data-focusindex="0"
-			bind:checked
-			on:change={handleChange}
-		/>
-		<img class="size-6" src={task.icon} alt={task.name} />
-		{task.name}
+<li class="flex w-full flex-row">
+	<label class="flex w-full flex-row items-center px-0 py-1">
+		<input type="checkbox" class="checkbox size-6" bind:checked on:change={handleChange} />
+		<img src={task.icon} alt={task.name} class="size-6 rounded-md" />
+
+		<div class="text-sm">
+			{task.name}
+		</div>
 	</label>
 </li>
+
+<style>
+</style>

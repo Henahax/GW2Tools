@@ -80,6 +80,11 @@
 	}
 </script>
 
-<div>
-	{#if mode == modes.week}{timeRemaining.days}:{/if}{timeRemaining.hours}:{timeRemaining.minutes}:{timeRemaining.seconds}
-</div>
+<span class="countdown font-mono">
+	{#if mode == modes.week}
+		<span style="--value:{timeRemaining.days};"></span>:
+	{/if}
+	<span style="--value:{timeRemaining.hours};"></span>:
+	<span style="--value:{timeRemaining.minutes};"></span>:
+	<span style="--value:{timeRemaining.seconds};"></span>
+</span>

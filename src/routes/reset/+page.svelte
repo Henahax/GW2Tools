@@ -1,76 +1,173 @@
 <script lang="ts">
-	import { getModalStore } from '@skeletonlabs/skeleton';
 	import { dataStore } from './store';
 	import { getCookie } from './functions';
 	import { onMount } from 'svelte';
-	import json from '../../assets/reset.json';
-	import ResetTimer from './ResetIntervalTimer.svelte';
-	import Card from './ResetCard.svelte';
-	import Settings from './ResetSettings.svelte';
+	import Header from '$lib/header.svelte';
+	import IntervalTimer from './IntervalTimer.svelte';
+	import SettingsTask from './SettingsTask.svelte';
+	import CategoryItem from './Category.svelte';
 
-	const modalStore = getModalStore();
-	const modalComponent: ModalComponent = { ref: Settings };
-	const modal: ModalSettings = {
-		type: 'component',
-		component: modalComponent
-	};
+	import type { Category } from './types';
+	import json from '../../assets/reset.json';
+
+	const data: Category[] = json as Category[];
 
 	onMount(() => {
 		$dataStore = getData();
 	});
 
-	function openSettings() {
-		modalStore.trigger(modal);
-	}
-
 	function getData() {
-		for (let category = 0; category < json.length; category++) {
-			for (let task = 0; task < json[category].tasks.length; task++) {
-				let display = getCookie('display.' + json[category].tasks[task].id);
-				if (display === null && json[category].tasks[task].default) {
+		for (let category = 0; category < data.length; category++) {
+			for (let task = 0; task < data[category].tasks.length; task++) {
+				let display = getCookie('display.' + data[category].tasks[task].id);
+				if (display === null && data[category].tasks[task].display === true) {
 					display = true;
 				} else if (display === null) {
 					display = false;
 				}
-				let checked = getCookie('check.' + json[category].tasks[task].id);
+				let checked = getCookie('check.' + data[category].tasks[task].id);
 				if (checked === null) {
 					checked = false;
 				}
-				json[category].tasks[task].display = display;
-				json[category].tasks[task].checked = checked;
+				data[category].tasks[task].display = display;
+				data[category].tasks[task].checked = checked;
 			}
 		}
-		return json;
+		return data;
 	}
 </script>
 
 <svelte:head>
-	<title>GW2 Tools: Reset</title>
+	<title>GW2Tools: Reset</title>
 </svelte:head>
 
-<div class="flex flex-row items-center justify-between gap-2 px-2 py-4 md:px-4">
-	<div class="flex-start">
-		<h2 class="h3">Reset Checklist</h2>
-		<div class="text-sm">Choose displayed Timegated tasks in the options and track progress.</div>
+<div class="drawer z-50">
+	<input id="my-drawer" type="checkbox" class="drawer-toggle" />
+	<div class="drawer-content">
+		<!-- Page content here -->
 	</div>
-	<div class="flex flex-row gap-4 text-right">
-		<div class="flex flex-row flex-wrap justify-end gap-4 text-sm">
-			<div class="flex flex-col">
-				<div class="text-xs">Daily:</div>
-				<ResetTimer mode={1} />
-			</div>
-			<div class="flex flex-col">
-				<div class="text-xs">Weekly:</div>
-				<ResetTimer mode={2} />
+	<div class="drawer-side">
+		<label for="my-drawer" aria-label="close sidebar" class="drawer-overlay"></label>
+		<div class="menu bg-base-200 text-base-content min-h-full w-fit p-4">
+			<!-- Sidebar content here -->
+			<h2 class="text-lg font-bold">Displayed tasks</h2>
+
+			<div class="columns-1 md:columns-2 xl:columns-3 2xl:columns-4">
+				{#each $dataStore as category}
+					<div class="break-inside-avoid py-2">
+						<div class="text-sm font-semibold">{category.name}</div>
+						<ul>
+							{#each category.tasks as task}
+								<SettingsTask {task} />
+							{/each}
+						</ul>
+					</div>
+				{/each}
 			</div>
 		</div>
-		<button class="text-2xl" on:click={openSettings}>
-			<i class="fa-solid fa-gear"></i>
-		</button>
 	</div>
 </div>
-<div class="cardContainer mx-auto columns-1 gap-x-3 gap-y-3 px-2 md:columns-2 md:px-4 xl:columns-3">
+
+<div class="flex flex-row items-center justify-between">
+	<Header title="Reset Checklist">
+		<span class="text-sm"
+			>Choose displayed timegated tasks in the options menu and track progress</span
+		>
+	</Header>
+
+	<div class="flex flex-row items-center gap-4 text-sm">
+		<div class="flex flex-row flex-wrap justify-end gap-x-4 gap-y-2 text-right">
+			<div class="flex flex-col">
+				<span>Daily:</span>
+				<IntervalTimer mode={1} />
+			</div>
+			<div class="flex flex-col">
+				<span>Weekly:</span>
+				<IntervalTimer mode={2} />
+			</div>
+		</div>
+		<button class="btn btn-circle text-2xl" onclick="my_modal_2.showModal()"
+			><i class="fa-solid fa-info"></i></button
+		>
+
+		<dialog id="my_modal_2" class="modal modal-bottom sm:modal-middle">
+			<div class="modal-box">
+				<h3 class="text-lg font-bold">Instructions</h3>
+				<div class="info-grid grid items-center gap-4 p-4">
+					<div class="flex items-center justify-center text-2xl">
+						<i class="fa-solid fa-gear"></i>
+					</div>
+
+					<div class="flex flex-col">
+						<p>select displayed tasks</p>
+						<p class="text-xs opacity-50">items, vendors, actions, events</p>
+					</div>
+
+					<div class="flex items-center justify-center text-2xl">
+						<i class="fa-solid fa-square-check"></i>
+					</div>
+					<div class="flex flex-col">
+						<p>check completed tasks</p>
+						<p class="text-xs opacity-50">tasks will reset on daily/weeky reset</p>
+					</div>
+
+					<div class="flex items-center justify-center text-2xl">
+						<i class="fa-regular fa-circle-question"></i>
+					</div>
+					<div class="flex flex-col">
+						<p>link to relevant information</p>
+						<p class="text-xs opacity-50">wiki, calculators</p>
+					</div>
+					<div class="flex flex-col items-center justify-center text-2xl">
+						<i class="fa-regular fa-clock text-lg"></i>
+						<i class="fa-regular fa-calendar text-lg"></i>
+					</div>
+					<div class="flex flex-col">
+						<p>reset interval</p>
+						<p class="text-xs opacity-50">daily, weekly</p>
+					</div>
+					<div class="flex items-center justify-center">
+						<span class="countdown font-mono">00:13:37</span>
+					</div>
+					<div class="flex flex-col">
+						<p>countdown to next event</p>
+						<div class="flex flex-row gap-4 text-xs opacity-50">
+							<div class="flex items-center gap-2">
+								<i class="fa-solid fa-play"></i><span>active</span>
+							</div>
+							<div class="flex items-center gap-2">
+								<i class="fa-solid fa-stopwatch"></i><span>soon</span>
+							</div>
+						</div>
+					</div>
+					<div class="flex items-center justify-center text-2xl">
+						<i class="fa-solid fa-bell text-2xl"></i>
+					</div>
+					<div class="flex flex-col">
+						<p>set alarm for next event</p>
+						<p class="text-xs opacity-50">requires permission for browser notifications</p>
+					</div>
+				</div>
+			</div>
+			<form method="dialog" class="modal-backdrop">
+				<button>close</button>
+			</form>
+		</dialog>
+
+		<label for="my-drawer" class="btn btn-circle drawer-button text-2xl"
+			><i class="fa-solid fa-gear"></i></label
+		>
+	</div>
+</div>
+
+<div class="container mx-auto columns-1 gap-2 md:columns-2 lg:columns-3 2xl:columns-4">
 	{#each $dataStore as category}
-		<Card {category} />
+		<CategoryItem {category} />
 	{/each}
 </div>
+
+<style>
+	.info-grid {
+		grid-template-columns: fit-content(0) 1fr;
+	}
+</style>
