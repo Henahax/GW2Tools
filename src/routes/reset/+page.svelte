@@ -86,11 +86,11 @@
 				<IntervalTimer mode={2} />
 			</div>
 		</div>
-		<button class="btn btn-circle text-2xl" onclick="my_modal_2.showModal()"
+		<button class="btn btn-circle text-2xl" onclick="modalInstructions.showModal()"
 			><i class="fa-solid fa-info"></i></button
 		>
 
-		<dialog id="my_modal_2" class="modal modal-bottom sm:modal-middle">
+		<dialog id="modalInstructions" class="modal modal-bottom sm:modal-middle">
 			<div class="modal-box">
 				<h3 class="text-lg font-bold">Instructions</h3>
 				<div class="info-grid grid items-center gap-4 p-4">
