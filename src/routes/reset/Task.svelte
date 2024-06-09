@@ -8,6 +8,8 @@
 	let checked = task.checked;
 	let alarm = task.alarm;
 
+	//TODO Reload Dom when alarm in dataStore changes (maybe in category)
+
 	function checkTask(event: Event) {
 		const target = event.target as HTMLInputElement;
 		checked = target.checked;
@@ -25,6 +27,31 @@
 			}
 		}
 		setCookie('check.' + task.id, checked.toString(), task.interval);
+	}
+
+	function setAlarm() {
+		if (alarm) {
+			if (Notification.permission === 'granted') {
+				// Check whether notification permissions have already been granted;
+			} else if (Notification.permission !== 'denied') {
+				// We need to ask the user for permission
+				Notification.requestPermission().then((permission) => {
+					if (permission === 'granted') {
+						//const notification = new Notification('Hi there!');
+						// …
+					} else {
+						alarm = false;
+					}
+				});
+			}
+		}
+		for (let i = 0; i < $dataStore.length; i++) {
+			for (let j = 0; j < $dataStore[i].tasks.length; j++) {
+				if ($dataStore[i].tasks[j].id === task.id) {
+					$dataStore[i].tasks[j].alarm = alarm;
+				}
+			}
+		}
 	}
 </script>
 
@@ -56,6 +83,15 @@
 					<i class="fa-regular fa-calendar"></i>
 				</div>
 			{/if}
+			{#if task.timer}
+				<label class="swap">
+					<!-- this hidden checkbox controls the state -->
+					<input type="checkbox" bind:checked={alarm} on:change={setAlarm} />
+
+					<i class="fa-solid fa-bell swap-on text-warning fill-current"></i>
+
+					<i class="fa-regular fa-bell swap-off fill-current"></i>
+				</label>{/if}
 		</div>
 		{#if !checked && task.timer}
 			<EventTimer {task} />

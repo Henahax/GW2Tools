@@ -23,6 +23,7 @@ export interface Task {
 	link: string;
 	display: boolean;
 	checked: boolean;
+	alarm?: boolean;
 	timer?: {
 		duration: [number, number];
 		times: Array<[number, number, string?]>;

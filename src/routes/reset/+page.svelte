@@ -9,7 +9,6 @@
 
 	import type { Category } from './types';
 	import json from '../../assets/reset.json';
-	import { ssrModuleExportsKey } from 'vite/runtime';
 
 	const data: Category[] = json as Category[];
 
@@ -35,30 +34,6 @@
 			}
 		}
 		return data;
-	}
-
-	let notification = false;
-
-	function notifyChange() {
-		if (notification) {
-			if (Notification.permission === 'granted') {
-				// Check whether notification permissions have already been granted;
-				notify();
-			} else if (Notification.permission !== 'denied') {
-				// We need to ask the user for permission
-				Notification.requestPermission().then((permission) => {
-					if (permission === 'granted') {
-						notify();
-					}
-				});
-			}
-		}
-	}
-
-	function notify() {
-		setTimeout(function () {
-			const notification = new Notification('Hi there!');
-		}, 10000);
 	}
 </script>
 
@@ -99,15 +74,6 @@
 			>Choose displayed timegated tasks in the options menu and track progress</span
 		>
 	</Header>
-
-	<label class="swap text-4xl">
-		<!-- this hidden checkbox controls the state -->
-		<input type="checkbox" bind:checked={notification} on:change={notifyChange} />
-
-		<i class="fa-solid fa-bell swap-on fill-current"></i>
-
-		<i class="fa-regular fa-bell swap-off fill-current opacity-50"></i>
-	</label>
 
 	<div class="flex flex-row items-center gap-4 text-right text-sm">
 		<div class="flex flex-row flex-wrap justify-end gap-x-4 gap-y-2">

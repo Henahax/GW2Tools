@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { onDestroy } from 'svelte';
 	import type { Task, TimeRemaining } from './types';
+	import { dataStore } from './store';
 
 	export let task: Task;
 
@@ -34,7 +35,10 @@
 		active = !isCountingDown;
 		if (!active && difference < 1000 * 60 * 5) {
 			if (!soon) {
-				//alarm
+				if (task.alarm) {
+					notify();
+					resetAlarm();
+				}
 			}
 			soon = true;
 		} else {
@@ -98,6 +102,22 @@
 		tomorrow.setUTCDate(tomorrow.getUTCDate() + 1);
 		tomorrow.setUTCHours(0, 0, 0, 0);
 		return tomorrow;
+	}
+
+	function notify() {
+		if (Notification.permission === 'granted') {
+			const notification = new Notification(task.name + '\nis starting soon.');
+		}
+	}
+
+	function resetAlarm() {
+		for (let i = 0; i < $dataStore.length; i++) {
+			for (let j = 0; j < $dataStore[i].tasks.length; j++) {
+				if ($dataStore[i].tasks[j].id === task.id) {
+					$dataStore[i].tasks[j].alarm = false;
+				}
+			}
+		}
 	}
 </script>
 
