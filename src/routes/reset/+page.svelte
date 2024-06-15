@@ -41,6 +41,7 @@
 	<title>GW2Tools: Reset</title>
 </svelte:head>
 
+<!-- overlays -->
 <div class="drawer z-50">
 	<input id="my-drawer" type="checkbox" class="drawer-toggle" />
 	<div class="drawer-content">
@@ -52,7 +53,7 @@
 			<!-- Sidebar content here -->
 			<h2 class="text-lg font-bold">Displayed tasks</h2>
 
-			<div class="columns-1 md:columns-2 xl:columns-3 2xl:columns-4">
+			<div class="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 2xl:columns-5">
 				{#each $dataStore as category}
 					<div class="break-inside-avoid py-2">
 						<div class="text-sm font-semibold">{category.name}</div>
@@ -68,96 +69,96 @@
 	</div>
 </div>
 
-<div class="flex flex-row items-center justify-between">
-	<Header title="Reset Checklist">
-		<span class="text-sm"
-			>Choose displayed timegated tasks in the options menu and track progress</span
-		>
-	</Header>
+<dialog id="modalInstructions" class="modal modal-bottom sm:modal-middle">
+	<div class="modal-box">
+		<h3 class="text-lg font-bold">Instructions</h3>
+		<div class="info-grid grid items-center gap-4 p-4">
+			<div class="flex items-center justify-center text-2xl">
+				<i class="fa-solid fa-gear"></i>
+			</div>
 
-	<div class="flex flex-row items-center gap-4 text-sm">
-		<div class="flex flex-row flex-wrap justify-end gap-x-4 gap-y-2 text-right">
 			<div class="flex flex-col">
-				<span>Daily:</span>
-				<IntervalTimer mode={1} />
+				<p>select displayed tasks</p>
+				<p class="text-xs opacity-50">items, vendors, actions, events</p>
+			</div>
+
+			<div class="flex items-center justify-center text-2xl">
+				<i class="fa-solid fa-square-check"></i>
 			</div>
 			<div class="flex flex-col">
-				<span>Weekly:</span>
-				<IntervalTimer mode={2} />
+				<p>check completed tasks</p>
+				<p class="text-xs opacity-50">tasks will reset on daily/weeky reset</p>
 			</div>
-		</div>
-		<button class="btn btn-circle text-2xl" onclick="modalInstructions.showModal()"
-			><i class="fa-solid fa-info"></i></button
-		>
 
-		<dialog id="modalInstructions" class="modal modal-bottom sm:modal-middle">
-			<div class="modal-box">
-				<h3 class="text-lg font-bold">Instructions</h3>
-				<div class="info-grid grid items-center gap-4 p-4">
-					<div class="flex items-center justify-center text-2xl">
-						<i class="fa-solid fa-gear"></i>
+			<div class="flex items-center justify-center text-2xl">
+				<i class="fa-regular fa-circle-question"></i>
+			</div>
+			<div class="flex flex-col">
+				<p>link to relevant information</p>
+				<p class="text-xs opacity-50">wiki, calculators</p>
+			</div>
+			<div class="flex flex-col items-center justify-center text-2xl">
+				<i class="fa-regular fa-clock text-lg"></i>
+				<i class="fa-regular fa-calendar text-lg"></i>
+			</div>
+			<div class="flex flex-col">
+				<p>reset interval</p>
+				<p class="text-xs opacity-50">daily, weekly</p>
+			</div>
+			<div class="flex items-center justify-center">
+				<span class="countdown font-mono">00:13:37</span>
+			</div>
+			<div class="flex flex-col">
+				<p>countdown to next event</p>
+				<div class="flex flex-row gap-4 text-xs opacity-50">
+					<div class="flex items-center gap-2">
+						<i class="fa-solid fa-play"></i><span>active</span>
 					</div>
-
-					<div class="flex flex-col">
-						<p>select displayed tasks</p>
-						<p class="text-xs opacity-50">items, vendors, actions, events</p>
-					</div>
-
-					<div class="flex items-center justify-center text-2xl">
-						<i class="fa-solid fa-square-check"></i>
-					</div>
-					<div class="flex flex-col">
-						<p>check completed tasks</p>
-						<p class="text-xs opacity-50">tasks will reset on daily/weeky reset</p>
-					</div>
-
-					<div class="flex items-center justify-center text-2xl">
-						<i class="fa-regular fa-circle-question"></i>
-					</div>
-					<div class="flex flex-col">
-						<p>link to relevant information</p>
-						<p class="text-xs opacity-50">wiki, calculators</p>
-					</div>
-					<div class="flex flex-col items-center justify-center text-2xl">
-						<i class="fa-regular fa-clock text-lg"></i>
-						<i class="fa-regular fa-calendar text-lg"></i>
-					</div>
-					<div class="flex flex-col">
-						<p>reset interval</p>
-						<p class="text-xs opacity-50">daily, weekly</p>
-					</div>
-					<div class="flex items-center justify-center">
-						<span class="countdown font-mono">00:13:37</span>
-					</div>
-					<div class="flex flex-col">
-						<p>countdown to next event</p>
-						<div class="flex flex-row gap-4 text-xs opacity-50">
-							<div class="flex items-center gap-2">
-								<i class="fa-solid fa-play"></i><span>active</span>
-							</div>
-							<div class="flex items-center gap-2">
-								<i class="fa-solid fa-stopwatch"></i><span>soon</span>
-							</div>
-						</div>
-					</div>
-					<div class="flex items-center justify-center text-2xl">
-						<i class="fa-solid fa-bell text-2xl"></i>
-					</div>
-					<div class="flex flex-col">
-						<p>set alarm for next event</p>
-						<p class="text-xs opacity-50">requires permission for browser notifications</p>
+					<div class="flex items-center gap-2">
+						<i class="fa-solid fa-stopwatch"></i><span>soon</span>
 					</div>
 				</div>
 			</div>
-			<form method="dialog" class="modal-backdrop">
-				<button>close</button>
-			</form>
-		</dialog>
-
-		<label for="my-drawer" class="btn btn-circle drawer-button text-2xl"
-			><i class="fa-solid fa-gear"></i></label
-		>
+			<div class="flex items-center justify-center text-2xl">
+				<i class="fa-solid fa-bell text-2xl"></i>
+			</div>
+			<div class="flex flex-col">
+				<p>set alarm for next event</p>
+				<p class="text-xs opacity-50">requires permission for browser notifications</p>
+			</div>
+		</div>
 	</div>
+	<form method="dialog" class="modal-backdrop">
+		<button>close</button>
+	</form>
+</dialog>
+
+<div class="flex flex-row items-center justify-between">
+	<Header
+		title="Reset Checklist"
+		subtitle="Choose displayed timegated tasks in the options menu and track progress"
+	>
+		<div class="flex flex-row items-center gap-4 text-sm">
+			<div class="flex flex-row flex-wrap justify-end text-right">
+				<div class="flex flex-col">
+					<span>Daily:</span>
+					<IntervalTimer mode={1} />
+				</div>
+				<div class="flex flex-col">
+					<span>Weekly:</span>
+					<IntervalTimer mode={2} />
+				</div>
+			</div>
+
+			<label for="my-drawer" class="btn max-md:btn-circle drawer-button"
+				><i class="fa-solid fa-gear"></i><span class="hidden md:block">Tracked tasks</span></label
+			>
+
+			<button class="btn max-md:btn-circle" onclick="modalInstructions.showModal()"
+				><i class="fa-solid fa-info"></i><span class="hidden md:block">Instructions</span></button
+			>
+		</div>
+	</Header>
 </div>
 
 <div class="container mx-auto columns-1 gap-2 md:columns-2 lg:columns-3 2xl:columns-4">
