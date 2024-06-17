@@ -1,5 +1,19 @@
-<script>
+<script lang="ts">
+	import { onNavigate } from '$app/navigation';
 	import './styles.css';
+
+	onNavigate((navigation) => {
+		// @ts-ignore
+		if (!document.startViewTransition) return;
+
+		return new Promise((resolve) => {
+			// @ts-ignore
+			document.startViewTransition(async () => {
+				resolve();
+				await navigation.complete;
+			});
+		});
+	});
 </script>
 
 <div class="app bg-base-300 flex min-h-dvh flex-col">
