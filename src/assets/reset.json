@@ -3118,12 +3118,20 @@
                 }
             },
             {
-                "id": "FangsThatGnash",
-                "name": "The Fangs That Gnash",
+                "id": "IgnaxiousKnaebelag",
+                "name": "Ignaxious / Knaebelag",
                 "interval": "daily",
                 "icon": "https://wiki.guildwars2.com/images/e/e5/Nayos_Hoard.png",
                 "info": "Inner Nayos",
                 "link": "https://wiki.guildwars2.com/wiki/Inner_Nayos:_Hero%27s_Choice_Chest"
+            },
+            {
+                "id": "Eparch",
+                "name": "Eparch, the Consumed King",
+                "interval": "daily",
+                "icon": "https://wiki.guildwars2.com/images/e/e5/Nayos_Hoard.png",
+                "info": "Inner Nayos",
+                "link": "https://wiki.guildwars2.com/wiki/Citadel_of_Zakiros:_Hero%27s_Choice_Chest"
             },
             {
                 "id": "Convergences",
