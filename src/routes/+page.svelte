@@ -34,9 +34,10 @@
 	<title>GW2Tools: Home</title>
 </svelte:head>
 
-<Header title="Henahax' Guild Wars 2 Tools">
-	<span class="text-sm">Tool Collection for efficiency and profit</span>
-</Header>
+<Header
+	title="Henahax' Guild Wars 2 Tools"
+	subtitle="Tool Collection for efficiency and profit"
+></Header>
 
 <div class="mx-auto flex flex-col justify-center">
 	<div class="mx-auto grid grid-cols-1 grid-rows-1 gap-4 py-8 md:grid-cols-2 lg:grid-cols-3">

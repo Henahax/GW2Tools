@@ -30,10 +30,49 @@
 	<title>GW2Tools: Magic Find</title>
 </svelte:head>
 
-<Header title="Magic Find Calculator">
-	<span class="text-sm"
-		>Plan your magic find buffs to reach the maximum cap without wasting limited boosters</span
-	>
+<!-- overlays -->
+<dialog id="modalInstructions" class="modal modal-bottom sm:modal-middle">
+	<div class="modal-box">
+		<h3 class="text-lg font-bold">Instructions</h3>
+		<div class="info-grid grid items-center gap-4 p-4">
+			<div class="flex items-center justify-center text-2xl">
+				<i class="fa-solid fa-square-check"></i>
+			</div>
+			<div class="flex flex-col">
+				<p>choose items</p>
+				<p class="text-xs opacity-50">check boxes or fill in values</p>
+			</div>
+
+			<div class="flex items-center justify-center text-2xl">
+				<i class="fa-solid fa-percent"></i>
+			</div>
+			<div class="flex flex-col">
+				<p>use the calculator</p>
+				<p class="text-xs opacity-50">reach maximum magic find of 750%</p>
+			</div>
+
+			<div class="flex items-center justify-center text-2xl">
+				<i class="fa-solid fa-piggy-bank"></i>
+			</div>
+			<div class="flex flex-col">
+				<p>save boosters</p>
+				<p class="text-xs opacity-50">let them collect even more dust</p>
+			</div>
+		</div>
+	</div>
+	<form method="dialog" class="modal-backdrop">
+		<button>close</button>
+	</form>
+</dialog>
+
+<Header
+	title="Magic Find Calculator"
+	subtitle="Plan your magic find buffs to reach the maximum cap without wasting limited boosters"
+>
+	<button class="btn max-md:btn-circle" onclick="modalInstructions.showModal()">
+		<i class="fa-solid fa-info"></i>
+		<span class="hidden md:block">Instructions</span>
+	</button>
 </Header>
 
 <table class="table-zebra table-xs table-pin-rows table">
@@ -65,3 +104,9 @@
 		</tr>
 	</tfoot>
 </table>
+
+<style>
+	.info-grid {
+		grid-template-columns: fit-content(0) 1fr;
+	}
+</style>

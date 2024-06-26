@@ -97,10 +97,7 @@
 	<title>GW2Tools: Ecto Salvage</title>
 </svelte:head>
 
-<Header title="Ecto Salvage">
-	<span class="text-sm">Is salvaging Ectos to Dust profitable?</span>
-	<span class="text-sm">initial prices are the current prices from the trading post</span>
-</Header>
+<Header title="Ecto Salvage" subtitle="Is salvaging Ectos to Dust profitable?"></Header>
 
 <div class="flex flex-col gap-2">
 	<div class="mx-auto grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3">
