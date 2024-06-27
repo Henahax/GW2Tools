@@ -177,6 +177,15 @@
                 "info": "Dugan on WvW-Maps",
                 "link": "https://wiki.guildwars2.com/wiki/Mist-Hardened_Lockbox_Key",
                 "display": true
+            },
+            {
+                "id": "MysticClovers",
+                "name": "Mystic Clovers",
+                "interval": "weekly",
+                "icon": "https://wiki.guildwars2.com/images/7/7c/Mystic_Clover.png",
+                "info": "vendors for various currencies",
+                "link": "https://wiki.guildwars2.com/wiki/Mystic_Clover",
+                "display": true
             }
         ]
     },
