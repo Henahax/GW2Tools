@@ -2269,6 +2269,14 @@
                         ]
                     ]
                 }
+            },
+            {
+                "id": "TheBattleOfDragonfall",
+                "name": "The Battle of Dragonfall",
+                "interval": "daily",
+                "icon": "https://wiki.guildwars2.com/images/d/da/Gift_of_Aurene_%28container%29.png",
+                "info": "Dragonfall",
+                "link": "https://wiki.guildwars2.com/wiki/The_Battle_of_Dragonfall"
             }
         ]
     },
