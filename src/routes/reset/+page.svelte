@@ -139,7 +139,7 @@
 		subtitle="Choose displayed timegated tasks in the options menu and track progress"
 	>
 		<div class="flex flex-row items-center gap-4 text-sm">
-			<div class="flex flex-row flex-wrap justify-end text-right">
+			<div class="flex flex-row flex-wrap justify-end gap-4 text-right">
 				<div class="flex flex-col">
 					<span>Daily:</span>
 					<IntervalTimer mode={1} />
