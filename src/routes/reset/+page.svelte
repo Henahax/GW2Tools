@@ -35,6 +35,8 @@
 		}
 		return data;
 	}
+
+	let filter = '';
 </script>
 
 <svelte:head>
@@ -53,12 +55,19 @@
 			<!-- Sidebar content here -->
 			<h2 class="text-lg font-bold">Displayed tasks</h2>
 
+			<label class="input input-bordered input-sm flex items-center gap-2">
+				<i class="fa-solid fa-magnifying-glass"></i>
+				<input type="text" class="grow" placeholder="Search" bind:value={filter} />
+			</label>
+
 			<div class="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 2xl:columns-5">
 				{#each $dataStore as category}
-					<div class="break-inside-avoid py-2">
+					<div class="settingsCategory break-inside-avoid py-2">
 						<div class="text-sm font-semibold">{category.name}</div>
 						<ul>
-							{#each category.tasks as task}
+							{#each category.tasks.filter((task) => task.name
+									.toLowerCase()
+									.includes(filter.toLowerCase())) as task}
 								<SettingsTask {task} />
 							{/each}
 						</ul>
@@ -170,5 +179,9 @@
 <style>
 	.info-grid {
 		grid-template-columns: fit-content(0) 1fr;
+	}
+
+	.settingsCategory:not(:has(li)) {
+		display: none;
 	}
 </style>
