@@ -81,8 +81,16 @@
             },
             {
                 "id": "WizardsTowerExchange",
-                "name": "Wizard's Tower Exchange",
+                "name": "Wizard's Tower Exchange (daily)",
                 "interval": "daily",
+                "icon": "https://wiki.guildwars2.com/images/c/cd/Portable_Wizard%27s_Tower_Exchange.png",
+                "info": "Wizard's Tower or Portable Wizard's Tower Exchange",
+                "link": "https://wiki.guildwars2.com/wiki/Gharr_Leadclaw"
+            },
+            {
+                "id": "WizardsTowerExchangeWeekly",
+                "name": "Wizard's Tower Exchange (weekly)",
+                "interval": "weekly",
                 "icon": "https://wiki.guildwars2.com/images/c/cd/Portable_Wizard%27s_Tower_Exchange.png",
                 "info": "Wizard's Tower or Portable Wizard's Tower Exchange",
                 "link": "https://wiki.guildwars2.com/wiki/Gharr_Leadclaw"
@@ -159,6 +167,22 @@
                 "icon": "https://wiki.guildwars2.com/images/9/96/Divine_Lucky_Envelope.png",
                 "info": "Lunar New Year festival",
                 "link": "https://wiki.guildwars2.com/wiki/Divine_Lucky_Envelope"
+            },
+            {
+                "id": "TyrianDefenseSeals",
+                "name": "Tyrian Defense Seals Discounted",
+                "interval": "daily",
+                "icon": "https://wiki.guildwars2.com/images/4/40/Tyrian_Defense_Seal_%28item%29.png",
+                "info": "Tyrn Ironmaw, Eye of the North",
+                "link": "https://fast.farming-community.eu/conversions/tyrian-defense-seal"
+            },
+            {
+                "id": "EternalIce",
+                "name": "Eternal Ice",
+                "interval": "daily",
+                "icon": "https://wiki.guildwars2.com/images/2/23/Eternal_Ice_Shard.png",
+                "info": "Kjep Corrson, Eye of the North",
+                "link": "https://wiki.guildwars2.com/wiki/Eternal_Ice_Shard#Sold_by"
             },
             {
                 "id": "AntiqueSummoningStones",
