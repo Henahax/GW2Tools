@@ -2,6 +2,33 @@
 
 Tool Collection for Guild Wars 2
 
+## 📖 Features
+
+### Reset
+
+- checklist item config
+- reset timers
+- item checklist
+- item links
+- item timers
+
+#### todo
+
+- alarm
+- alternated boss timer
+- other harvesting routes
+
+### Magicfind
+
+- checklist
+- calculator
+
+### Ecto Salvage
+
+- all tools
+- essence of luck
+- profit caltulator
+
 ## 🎯 Goal
 
 - Combine my previous Guild Wars 2 projects into a single one
