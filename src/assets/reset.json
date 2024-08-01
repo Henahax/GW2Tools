@@ -3236,7 +3236,7 @@
         "tasks": [
             {
                 "id": "FourWindsTreasureHunt",
-                "name": "Festival of the Four Winds: Treasure Hunt",
+                "name": "Treasure Hunt",
                 "interval": "daily",
                 "icon": "https://wiki.guildwars2.com/images/0/03/Bazaar_of_the_Four_Winds.png",
                 "info": "Labyrinthine Cliffs",
