@@ -235,6 +235,30 @@
                 "info": "Harvesting Nodes, Vendors, Bartender Boosts",
                 "link": "https://wiki.guildwars2.com/wiki/Guild_hall#Features",
                 "display": true
+            },
+            {
+                "id": "PermanentGatheringNodes",
+                "name": "Permanent Gathering Nodes",
+                "interval": "daily",
+                "icon": "https://wiki.guildwars2.com/images/4/43/Orichalcum_Ore.png",
+                "info": "Rich Ores, Tree Circles, Gardens",
+                "link": "https://gw2efficiency.com/gathering/permanent-nodes?filter.order_by=profit"
+            },
+            {
+                "id": "UplandsOasis",
+                "name": "Uplands Oasis",
+                "interval": "daily",
+                "icon": "https://wiki.guildwars2.com/images/e/ed/Fire_Orchid_Blossom.png",
+                "info": "Dry Top",
+                "link": "https://wiki.guildwars2.com/wiki/Uplands_Oasis"
+            },
+            {
+                "id": "HiddenGarden",
+                "name": "Hidden Garden",
+                "interval": "daily",
+                "icon": "https://wiki.guildwars2.com/images/c/cb/Leaf_of_Kudzu.png",
+                "info": "Mount Maelstrom",
+                "link": "https://wiki.guildwars2.com/wiki/Hidden_Garden"
             }
         ]
     },
