@@ -26,9 +26,13 @@
 	<label class="flex w-full flex-row items-center px-0 py-1">
 		<input type="checkbox" class="checkbox size-6" bind:checked on:change={handleChange} />
 		<img src={task.icon} alt={task.name} class="size-6 rounded-md" />
-
-		<div class="text-sm">
-			{task.name}
+		<div>
+			<div class="text-sm">
+				{task.name}
+			</div>
+			<div class="text-xs text-neutral-500">
+				{task.info}
+			</div>
 		</div>
 	</label>
 </li>

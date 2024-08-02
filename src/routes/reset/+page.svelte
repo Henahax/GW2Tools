@@ -53,7 +53,10 @@
 		<label for="my-drawer" aria-label="close sidebar" class="drawer-overlay"></label>
 		<div class="menu bg-base-200 text-base-content min-h-full w-fit p-4">
 			<!-- Sidebar content here -->
-			<h2 class="text-lg font-bold">Displayed tasks</h2>
+			<div class="flex justify-between">
+				<h2 class="text-lg font-bold">Displayed tasks</h2>
+				<label for="my-drawer" aria-label="close sidebar" class="btn btn-circle btn-sm">✕</label>
+			</div>
 
 			<label class="input input-bordered input-sm flex items-center gap-2">
 				<i class="fa-solid fa-magnifying-glass"></i>
