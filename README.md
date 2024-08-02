@@ -17,6 +17,8 @@ Tool Collection for Guild Wars 2
 - alarm
 - alternated boss timer
 - other harvesting routes
+- daily/weekly split
+- more compact design
 
 ### Magicfind
 
