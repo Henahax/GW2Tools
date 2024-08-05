@@ -10,12 +10,17 @@
 		for (let c = 0; c < $dataStore.length; c++) {
 			for (let i = 0; i < $dataStore[c].items.length; i++) {
 				if (item.id === $dataStore[c].items[i].id) {
-					if (event.target.type === 'checkbox') {
-						$dataStore[c].items[i].checked = isChecked;
-					} else if (event.target.type === 'number') {
-						$dataStore[c].items[i].value = value;
-					} else if (event.target.type === 'select-one') {
-						$dataStore[c].items[i].value = selected;
+					switch (event.target.type) {
+						case 'checkbox':
+							$dataStore[c].items[i].checked = isChecked;
+							break;
+						case 'number':
+							$dataStore[c].items[i].value = value;
+							break;
+						case 'select-one':
+							$dataStore[c].items[i].value = selected;
+							break;
+						default:
 					}
 				}
 			}

@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { dataStore as dataStore } from './store';
 	import { onMount } from 'svelte';
+	import type { MagicFindCategory, MagicFindItem } from './types';
 	import Title from '$lib/Title.svelte';
 	import Item from './Item.svelte';
 	import data from './magicfind.json';
@@ -15,13 +16,14 @@
 
 	function getSum() {
 		sum = 0;
-		for (let c = 0; c < $dataStore.length; c++) {
-			for (let i = 0; i < $dataStore[c].items.length; i++) {
-				if ($dataStore[c].items[i].checked) {
-					sum += $dataStore[c].items[i].value;
+
+		$dataStore.forEach((category: MagicFindCategory) => {
+			category.items.forEach((item: MagicFindItem) => {
+				if (item.checked) {
+					sum += item.value;
 				}
-			}
-		}
+			});
+		});
 	}
 </script>
 
