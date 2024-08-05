@@ -1,5 +1,5 @@
 <script>
-	import Header from '../lib/header.svelte';
+	import Title from '../lib/Title.svelte';
 	let tools = [
 		{
 			name: 'Reset',
@@ -14,7 +14,7 @@
 			]
 		},
 		{
-			name: 'Magicfind',
+			name: 'Magic Find',
 			path: '/magicfind',
 			icon: 'fa-solid fa-clover',
 			description: 'calculator for optimising magic find',
@@ -34,16 +34,14 @@
 	<title>GW2Tools: Home</title>
 </svelte:head>
 
-<Header
-	title="Henahax' Guild Wars 2 Tools"
-	subtitle="Tool Collection for efficiency and profit"
-></Header>
+<Title title="Henahax' Guild Wars 2 Tools" subtitle="Tool Collection for efficiency and profit"
+></Title>
 
 <div class="mx-auto flex flex-col justify-center">
 	<div class="mx-auto grid grid-cols-1 grid-rows-1 gap-4 py-8 md:grid-cols-2 lg:grid-cols-3">
 		{#each tools as tool}
 			<a
-				class="card bg-base-100 hover:bg-base-200 flex flex-col gap-2 p-8 text-center shadow"
+				class="card bg-base-300 hover:bg-base-200 flex flex-col gap-2 p-8 text-center shadow"
 				href={tool.path}
 			>
 				<i class="px-4 text-4xl {tool.icon}"></i>
