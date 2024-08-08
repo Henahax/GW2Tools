@@ -1,29 +1,53 @@
 <script lang="ts">
-	import { dataStore as dataStore } from './store';
-	import { onMount } from 'svelte';
-	import type { MagicFindCategory, MagicFindItem } from './types';
 	import Title from '$lib/Title.svelte';
-	import Item from './Item.svelte';
-	import data from './magicfind.json';
+	import ItemThing from './Item.svelte';
+	import magicfind from './magicfind.json';
 
-	onMount(() => {
-		$dataStore = data;
-	});
+	import { MagicfindCategory, MagicfindItem, MagicfindItemName } from './classes';
 
-	$: $dataStore, getSum();
+	const categories: MagicfindCategory[] = magicfind.map(
+		(category: any) =>
+			new MagicfindCategory(
+				category.id,
+				category.name,
+				category.items.map(
+					(item: any) =>
+						new MagicfindItem(
+							item.id,
+							item.type,
+							item.value,
+							item.icons,
+							item.names.map((name: any) => new MagicfindItemName(name.name, name.link)),
+							item.description,
+							item.checked,
+							item.options
+						)
+				)
+			)
+	);
 
-	let sum = 0;
+	const sum: number = $derived(getSum(categories));
 
-	function getSum() {
-		sum = 0;
-
-		$dataStore.forEach((category: MagicFindCategory) => {
-			category.items.forEach((item: MagicFindItem) => {
-				if (item.checked) {
-					sum += item.value;
+	function getSum(data: MagicfindCategory[]) {
+		let sum = 0;
+		data.forEach((category) => {
+			category.items.forEach((item) => {
+				switch (item.type) {
+					case 'checkbox': {
+						if (item.checked) {
+							sum += item.value;
+						}
+						break;
+					}
+					default:
+						{
+							sum += item.value;
+						}
+						break;
 				}
 			});
 		});
+		return sum;
 	}
 </script>
 
@@ -48,12 +72,12 @@
 		</tr>
 	</thead>
 	<tbody>
-		{#each $dataStore as category}
+		{#each categories as category}
 			<tr>
 				<th colspan="4">{category.name}</th>
 			</tr>
 			{#each category.items as item}
-				<Item {item} />
+				<ItemThing {item} />
 			{/each}
 		{/each}
 	</tbody>

@@ -1,30 +1,13 @@
 <script lang="ts">
-	import { dataStore } from './store';
-	export let item: any;
+	let { item } = $props();
 
-	let value = item.value;
-	let isChecked = item.checked;
-	let selected = item.value;
+	let value = $state(item.value);
+	let checked = $state(item.checked);
+	let selected = $state(item.selected);
 
-	function handleChange(event: any) {
-		for (let c = 0; c < $dataStore.length; c++) {
-			for (let i = 0; i < $dataStore[c].items.length; i++) {
-				if (item.id === $dataStore[c].items[i].id) {
-					switch (event.target.type) {
-						case 'checkbox':
-							$dataStore[c].items[i].checked = isChecked;
-							break;
-						case 'number':
-							$dataStore[c].items[i].value = value;
-							break;
-						case 'select-one':
-							$dataStore[c].items[i].value = selected;
-							break;
-						default:
-					}
-				}
-			}
-		}
+	function handleChange() {
+		//todo
+		return;
 	}
 </script>
 
@@ -37,20 +20,14 @@
 				type="number"
 				min="0"
 				max="350"
+				onchange={handleChange}
 				bind:value
-				on:change={handleChange}
 			/>
 		</td>
 	{/if}
 	{#if item.type === 'checkbox'}
 		<td>
-			<input
-				id={item.id}
-				class="checkbox"
-				type="checkbox"
-				bind:checked={isChecked}
-				on:change={handleChange}
-			/>
+			<input id={item.id} class="checkbox" type="checkbox" onchange={handleChange} bind:checked />
 		</td>
 		<td>
 			<label class="flex h-full w-full justify-end" for={item.id}>{item.value}</label>
@@ -61,8 +38,8 @@
 			<select
 				id={item.id}
 				class="select select-bordered select-sm w-full text-xs"
+				onchange={handleChange}
 				bind:value={selected}
-				on:change={handleChange}
 			>
 				{#each item.options as option}
 					<option value={option[0]}>{option[1]}</option>
