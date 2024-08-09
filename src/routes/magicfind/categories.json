@@ -1,0 +1,22 @@
+[
+    {
+        "id": "character",
+        "name": "Character (Account & Gear)"
+    },
+    {
+        "id": "effects",
+        "name": "Effects (Events & Festivals)"
+    },
+    {
+        "id": "banners",
+        "name": "Banners (Guild & Items)"
+    },
+    {
+        "id": "consumables",
+        "name": "Consumables (Crafting & Trading Post)"
+    },
+    {
+        "id": "boosters",
+        "name": "Boosters (Accountbound)"
+    }
+]

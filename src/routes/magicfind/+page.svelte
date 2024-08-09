@@ -1,53 +1,54 @@
 <script lang="ts">
 	import Title from '$lib/Title.svelte';
-	import ItemThing from './Item.svelte';
-	import magicfind from './magicfind.json';
+	import categories from './categories.json';
+	import itemList from './items.json';
 
-	import { MagicfindCategory, MagicfindItem, MagicfindItemName } from './classes';
+	let items = $state(itemList);
 
-	const categories: MagicfindCategory[] = magicfind.map(
-		(category: any) =>
-			new MagicfindCategory(
-				category.id,
-				category.name,
-				category.items.map(
-					(item: any) =>
-						new MagicfindItem(
-							item.id,
-							item.type,
-							item.value,
-							item.icons,
-							item.names.map((name: any) => new MagicfindItemName(name.name, name.link)),
-							item.description,
-							item.checked,
-							item.options
-						)
-				)
-			)
-	);
+	let sum: number = $state(0);
 
-	const sum: number = $derived(getSum(categories));
+	$effect(() => {
+		sum = Number(getSum());
+		console.log(items);
+	});
 
-	function getSum(data: MagicfindCategory[]) {
-		let sum = 0;
-		data.forEach((category) => {
-			category.items.forEach((item) => {
-				switch (item.type) {
-					case 'checkbox': {
-						if (item.checked) {
-							sum += item.value;
-						}
-						break;
+	function changeChecked(event: Event) {
+		const inputElement = event.target as HTMLInputElement;
+		const item = items.find((element) => element.id === inputElement.id);
+		item.checked = inputElement.checked;
+	}
+
+	function changeValue(event: Event) {
+		const inputElement = event.target as HTMLInputElement;
+		const item = items.find((element) => element.id === inputElement.id);
+		item.value = inputElement.value;
+	}
+
+	function changeSelected(event: Event) {
+		const inputElement = event.target as HTMLInputElement;
+		const item = items.find((element) => element.id === inputElement.id);
+		item.selected = inputElement.options.selected;
+		item.value = inputElement.value;
+	}
+
+	function getSum() {
+		let i: number = 0;
+		items.forEach((item) => {
+			switch (item.type) {
+				case 'checkbox': {
+					if (item.checked) {
+						i += Number(item.value);
 					}
-					default:
-						{
-							sum += item.value;
-						}
-						break;
+					break;
 				}
-			});
+				case 'number':
+				case 'select': {
+					i += Number(item.value);
+					break;
+				}
+			}
 		});
-		return sum;
+		return i;
 	}
 </script>
 
@@ -63,9 +64,9 @@
 <table class="table-zebra table-xs table-pin-rows table">
 	<thead class="text-sm">
 		<tr class="bg-base-300 shadow">
-			<th class="flex w-fit items-center"
-				><input class="checkbox" type="checkbox" disabled checked /></th
-			>
+			<th class="flex w-fit items-center">
+				<input class="checkbox" type="checkbox" disabled checked />
+			</th>
 			<th class="text-right">value</th>
 			<th></th>
 			<th>info</th>
@@ -76,15 +77,85 @@
 			<tr>
 				<th colspan="4">{category.name}</th>
 			</tr>
-			{#each category.items as item}
-				<ItemThing {item} />
+			{#each items.filter((item) => item.category === category.id) as item}
+				<tr class="tr-hover">
+					{#if item.type === 'number'}
+						<td colspan="2" class="value text-right">
+							<input
+								id={item.id}
+								class="input input-bordered input-sm h-8 w-full text-right text-xs"
+								type="number"
+								min="0"
+								max="350"
+								value={item.value}
+								onchange={changeValue}
+							/>
+						</td>
+					{/if}
+					{#if item.type === 'checkbox'}
+						<td>
+							<input
+								id={item.id}
+								class="checkbox"
+								type="checkbox"
+								checked={item.checked}
+								onchange={changeChecked}
+							/>
+						</td>
+						<td>
+							<label class="flex h-full w-full justify-end" for={item.id}>
+								{item.value}
+							</label>
+						</td>
+					{/if}
+					{#if item.type === 'select'}
+						<td colspan="2" class="value text-right">
+							<select
+								id={item.id}
+								class="select select-bordered select-sm w-full text-xs"
+								onchange={changeSelected}
+							>
+								{#if item.options}
+									{#each item.options as option}
+										<option value={option.value}>
+											{option.description}
+										</option>
+									{/each}
+								{/if}
+							</select>
+						</td>
+					{/if}
+					<td>
+						<label class="flex flex-row flex-wrap items-center" for={item.id}>
+							{#each item.icons as icon}
+								<img class="size-6 min-w-6" src={icon} alt={item.description} />
+							{/each}
+						</label>
+					</td>
+					<td>
+						<label for={item.id} class="flex flex-col">
+							<div class="inline-flex flex-wrap gap-x-2">
+								{#each item.names as name}
+									<a class="link link-primary text-sm font-semibold" href={name.link}>
+										{name.name}
+									</a>
+								{/each}
+							</div>
+							<div class="text-xs">
+								{item.description}
+							</div>
+						</label>
+					</td>
+				</tr>
 			{/each}
 		{/each}
 	</tbody>
 	<tfoot>
 		<tr class="bg-base-300 text-lg shadow">
 			<th></th>
-			<th class="text-right {sum < 750 ? 'text-red-500' : 'text-green-500'}">{sum}</th>
+			<th class="text-right {sum < 750 ? 'text-red-500' : 'text-green-500'}">
+				{sum}
+			</th>
 			<th colspan="2" class="normal-case">% (of max 750%)</th>
 		</tr>
 	</tfoot>
