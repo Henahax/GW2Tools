@@ -3,7 +3,7 @@ export interface Item {
 	category: string;
 	type: 'number' | 'checkbox' | 'select';
 	value: number;
-	icons: ItemIcon[];
+	icons: string[];
 	names: ItemName[];
 	description: string;
 	checked?: boolean; // Optional, since it's not always present
@@ -19,5 +19,3 @@ interface ItemName {
 	name: string;
 	link: string;
 }
-
-type ItemIcon = string;

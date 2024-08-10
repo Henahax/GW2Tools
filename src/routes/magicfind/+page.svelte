@@ -36,6 +36,7 @@
 
 	function getSum(item: Item[]) {
 		let i: number = 0;
+
 		items.forEach((item) => {
 			switch (item.type) {
 				case 'checkbox': {
