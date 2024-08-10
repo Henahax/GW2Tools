@@ -2,48 +2,53 @@
 	import Title from '$lib/Title.svelte';
 	import categories from './categories.json';
 	import itemList from './items.json';
+	import type { Item } from './types';
 
-	let items = $state(itemList);
+	let items: Item[] = $state(itemList);
 
-	let sum: number = $state(0);
+	let sum: number = $derived(getSum(items));
 
-	$effect(() => {
-		sum = Number(getSum());
-		console.log(items);
-	});
+	$effect(() => {});
 
 	function changeChecked(event: Event) {
 		const inputElement = event.target as HTMLInputElement;
-		const item = items.find((element) => element.id === inputElement.id);
-		item.checked = inputElement.checked;
+		const item = items.find((element: Item) => element.id === inputElement.id);
+		if (item) {
+			item.checked = inputElement.checked;
+		}
 	}
 
 	function changeValue(event: Event) {
 		const inputElement = event.target as HTMLInputElement;
-		const item = items.find((element) => element.id === inputElement.id);
-		item.value = inputElement.value;
+		const item = items.find((element: Item) => element.id === inputElement.id);
+		if (item) {
+			item.value = Number(inputElement.value);
+		}
 	}
 
 	function changeSelected(event: Event) {
-		const inputElement = event.target as HTMLInputElement;
-		const item = items.find((element) => element.id === inputElement.id);
-		item.selected = inputElement.options.selected;
-		item.value = inputElement.value;
+		const inputElement = event.target as HTMLSelectElement;
+		const item = items.find((element: Item) => element.id === inputElement.id);
+		if (item) {
+			item.value = Number(inputElement.value);
+		}
 	}
 
-	function getSum() {
+	function getSum(item: Item[]) {
 		let i: number = 0;
 		items.forEach((item) => {
 			switch (item.type) {
 				case 'checkbox': {
-					if (item.checked) {
-						i += Number(item.value);
+					if (item.checked && item.value) {
+						i += item.value;
 					}
 					break;
 				}
 				case 'number':
 				case 'select': {
-					i += Number(item.value);
+					if (item.value) {
+						i += item.value;
+					}
 					break;
 				}
 			}
@@ -61,7 +66,7 @@
 	subtitle="Plan your magic find buffs to reach the maximum cap without wasting limited boosters"
 ></Title>
 
-<table class="table-zebra table-xs table-pin-rows table">
+<table class="table-zebra table-xs table-pin-rows mx-auto table w-fit">
 	<thead class="text-sm">
 		<tr class="bg-base-300 shadow">
 			<th class="flex w-fit items-center">
