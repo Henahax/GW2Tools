@@ -71,24 +71,24 @@
 	</div>
 </Title>
 
-<div class="mx-auto flex w-full flex-col justify-center gap-4 sm:flex-row">
+<div class="mx-auto flex w-full flex-col justify-center gap-4 px-4 sm:flex-row">
 	{#each intervals as interval}
-		<div class="w-fit">
-			<h2 class="px-4 py-2 text-lg font-semibold">
+		<div>
+			<h2 class="py-2 text-lg font-semibold">
 				{interval.tasks}
 			</h2>
-			<div class="gap-2 columns-1 {interval.id === 'daily' ? 'xl:columns-2 2xl:columns-3' : ''}">
+			<div class="columns-1 gap-2 {interval.id === 'daily' ? 'xl:columns-2 2xl:columns-3' : ''}">
 				{#each categories as category}
-					<div class="collapse collapse-arrow bg-base-300">
+					<div class="collapse-arrow bg-base-200 collapse border border-neutral-700 shadow">
 						<input class="collapse-checkbox" type="checkbox" title={interval.reset} checked />
 						<div class="collapse-title flex items-center gap-2 font-bold">
 							<i class={interval.class}></i>
 							{category.name}
 						</div>
 						<div class="collapse-content">
-							<ul class="flex flex-col gap-2">
+							<ul class="flex flex-col divide-y divide-neutral-700">
 								{#each tasks.filter((t) => t.interval === interval.id && t.category === category.id) as task}
-									<li class="flex flex-row items-center gap-2">
+									<li class="flex flex-row items-center gap-2 py-1">
 										<label class="flex w-full flex-row items-center gap-2">
 											<input
 												class="checkbox checkbox-lg"
@@ -136,5 +136,13 @@
 	}
 	.collapse:not(:last-child) {
 		margin-bottom: 0.5rem;
+	}
+
+	.collapse-content li:first-child {
+		padding-top: 0;
+	}
+
+	.collapse-content li:last-child {
+		padding-bottom: 0;
 	}
 </style>
