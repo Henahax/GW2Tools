@@ -1,12 +1,26 @@
 <script lang="ts">
 	import Title from '$lib/Title.svelte';
 	import taskList from './tasks.json';
+	import categories from './categories.json';
 
 	let tasks = $state(taskList);
-	let groupedTasks = $derived({
-		daily: tasks.filter((task) => task.interval === 'daily'),
-		weekly: tasks.filter((task) => task.interval === 'weekly')
-	});
+
+	let intervals = [
+		{
+			id: 'daily',
+			timer: 'Daily:',
+			tasks: 'Daily Tasks:',
+			reset: 'resets daily',
+			class: 'fa-regular fa-clock'
+		},
+		{
+			id: 'weekly',
+			timer: 'Weekly:',
+			tasks: 'Weekly Tasks:',
+			reset: 'resets weekly',
+			class: 'fa-regular fa-calendar'
+		}
+	];
 
 	/*
     dailies / weeklies split
@@ -34,21 +48,93 @@
 <Title
 	title="Reset Checklist"
 	subtitle="Choose displayed timegated tasks in the options menu and track progress"
-></Title>
+>
+	<div class="flex flex-row items-center gap-4">
+		<div class="flex flex-col gap-4 sm:flex-row">
+			{#each intervals as interval}
+				<div class="flex flex-col text-right">
+					<div>{interval.timer}</div>
+					<div>00:00:00</div>
+				</div>
+			{/each}
+		</div>
+		<div class="flex flex-col gap-4 sm:flex-row">
+			<button class="btn btn-outline max-md:btn-square">
+				<i class="fa-solid fa-gear"></i>
+				<div class="max-md:hidden">Settings</div>
+			</button>
+			<button class="btn btn-primary max-md:btn-square">
+				<i class="fa-solid fa-question"></i>
+				<div class="max-md:hidden">Info</div>
+			</button>
+		</div>
+	</div>
+</Title>
 
-<div class="flex flex-col p-4 md:flex-row">
-	{#each Object.entries(groupedTasks) as [interval, tasks]}
-		<div>
-			<h2 class="text-xl">{interval.charAt(0).toUpperCase() + interval.slice(1)} Tasks</h2>
-			<ul>
-				{#each tasks as task (task.id)}
-					<li>
-						<img src={task.icon} alt={task.name} width="32" height="32" />
-						<a href={task.link} target="_blank" rel="noopener noreferrer">{task.name}</a>
-						- {task.info}
-					</li>
+<div class="mx-auto flex w-full flex-col justify-center gap-4 sm:flex-row">
+	{#each intervals as interval}
+		<div class="w-fit">
+			<h2 class="px-4 py-2 text-lg font-semibold">
+				{interval.tasks}
+			</h2>
+			<div class="gap-2 columns-1 {interval.id === 'daily' ? 'xl:columns-2 2xl:columns-3' : ''}">
+				{#each categories as category}
+					<div class="collapse collapse-arrow bg-base-300">
+						<input class="collapse-checkbox" type="checkbox" title={interval.reset} checked />
+						<div class="collapse-title flex items-center gap-2 font-bold">
+							<i class={interval.class}></i>
+							{category.name}
+						</div>
+						<div class="collapse-content">
+							<ul class="flex flex-col gap-2">
+								{#each tasks.filter((t) => t.interval === interval.id && t.category === category.id) as task}
+									<li class="flex flex-row items-center gap-2">
+										<label class="flex w-full flex-row items-center gap-2">
+											<input
+												class="checkbox checkbox-lg"
+												type="checkbox"
+												bind:checked={task.checked}
+											/>
+											<img src={task.icon} alt={task.name} class="size-8" />
+											<div class="flex flex-col">
+												<div class="text-sm font-semibold">{task.name}</div>
+												<div class="text-xs opacity-70">{task.info}</div>
+											</div>
+										</label>
+										<div class="flex flex-col">
+											<div class="flex flex-row justify-end gap-1 text-sm">
+												<a href={task.link} title="more info">
+													<i class="fa-regular fa-circle-question"></i>
+												</a>
+												{#if task.timer}
+													<button title="set alarm">
+														<i class="fa-regular fa-bell"></i>
+													</button>
+												{/if}
+											</div>
+											{#if task.timer}
+												<div class="flex flex-col justify-end text-right text-xs">
+													<div>TimerDesc</div>
+													<div></div>
+												</div>
+											{/if}
+										</div>
+									</li>
+								{/each}
+							</ul>
+						</div>
+					</div>
 				{/each}
-			</ul>
+			</div>
 		</div>
 	{/each}
 </div>
+
+<style>
+	.collapse:not(:has(li)) {
+		display: none;
+	}
+	.collapse:not(:last-child) {
+		margin-bottom: 0.5rem;
+	}
+</style>
