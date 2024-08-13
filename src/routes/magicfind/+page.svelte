@@ -34,12 +34,12 @@
 <table class="table-zebra table-sm table-pin-rows table w-fit mx-auto">
 	<thead class="text-sm">
 		<tr class="bg-base-300 shadow">
-			<th class="w-fit">
-				<input class="checkbox size-6" type="checkbox" disabled checked />
+			<th>
+				<input class="checkbox" type="checkbox" disabled checked />
 			</th>
-			<th class="text-right w-fit">value</th>
-			<th class="w-fit"></th>
-			<th class="w-fit">info</th>
+			<th class="text-right">value</th>
+			<th></th>
+			<th>info</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -48,23 +48,23 @@
 				<th colspan="4">{category.name}</th>
 			</tr>
 			{#each items.filter((item) => item.category === category.id) as item}
-				<tr class="tr-hover">
+				<tr>
 					{#if item.type === 'checkbox'}
-						<td class="w-fit">
-							<input id={item.id} class="checkbox size-8" type="checkbox" bind:checked={item.checked} />
+						<td>
+							<input id={item.id} class="checkbox checkbox-lg" type="checkbox" bind:checked={item.checked} />
 						</td>
-						<td class="w-fit">
+						<td>
 							<label class="flex h-full w-full justify-end" for={item.id}>{item.value}</label>
 						</td>
 					{:else if item.type === 'number'}
-						<td colspan="2" class="w-fit">
+						<td colspan="2">
 							<input id={item.id} class="input input-bordered input-sm w-24 text-right" bind:value={item.value} />
 						</td>
 					{:else if item.type === 'select'}
-						<td colspan="2" class="w-fit">
+						<td colspan="2">
 							<select id={item.id} class="select select-bordered select-sm w-24" bind:value={item.value}>
 								{#each item.options as option}
-									<option value={option.value} label={option.description} />
+									<option value={option.value}>{option.description}</option>
 								{/each}
 							</select>
 						</td>
