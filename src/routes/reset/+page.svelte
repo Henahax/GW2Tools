@@ -2,8 +2,11 @@
 	import Title from '$lib/Title.svelte';
 	import taskList from './tasks.json';
 	import categories from './categories.json';
+	import type { Task } from './types';
+	import IntervalTimer from './IntervalTimer.svelte';
+	import EventTimer from './EventTimer.svelte';
 
-	let tasks = $state(taskList);
+	let tasks: Task[] = $state(taskList as Task[]);
 	let filter = $state('');
 
 	let intervals = [
@@ -22,24 +25,6 @@
 			class: 'fa-regular fa-calendar'
 		}
 	];
-
-	/*
-    dailies / weeklies split
-
-    categories:
-    - id
-    - name
-    - index
-
-    tasks:
-    - id
-    - category
-    - name
-    - location (location, vendor name) / info (items: consumes...) use for sorting
-    - interval
-    - icon
-    - link
-	 */
 </script>
 
 <svelte:head>
@@ -51,18 +36,18 @@
 	<div class="drawer-content">
 		<Title
 			title="Reset Checklist"
-			subtitle="Choose displayed timegated tasks in the options menu and track progress"
+			subtitle="Choose displayed time-gated tasks in the options menu and track progress"
 		>
 			<div class="flex flex-row items-center gap-4">
 				<div class="flex flex-col gap-4 sm:flex-row">
 					{#each intervals as interval}
 						<div class="flex flex-col text-right">
 							<div>{interval.timer}</div>
-							<div>00:00:01</div>
+							<IntervalTimer interval={interval.id}/>
 						</div>
 					{/each}
 				</div>
-				<div class="flex flex-col gap-4 sm:flex-row">
+				<div class="flex flex-col gap-2 sm:flex-row">
 					<label for="my-drawer" class="btn btn-outline max-md:btn-square">
 						<i class="fa-solid fa-gear"></i>
 						<div class="max-md:hidden">Settings</div>
@@ -78,14 +63,23 @@
 		<div class="mx-auto flex w-full flex-col justify-center gap-4 px-2 sm:flex-row">
 			{#each intervals as interval}
 				<div>
-					<h2 class="p-2 text-lg font-semibold">
+					<h3 class="p-2 text-lg font-bold">
 						{interval.tasks}
-					</h2>
+					</h3>
 					<div
 						class="columns-1 gap-2 {interval.id === 'daily' ? 'xl:columns-2 2xl:columns-3' : ''}"
 					>
 						{#each categories as category}
-							<div class="collapse-arrow bg-base-200 collapse border border-neutral-700 shadow-xl">
+							<div
+								class="collapse-arrow bg-base-300 collapse border border-neutral-700 shadow-xl"
+								class:opacity-50={tasks.filter(
+									(task) =>
+										task.interval === interval.id &&
+										task.category === category.id &&
+										task.display &&
+										!task.checked
+								).length === 0}
+							>
 								<input
 									class="collapse-checkbox"
 									type="checkbox"
@@ -115,27 +109,38 @@
 													<img src={task.icon} alt={task.name} class="size-8" />
 													<div class="flex flex-col">
 														<div class="text-sm font-semibold">{task.name}</div>
-														<div class="text-xs opacity-70">{task.info}</div>
+														{#if task.location}
+															<div class="text-xs opacity-70">
+																<i class="fa-solid fa-location-dot"></i>
+																{task.location}
+															</div>
+														{/if}
+														{#if task.description}
+															<div class="text-xs opacity-70">{task.description}</div>
+														{/if}
 													</div>
 												</label>
+												{#if !task.checked}
 												<div class="flex flex-col">
 													<div class="flex flex-row justify-end gap-1 text-sm">
 														<a href={task.link} title="more info">
 															<i class="fa-regular fa-circle-question"></i>
 														</a>
+														<!-- TODO: alarm
 														{#if task.timer}
 															<button title="set alarm">
 																<i class="fa-regular fa-bell"></i>
 															</button>
 														{/if}
+														-->
 													</div>
 													{#if task.timer}
 														<div class="flex flex-col justify-end text-right text-xs">
-															<div>TimerDesc</div>
-															<div></div>
+															<EventTimer task={task}/>
 														</div>
 													{/if}
 												</div>
+												{/if}
 											</li>
 										{/each}
 									</ul>
@@ -150,23 +155,25 @@
 	<div class="drawer-side z-50">
 		<label for="my-drawer" aria-label="close sidebar" class="drawer-overlay"></label>
 
-		<div class="bg-base-200 text-base-content flex min-h-full flex-col gap-4 p-4">
-			<div class="flex flex-row items-center justify-between gap-4">
-				<h2 class="text-xl">Displayed Tasks</h2>
-				<label for="my-drawer" aria-label="close sidebar" class="btn btn-ghost btn-xs btn-square">
-					<i class="fa-solid fa-xmark"></i>
+		<div class="bg-base-300 text-base-content flex h-full flex-col">
+			<div class="flex w-full flex-col gap-2 p-4">
+				<div class="flex flex-row items-center justify-between gap-4">
+					<h2 class="text-xl">Displayed Tasks</h2>
+					<label for="my-drawer" aria-label="close sidebar" class="btn btn-ghost btn-xs btn-square">
+						<i class="fa-solid fa-xmark"></i>
+					</label>
+				</div>
+
+				<label class="input input-bordered flex w-full items-center gap-2">
+					<i class="fa-solid fa-magnifying-glass"></i>
+					<input type="text" class="grow" placeholder="Search" bind:value={filter} />
 				</label>
 			</div>
 
-			<label class="input input-bordered flex w-full items-center gap-2">
-				<i class="fa-solid fa-magnifying-glass"></i>
-				<input type="text" class="grow" placeholder="Search" bind:value={filter} />
-			</label>
-
-			<div class="flex flex-col gap-4">
-				{#each intervals as interval}
+			<div class="flex w-full flex-col gap-4 overflow-y-auto p-4">
+				{#each intervals.reverse() as interval}
 					<div class="settingsInterval">
-						<h3 class="text-lg">{interval.tasks}</h3>
+						<h3 class="text-lg font-bold">{interval.tasks}</h3>
 						<div class="flex flex-col gap-2">
 							{#each categories as category}
 								<div class="settingsCategory">
@@ -174,20 +181,26 @@
 									<ul class="divide-y divide-neutral-700">
 										{#each tasks.filter((task) => task.interval === interval.id && task.category === category.id && (task.name
 													.toLowerCase()
-													.includes(filter.toLowerCase()) || task.info
-														.toLowerCase()
-														.includes(filter.toLowerCase()))) as task}
+													.includes(filter.toLowerCase()) || (task.description && task.description
+															.toLowerCase()
+															.includes(filter.toLowerCase())) || (task.location && task.location
+															.toLowerCase()
+															.includes(filter.toLowerCase())))) as task}
 											<li class="py-1">
 												<label class="flex flex-row items-center gap-2">
-													<input
-														class="checkbox checkbox-lg"
-														type="checkbox"
-														bind:checked={task.display}
-													/>
+													<input class="checkbox" type="checkbox" bind:checked={task.display} />
 													<img class="size-8" src={task.icon} alt={task.id} />
 													<div class="flex flex-col items-start">
-														<div class="text-sm">{task.name}</div>
-														<div class="text-xs opacity-70">{task.info}</div>
+														<div class="text-sm font-semibold">{task.name}</div>
+														{#if task.location}
+															<div class="text-xs opacity-70">
+																<i class="fa-solid fa-location-dot"></i>
+																{task.location}
+															</div>
+														{/if}
+														{#if task.description}
+															<div class="text-xs opacity-70">{task.description}</div>
+														{/if}
 													</div>
 												</label>
 											</li>
