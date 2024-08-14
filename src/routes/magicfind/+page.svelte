@@ -2,16 +2,17 @@
 	import Title from '$lib/Title.svelte';
 	import categories from './categories.json';
 	import itemList from './items.json';
+	import type {Item} from './types';
 
-	let items = $state(itemList);
-	let sum = $derived(getSum(items));
+	let items:Item[] = $state(itemList as Item[]);
+	let sum:number = $derived(getSum(items));
 
-	function getSum(myItems) {
+	function getSum(myItems:Item[]) {
 		let mySum: number = 0;
 		myItems.forEach((item) => {
 			if (item.type === 'number' || (item.type === 'checkbox' && item.checked)) {
 				mySum += Number(item.value);
-			} else if (item.type === 'select') {
+			} else if (item.type === 'select' && item.options) {
 				const selectedOption = item.options.find((option) => option.value == item.value);
 				if (selectedOption) {
 					mySum += Number(selectedOption.value);
@@ -60,7 +61,7 @@
 						<td colspan="2">
 							<input id={item.id} class="input input-bordered input-sm w-24 text-right" bind:value={item.value} />
 						</td>
-					{:else if item.type === 'select'}
+					{:else if item.type === 'select' && item.options}
 						<td colspan="2">
 							<select id={item.id} class="select select-bordered select-sm w-24" bind:value={item.value}>
 								{#each item.options as option}
