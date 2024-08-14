@@ -75,7 +75,7 @@
 						>
 							{#each categories as category}
 								<div
-									class="collapse-arrow bg-base-300 collapse border border-neutral-700 shadow-xl"
+									class="collapse-arrow bg-base-100 card collapse shadow-xl"
 									class:opacity-50={tasks.filter(
 										(task) =>
 											task.interval === interval.id &&
@@ -96,12 +96,12 @@
 												!task.checked
 										).length > 0}
 									/>
-									<div class="collapse-title flex items-center gap-2 font-bold">
+									<div class="collapse-title flex items-center gap-2 font-semibold">
 										<i class={interval.class}></i>
 										{category.name}
 									</div>
 									<div class="collapse-content">
-										<ul class="flex flex-col divide-y divide-neutral-700">
+										<ul class="divide-base-300 flex flex-col divide-y">
 											{#each tasks.filter((task) => task.interval === interval.id && task.category === category.id && task.display) as task}
 												<li class="flex flex-row items-center gap-2 py-1">
 													<label class="flex w-full flex-row items-center gap-2">
@@ -196,7 +196,7 @@
 													<input class="checkbox" type="checkbox" bind:checked={task.display} />
 													<img class="size-8" src={task.icon} alt={task.id} />
 													<div class="flex flex-col items-start">
-														<div class="text-sm font-semibold">{task.name}</div>
+														<div class="text-sm">{task.name}</div>
 														{#if task.location}
 															<div class="text-xs opacity-70">
 																<i class="fa-solid fa-location-dot"></i>

@@ -18,7 +18,7 @@
 </script>
 
 <div class="app flex min-h-dvh flex-col">
-	<div class="bg-base-300 flex flex-row justify-center">
+	<div class="bg-base-200 flex flex-row justify-center">
 		<div class="navbar max-w-screen-2xl">
 			<div class="navbar-start">
 				<div class="dropdown">
@@ -26,7 +26,7 @@
 						<i class="fa-solid fa-bars"></i>
 					</div>
 					<ul
-						class="menu menu-sm dropdown-content bg-base-300 rounded-box top-10 z-[2] mt-3 w-40 gap-y-2 p-2 shadow"
+						class="menu menu-sm dropdown-content bg-base-100 rounded-box top-10 z-[2] mt-3 w-40 gap-y-2 p-2 shadow"
 					>
 						<NavItems />
 					</ul>
@@ -42,11 +42,11 @@
 		</div>
 	</div>
 
-	<main class="mx-auto w-full grow">
+	<main class="bg-base-300 mx-auto w-full grow">
 		<slot />
 	</main>
 
-	<footer class="footer flex items-center p-2 text-xs">
+	<footer class="footer bg-base-200 flex items-center p-2 text-xs">
 		<div class="grow"></div>
 		<div class="w-fit">© henahax.de 2024</div>
 		<div class="flex grow justify-end">
