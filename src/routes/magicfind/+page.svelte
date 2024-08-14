@@ -2,12 +2,12 @@
 	import Title from '$lib/Title.svelte';
 	import categories from './categories.json';
 	import itemList from './items.json';
-	import type {Item} from './types';
+	import type { Item } from './types';
 
-	let items:Item[] = $state(itemList as Item[]);
-	let sum:number = $derived(getSum(items));
+	let items: Item[] = $state(itemList as Item[]);
+	let sum: number = $derived(getSum(items));
 
-	function getSum(myItems:Item[]) {
+	function getSum(myItems: Item[]) {
 		let mySum: number = 0;
 		myItems.forEach((item) => {
 			if (item.type === 'number' || (item.type === 'checkbox' && item.checked)) {
@@ -30,9 +30,14 @@
 <Title
 	title="Magic Find Calculator"
 	subtitle="Plan your magic find buffs to reach the maximum cap without wasting limited boosters"
-/>
+>
+	<button class="btn btn-primary max-md:btn-square">
+		<i class="fa-solid fa-question"></i>
+		<div class="max-md:hidden">Info</div>
+	</button>
+</Title>
 
-<table class="table-zebra table-sm table-pin-rows table w-fit mx-auto">
+<table class="table-zebra table-sm table-pin-rows mx-auto table w-fit">
 	<thead class="text-sm">
 		<tr class="bg-base-300 shadow">
 			<th>
@@ -52,18 +57,31 @@
 				<tr>
 					{#if item.type === 'checkbox'}
 						<td>
-							<input id={item.id} class="checkbox checkbox-lg" type="checkbox" bind:checked={item.checked} />
+							<input
+								id={item.id}
+								class="checkbox checkbox-lg"
+								type="checkbox"
+								bind:checked={item.checked}
+							/>
 						</td>
 						<td>
 							<label class="flex h-full w-full justify-end" for={item.id}>{item.value}</label>
 						</td>
 					{:else if item.type === 'number'}
 						<td colspan="2">
-							<input id={item.id} class="input input-bordered input-sm w-24 text-right" bind:value={item.value} />
+							<input
+								id={item.id}
+								class="input input-bordered input-sm w-24 text-right"
+								bind:value={item.value}
+							/>
 						</td>
 					{:else if item.type === 'select' && item.options}
 						<td colspan="2">
-							<select id={item.id} class="select select-bordered select-sm w-24" bind:value={item.value}>
+							<select
+								id={item.id}
+								class="select select-bordered select-sm w-24"
+								bind:value={item.value}
+							>
 								{#each item.options as option}
 									<option value={option.value}>{option.description}</option>
 								{/each}
