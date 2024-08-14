@@ -12,15 +12,15 @@
 	let intervals = [
 		{
 			id: 'daily',
-			timer: 'Daily:',
-			tasks: 'Daily Tasks:',
+			timer: 'Daily',
+			tasks: 'Daily Tasks',
 			reset: 'resets daily',
 			class: 'fa-regular fa-clock'
 		},
 		{
 			id: 'weekly',
-			timer: 'Weekly:',
-			tasks: 'Weekly Tasks:',
+			timer: 'Weekly',
+			tasks: 'Weekly Tasks',
 			reset: 'resets weekly',
 			class: 'fa-regular fa-calendar'
 		}
@@ -42,8 +42,8 @@
 				<div class="flex flex-col gap-4 sm:flex-row">
 					{#each intervals as interval}
 						<div class="flex flex-col text-right">
-							<div>{interval.timer}</div>
-							<IntervalTimer interval={interval.id}/>
+							<div>{interval.timer}:</div>
+							<IntervalTimer interval={interval.id} />
 						</div>
 					{/each}
 				</div>
@@ -62,93 +62,98 @@
 
 		<div class="mx-auto flex w-full flex-col justify-center gap-4 px-2 sm:flex-row">
 			{#each intervals as interval}
-				<div>
-					<h3 class="p-2 text-lg font-bold">
-						{interval.tasks}
-					</h3>
-					<div
-						class="columns-1 gap-2 {interval.id === 'daily' ? 'xl:columns-2 2xl:columns-3' : ''}"
-					>
-						{#each categories as category}
-							<div
-								class="collapse-arrow bg-base-300 collapse border border-neutral-700 shadow-xl"
-								class:opacity-50={tasks.filter(
-									(task) =>
-										task.interval === interval.id &&
-										task.category === category.id &&
-										task.display &&
-										!task.checked
-								).length === 0}
-							>
-								<input
-									class="collapse-checkbox"
-									type="checkbox"
-									title={interval.reset}
-									checked={tasks.filter(
+				{#if tasks.filter((task) => task.interval === interval.id && task.display).length > 0}
+					<div>
+						<h3 class="p-2 text-lg font-bold">
+							{interval.tasks} ({tasks.filter(
+								(task) => task.interval === interval.id && task.display && task.checked
+							).length}/{tasks.filter((task) => task.interval === interval.id && task.display)
+								.length}):
+						</h3>
+						<div
+							class="columns-1 gap-2 {interval.id === 'daily' ? 'xl:columns-2 2xl:columns-3' : ''}"
+						>
+							{#each categories as category}
+								<div
+									class="collapse-arrow bg-base-300 collapse border border-neutral-700 shadow-xl"
+									class:opacity-50={tasks.filter(
 										(task) =>
 											task.interval === interval.id &&
 											task.category === category.id &&
 											task.display &&
 											!task.checked
-									).length > 0}
-								/>
-								<div class="collapse-title flex items-center gap-2 font-bold">
-									<i class={interval.class}></i>
-									{category.name}
-								</div>
-								<div class="collapse-content">
-									<ul class="flex flex-col divide-y divide-neutral-700">
-										{#each tasks.filter((task) => task.interval === interval.id && task.category === category.id && task.display) as task}
-											<li class="flex flex-row items-center gap-2 py-1">
-												<label class="flex w-full flex-row items-center gap-2">
-													<input
-														class="checkbox checkbox-lg"
-														type="checkbox"
-														bind:checked={task.checked}
-													/>
-													<img src={task.icon} alt={task.name} class="size-8" />
-													<div class="flex flex-col">
-														<div class="text-sm font-semibold">{task.name}</div>
-														{#if task.location}
-															<div class="text-xs opacity-70">
-																<i class="fa-solid fa-location-dot"></i>
-																{task.location}
-															</div>
-														{/if}
-														{#if task.description}
-															<div class="text-xs opacity-70">{task.description}</div>
-														{/if}
-													</div>
-												</label>
-												{#if !task.checked}
-												<div class="flex flex-col">
-													<div class="flex flex-row justify-end gap-1 text-sm">
-														<a href={task.link} title="more info">
-															<i class="fa-regular fa-circle-question"></i>
-														</a>
-														<!-- TODO: alarm
+									).length === 0}
+								>
+									<input
+										class="collapse-checkbox"
+										type="checkbox"
+										title={interval.reset}
+										checked={tasks.filter(
+											(task) =>
+												task.interval === interval.id &&
+												task.category === category.id &&
+												task.display &&
+												!task.checked
+										).length > 0}
+									/>
+									<div class="collapse-title flex items-center gap-2 font-bold">
+										<i class={interval.class}></i>
+										{category.name}
+									</div>
+									<div class="collapse-content">
+										<ul class="flex flex-col divide-y divide-neutral-700">
+											{#each tasks.filter((task) => task.interval === interval.id && task.category === category.id && task.display) as task}
+												<li class="flex flex-row items-center gap-2 py-1">
+													<label class="flex w-full flex-row items-center gap-2">
+														<input
+															class="checkbox checkbox-lg"
+															type="checkbox"
+															bind:checked={task.checked}
+														/>
+														<img src={task.icon} alt={task.name} class="size-8" />
+														<div class="flex flex-col">
+															<div class="text-sm font-semibold">{task.name}</div>
+															{#if task.location}
+																<div class="text-xs opacity-70">
+																	<i class="fa-solid fa-location-dot"></i>
+																	{task.location}
+																</div>
+															{/if}
+															{#if task.description}
+																<div class="text-xs opacity-70">{task.description}</div>
+															{/if}
+														</div>
+													</label>
+													{#if !task.checked}
+														<div class="flex flex-col">
+															<div class="flex flex-row justify-end gap-1 text-sm">
+																<a href={task.link} title="more info">
+																	<i class="fa-regular fa-circle-question"></i>
+																</a>
+																<!-- TODO: alarm
 														{#if task.timer}
 															<button title="set alarm">
 																<i class="fa-regular fa-bell"></i>
 															</button>
 														{/if}
 														-->
-													</div>
-													{#if task.timer}
-														<div class="flex flex-col justify-end text-right text-xs">
-															<EventTimer task={task}/>
+															</div>
+															{#if task.timer}
+																<div class="flex flex-col justify-end text-right text-xs">
+																	<EventTimer {task} />
+																</div>
+															{/if}
 														</div>
 													{/if}
-												</div>
-												{/if}
-											</li>
-										{/each}
-									</ul>
+												</li>
+											{/each}
+										</ul>
+									</div>
 								</div>
-							</div>
-						{/each}
+							{/each}
+						</div>
 					</div>
-				</div>
+				{/if}
 			{/each}
 		</div>
 	</div>
