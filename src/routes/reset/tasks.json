@@ -1415,6 +1415,16 @@
 		}
 	},
 	{
+		"id": "DivineLuckyEnvelopes",
+		"category": "festivals",
+		"name": "Divine Lucky Envelopes",
+		"interval": "daily",
+		"icon": "https://wiki.guildwars2.com/images/9/96/Divine_Lucky_Envelope.png",
+		"location": "Divinity's Reach & Guild Hall",
+		"description": "Lunar New Year",
+		"link": "https://wiki.guildwars2.com/wiki/Divine_Lucky_Envelope"
+	},
+	{
 		"id": "FourWindsTreasureHunt",
 		"category": "festivals",
 		"name": "Treasure Hunt",
@@ -1450,16 +1460,6 @@
 		"icon": "https://wiki.guildwars2.com/images/a/a7/Chest_of_Legendary_Shards.png",
 		"description": "Weekly Sales",
 		"link": "https://wiki.guildwars2.com/wiki/Festival_Rewards_Vendor"
-	},
-	{
-		"id": "DivineLuckyEnvelopes",
-		"category": "festivals",
-		"name": "Divine Lucky Envelopes",
-		"interval": "daily",
-		"icon": "https://wiki.guildwars2.com/images/9/96/Divine_Lucky_Envelope.png",
-		"location": "Divinity's Reach & Guild Hall",
-		"description": "Lunar New Year",
-		"link": "https://wiki.guildwars2.com/wiki/Divine_Lucky_Envelope"
 	},
 	{
 		"id": "PlateOfPiquantPlantFood",

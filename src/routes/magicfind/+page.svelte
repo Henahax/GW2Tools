@@ -37,7 +37,7 @@
 	</button>
 </Title>
 
-<table class="table-zebra table-sm table-pin-rows mx-auto table w-fit">
+<table class="table-zebra table-xs table-pin-rows mx-auto table w-fit">
 	<thead class="text-sm">
 		<tr class="bg-base-100 shadow">
 			<th>
