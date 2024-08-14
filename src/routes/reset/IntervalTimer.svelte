@@ -72,7 +72,7 @@
 	}
 </script>
 
-<span class="countdown font-mono">
+<span class="countdown font-mono flex justify-end">
 	{#if interval === "weekly"}
 		<span style="--value:{timeRemaining.days};"></span>:
 	{/if}
