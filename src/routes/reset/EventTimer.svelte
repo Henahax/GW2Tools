@@ -1,31 +1,28 @@
 <script lang="ts">
-    interface MyProps{
-        task: Task;
-    }
-    import type { Task } from "./types";
-    let {task}:MyProps = $props();
+	interface MyProps {
+		task: Task;
+	}
+	import type { Task } from './types';
+	let { task }: MyProps = $props();
 
-
-    let nextEventTime: [Date, object, string] = $state([new Date(), {}, '']);
+	let nextEventTime: [Date, object, string] = $state([new Date(), {}, '']);
 	let targetTime: number = $state(0);
 	let active = $state(false);
 	let soon = $state(false);
 	let duration: [string, string] = $state(['00', '00']);
 	let add: string = $state('');
 
-    let timeRemaining = $state(calculateTimeRemaining());
+	let timeRemaining = $state(calculateTimeRemaining());
 
+	$effect(() => {
+		const intervalId = setInterval(() => {
+			timeRemaining = calculateTimeRemaining();
+		}, 1000);
 
-    $effect(() => {
-        const intervalId = setInterval(() => {
-            timeRemaining = calculateTimeRemaining();
-        }, 1000);
+		return () => clearInterval(intervalId);
+	});
 
-        return () => clearInterval(intervalId);
-    });
-
-
-    function calculateTimeRemaining() {
+	function calculateTimeRemaining() {
 		if (!task.timer) {
 			return {
 				seconds: ''
@@ -46,8 +43,8 @@
 
 		active = !isCountingDown;
 		if (!active && difference < 1000 * 60 * 5) {
-            //todo alarm
-            /*
+			//todo alarm
+			/*
 			if (!soon) {
 				if (task.alarm) {
 				}

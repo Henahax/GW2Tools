@@ -1,36 +1,36 @@
 <script lang="ts">
 	let { interval } = $props();
 
-    let timeRemaining = $state(calculateTimeRemaining());
+	let timeRemaining = $state(calculateTimeRemaining());
 
-    $effect(() => {
-        const intervalId = setInterval(() => {
-            timeRemaining = calculateTimeRemaining();
-        }, 1000);
+	$effect(() => {
+		const intervalId = setInterval(() => {
+			timeRemaining = calculateTimeRemaining();
+		}, 1000);
 
-        return () => clearInterval(intervalId);
-    });
+		return () => clearInterval(intervalId);
+	});
 
-    function calculateTimeRemaining() {
-        let targetDate = new Date();
-        switch(interval) {
-            case 'daily':{
-                targetDate= getUTCTimeForStartOfNextDay();
-                break;
-            }
-            case 'weekly':{
-                targetDate= getUTCTimeForStartOfNextWeek();
-                break
-            }
-        }
-        const now = new Date().getTime();
-        let difference = targetDate.getTime() - now;
+	function calculateTimeRemaining() {
+		let targetDate = new Date();
+		switch (interval) {
+			case 'daily': {
+				targetDate = getUTCTimeForStartOfNextDay();
+				break;
+			}
+			case 'weekly': {
+				targetDate = getUTCTimeForStartOfNextWeek();
+				break;
+			}
+		}
+		const now = new Date().getTime();
+		let difference = targetDate.getTime() - now;
 
-        if(difference < 0){
-            location.reload();
-        }
+		if (difference < 0) {
+			location.reload();
+		}
 
-        const days = Math.max(0, Math.floor(difference / (1000 * 60 * 60 * 24)))
+		const days = Math.max(0, Math.floor(difference / (1000 * 60 * 60 * 24)))
 			.toString()
 			.padStart(2, '0');
 
@@ -45,7 +45,7 @@
 			.padStart(2, '0');
 
 		return { days, hours, minutes, seconds };
-    }
+	}
 
 	function getUTCTimeForStartOfNextDay() {
 		const now = new Date();
@@ -72,8 +72,8 @@
 	}
 </script>
 
-<span class="countdown font-mono flex justify-end">
-	{#if interval === "weekly"}
+<span class="countdown flex justify-end font-mono">
+	{#if interval === 'weekly'}
 		<span style="--value:{timeRemaining.days};"></span>:
 	{/if}
 	<span style="--value:{timeRemaining.hours};"></span>:

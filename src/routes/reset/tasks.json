@@ -328,63 +328,21 @@
 		"location": "Wayfarer Foothills",
 		"link": "https://wiki.guildwars2.com/wiki/Slay_the_Shatterer",
 		"timer": {
-			"duration": [
-				0,
-				15
-			],
+			"duration": [0, 15],
 			"times": [
-				[
-					0,
-					15
-				],
-				[
-					2,
-					15
-				],
-				[
-					4,
-					15
-				],
-				[
-					6,
-					15
-				],
-				[
-					8,
-					15
-				],
-				[
-					10,
-					15
-				],
-				[
-					12,
-					15
-				],
-				[
-					14,
-					15
-				],
-				[
-					16,
-					15
-				],
-				[
-					18,
-					15
-				],
-				[
-					20,
-					15
-				],
-				[
-					22,
-					15
-				],
-				[
-					24,
-					15
-				]
+				[0, 15],
+				[2, 15],
+				[4, 15],
+				[6, 15],
+				[8, 15],
+				[10, 15],
+				[12, 15],
+				[14, 15],
+				[16, 15],
+				[18, 15],
+				[20, 15],
+				[22, 15],
+				[24, 15]
 			]
 		}
 	},
@@ -397,63 +355,21 @@
 		"location": "Metrica Province",
 		"link": "https://wiki.guildwars2.com/wiki/Destroy_the_fire_elemental_created_from_chaotic_energy_fusing_with_the_C.L.E.A.N._5000%27s_energy_core",
 		"timer": {
-			"duration": [
-				0,
-				15
-			],
+			"duration": [0, 15],
 			"times": [
-				[
-					0,
-					45
-				],
-				[
-					2,
-					45
-				],
-				[
-					4,
-					45
-				],
-				[
-					6,
-					45
-				],
-				[
-					8,
-					45
-				],
-				[
-					10,
-					45
-				],
-				[
-					12,
-					45
-				],
-				[
-					14,
-					45
-				],
-				[
-					16,
-					45
-				],
-				[
-					18,
-					45
-				],
-				[
-					20,
-					45
-				],
-				[
-					22,
-					45
-				],
-				[
-					24,
-					45
-				]
+				[0, 45],
+				[2, 45],
+				[4, 45],
+				[6, 45],
+				[8, 45],
+				[10, 45],
+				[12, 45],
+				[14, 45],
+				[16, 45],
+				[18, 45],
+				[20, 45],
+				[22, 45],
+				[24, 45]
 			]
 		}
 	},
@@ -466,63 +382,21 @@
 		"location": "Queensdale",
 		"link": "https://wiki.guildwars2.com/wiki/Defeat_the_shadow_behemoth",
 		"timer": {
-			"duration": [
-				0,
-				15
-			],
+			"duration": [0, 15],
 			"times": [
-				[
-					1,
-					45
-				],
-				[
-					3,
-					45
-				],
-				[
-					5,
-					45
-				],
-				[
-					7,
-					45
-				],
-				[
-					9,
-					45
-				],
-				[
-					11,
-					45
-				],
-				[
-					13,
-					45
-				],
-				[
-					15,
-					45
-				],
-				[
-					17,
-					45
-				],
-				[
-					19,
-					45
-				],
-				[
-					21,
-					45
-				],
-				[
-					23,
-					45
-				],
-				[
-					25,
-					45
-				]
+				[1, 45],
+				[3, 45],
+				[5, 45],
+				[7, 45],
+				[9, 45],
+				[11, 45],
+				[13, 45],
+				[15, 45],
+				[17, 45],
+				[19, 45],
+				[21, 45],
+				[23, 45],
+				[25, 45]
 			]
 		}
 	},
@@ -535,63 +409,21 @@
 		"location": "Caledon Forest",
 		"link": "https://wiki.guildwars2.com/wiki/Defeat_the_great_jungle_wurm",
 		"timer": {
-			"duration": [
-				0,
-				15
-			],
+			"duration": [0, 15],
 			"times": [
-				[
-					1,
-					15
-				],
-				[
-					3,
-					15
-				],
-				[
-					5,
-					15
-				],
-				[
-					7,
-					15
-				],
-				[
-					9,
-					15
-				],
-				[
-					11,
-					15
-				],
-				[
-					13,
-					15
-				],
-				[
-					15,
-					15
-				],
-				[
-					17,
-					15
-				],
-				[
-					19,
-					15
-				],
-				[
-					21,
-					15
-				],
-				[
-					23,
-					15
-				],
-				[
-					25,
-					15
-				]
+				[1, 15],
+				[3, 15],
+				[5, 15],
+				[7, 15],
+				[9, 15],
+				[11, 15],
+				[13, 15],
+				[15, 15],
+				[17, 15],
+				[19, 15],
+				[21, 15],
+				[23, 15],
+				[25, 15]
 			]
 		}
 	},
@@ -604,47 +436,17 @@
 		"location": "Harathi Hinterlands",
 		"link": "https://wiki.guildwars2.com/wiki/Defeat_Ulgoth_the_Modniir_and_his_minions",
 		"timer": {
-			"duration": [
-				0,
-				15
-			],
+			"duration": [0, 15],
 			"times": [
-				[
-					1,
-					30
-				],
-				[
-					4,
-					30
-				],
-				[
-					7,
-					30
-				],
-				[
-					10,
-					30
-				],
-				[
-					13,
-					30
-				],
-				[
-					16,
-					30
-				],
-				[
-					19,
-					30
-				],
-				[
-					22,
-					30
-				],
-				[
-					25,
-					30
-				]
+				[1, 30],
+				[4, 30],
+				[7, 30],
+				[10, 30],
+				[13, 30],
+				[16, 30],
+				[19, 30],
+				[22, 30],
+				[25, 30]
 			]
 		}
 	},
@@ -657,47 +459,17 @@
 		"location": "Bloodtide Coast",
 		"link": "https://wiki.guildwars2.com/wiki/Kill_Admiral_Taidha_Covington",
 		"timer": {
-			"duration": [
-				0,
-				15
-			],
+			"duration": [0, 15],
 			"times": [
-				[
-					0,
-					0
-				],
-				[
-					3,
-					0
-				],
-				[
-					6,
-					0
-				],
-				[
-					9,
-					0
-				],
-				[
-					12,
-					0
-				],
-				[
-					15,
-					0
-				],
-				[
-					18,
-					0
-				],
-				[
-					21,
-					0
-				],
-				[
-					24,
-					0
-				]
+				[0, 0],
+				[3, 0],
+				[6, 0],
+				[9, 0],
+				[12, 0],
+				[15, 0],
+				[18, 0],
+				[21, 0],
+				[24, 0]
 			]
 		}
 	},
@@ -710,47 +482,17 @@
 		"location": "Blazeridge Steppes",
 		"link": "https://wiki.guildwars2.com/wiki/Slay_the_Shatterer",
 		"timer": {
-			"duration": [
-				0,
-				15
-			],
+			"duration": [0, 15],
 			"times": [
-				[
-					1,
-					0
-				],
-				[
-					4,
-					0
-				],
-				[
-					7,
-					0
-				],
-				[
-					10,
-					0
-				],
-				[
-					13,
-					0
-				],
-				[
-					16,
-					0
-				],
-				[
-					19,
-					0
-				],
-				[
-					22,
-					0
-				],
-				[
-					25,
-					0
-				]
+				[1, 0],
+				[4, 0],
+				[7, 0],
+				[10, 0],
+				[13, 0],
+				[16, 0],
+				[19, 0],
+				[22, 0],
+				[25, 0]
 			]
 		}
 	},
@@ -763,47 +505,17 @@
 		"location": "Mount Maelstrom",
 		"link": "https://wiki.guildwars2.com/wiki/Kill_the_megadestroyer_before_it_blows_everyone_up",
 		"timer": {
-			"duration": [
-				0,
-				15
-			],
+			"duration": [0, 15],
 			"times": [
-				[
-					0,
-					30
-				],
-				[
-					3,
-					30
-				],
-				[
-					6,
-					30
-				],
-				[
-					9,
-					30
-				],
-				[
-					12,
-					30
-				],
-				[
-					15,
-					30
-				],
-				[
-					18,
-					30
-				],
-				[
-					21,
-					30
-				],
-				[
-					24,
-					30
-				]
+				[0, 30],
+				[3, 30],
+				[6, 30],
+				[9, 30],
+				[12, 30],
+				[15, 30],
+				[18, 30],
+				[21, 30],
+				[24, 30]
 			]
 		}
 	},
@@ -816,47 +528,17 @@
 		"location": "Mount Maelstrom",
 		"link": "https://wiki.guildwars2.com/wiki/Defeat_the_Inquest%27s_golem_Mark_II",
 		"timer": {
-			"duration": [
-				0,
-				15
-			],
+			"duration": [0, 15],
 			"times": [
-				[
-					2,
-					0
-				],
-				[
-					5,
-					0
-				],
-				[
-					8,
-					0
-				],
-				[
-					11,
-					0
-				],
-				[
-					14,
-					0
-				],
-				[
-					17,
-					0
-				],
-				[
-					20,
-					0
-				],
-				[
-					23,
-					0
-				],
-				[
-					26,
-					0
-				]
+				[2, 0],
+				[5, 0],
+				[8, 0],
+				[11, 0],
+				[14, 0],
+				[17, 0],
+				[20, 0],
+				[23, 0],
+				[26, 0]
 			]
 		}
 	},
@@ -869,47 +551,17 @@
 		"location": "Frostgorge Sound",
 		"link": "https://wiki.guildwars2.com/wiki/Defeat_the_Claw_of_Jormag",
 		"timer": {
-			"duration": [
-				0,
-				15
-			],
+			"duration": [0, 15],
 			"times": [
-				[
-					2,
-					30
-				],
-				[
-					5,
-					30
-				],
-				[
-					8,
-					30
-				],
-				[
-					11,
-					30
-				],
-				[
-					14,
-					30
-				],
-				[
-					17,
-					30
-				],
-				[
-					20,
-					30
-				],
-				[
-					23,
-					30
-				],
-				[
-					26,
-					30
-				]
+				[2, 30],
+				[5, 30],
+				[8, 30],
+				[11, 30],
+				[14, 30],
+				[17, 30],
+				[20, 30],
+				[23, 30],
+				[26, 30]
 			]
 		}
 	},
@@ -922,39 +574,15 @@
 		"location": "Bloodtide Coast",
 		"link": "https://wiki.guildwars2.com/wiki/Triple_Trouble",
 		"timer": {
-			"duration": [
-				0,
-				30
-			],
+			"duration": [0, 30],
 			"times": [
-				[
-					1,
-					0
-				],
-				[
-					5,
-					0
-				],
-				[
-					8,
-					0
-				],
-				[
-					12,
-					30
-				],
-				[
-					17,
-					0
-				],
-				[
-					20,
-					0
-				],
-				[
-					25,
-					0
-				]
+				[1, 0],
+				[5, 0],
+				[8, 0],
+				[12, 30],
+				[17, 0],
+				[20, 0],
+				[25, 0]
 			]
 		}
 	},
@@ -967,39 +595,15 @@
 		"location": "Sparkfly Fen",
 		"link": "https://wiki.guildwars2.com/wiki/Defeat_Tequatl_the_Sunless",
 		"timer": {
-			"duration": [
-				0,
-				30
-			],
+			"duration": [0, 30],
 			"times": [
-				[
-					0,
-					0
-				],
-				[
-					3,
-					0
-				],
-				[
-					7,
-					0
-				],
-				[
-					11,
-					30
-				],
-				[
-					16,
-					0
-				],
-				[
-					19,
-					0
-				],
-				[
-					24,
-					0
-				]
+				[0, 0],
+				[3, 0],
+				[7, 0],
+				[11, 30],
+				[16, 0],
+				[19, 0],
+				[24, 0]
 			]
 		}
 	},
@@ -1012,39 +616,15 @@
 		"location": "Southsun Cove",
 		"link": "https://wiki.guildwars2.com/wiki/Defeat_the_Karka_Queen_threatening_the_settlements",
 		"timer": {
-			"duration": [
-				0,
-				30
-			],
+			"duration": [0, 30],
 			"times": [
-				[
-					2,
-					0
-				],
-				[
-					6,
-					0
-				],
-				[
-					10,
-					30
-				],
-				[
-					15,
-					0
-				],
-				[
-					18,
-					0
-				],
-				[
-					23,
-					0
-				],
-				[
-					26,
-					0
-				]
+				[2, 0],
+				[6, 0],
+				[10, 30],
+				[15, 0],
+				[18, 0],
+				[23, 0],
+				[26, 0]
 			]
 		}
 	},
@@ -1058,76 +638,21 @@
 		"link": "https://wiki.guildwars2.com/wiki/Legendary_Ley-Line_Anomaly",
 		"display": true,
 		"timer": {
-			"duration": [
-				0,
-				20
-			],
+			"duration": [0, 20],
 			"times": [
-				[
-					0,
-					20,
-					"Timberline Falls"
-				],
-				[
-					2,
-					20,
-					"Iron Marches"
-				],
-				[
-					4,
-					20,
-					"Gendarran Fields"
-				],
-				[
-					6,
-					20,
-					"Timberline Falls"
-				],
-				[
-					8,
-					20,
-					"Iron Marches"
-				],
-				[
-					10,
-					20,
-					"Gendarran Fields"
-				],
-				[
-					12,
-					20,
-					"Timberline Falls"
-				],
-				[
-					14,
-					20,
-					"Iron Marches"
-				],
-				[
-					16,
-					20,
-					"Gendarran Fields"
-				],
-				[
-					18,
-					20,
-					"Timberline Falls"
-				],
-				[
-					20,
-					20,
-					"Iron Marches"
-				],
-				[
-					22,
-					20,
-					"Gendarran Fields"
-				],
-				[
-					24,
-					20,
-					"Timberline Falls"
-				]
+				[0, 20, "Timberline Falls"],
+				[2, 20, "Iron Marches"],
+				[4, 20, "Gendarran Fields"],
+				[6, 20, "Timberline Falls"],
+				[8, 20, "Iron Marches"],
+				[10, 20, "Gendarran Fields"],
+				[12, 20, "Timberline Falls"],
+				[14, 20, "Iron Marches"],
+				[16, 20, "Gendarran Fields"],
+				[18, 20, "Timberline Falls"],
+				[20, 20, "Iron Marches"],
+				[22, 20, "Gendarran Fields"],
+				[24, 20, "Timberline Falls"]
 			]
 		}
 	},
@@ -1140,63 +665,21 @@
 		"location": "Verdant Brink",
 		"link": "https://wiki.guildwars2.com/wiki/Verdant_Brink:_Hero%27s_Choice_Chest",
 		"timer": {
-			"duration": [
-				0,
-				20
-			],
+			"duration": [0, 20],
 			"times": [
-				[
-					0,
-					10
-				],
-				[
-					2,
-					10
-				],
-				[
-					4,
-					10
-				],
-				[
-					6,
-					10
-				],
-				[
-					8,
-					10
-				],
-				[
-					10,
-					10
-				],
-				[
-					12,
-					10
-				],
-				[
-					14,
-					10
-				],
-				[
-					16,
-					10
-				],
-				[
-					18,
-					10
-				],
-				[
-					20,
-					10
-				],
-				[
-					22,
-					10
-				],
-				[
-					24,
-					10
-				]
+				[0, 10],
+				[2, 10],
+				[4, 10],
+				[6, 10],
+				[8, 10],
+				[10, 10],
+				[12, 10],
+				[14, 10],
+				[16, 10],
+				[18, 10],
+				[20, 10],
+				[22, 10],
+				[24, 10]
 			]
 		}
 	},
@@ -1209,63 +692,21 @@
 		"location": "Auric Basin",
 		"link": "https://wiki.guildwars2.com/wiki/Auric_Basin:_Hero%27s_Choice_Chest",
 		"timer": {
-			"duration": [
-				0,
-				20
-			],
+			"duration": [0, 20],
 			"times": [
-				[
-					1,
-					0
-				],
-				[
-					3,
-					0
-				],
-				[
-					5,
-					0
-				],
-				[
-					7,
-					0
-				],
-				[
-					9,
-					0
-				],
-				[
-					11,
-					0
-				],
-				[
-					13,
-					0
-				],
-				[
-					15,
-					0
-				],
-				[
-					17,
-					0
-				],
-				[
-					19,
-					0
-				],
-				[
-					21,
-					0
-				],
-				[
-					23,
-					0
-				],
-				[
-					25,
-					0
-				]
+				[1, 0],
+				[3, 0],
+				[5, 0],
+				[7, 0],
+				[9, 0],
+				[11, 0],
+				[13, 0],
+				[15, 0],
+				[17, 0],
+				[19, 0],
+				[21, 0],
+				[23, 0],
+				[25, 0]
 			]
 		}
 	},
@@ -1278,63 +719,21 @@
 		"location": "Tangled Depths",
 		"link": "https://wiki.guildwars2.com/wiki/Tangled_Depths:_Hero%27s_Choice_Chest",
 		"timer": {
-			"duration": [
-				0,
-				20
-			],
+			"duration": [0, 20],
 			"times": [
-				[
-					0,
-					30
-				],
-				[
-					2,
-					30
-				],
-				[
-					4,
-					30
-				],
-				[
-					6,
-					30
-				],
-				[
-					8,
-					30
-				],
-				[
-					10,
-					30
-				],
-				[
-					12,
-					30
-				],
-				[
-					14,
-					30
-				],
-				[
-					16,
-					30
-				],
-				[
-					18,
-					30
-				],
-				[
-					20,
-					30
-				],
-				[
-					22,
-					30
-				],
-				[
-					24,
-					30
-				]
+				[0, 30],
+				[2, 30],
+				[4, 30],
+				[6, 30],
+				[8, 30],
+				[10, 30],
+				[12, 30],
+				[14, 30],
+				[16, 30],
+				[18, 30],
+				[20, 30],
+				[22, 30],
+				[24, 30]
 			]
 		}
 	},
@@ -1347,63 +746,21 @@
 		"location": "Dragon's Stand",
 		"link": "https://wiki.guildwars2.com/wiki/Dragon%27s_Stand:_Hero%27s_Choice_Chest",
 		"timer": {
-			"duration": [
-				2,
-				0
-			],
+			"duration": [2, 0],
 			"times": [
-				[
-					1,
-					30
-				],
-				[
-					3,
-					30
-				],
-				[
-					5,
-					30
-				],
-				[
-					7,
-					30
-				],
-				[
-					9,
-					30
-				],
-				[
-					11,
-					30
-				],
-				[
-					13,
-					30
-				],
-				[
-					15,
-					30
-				],
-				[
-					17,
-					30
-				],
-				[
-					19,
-					30
-				],
-				[
-					21,
-					30
-				],
-				[
-					23,
-					30
-				],
-				[
-					25,
-					30
-				]
+				[1, 30],
+				[3, 30],
+				[5, 30],
+				[7, 30],
+				[9, 30],
+				[11, 30],
+				[13, 30],
+				[15, 30],
+				[17, 30],
+				[19, 30],
+				[21, 30],
+				[23, 30],
+				[25, 30]
 			]
 		}
 	},
@@ -1416,63 +773,21 @@
 		"location": "Crystal Oasis",
 		"link": "https://wiki.guildwars2.com/wiki/Crystal_Oasis:_Hero%27s_Choice_Chest",
 		"timer": {
-			"duration": [
-				0,
-				25
-			],
+			"duration": [0, 25],
 			"times": [
-				[
-					0,
-					5
-				],
-				[
-					2,
-					5
-				],
-				[
-					4,
-					5
-				],
-				[
-					6,
-					5
-				],
-				[
-					8,
-					5
-				],
-				[
-					10,
-					5
-				],
-				[
-					12,
-					5
-				],
-				[
-					14,
-					5
-				],
-				[
-					16,
-					5
-				],
-				[
-					18,
-					5
-				],
-				[
-					20,
-					5
-				],
-				[
-					22,
-					5
-				],
-				[
-					24,
-					5
-				]
+				[0, 5],
+				[2, 5],
+				[4, 5],
+				[6, 5],
+				[8, 5],
+				[10, 5],
+				[12, 5],
+				[14, 5],
+				[16, 5],
+				[18, 5],
+				[20, 5],
+				[22, 5],
+				[24, 5]
 			]
 		}
 	},
@@ -1485,63 +800,21 @@
 		"location": "Desert Highlands",
 		"link": "https://wiki.guildwars2.com/wiki/The_Search_for_Buried_Treasure",
 		"timer": {
-			"duration": [
-				0,
-				20
-			],
+			"duration": [0, 20],
 			"times": [
-				[
-					1,
-					0
-				],
-				[
-					3,
-					0
-				],
-				[
-					5,
-					0
-				],
-				[
-					7,
-					0
-				],
-				[
-					9,
-					0
-				],
-				[
-					11,
-					0
-				],
-				[
-					13,
-					0
-				],
-				[
-					15,
-					0
-				],
-				[
-					17,
-					0
-				],
-				[
-					19,
-					0
-				],
-				[
-					21,
-					0
-				],
-				[
-					23,
-					0
-				],
-				[
-					25,
-					0
-				]
+				[1, 0],
+				[3, 0],
+				[5, 0],
+				[7, 0],
+				[9, 0],
+				[11, 0],
+				[13, 0],
+				[15, 0],
+				[17, 0],
+				[19, 0],
+				[21, 0],
+				[23, 0],
+				[25, 0]
 			]
 		}
 	},
@@ -1554,141 +827,34 @@
 		"location": "Elon Riverlands",
 		"link": "https://wiki.guildwars2.com/wiki/Elon_Riverlands:_Hero%27s_Choice_Chest",
 		"timer": {
-			"duration": [
-				0,
-				20
-			],
+			"duration": [0, 20],
 			"times": [
-				[
-					1,
-					30,
-					"Augury Rock"
-				],
-				[
-					1,
-					55,
-					"Doppelganger"
-				],
-				[
-					3,
-					30,
-					"Augury Rock"
-				],
-				[
-					3,
-					55,
-					"Doppelganger"
-				],
-				[
-					5,
-					30,
-					"Augury Rock"
-				],
-				[
-					5,
-					55,
-					"Doppelganger"
-				],
-				[
-					7,
-					30,
-					"Augury Rock"
-				],
-				[
-					7,
-					55,
-					"Doppelganger"
-				],
-				[
-					9,
-					30,
-					"Augury Rock"
-				],
-				[
-					9,
-					55,
-					"Doppelganger"
-				],
-				[
-					11,
-					30,
-					"Augury Rock"
-				],
-				[
-					11,
-					55,
-					"Doppelganger"
-				],
-				[
-					13,
-					30,
-					"Augury Rock"
-				],
-				[
-					13,
-					55,
-					"Doppelganger"
-				],
-				[
-					15,
-					30,
-					"Augury Rock"
-				],
-				[
-					15,
-					55,
-					"Doppelganger"
-				],
-				[
-					17,
-					30,
-					"Augury Rock"
-				],
-				[
-					17,
-					55,
-					"Doppelganger"
-				],
-				[
-					19,
-					30,
-					"Augury Rock"
-				],
-				[
-					19,
-					55,
-					"Doppelganger"
-				],
-				[
-					21,
-					30,
-					"Augury Rock"
-				],
-				[
-					21,
-					55,
-					"Doppelganger"
-				],
-				[
-					23,
-					30,
-					"Augury Rock"
-				],
-				[
-					23,
-					55,
-					"Doppelganger"
-				],
-				[
-					25,
-					30,
-					"Augury Rock"
-				],
-				[
-					25,
-					55,
-					"Doppelganger"
-				]
+				[1, 30, "Augury Rock"],
+				[1, 55, "Doppelganger"],
+				[3, 30, "Augury Rock"],
+				[3, 55, "Doppelganger"],
+				[5, 30, "Augury Rock"],
+				[5, 55, "Doppelganger"],
+				[7, 30, "Augury Rock"],
+				[7, 55, "Doppelganger"],
+				[9, 30, "Augury Rock"],
+				[9, 55, "Doppelganger"],
+				[11, 30, "Augury Rock"],
+				[11, 55, "Doppelganger"],
+				[13, 30, "Augury Rock"],
+				[13, 55, "Doppelganger"],
+				[15, 30, "Augury Rock"],
+				[15, 55, "Doppelganger"],
+				[17, 30, "Augury Rock"],
+				[17, 55, "Doppelganger"],
+				[19, 30, "Augury Rock"],
+				[19, 55, "Doppelganger"],
+				[21, 30, "Augury Rock"],
+				[21, 55, "Doppelganger"],
+				[23, 30, "Augury Rock"],
+				[23, 55, "Doppelganger"],
+				[25, 30, "Augury Rock"],
+				[25, 55, "Doppelganger"]
 			]
 		}
 	},
@@ -1701,141 +867,34 @@
 		"location": "The Desolation",
 		"link": "https://wiki.guildwars2.com/wiki/The_Desolation:_Hero%27s_Choice_Chest",
 		"timer": {
-			"duration": [
-				0,
-				20
-			],
+			"duration": [0, 20],
 			"times": [
-				[
-					1,
-					0,
-					"Maws of Torment"
-				],
-				[
-					1,
-					30,
-					"Junundu Rising"
-				],
-				[
-					3,
-					0,
-					"Maws of Torment"
-				],
-				[
-					3,
-					30,
-					"Junundu Rising"
-				],
-				[
-					5,
-					0,
-					"Maws of Torment"
-				],
-				[
-					5,
-					30,
-					"Junundu Rising"
-				],
-				[
-					7,
-					0,
-					"Maws of Torment"
-				],
-				[
-					7,
-					30,
-					"Junundu Rising"
-				],
-				[
-					9,
-					0,
-					"Maws of Torment"
-				],
-				[
-					9,
-					30,
-					"Junundu Rising"
-				],
-				[
-					11,
-					0,
-					"Maws of Torment"
-				],
-				[
-					11,
-					30,
-					"Junundu Rising"
-				],
-				[
-					13,
-					0,
-					"Maws of Torment"
-				],
-				[
-					13,
-					30,
-					"Junundu Rising"
-				],
-				[
-					15,
-					0,
-					"Maws of Torment"
-				],
-				[
-					15,
-					30,
-					"Junundu Rising"
-				],
-				[
-					17,
-					0,
-					"Maws of Torment"
-				],
-				[
-					17,
-					30,
-					"Junundu Rising"
-				],
-				[
-					19,
-					0,
-					"Maws of Torment"
-				],
-				[
-					19,
-					30,
-					"Junundu Rising"
-				],
-				[
-					21,
-					0,
-					"Maws of Torment"
-				],
-				[
-					21,
-					30,
-					"Junundu Rising"
-				],
-				[
-					23,
-					0,
-					"Maws of Torment"
-				],
-				[
-					23,
-					30,
-					"Junundu Rising"
-				],
-				[
-					25,
-					0,
-					"Maws of Torment"
-				],
-				[
-					25,
-					30,
-					"Junundu Rising"
-				]
+				[1, 0, "Maws of Torment"],
+				[1, 30, "Junundu Rising"],
+				[3, 0, "Maws of Torment"],
+				[3, 30, "Junundu Rising"],
+				[5, 0, "Maws of Torment"],
+				[5, 30, "Junundu Rising"],
+				[7, 0, "Maws of Torment"],
+				[7, 30, "Junundu Rising"],
+				[9, 0, "Maws of Torment"],
+				[9, 30, "Junundu Rising"],
+				[11, 0, "Maws of Torment"],
+				[11, 30, "Junundu Rising"],
+				[13, 0, "Maws of Torment"],
+				[13, 30, "Junundu Rising"],
+				[15, 0, "Maws of Torment"],
+				[15, 30, "Junundu Rising"],
+				[17, 0, "Maws of Torment"],
+				[17, 30, "Junundu Rising"],
+				[19, 0, "Maws of Torment"],
+				[19, 30, "Junundu Rising"],
+				[21, 0, "Maws of Torment"],
+				[21, 30, "Junundu Rising"],
+				[23, 0, "Maws of Torment"],
+				[23, 30, "Junundu Rising"],
+				[25, 0, "Maws of Torment"],
+				[25, 30, "Junundu Rising"]
 			]
 		}
 	},
@@ -1848,201 +907,46 @@
 		"location": "Domain of Vabbi",
 		"link": "https://wiki.guildwars2.com/wiki/Domain_of_Vabbi:_Hero%27s_Choice_Chest",
 		"timer": {
-			"duration": [
-				0,
-				30
-			],
+			"duration": [0, 30],
 			"times": [
-				[
-					0,
-					0,
-					"Forged with Fire"
-				],
-				[
-					0,
-					3,
-					"Serpent's Ire"
-				],
-				[
-					1,
-					0,
-					"Forged with Fire"
-				],
-				[
-					2,
-					0,
-					"Forged with Fire"
-				],
-				[
-					2,
-					3,
-					"Serpent's Ire"
-				],
-				[
-					3,
-					0,
-					"Forged with Fire"
-				],
-				[
-					4,
-					0,
-					"Forged with Fire"
-				],
-				[
-					4,
-					3,
-					"Serpent's Ire"
-				],
-				[
-					5,
-					0,
-					"Forged with Fire"
-				],
-				[
-					6,
-					0,
-					"Forged with Fire"
-				],
-				[
-					6,
-					3,
-					"Serpent's Ire"
-				],
-				[
-					7,
-					0,
-					"Forged with Fire"
-				],
-				[
-					8,
-					0,
-					"Forged with Fire"
-				],
-				[
-					8,
-					3,
-					"Serpent's Ire"
-				],
-				[
-					9,
-					0,
-					"Forged with Fire"
-				],
-				[
-					10,
-					0,
-					"Forged with Fire"
-				],
-				[
-					10,
-					3,
-					"Serpent's Ire"
-				],
-				[
-					11,
-					0,
-					"Forged with Fire"
-				],
-				[
-					12,
-					0,
-					"Forged with Fire"
-				],
-				[
-					12,
-					3,
-					"Serpent's Ire"
-				],
-				[
-					13,
-					0,
-					"Forged with Fire"
-				],
-				[
-					14,
-					0,
-					"Forged with Fire"
-				],
-				[
-					14,
-					3,
-					"Serpent's Ire"
-				],
-				[
-					15,
-					0,
-					"Forged with Fire"
-				],
-				[
-					16,
-					0,
-					"Forged with Fire"
-				],
-				[
-					16,
-					3,
-					"Serpent's Ire"
-				],
-				[
-					17,
-					0,
-					"Forged with Fire"
-				],
-				[
-					18,
-					0,
-					"Forged with Fire"
-				],
-				[
-					18,
-					3,
-					"Serpent's Ire"
-				],
-				[
-					19,
-					0,
-					"Forged with Fire"
-				],
-				[
-					20,
-					0,
-					"Forged with Fire"
-				],
-				[
-					20,
-					3,
-					"Serpent's Ire"
-				],
-				[
-					21,
-					0,
-					"Forged with Fire"
-				],
-				[
-					22,
-					0,
-					"Forged with Fire"
-				],
-				[
-					22,
-					3,
-					"Serpent's Ire"
-				],
-				[
-					23,
-					0,
-					"Forged with Fire"
-				],
-				[
-					24,
-					0,
-					"Forged with Fire"
-				],
-				[
-					24,
-					3,
-					"Serpent's Ire"
-				]
+				[0, 0, "Forged with Fire"],
+				[0, 3, "Serpent's Ire"],
+				[1, 0, "Forged with Fire"],
+				[2, 0, "Forged with Fire"],
+				[2, 3, "Serpent's Ire"],
+				[3, 0, "Forged with Fire"],
+				[4, 0, "Forged with Fire"],
+				[4, 3, "Serpent's Ire"],
+				[5, 0, "Forged with Fire"],
+				[6, 0, "Forged with Fire"],
+				[6, 3, "Serpent's Ire"],
+				[7, 0, "Forged with Fire"],
+				[8, 0, "Forged with Fire"],
+				[8, 3, "Serpent's Ire"],
+				[9, 0, "Forged with Fire"],
+				[10, 0, "Forged with Fire"],
+				[10, 3, "Serpent's Ire"],
+				[11, 0, "Forged with Fire"],
+				[12, 0, "Forged with Fire"],
+				[12, 3, "Serpent's Ire"],
+				[13, 0, "Forged with Fire"],
+				[14, 0, "Forged with Fire"],
+				[14, 3, "Serpent's Ire"],
+				[15, 0, "Forged with Fire"],
+				[16, 0, "Forged with Fire"],
+				[16, 3, "Serpent's Ire"],
+				[17, 0, "Forged with Fire"],
+				[18, 0, "Forged with Fire"],
+				[18, 3, "Serpent's Ire"],
+				[19, 0, "Forged with Fire"],
+				[20, 0, "Forged with Fire"],
+				[20, 3, "Serpent's Ire"],
+				[21, 0, "Forged with Fire"],
+				[22, 0, "Forged with Fire"],
+				[22, 3, "Serpent's Ire"],
+				[23, 0, "Forged with Fire"],
+				[24, 0, "Forged with Fire"],
+				[24, 3, "Serpent's Ire"]
 			]
 		}
 	},
@@ -2055,63 +959,21 @@
 		"location": "Domain of Istan",
 		"link": "https://wiki.guildwars2.com/wiki/Palawadan,_Jewel_of_Istan_(meta_event)",
 		"timer": {
-			"duration": [
-				0,
-				15
-			],
+			"duration": [0, 15],
 			"times": [
-				[
-					1,
-					45
-				],
-				[
-					3,
-					45
-				],
-				[
-					5,
-					45
-				],
-				[
-					7,
-					45
-				],
-				[
-					9,
-					45
-				],
-				[
-					11,
-					45
-				],
-				[
-					13,
-					45
-				],
-				[
-					15,
-					45
-				],
-				[
-					17,
-					45
-				],
-				[
-					19,
-					45
-				],
-				[
-					21,
-					45
-				],
-				[
-					23,
-					45
-				],
-				[
-					25,
-					45
-				]
+				[1, 45],
+				[3, 45],
+				[5, 45],
+				[7, 45],
+				[9, 45],
+				[11, 45],
+				[13, 45],
+				[15, 45],
+				[17, 45],
+				[19, 45],
+				[21, 45],
+				[23, 45],
+				[25, 45]
 			]
 		}
 	},
@@ -2124,63 +986,21 @@
 		"location": "Jahai Bluffs",
 		"link": "https://wiki.guildwars2.com/wiki/Destroy_the_Death-Branded_Shatterer",
 		"timer": {
-			"duration": [
-				0,
-				30
-			],
+			"duration": [0, 30],
 			"times": [
-				[
-					1,
-					0
-				],
-				[
-					3,
-					0
-				],
-				[
-					5,
-					0
-				],
-				[
-					7,
-					0
-				],
-				[
-					9,
-					0
-				],
-				[
-					11,
-					0
-				],
-				[
-					13,
-					0
-				],
-				[
-					15,
-					0
-				],
-				[
-					17,
-					0
-				],
-				[
-					19,
-					0
-				],
-				[
-					21,
-					0
-				],
-				[
-					23,
-					0
-				],
-				[
-					25,
-					0
-				]
+				[1, 0],
+				[3, 0],
+				[5, 0],
+				[7, 0],
+				[9, 0],
+				[11, 0],
+				[13, 0],
+				[15, 0],
+				[17, 0],
+				[19, 0],
+				[21, 0],
+				[23, 0],
+				[25, 0]
 			]
 		}
 	},
@@ -2193,136 +1013,33 @@
 		"location": "Thunderhead Peaks",
 		"link": "https://wiki.guildwars2.com/wiki/Thunderhead_Keep_(meta_event)",
 		"timer": {
-			"duration": [
-				0,
-				15
-			],
+			"duration": [0, 15],
 			"times": [
-				[
-					0,
-					45,
-					"The Oil Floes"
-				],
-				[
-					1,
-					45,
-					"Thunderhead Keep"
-				],
-				[
-					2,
-					45,
-					"The Oil Floes"
-				],
-				[
-					3,
-					45,
-					"Thunderhead Keep"
-				],
-				[
-					4,
-					45,
-					"The Oil Floes"
-				],
-				[
-					5,
-					45,
-					"Thunderhead Keep"
-				],
-				[
-					6,
-					45,
-					"The Oil Floes"
-				],
-				[
-					7,
-					45,
-					"Thunderhead Keep"
-				],
-				[
-					8,
-					45,
-					"The Oil Floes"
-				],
-				[
-					9,
-					45,
-					"Thunderhead Keep"
-				],
-				[
-					10,
-					45,
-					"The Oil Floes"
-				],
-				[
-					11,
-					45,
-					"Thunderhead Keep"
-				],
-				[
-					12,
-					45,
-					"The Oil Floes"
-				],
-				[
-					13,
-					45,
-					"Thunderhead Keep"
-				],
-				[
-					14,
-					45,
-					"The Oil Floes"
-				],
-				[
-					15,
-					45,
-					"Thunderhead Keep"
-				],
-				[
-					16,
-					45,
-					"The Oil Floes"
-				],
-				[
-					17,
-					45,
-					"Thunderhead Keep"
-				],
-				[
-					18,
-					45,
-					"The Oil Floes"
-				],
-				[
-					19,
-					45,
-					"Thunderhead Keep"
-				],
-				[
-					20,
-					45,
-					"The Oil Floes"
-				],
-				[
-					21,
-					45,
-					"Thunderhead Keep"
-				],
-				[
-					22,
-					45,
-					"The Oil Floes"
-				],
-				[
-					23,
-					45,
-					"Thunderhead Keep"
-				],
-				[
-					24,
-					45,
-					"The Oil Floes"
-				]
+				[0, 45, "The Oil Floes"],
+				[1, 45, "Thunderhead Keep"],
+				[2, 45, "The Oil Floes"],
+				[3, 45, "Thunderhead Keep"],
+				[4, 45, "The Oil Floes"],
+				[5, 45, "Thunderhead Keep"],
+				[6, 45, "The Oil Floes"],
+				[7, 45, "Thunderhead Keep"],
+				[8, 45, "The Oil Floes"],
+				[9, 45, "Thunderhead Keep"],
+				[10, 45, "The Oil Floes"],
+				[11, 45, "Thunderhead Keep"],
+				[12, 45, "The Oil Floes"],
+				[13, 45, "Thunderhead Keep"],
+				[14, 45, "The Oil Floes"],
+				[15, 45, "Thunderhead Keep"],
+				[16, 45, "The Oil Floes"],
+				[17, 45, "Thunderhead Keep"],
+				[18, 45, "The Oil Floes"],
+				[19, 45, "Thunderhead Keep"],
+				[20, 45, "The Oil Floes"],
+				[21, 45, "Thunderhead Keep"],
+				[22, 45, "The Oil Floes"],
+				[23, 45, "Thunderhead Keep"],
+				[24, 45, "The Oil Floes"]
 			]
 		}
 	},
@@ -2344,141 +1061,34 @@
 		"location": "Bjora Marches",
 		"link": "https://wiki.guildwars2.com/wiki/Champion_of_the_Ice_Dragon",
 		"timer": {
-			"duration": [
-				0,
-				35
-			],
+			"duration": [0, 35],
 			"times": [
-				[
-					1,
-					5,
-					"Drakkar"
-				],
-				[
-					1,
-					45,
-					"Storms of Winter"
-				],
-				[
-					3,
-					5,
-					"Drakkar"
-				],
-				[
-					3,
-					45,
-					"Storms of Winter"
-				],
-				[
-					5,
-					5,
-					"Drakkar"
-				],
-				[
-					5,
-					45,
-					"Storms of Winter"
-				],
-				[
-					7,
-					5,
-					"Drakkar"
-				],
-				[
-					7,
-					45,
-					"Storms of Winter"
-				],
-				[
-					9,
-					5,
-					"Drakkar"
-				],
-				[
-					9,
-					45,
-					"Storms of Winter"
-				],
-				[
-					11,
-					5,
-					"Drakkar"
-				],
-				[
-					11,
-					45,
-					"Storms of Winter"
-				],
-				[
-					13,
-					5,
-					"Drakkar"
-				],
-				[
-					13,
-					45,
-					"Storms of Winter"
-				],
-				[
-					15,
-					5,
-					"Drakkar"
-				],
-				[
-					15,
-					45,
-					"Storms of Winter"
-				],
-				[
-					17,
-					5,
-					"Drakkar"
-				],
-				[
-					17,
-					45,
-					"Storms of Winter"
-				],
-				[
-					19,
-					5,
-					"Drakkar"
-				],
-				[
-					19,
-					45,
-					"Storms of Winter"
-				],
-				[
-					21,
-					5,
-					"Drakkar"
-				],
-				[
-					21,
-					45,
-					"Storms of Winter"
-				],
-				[
-					23,
-					5,
-					"Drakkar"
-				],
-				[
-					23,
-					45,
-					"Storms of Winter"
-				],
-				[
-					25,
-					5,
-					"Drakkar"
-				],
-				[
-					25,
-					45,
-					"Storms of Winter"
-				]
+				[1, 5, "Drakkar"],
+				[1, 45, "Storms of Winter"],
+				[3, 5, "Drakkar"],
+				[3, 45, "Storms of Winter"],
+				[5, 5, "Drakkar"],
+				[5, 45, "Storms of Winter"],
+				[7, 5, "Drakkar"],
+				[7, 45, "Storms of Winter"],
+				[9, 5, "Drakkar"],
+				[9, 45, "Storms of Winter"],
+				[11, 5, "Drakkar"],
+				[11, 45, "Storms of Winter"],
+				[13, 5, "Drakkar"],
+				[13, 45, "Storms of Winter"],
+				[15, 5, "Drakkar"],
+				[15, 45, "Storms of Winter"],
+				[17, 5, "Drakkar"],
+				[17, 45, "Storms of Winter"],
+				[19, 5, "Drakkar"],
+				[19, 45, "Storms of Winter"],
+				[21, 5, "Drakkar"],
+				[21, 45, "Storms of Winter"],
+				[23, 5, "Drakkar"],
+				[23, 45, "Storms of Winter"],
+				[25, 5, "Drakkar"],
+				[25, 45, "Storms of Winter"]
 			]
 		}
 	},
@@ -2491,63 +1101,21 @@
 		"location": "Eye of the North",
 		"link": "https://wiki.guildwars2.com/wiki/The_Tower_of_Nightmares",
 		"timer": {
-			"duration": [
-				0,
-				15
-			],
+			"duration": [0, 15],
 			"times": [
-				[
-					1,
-					30
-				],
-				[
-					3,
-					30
-				],
-				[
-					5,
-					30
-				],
-				[
-					7,
-					30
-				],
-				[
-					9,
-					30
-				],
-				[
-					11,
-					30
-				],
-				[
-					13,
-					30
-				],
-				[
-					15,
-					30
-				],
-				[
-					17,
-					30
-				],
-				[
-					19,
-					30
-				],
-				[
-					21,
-					30
-				],
-				[
-					23,
-					30
-				],
-				[
-					25,
-					30
-				]
+				[1, 30],
+				[3, 30],
+				[5, 30],
+				[7, 30],
+				[9, 30],
+				[11, 30],
+				[13, 30],
+				[15, 30],
+				[17, 30],
+				[19, 30],
+				[21, 30],
+				[23, 30],
+				[25, 30]
 			]
 		}
 	},
@@ -2560,63 +1128,21 @@
 		"location": "Eye of the North",
 		"link": "https://wiki.guildwars2.com/wiki/The_Twisted_Marionette",
 		"timer": {
-			"duration": [
-				0,
-				20
-			],
+			"duration": [0, 20],
 			"times": [
-				[
-					0,
-					0
-				],
-				[
-					2,
-					0
-				],
-				[
-					4,
-					0
-				],
-				[
-					6,
-					0
-				],
-				[
-					8,
-					0
-				],
-				[
-					10,
-					0
-				],
-				[
-					12,
-					0
-				],
-				[
-					14,
-					0
-				],
-				[
-					16,
-					0
-				],
-				[
-					18,
-					0
-				],
-				[
-					20,
-					0
-				],
-				[
-					22,
-					0
-				],
-				[
-					24,
-					0
-				]
+				[0, 0],
+				[2, 0],
+				[4, 0],
+				[6, 0],
+				[8, 0],
+				[10, 0],
+				[12, 0],
+				[14, 0],
+				[16, 0],
+				[18, 0],
+				[20, 0],
+				[22, 0],
+				[24, 0]
 			]
 		}
 	},
@@ -2629,63 +1155,21 @@
 		"location": "Eye of the North",
 		"link": "https://wiki.guildwars2.com/wiki/The_Battle_For_Lion's_Arch",
 		"timer": {
-			"duration": [
-				0,
-				15
-			],
+			"duration": [0, 15],
 			"times": [
-				[
-					0,
-					30
-				],
-				[
-					2,
-					30
-				],
-				[
-					4,
-					30
-				],
-				[
-					6,
-					30
-				],
-				[
-					8,
-					30
-				],
-				[
-					10,
-					30
-				],
-				[
-					12,
-					30
-				],
-				[
-					14,
-					30
-				],
-				[
-					16,
-					30
-				],
-				[
-					18,
-					30
-				],
-				[
-					20,
-					30
-				],
-				[
-					22,
-					30
-				],
-				[
-					24,
-					30
-				]
+				[0, 30],
+				[2, 30],
+				[4, 30],
+				[6, 30],
+				[8, 30],
+				[10, 30],
+				[12, 30],
+				[14, 30],
+				[16, 30],
+				[18, 30],
+				[20, 30],
+				[22, 30],
+				[24, 30]
 			]
 		}
 	},
@@ -2699,63 +1183,21 @@
 		"link": "https://wiki.guildwars2.com/wiki/Dragonstorm",
 		"display": true,
 		"timer": {
-			"duration": [
-				0,
-				20
-			],
+			"duration": [0, 20],
 			"times": [
-				[
-					1,
-					0
-				],
-				[
-					3,
-					0
-				],
-				[
-					5,
-					0
-				],
-				[
-					7,
-					0
-				],
-				[
-					9,
-					0
-				],
-				[
-					11,
-					0
-				],
-				[
-					13,
-					0
-				],
-				[
-					15,
-					0
-				],
-				[
-					17,
-					0
-				],
-				[
-					19,
-					0
-				],
-				[
-					21,
-					0
-				],
-				[
-					23,
-					0
-				],
-				[
-					25,
-					0
-				]
+				[1, 0],
+				[3, 0],
+				[5, 0],
+				[7, 0],
+				[9, 0],
+				[11, 0],
+				[13, 0],
+				[15, 0],
+				[17, 0],
+				[19, 0],
+				[21, 0],
+				[23, 0],
+				[25, 0]
 			]
 		}
 	},
@@ -2768,63 +1210,21 @@
 		"location": "Seitung Province",
 		"link": "https://wiki.guildwars2.com/wiki/Seitung_Province:_Hero%27s_Choice_Chest",
 		"timer": {
-			"duration": [
-				0,
-				30
-			],
+			"duration": [0, 30],
 			"times": [
-				[
-					1,
-					30
-				],
-				[
-					3,
-					30
-				],
-				[
-					5,
-					30
-				],
-				[
-					7,
-					30
-				],
-				[
-					9,
-					30
-				],
-				[
-					11,
-					30
-				],
-				[
-					13,
-					30
-				],
-				[
-					15,
-					30
-				],
-				[
-					17,
-					30
-				],
-				[
-					19,
-					30
-				],
-				[
-					21,
-					30
-				],
-				[
-					23,
-					30
-				],
-				[
-					25,
-					30
-				]
+				[1, 30],
+				[3, 30],
+				[5, 30],
+				[7, 30],
+				[9, 30],
+				[11, 30],
+				[13, 30],
+				[15, 30],
+				[17, 30],
+				[19, 30],
+				[21, 30],
+				[23, 30],
+				[25, 30]
 			]
 		}
 	},
@@ -2837,63 +1237,21 @@
 		"location": "New Kaineng City",
 		"link": "https://wiki.guildwars2.com/wiki/New_Kaineng_City:_Hero%27s_Choice_Chest",
 		"timer": {
-			"duration": [
-				0,
-				40
-			],
+			"duration": [0, 40],
 			"times": [
-				[
-					0,
-					0
-				],
-				[
-					2,
-					0
-				],
-				[
-					4,
-					0
-				],
-				[
-					6,
-					0
-				],
-				[
-					8,
-					0
-				],
-				[
-					10,
-					0
-				],
-				[
-					12,
-					0
-				],
-				[
-					14,
-					0
-				],
-				[
-					16,
-					0
-				],
-				[
-					18,
-					0
-				],
-				[
-					20,
-					0
-				],
-				[
-					22,
-					0
-				],
-				[
-					24,
-					0
-				]
+				[0, 0],
+				[2, 0],
+				[4, 0],
+				[6, 0],
+				[8, 0],
+				[10, 0],
+				[12, 0],
+				[14, 0],
+				[16, 0],
+				[18, 0],
+				[20, 0],
+				[22, 0],
+				[24, 0]
 			]
 		}
 	},
@@ -2906,63 +1264,21 @@
 		"location": "Echovald Wilds",
 		"link": "https://wiki.guildwars2.com/wiki/Echovald_Wilds:_Hero%27s_Choice_Chest",
 		"timer": {
-			"duration": [
-				0,
-				35
-			],
+			"duration": [0, 35],
 			"times": [
-				[
-					0,
-					30
-				],
-				[
-					2,
-					30
-				],
-				[
-					4,
-					30
-				],
-				[
-					6,
-					30
-				],
-				[
-					8,
-					30
-				],
-				[
-					10,
-					30
-				],
-				[
-					12,
-					30
-				],
-				[
-					14,
-					30
-				],
-				[
-					16,
-					30
-				],
-				[
-					18,
-					30
-				],
-				[
-					20,
-					30
-				],
-				[
-					22,
-					30
-				],
-				[
-					24,
-					30
-				]
+				[0, 30],
+				[2, 30],
+				[4, 30],
+				[6, 30],
+				[8, 30],
+				[10, 30],
+				[12, 30],
+				[14, 30],
+				[16, 30],
+				[18, 30],
+				[20, 30],
+				[22, 30],
+				[24, 30]
 			]
 		}
 	},
@@ -2975,63 +1291,21 @@
 		"location": "Dragon's End",
 		"link": "https://wiki.guildwars2.com/wiki/Dragon%27s_End:_Hero%27s_Choice_Chest",
 		"timer": {
-			"duration": [
-				1,
-				0
-			],
+			"duration": [1, 0],
 			"times": [
-				[
-					1,
-					0
-				],
-				[
-					3,
-					0
-				],
-				[
-					5,
-					0
-				],
-				[
-					7,
-					0
-				],
-				[
-					9,
-					0
-				],
-				[
-					11,
-					0
-				],
-				[
-					13,
-					0
-				],
-				[
-					15,
-					0
-				],
-				[
-					17,
-					0
-				],
-				[
-					19,
-					0
-				],
-				[
-					21,
-					0
-				],
-				[
-					23,
-					0
-				],
-				[
-					25,
-					0
-				]
+				[1, 0],
+				[3, 0],
+				[5, 0],
+				[7, 0],
+				[9, 0],
+				[11, 0],
+				[13, 0],
+				[15, 0],
+				[17, 0],
+				[19, 0],
+				[21, 0],
+				[23, 0],
+				[25, 0]
 			]
 		}
 	},
@@ -3053,63 +1327,21 @@
 		"location": "Skywatch Archipelago",
 		"link": "https://wiki.guildwars2.com/wiki/Skywatch_Archipelago:_Hero%27s_Choice_Chest",
 		"timer": {
-			"duration": [
-				0,
-				25
-			],
+			"duration": [0, 25],
 			"times": [
-				[
-					1,
-					0
-				],
-				[
-					3,
-					0
-				],
-				[
-					5,
-					0
-				],
-				[
-					7,
-					0
-				],
-				[
-					9,
-					0
-				],
-				[
-					11,
-					0
-				],
-				[
-					13,
-					0
-				],
-				[
-					15,
-					0
-				],
-				[
-					17,
-					0
-				],
-				[
-					19,
-					0
-				],
-				[
-					21,
-					0
-				],
-				[
-					23,
-					0
-				],
-				[
-					25,
-					0
-				]
+				[1, 0],
+				[3, 0],
+				[5, 0],
+				[7, 0],
+				[9, 0],
+				[11, 0],
+				[13, 0],
+				[15, 0],
+				[17, 0],
+				[19, 0],
+				[21, 0],
+				[23, 0],
+				[25, 0]
 			]
 		}
 	},
@@ -3122,63 +1354,21 @@
 		"location": "Amnytas",
 		"link": "https://wiki.guildwars2.com/wiki/Amnytas:_Hero%27s_Choice_Chest",
 		"timer": {
-			"duration": [
-				0,
-				25
-			],
+			"duration": [0, 25],
 			"times": [
-				[
-					0,
-					0
-				],
-				[
-					2,
-					0
-				],
-				[
-					4,
-					0
-				],
-				[
-					6,
-					0
-				],
-				[
-					8,
-					0
-				],
-				[
-					10,
-					0
-				],
-				[
-					12,
-					0
-				],
-				[
-					14,
-					0
-				],
-				[
-					16,
-					0
-				],
-				[
-					18,
-					0
-				],
-				[
-					20,
-					0
-				],
-				[
-					22,
-					0
-				],
-				[
-					24,
-					0
-				]
+				[0, 0],
+				[2, 0],
+				[4, 0],
+				[6, 0],
+				[8, 0],
+				[10, 0],
+				[12, 0],
+				[14, 0],
+				[16, 0],
+				[18, 0],
+				[20, 0],
+				[22, 0],
+				[24, 0]
 			]
 		}
 	},
@@ -3210,47 +1400,17 @@
 		"link": "https://wiki.guildwars2.com/wiki/Convergences",
 		"display": true,
 		"timer": {
-			"duration": [
-				0,
-				10
-			],
+			"duration": [0, 10],
 			"times": [
-				[
-					1,
-					30
-				],
-				[
-					4,
-					30
-				],
-				[
-					7,
-					30
-				],
-				[
-					10,
-					30
-				],
-				[
-					13,
-					30
-				],
-				[
-					16,
-					30
-				],
-				[
-					19,
-					30
-				],
-				[
-					22,
-					30
-				],
-				[
-					25,
-					30
-				]
+				[1, 30],
+				[4, 30],
+				[7, 30],
+				[10, 30],
+				[13, 30],
+				[16, 30],
+				[19, 30],
+				[22, 30],
+				[25, 30]
 			]
 		}
 	},
@@ -3264,63 +1424,21 @@
 		"description": "Festival of the Four Winds",
 		"link": "https://wiki.guildwars2.com/wiki/Participate_in_the_treasure_hunt!",
 		"timer": {
-			"duration": [
-				0,
-				30
-			],
+			"duration": [0, 30],
 			"times": [
-				[
-					0,
-					30
-				],
-				[
-					2,
-					30
-				],
-				[
-					4,
-					30
-				],
-				[
-					6,
-					30
-				],
-				[
-					8,
-					30
-				],
-				[
-					10,
-					30
-				],
-				[
-					12,
-					30
-				],
-				[
-					14,
-					30
-				],
-				[
-					16,
-					30
-				],
-				[
-					18,
-					30
-				],
-				[
-					20,
-					30
-				],
-				[
-					22,
-					30
-				],
-				[
-					24,
-					30
-				]
+				[0, 30],
+				[2, 30],
+				[4, 30],
+				[6, 30],
+				[8, 30],
+				[10, 30],
+				[12, 30],
+				[14, 30],
+				[16, 30],
+				[18, 30],
+				[20, 30],
+				[22, 30],
+				[24, 30]
 			]
 		}
 	},
