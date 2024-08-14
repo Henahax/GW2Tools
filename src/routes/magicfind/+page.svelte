@@ -39,7 +39,7 @@
 
 <table class="table-zebra table-sm table-pin-rows mx-auto table w-fit">
 	<thead class="text-sm">
-		<tr class="bg-base-300 shadow">
+		<tr class="bg-base-100 shadow">
 			<th>
 				<input class="checkbox" type="checkbox" disabled checked />
 			</th>
@@ -112,7 +112,7 @@
 		{/each}
 	</tbody>
 	<tfoot>
-		<tr class="bg-base-300 text-lg shadow">
+		<tr class="bg-base-100 text-lg shadow">
 			<th></th>
 			<th class="text-right {sum < 750 ? 'text-red-500' : 'text-green-500'}">{sum}</th>
 			<th colspan="2" class="normal-case">% (of max 750%)</th>
