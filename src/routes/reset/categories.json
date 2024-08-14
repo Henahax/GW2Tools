@@ -1,7 +1,7 @@
 [
     {
-        "id": "converters",
-        "name": "Converters",
+        "id": "items",
+        "name": "Items",
         "index": 0
     },
     {
@@ -55,8 +55,8 @@
         "index": 12
     },
     {
-        "id": "eventsfestivals",
-        "name": "Events: Festivals",
-        "index": 13
+        "id": "festivals",
+        "name": "Festivals",
+        "index": 20
     }
 ]
