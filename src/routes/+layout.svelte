@@ -42,7 +42,7 @@
 		</div>
 	</div>
 
-	<main class="mx-auto w-full max-w-screen-2xl grow">
+	<main class="mx-auto w-full grow">
 		<slot />
 	</main>
 
