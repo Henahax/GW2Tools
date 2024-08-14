@@ -26,7 +26,6 @@
 
 
     function calculateTimeRemaining() {
-        console.log(task.id)
 		if (!task.timer) {
 			return {
 				seconds: ''
