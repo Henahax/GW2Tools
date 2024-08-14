@@ -9,7 +9,7 @@
 			bulletpoints: [
 				'select displayed tasks from 50+ in the options',
 				'vendors with daily/weekly reset',
-				'crafting & harversting',
+				'crafting & harvesting',
 				'events & world bosses with timers'
 			]
 		},
@@ -18,7 +18,7 @@
 			path: '/magicfind',
 			icon: 'fa-solid fa-clover',
 			description: 'calculator for optimising magic find',
-			bulletpoints: ['account bonusses', 'equipment', 'effects', 'consumables']
+			bulletpoints: ['account bonuses', 'equipment', 'effects', 'consumables']
 		},
 		{
 			name: 'Ecto Salvage',
