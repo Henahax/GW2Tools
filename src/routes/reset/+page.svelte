@@ -4,10 +4,8 @@
 	import { getUTCTimeForStartOfNextDay, getUTCTimeForStartOfNextWeek } from './functions.svelte';
 	import IntervalTimer from './IntervalTimer.svelte';
 	import EventTimer from './EventTimer.svelte';
-
-	let props = $props();
-	let categories = props.data.categories;
-	let taskList = props.data.tasks;
+	import categories from './categories.json';
+	import taskList from './tasks.json';
 
 	let tasks: Task[] = $state(taskList as Task[]);
 	let filter = $state('');
@@ -28,6 +26,30 @@
 			class: 'fa-regular fa-calendar'
 		}
 	];
+
+	$effect(() => {
+		getCookieValues(tasks);
+	});
+
+	function getCookieValues(tasks: Task[]) {
+		const cookies = document.cookie.split('; ').map((cookie) => {
+			const [name, value] = cookie.split('=');
+			const [namespace, subname] = name.split('.');
+			return { namespace, subname, value };
+		});
+
+		tasks.forEach((task) => {
+			cookies.forEach(({ namespace, subname, value }) => {
+				if (namespace === task.id) {
+					if (subname === 'display') {
+						task.display = value === 'true';
+					} else if (subname === 'checked') {
+						task.checked = value === 'true';
+					}
+				}
+			});
+		});
+	}
 
 	function setCookie(task: Task, isSetting = false) {
 		let time = new Date().getTime();
@@ -84,7 +106,7 @@
 						<i class="fa-solid fa-gear"></i>
 						<div class="max-md:hidden">Settings</div>
 					</label>
-					<button class="btn btn-primary max-md:btn-square">
+					<button class="btn btn-primary max-md:btn-square" onclick={infoModalReset.showModal()}>
 						<i class="fa-solid fa-question"></i>
 						<div class="max-md:hidden">Info</div>
 					</button>
@@ -92,7 +114,59 @@
 			</div>
 		</Title>
 
-		<div class="mx-auto flex w-full flex-col justify-center gap-4 px-2 sm:flex-row">
+		<dialog id="infoModalReset" class="modal modal-bottom sm:modal-middle">
+			<div class="modal-box">
+				<form method="dialog">
+					<button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+				</form>
+				<h3 class="text-lg font-bold">Instructions</h3>
+				<div class="info-grid grid items-center gap-4 p-4">
+					<div class="flex items-center justify-center text-2xl">
+						<i class="fa-solid fa-gear"></i>
+					</div>
+
+					<div class="flex flex-col">
+						<p>select displayed tasks</p>
+						<p class="text-xs opacity-50">items, vendors, actions, events</p>
+					</div>
+
+					<div class="flex items-center justify-center text-2xl">
+						<i class="fa-solid fa-square-check"></i>
+					</div>
+					<div class="flex flex-col">
+						<p>check completed tasks</p>
+						<p class="text-xs opacity-50">tasks will reset on daily/weeky reset</p>
+					</div>
+
+					<div class="flex items-center justify-center text-2xl">
+						<i class="fa-regular fa-circle-question"></i>
+					</div>
+					<div class="flex flex-col">
+						<p>link to relevant information</p>
+						<p class="text-xs opacity-50">wiki, calculators</p>
+					</div>
+					<div class="flex items-center justify-center">
+						<span class="countdown font-mono">00:13:37</span>
+					</div>
+					<div class="flex flex-col">
+						<p>countdown to next event</p>
+						<div class="flex flex-row gap-4 text-xs opacity-50">
+							<div class="flex items-center gap-2">
+								<i class="fa-solid fa-play"></i><span>active</span>
+							</div>
+							<div class="flex items-center gap-2">
+								<i class="fa-solid fa-stopwatch"></i><span>soon</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<form method="dialog" class="modal-backdrop">
+				<button>close</button>
+			</form>
+		</dialog>
+
+		<div class="mx-auto flex w-full flex-col justify-center gap-4 px-2 pb-2 sm:flex-row">
 			{#each intervals as interval}
 				{#if tasks.filter((task) => task.interval === interval.id && task.display).length > 0}
 					<div>
@@ -141,7 +215,7 @@
 															class="checkbox checkbox-lg"
 															type="checkbox"
 															bind:checked={task.checked}
-															onchange={setCookie(task)}
+															onchange={() => setCookie(task)}
 														/>
 														<img class="size-8" src={task.icon} alt={task.name} />
 														<div class="flex flex-col">
@@ -223,7 +297,7 @@
 														class="checkbox"
 														type="checkbox"
 														bind:checked={task.display}
-														onchange={setCookie(task, true)}
+														onchange={() => setCookie(task, true)}
 													/>
 													<img class="size-8" src={task.icon} alt={task.name} />
 													<div class="flex flex-col items-start">
@@ -274,5 +348,9 @@
 	.collapse-content li:has(input[type='checkbox']:checked) {
 		text-decoration: line-through;
 		opacity: 0.5;
+	}
+
+	.info-grid {
+		grid-template-columns: fit-content(0) 1fr;
 	}
 </style>

@@ -19,7 +19,9 @@
 			icon: 'fa-solid fa-clover',
 			description: 'calculator for optimising magic find',
 			bulletpoints: ['account bonuses', 'equipment', 'effects', 'consumables']
-		},
+		}
+		/*
+		,
 		{
 			name: 'Ecto Salvage',
 			path: '/ecto',
@@ -27,6 +29,7 @@
 			description: 'calculator for salvaging ectos',
 			bulletpoints: ['all salvage kits', 'live prices', 'hypothetical prices']
 		}
+		*/
 	];
 </script>
 
@@ -38,7 +41,8 @@
 ></Title>
 
 <div class="mx-auto flex flex-col justify-center">
-	<div class="mx-auto grid grid-cols-1 grid-rows-1 gap-4 py-8 md:grid-cols-2 lg:grid-cols-3">
+	<!-- lg:grid-cols-3 -->
+	<div class="mx-auto grid grid-cols-1 grid-rows-1 gap-4 py-8 md:grid-cols-2">
 		{#each tools as tool}
 			<a
 				class="card bg-base-300 hover:bg-base-200 flex flex-col gap-2 p-8 text-center shadow duration-300 ease-in-out"
