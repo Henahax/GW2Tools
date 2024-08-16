@@ -15,21 +15,12 @@ Tool Collection for Guild Wars 2
 #### todo
 
 - alarm
-- alternated boss timer
-- other harvesting routes
-- daily/weekly split
-- more compact design
+- compact design
 
 ### Magicfind
 
 - checklist
 - calculator
-
-### Ecto Salvage
-
-- all tools
-- essence of luck
-- profit caltulator
 
 ## 🎯 Goal
 
@@ -37,6 +28,7 @@ Tool Collection for Guild Wars 2
 - Add new tools
 - prettier unified visual design
 - Try out and learn new technologies
+- 2024 Svelte 5 rework
 
 ## 💡 Technologies
 
