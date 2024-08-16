@@ -1,8 +1,10 @@
 <script lang="ts">
+	import { getUTCTimeForStartOfNextDay } from './functions.svelte';
+	import type { Task } from './types';
+
 	interface MyProps {
 		task: Task;
 	}
-	import type { Task } from './types';
 	let { task }: MyProps = $props();
 
 	let nextEventTime: [Date, object, string] = $state([new Date(), {}, '']);
@@ -96,14 +98,6 @@
 			}
 		}
 		return [new Date(nextEventTime), duration, add];
-	}
-
-	function getUTCTimeForStartOfNextDay() {
-		const now = new Date();
-		const tomorrow = new Date(now);
-		tomorrow.setUTCDate(tomorrow.getUTCDate() + 1);
-		tomorrow.setUTCHours(0, 0, 0, 0);
-		return tomorrow;
 	}
 </script>
 

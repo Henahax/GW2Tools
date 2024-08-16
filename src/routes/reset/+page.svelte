@@ -1,10 +1,13 @@
 <script lang="ts">
 	import Title from '$lib/Title.svelte';
-	import taskList from './tasks.json';
-	import categories from './categories.json';
 	import type { Task } from './types';
+	import { getUTCTimeForStartOfNextDay, getUTCTimeForStartOfNextWeek } from './functions.svelte';
 	import IntervalTimer from './IntervalTimer.svelte';
 	import EventTimer from './EventTimer.svelte';
+
+	let props = $props();
+	let categories = props.data.categories;
+	let taskList = props.data.tasks;
 
 	let tasks: Task[] = $state(taskList as Task[]);
 	let filter = $state('');
@@ -25,6 +28,35 @@
 			class: 'fa-regular fa-calendar'
 		}
 	];
+
+	function setCookie(task: Task, isSetting = false) {
+		let time = new Date().getTime();
+		let suffix: string;
+		let value: boolean;
+		if (isSetting) {
+			value = Boolean(task.display);
+			suffix = '.display';
+			time += 365 * 24 * 60 * 60 * 1000;
+		} else {
+			value = Boolean(task.checked);
+			suffix = '.checked';
+			switch (task.interval) {
+				case 'daily': {
+					time = getUTCTimeForStartOfNextDay().getTime();
+					break;
+				}
+				case 'weekly': {
+					time = getUTCTimeForStartOfNextWeek().getTime();
+					break;
+				}
+				default: {
+					return;
+				}
+			}
+		}
+		document.cookie =
+			task.id + suffix + '=' + value + ';expires=' + new Date(time).toUTCString() + ';path=/';
+	}
 </script>
 
 <svelte:head>
@@ -109,8 +141,9 @@
 															class="checkbox checkbox-lg"
 															type="checkbox"
 															bind:checked={task.checked}
+															onchange={setCookie(task)}
 														/>
-														<img src={task.icon} alt={task.name} class="size-8" />
+														<img class="size-8" src={task.icon} alt={task.name} />
 														<div class="flex flex-col">
 															<div class="text-sm font-semibold">{task.name}</div>
 															{#if task.location}
@@ -130,13 +163,6 @@
 																<a href={task.link} title="more info">
 																	<i class="fa-regular fa-circle-question"></i>
 																</a>
-																<!-- TODO: alarm
-														{#if task.timer}
-															<button title="set alarm">
-																<i class="fa-regular fa-bell"></i>
-															</button>
-														{/if}
-														-->
 															</div>
 															{#if task.timer}
 																<div class="flex flex-col justify-end text-right text-xs">
@@ -193,8 +219,13 @@
 															.includes(filter.toLowerCase())))) as task}
 											<li class="py-1">
 												<label class="flex flex-row items-center gap-2">
-													<input class="checkbox" type="checkbox" bind:checked={task.display} />
-													<img class="size-8" src={task.icon} alt={task.id} />
+													<input
+														class="checkbox"
+														type="checkbox"
+														bind:checked={task.display}
+														onchange={setCookie(task, true)}
+													/>
+													<img class="size-8" src={task.icon} alt={task.name} />
 													<div class="flex flex-col items-start">
 														<div class="text-sm">{task.name}</div>
 														{#if task.location}

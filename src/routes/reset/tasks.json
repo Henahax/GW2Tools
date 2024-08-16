@@ -168,16 +168,6 @@
 		"display": true
 	},
 	{
-		"id": "AntiqueSummoningStones",
-		"category": "vendors",
-		"name": "Antique Summoning Stones",
-		"interval": "weekly",
-		"icon": "https://wiki.guildwars2.com/images/f/f6/Antique_Summoning_Stone.png",
-		"location": "Arborstone",
-		"link": "https://wiki.guildwars2.com/wiki/Leivas#Weekly_Sales",
-		"display": true
-	},
-	{
 		"id": "WritOfDragonsEnd",
 		"category": "vendors",
 		"name": "Writ of Dragon's End",
@@ -185,15 +175,6 @@
 		"icon": "https://wiki.guildwars2.com/images/2/28/Writ_of_Dragon%27s_End.png",
 		"location": "Dragon's End",
 		"link": "https://wiki.guildwars2.com/wiki/Writ_of_Dragon%27s_End"
-	},
-	{
-		"id": "MistHardenedLockboxKey",
-		"category": "vendors",
-		"name": "Mist-Hardened Lockbox Key",
-		"interval": "weekly",
-		"icon": "https://wiki.guildwars2.com/images/a/ad/Mist-Hardened_Lockbox_Key.png",
-		"location": "WvW-Maps",
-		"link": "https://wiki.guildwars2.com/wiki/Mist-Hardened_Lockbox_Key"
 	},
 	{
 		"id": "MysticClovers",
@@ -204,6 +185,15 @@
 		"description": "various currencies",
 		"link": "https://wiki.guildwars2.com/wiki/Mystic_Clover",
 		"display": true
+	},
+	{
+		"id": "MistHardenedLockboxKey",
+		"category": "vendors",
+		"name": "Mist-Hardened Lockbox Key",
+		"interval": "weekly",
+		"icon": "https://wiki.guildwars2.com/images/a/ad/Mist-Hardened_Lockbox_Key.png",
+		"location": "WvW-Maps",
+		"link": "https://wiki.guildwars2.com/wiki/Mist-Hardened_Lockbox_Key"
 	},
 	{
 		"id": "HomeInstance",
@@ -298,6 +288,16 @@
 		"icon": "https://wiki.guildwars2.com/images/e/eb/Community_Goal_Reward-_Tier_5.png",
 		"location": "Eye of the North",
 		"link": "https://wiki.guildwars2.com/wiki/Vigil_Emissary_Chest"
+	},
+	{
+		"id": "AntiqueSummoningStones",
+		"category": "vendors",
+		"name": "Antique Summoning Stones",
+		"interval": "weekly",
+		"icon": "https://wiki.guildwars2.com/images/f/f6/Antique_Summoning_Stone.png",
+		"location": "Arborstone",
+		"link": "https://wiki.guildwars2.com/wiki/Leivas#Weekly_Sales",
+		"display": true
 	},
 	{
 		"id": "WizardsTowerExchange",
