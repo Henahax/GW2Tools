@@ -14,6 +14,8 @@
 	</button>
 </Title>
 
+<!-- TODO: implement after api freeze -->
+
 <div class="mx-auto grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-4">
 	{#each salvagekits as salvagekit}
 		<div class="card bg-base-100 flex flex-col gap-2 p-4 shadow">

@@ -42,7 +42,7 @@
 		</div>
 	</div>
 
-	<main class="bg-base-300 mx-auto w-full grow">
+	<main class="bg-base-300 mx-auto w-full grow pb-4">
 		<slot />
 	</main>
 
