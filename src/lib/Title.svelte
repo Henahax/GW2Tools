@@ -3,7 +3,7 @@
 	export let subtitle;
 </script>
 
-<div class="flex w-full flex-row justify-between px-2 py-4">
+<div class="mx-auto flex w-full max-w-screen-2xl flex-row items-center justify-between gap-4 p-4">
 	<div class="flex flex-col">
 		<h2 class="text-2xl font-bold">{title}</h2>
 		<span class="text-sm">{subtitle}</span>

@@ -1,32 +1,33 @@
 <script lang="ts">
-	import { onDestroy } from 'svelte';
-	import type { TimeRemaining } from './types';
-	export let mode: modes;
+	import { getUTCTimeForStartOfNextDay, getUTCTimeForStartOfNextWeek } from './functions.svelte';
+	let { interval } = $props();
 
-	enum modes {
-		day = 1,
-		week = 2
-	}
+	let timeRemaining = $state(calculateTimeRemaining());
 
-	let targetDate;
-	let timeRemaining = calculateTimeRemaining();
+	$effect(() => {
+		const intervalId = setInterval(() => {
+			timeRemaining = calculateTimeRemaining();
+		}, 1000);
 
-	function calculateTimeRemaining(): TimeRemaining {
-		switch (mode) {
-			case modes.day: {
+		return () => clearInterval(intervalId);
+	});
+
+	function calculateTimeRemaining() {
+		let targetDate = new Date();
+		switch (interval) {
+			case 'daily': {
 				targetDate = getUTCTimeForStartOfNextDay();
 				break;
 			}
-			case modes.week: {
+			case 'weekly': {
 				targetDate = getUTCTimeForStartOfNextWeek();
 				break;
 			}
 		}
-
 		const now = new Date().getTime();
-		const difference = targetDate.getTime() - now;
+		let difference = targetDate.getTime() - now;
 
-		if (difference <= 0) {
+		if (difference < 0) {
 			location.reload();
 		}
 
@@ -46,42 +47,10 @@
 
 		return { days, hours, minutes, seconds };
 	}
-
-	const interval = setInterval(() => {
-		timeRemaining = calculateTimeRemaining();
-	}, 1000);
-
-	onDestroy(() => {
-		clearInterval(interval);
-	});
-
-	function getUTCTimeForStartOfNextDay() {
-		const now = new Date();
-		const tomorrow = new Date(now);
-		tomorrow.setUTCDate(tomorrow.getUTCDate() + 1);
-		tomorrow.setUTCHours(0, 0, 0, 0);
-
-		return tomorrow;
-	}
-
-	function getUTCTimeForStartOfNextWeek() {
-		const now = new Date();
-		var nextMonday = new Date();
-
-		while (nextMonday.getUTCDay() !== 1) {
-			nextMonday.setUTCDate(nextMonday.getUTCDate() + 1);
-		}
-
-		nextMonday.setUTCHours(7, 30, 0, 0);
-		if (nextMonday < now) {
-			nextMonday.setUTCDate(nextMonday.getUTCDate() + 7);
-		}
-		return nextMonday;
-	}
 </script>
 
-<span class="countdown font-mono">
-	{#if mode == modes.week}
+<span class="countdown flex justify-end font-mono">
+	{#if interval === 'weekly'}
 		<span style="--value:{timeRemaining.days};"></span>:
 	{/if}
 	<span style="--value:{timeRemaining.hours};"></span>:

@@ -1,19 +1,30 @@
 <script lang="ts">
-	import { onDestroy } from 'svelte';
-	import type { Task, TimeRemaining } from './types';
-	import { dataStore } from './store';
+	import { getUTCTimeForStartOfNextDay } from './functions.svelte';
+	import type { Task } from './types';
 
-	export let task: Task;
+	interface MyProps {
+		task: Task;
+	}
+	let { task }: MyProps = $props();
 
-	let nextEventTime: [Date, object, string];
-	let targetTime: number;
-	let active = false;
-	let soon = false;
-	let duration: [string, string];
-	let add: string;
-	let timeRemaining = calculateTimeRemaining();
+	let nextEventTime: [Date, object, string] = $state([new Date(), {}, '']);
+	let targetTime: number = $state(0);
+	let active = $state(false);
+	let soon = $state(false);
+	let duration: [string, string] = $state(['00', '00']);
+	let add: string = $state('');
 
-	function calculateTimeRemaining(): TimeRemaining {
+	let timeRemaining = $state(calculateTimeRemaining());
+
+	$effect(() => {
+		const intervalId = setInterval(() => {
+			timeRemaining = calculateTimeRemaining();
+		}, 1000);
+
+		return () => clearInterval(intervalId);
+	});
+
+	function calculateTimeRemaining() {
 		if (!task.timer) {
 			return {
 				seconds: ''
@@ -34,12 +45,13 @@
 
 		active = !isCountingDown;
 		if (!active && difference < 1000 * 60 * 5) {
+			//todo alarm
+			/*
 			if (!soon) {
 				if (task.alarm) {
-					notify();
-					resetAlarm();
 				}
 			}
+            */
 			soon = true;
 		} else {
 			soon = false;
@@ -57,14 +69,6 @@
 
 		return { hours, minutes, seconds };
 	}
-
-	const interval = setInterval(() => {
-		timeRemaining = calculateTimeRemaining();
-	}, 1000);
-
-	onDestroy(() => {
-		clearInterval(interval);
-	});
 
 	function getNextEventTime(timer: any): [Date, object, string] {
 		var now = new Date();
@@ -94,32 +98,6 @@
 			}
 		}
 		return [new Date(nextEventTime), duration, add];
-	}
-
-	function getUTCTimeForStartOfNextDay() {
-		const now = new Date();
-		const tomorrow = new Date(now);
-		tomorrow.setUTCDate(tomorrow.getUTCDate() + 1);
-		tomorrow.setUTCHours(0, 0, 0, 0);
-		return tomorrow;
-	}
-
-	function notify() {
-		if (Notification.permission === 'granted') {
-			let body = task.name + '\nis starting soon.';
-			let icon = task.icon;
-			const notification = new Notification('Event Notifiaction', { body: body, icon: icon });
-		}
-	}
-
-	function resetAlarm() {
-		for (let i = 0; i < $dataStore.length; i++) {
-			for (let j = 0; j < $dataStore[i].tasks.length; j++) {
-				if ($dataStore[i].tasks[j].id === task.id) {
-					$dataStore[i].tasks[j].alarm = false;
-				}
-			}
-		}
 	}
 </script>
 

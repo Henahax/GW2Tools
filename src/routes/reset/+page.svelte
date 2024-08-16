@@ -1,79 +1,324 @@
 <script lang="ts">
-	import { dataStore } from './store';
-	import { getCookie } from './functions';
-	import { onMount } from 'svelte';
-	import Header from '$lib/header.svelte';
+	import Title from '$lib/Title.svelte';
+	import type { Task } from './types';
+	import { getUTCTimeForStartOfNextDay, getUTCTimeForStartOfNextWeek } from './functions.svelte';
 	import IntervalTimer from './IntervalTimer.svelte';
-	import SettingsTask from './SettingsTask.svelte';
-	import CategoryItem from './Category.svelte';
+	import EventTimer from './EventTimer.svelte';
+	import categories from './categories.json';
+	import taskList from './tasks.json';
 
-	import type { Category } from './types';
-	import json from '../../assets/reset.json';
+	let tasks: Task[] = $state(taskList as Task[]);
+	let filter = $state('');
 
-	const data: Category[] = json as Category[];
+	let intervals = [
+		{
+			id: 'daily',
+			timer: 'Daily',
+			tasks: 'Daily Tasks',
+			reset: 'resets daily',
+			class: 'fa-regular fa-clock'
+		},
+		{
+			id: 'weekly',
+			timer: 'Weekly',
+			tasks: 'Weekly Tasks',
+			reset: 'resets weekly',
+			class: 'fa-regular fa-calendar'
+		}
+	];
 
-	onMount(() => {
-		$dataStore = getData();
+	$effect(() => {
+		getCookieValues(tasks);
 	});
 
-	function getData() {
-		for (let category = 0; category < data.length; category++) {
-			for (let task = 0; task < data[category].tasks.length; task++) {
-				let display = getCookie('display.' + data[category].tasks[task].id);
-				if (display === null && data[category].tasks[task].display === true) {
-					display = true;
-				} else if (display === null) {
-					display = false;
+	function getCookieValues(tasks: Task[]) {
+		const cookies = document.cookie.split('; ').map((cookie) => {
+			const [name, value] = cookie.split('=');
+			const [namespace, subname] = name.split('.');
+			return { namespace, subname, value };
+		});
+
+		tasks.forEach((task) => {
+			cookies.forEach(({ namespace, subname, value }) => {
+				if (namespace === task.id) {
+					if (subname === 'display') {
+						task.display = value === 'true';
+					} else if (subname === 'checked') {
+						task.checked = value === 'true';
+					}
 				}
-				let checked = getCookie('check.' + data[category].tasks[task].id);
-				if (checked === null) {
-					checked = false;
-				}
-				data[category].tasks[task].display = display;
-				data[category].tasks[task].checked = checked;
-			}
-		}
-		return data;
+			});
+		});
 	}
 
-	let filter = '';
+	function setCookie(task: Task, isSetting = false) {
+		let time = new Date().getTime();
+		let suffix: string;
+		let value: boolean;
+		if (isSetting) {
+			value = Boolean(task.display);
+			suffix = '.display';
+			time += 365 * 24 * 60 * 60 * 1000;
+		} else {
+			value = Boolean(task.checked);
+			suffix = '.checked';
+			switch (task.interval) {
+				case 'daily': {
+					time = getUTCTimeForStartOfNextDay().getTime();
+					break;
+				}
+				case 'weekly': {
+					time = getUTCTimeForStartOfNextWeek().getTime();
+					break;
+				}
+				default: {
+					return;
+				}
+			}
+		}
+		document.cookie =
+			task.id + suffix + '=' + value + ';expires=' + new Date(time).toUTCString() + ';path=/';
+	}
 </script>
 
 <svelte:head>
 	<title>GW2Tools: Reset</title>
 </svelte:head>
 
-<!-- overlays -->
-<div class="drawer z-50">
+<div class="drawer">
 	<input id="my-drawer" type="checkbox" class="drawer-toggle" />
 	<div class="drawer-content">
-		<!-- Page content here -->
+		<Title
+			title="Reset Checklist"
+			subtitle="Choose displayed time-gated tasks in the options menu and track progress"
+		>
+			<div class="flex flex-row items-center gap-4">
+				<div class="flex flex-col gap-4 sm:flex-row">
+					{#each intervals as interval}
+						<div class="flex flex-col text-right">
+							<div>{interval.timer}:</div>
+							<IntervalTimer interval={interval.id} />
+						</div>
+					{/each}
+				</div>
+				<div class="flex flex-col gap-2 sm:flex-row">
+					<label for="my-drawer" class="btn btn-outline max-md:btn-square">
+						<i class="fa-solid fa-gear"></i>
+						<div class="max-md:hidden">Settings</div>
+					</label>
+					<button class="btn btn-primary max-md:btn-square" onclick={infoModalReset.showModal()}>
+						<i class="fa-solid fa-question"></i>
+						<div class="max-md:hidden">Info</div>
+					</button>
+				</div>
+			</div>
+		</Title>
+
+		<dialog id="infoModalReset" class="modal modal-bottom sm:modal-middle">
+			<div class="modal-box">
+				<form method="dialog">
+					<button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+				</form>
+				<h3 class="text-lg font-bold">Instructions</h3>
+				<div class="info-grid grid items-center gap-4 p-4">
+					<div class="flex items-center justify-center text-2xl">
+						<i class="fa-solid fa-gear"></i>
+					</div>
+
+					<div class="flex flex-col">
+						<p>select displayed tasks</p>
+						<p class="text-xs opacity-50">items, vendors, actions, events</p>
+					</div>
+
+					<div class="flex items-center justify-center text-2xl">
+						<i class="fa-solid fa-square-check"></i>
+					</div>
+					<div class="flex flex-col">
+						<p>check completed tasks</p>
+						<p class="text-xs opacity-50">tasks will reset on daily/weeky reset</p>
+					</div>
+
+					<div class="flex items-center justify-center text-2xl">
+						<i class="fa-regular fa-circle-question"></i>
+					</div>
+					<div class="flex flex-col">
+						<p>link to relevant information</p>
+						<p class="text-xs opacity-50">wiki, calculators</p>
+					</div>
+					<div class="flex items-center justify-center">
+						<span class="countdown font-mono">00:13:37</span>
+					</div>
+					<div class="flex flex-col">
+						<p>countdown to next event</p>
+						<div class="flex flex-row gap-4 text-xs opacity-50">
+							<div class="flex items-center gap-2">
+								<i class="fa-solid fa-play"></i><span>active</span>
+							</div>
+							<div class="flex items-center gap-2">
+								<i class="fa-solid fa-stopwatch"></i><span>soon</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<form method="dialog" class="modal-backdrop">
+				<button>close</button>
+			</form>
+		</dialog>
+
+		<div class="mx-auto flex w-full flex-col justify-center gap-4 px-2 pb-2 sm:flex-row">
+			{#each intervals as interval}
+				{#if tasks.filter((task) => task.interval === interval.id && task.display).length > 0}
+					<div>
+						<h3 class="p-2 text-lg font-bold">
+							{interval.tasks} ({tasks.filter(
+								(task) => task.interval === interval.id && task.display && task.checked
+							).length}/{tasks.filter((task) => task.interval === interval.id && task.display)
+								.length}):
+						</h3>
+						<div
+							class="columns-1 gap-2 {interval.id === 'daily' ? 'xl:columns-2 2xl:columns-3' : ''}"
+						>
+							{#each categories as category}
+								<div
+									class="collapse-arrow bg-base-100 card collapse shadow-xl"
+									class:opacity-50={tasks.filter(
+										(task) =>
+											task.interval === interval.id &&
+											task.category === category.id &&
+											task.display &&
+											!task.checked
+									).length === 0}
+								>
+									<input
+										class="collapse-checkbox"
+										type="checkbox"
+										title={interval.reset}
+										checked={tasks.filter(
+											(task) =>
+												task.interval === interval.id &&
+												task.category === category.id &&
+												task.display &&
+												!task.checked
+										).length > 0}
+									/>
+									<div class="collapse-title flex items-center gap-2 font-semibold">
+										<i class={interval.class}></i>
+										{category.name}
+									</div>
+									<div class="collapse-content">
+										<ul class="divide-base-300 flex flex-col divide-y">
+											{#each tasks.filter((task) => task.interval === interval.id && task.category === category.id && task.display) as task}
+												<li class="flex flex-row items-center gap-2 py-1">
+													<label class="flex w-full flex-row items-center gap-2">
+														<input
+															class="checkbox checkbox-lg"
+															type="checkbox"
+															bind:checked={task.checked}
+															onchange={() => setCookie(task)}
+														/>
+														<img class="size-8" src={task.icon} alt={task.name} />
+														<div class="flex flex-col">
+															<div class="text-sm font-semibold">{task.name}</div>
+															{#if task.location}
+																<div class="text-xs opacity-70">
+																	<i class="fa-solid fa-location-dot"></i>
+																	{task.location}
+																</div>
+															{/if}
+															{#if task.description}
+																<div class="text-xs opacity-70">{task.description}</div>
+															{/if}
+														</div>
+													</label>
+													{#if !task.checked}
+														<div class="flex flex-col">
+															<div class="flex flex-row justify-end gap-1 text-sm">
+																<a href={task.link} title="more info">
+																	<i class="fa-regular fa-circle-question"></i>
+																</a>
+															</div>
+															{#if task.timer}
+																<div class="flex flex-col justify-end text-right text-xs">
+																	<EventTimer {task} />
+																</div>
+															{/if}
+														</div>
+													{/if}
+												</li>
+											{/each}
+										</ul>
+									</div>
+								</div>
+							{/each}
+						</div>
+					</div>
+				{/if}
+			{/each}
+		</div>
 	</div>
-	<div class="drawer-side">
+	<div class="drawer-side z-50">
 		<label for="my-drawer" aria-label="close sidebar" class="drawer-overlay"></label>
-		<div class="menu bg-base-200 text-base-content min-h-full w-fit p-4">
-			<!-- Sidebar content here -->
-			<div class="flex justify-between">
-				<h2 class="text-lg font-bold">Displayed tasks</h2>
-				<label for="my-drawer" aria-label="close sidebar" class="btn btn-circle btn-sm">✕</label>
+
+		<div class="bg-base-300 text-base-content flex h-full flex-col">
+			<div class="flex w-full flex-col gap-2 p-4">
+				<div class="flex flex-row items-center justify-between gap-4">
+					<h2 class="text-xl">Displayed Tasks</h2>
+					<label for="my-drawer" aria-label="close sidebar" class="btn btn-ghost btn-xs btn-square">
+						<i class="fa-solid fa-xmark"></i>
+					</label>
+				</div>
+
+				<label class="input input-bordered flex w-full items-center gap-2">
+					<i class="fa-solid fa-magnifying-glass"></i>
+					<input type="text" class="grow" placeholder="Search" bind:value={filter} />
+				</label>
 			</div>
 
-			<label class="input input-bordered input-sm flex items-center gap-2">
-				<i class="fa-solid fa-magnifying-glass"></i>
-				<input type="text" class="grow" placeholder="Search" bind:value={filter} />
-			</label>
-
-			<div class="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 2xl:columns-5">
-				{#each $dataStore as category}
-					<div class="settingsCategory break-inside-avoid py-2">
-						<div class="text-sm font-semibold">{category.name}</div>
-						<ul>
-							{#each category.tasks.filter((task) => task.name
-									.toLowerCase()
-									.includes(filter.toLowerCase())) as task}
-								<SettingsTask {task} />
+			<div class="flex w-full flex-col gap-4 overflow-y-auto p-4">
+				{#each intervals.reverse() as interval}
+					<div class="settingsInterval">
+						<h3 class="text-lg font-bold">{interval.tasks}</h3>
+						<div class="flex flex-col gap-2">
+							{#each categories as category}
+								<div class="settingsCategory">
+									<h4 class="text-md">{category.name}</h4>
+									<ul class="divide-y divide-neutral-700">
+										{#each tasks.filter((task) => task.interval === interval.id && task.category === category.id && (task.name
+													.toLowerCase()
+													.includes(filter.toLowerCase()) || (task.description && task.description
+															.toLowerCase()
+															.includes(filter.toLowerCase())) || (task.location && task.location
+															.toLowerCase()
+															.includes(filter.toLowerCase())))) as task}
+											<li class="py-1">
+												<label class="flex flex-row items-center gap-2">
+													<input
+														class="checkbox"
+														type="checkbox"
+														bind:checked={task.display}
+														onchange={() => setCookie(task, true)}
+													/>
+													<img class="size-8" src={task.icon} alt={task.name} />
+													<div class="flex flex-col items-start">
+														<div class="text-sm">{task.name}</div>
+														{#if task.location}
+															<div class="text-xs opacity-70">
+																<i class="fa-solid fa-location-dot"></i>
+																{task.location}
+															</div>
+														{/if}
+														{#if task.description}
+															<div class="text-xs opacity-70">{task.description}</div>
+														{/if}
+													</div>
+												</label>
+											</li>
+										{/each}
+									</ul>
+								</div>
 							{/each}
-						</ul>
+						</div>
 					</div>
 				{/each}
 			</div>
@@ -81,110 +326,31 @@
 	</div>
 </div>
 
-<dialog id="modalInstructions" class="modal modal-bottom sm:modal-middle">
-	<div class="modal-box">
-		<h3 class="text-lg font-bold">Instructions</h3>
-		<div class="info-grid grid items-center gap-4 p-4">
-			<div class="flex items-center justify-center text-2xl">
-				<i class="fa-solid fa-gear"></i>
-			</div>
-
-			<div class="flex flex-col">
-				<p>select displayed tasks</p>
-				<p class="text-xs opacity-50">items, vendors, actions, events</p>
-			</div>
-
-			<div class="flex items-center justify-center text-2xl">
-				<i class="fa-solid fa-square-check"></i>
-			</div>
-			<div class="flex flex-col">
-				<p>check completed tasks</p>
-				<p class="text-xs opacity-50">tasks will reset on daily/weeky reset</p>
-			</div>
-
-			<div class="flex items-center justify-center text-2xl">
-				<i class="fa-regular fa-circle-question"></i>
-			</div>
-			<div class="flex flex-col">
-				<p>link to relevant information</p>
-				<p class="text-xs opacity-50">wiki, calculators</p>
-			</div>
-			<div class="flex flex-col items-center justify-center text-2xl">
-				<i class="fa-regular fa-clock text-lg"></i>
-				<i class="fa-regular fa-calendar text-lg"></i>
-			</div>
-			<div class="flex flex-col">
-				<p>reset interval</p>
-				<p class="text-xs opacity-50">daily, weekly</p>
-			</div>
-			<div class="flex items-center justify-center">
-				<span class="countdown font-mono">00:13:37</span>
-			</div>
-			<div class="flex flex-col">
-				<p>countdown to next event</p>
-				<div class="flex flex-row gap-4 text-xs opacity-50">
-					<div class="flex items-center gap-2">
-						<i class="fa-solid fa-play"></i><span>active</span>
-					</div>
-					<div class="flex items-center gap-2">
-						<i class="fa-solid fa-stopwatch"></i><span>soon</span>
-					</div>
-				</div>
-			</div>
-			<div class="flex items-center justify-center text-2xl">
-				<i class="fa-solid fa-bell text-2xl"></i>
-			</div>
-			<div class="flex flex-col">
-				<p>set alarm for next event</p>
-				<p class="text-xs opacity-50">requires permission for browser notifications</p>
-			</div>
-		</div>
-	</div>
-	<form method="dialog" class="modal-backdrop">
-		<button>close</button>
-	</form>
-</dialog>
-
-<div class="flex flex-row items-center justify-between">
-	<Header
-		title="Reset Checklist"
-		subtitle="Choose displayed timegated tasks in the options menu and track progress"
-	>
-		<div class="flex flex-row items-center gap-4 text-sm">
-			<div class="flex flex-row flex-wrap justify-end gap-4 text-right">
-				<div class="flex flex-col">
-					<span>Daily:</span>
-					<IntervalTimer mode={1} />
-				</div>
-				<div class="flex flex-col">
-					<span>Weekly:</span>
-					<IntervalTimer mode={2} />
-				</div>
-			</div>
-
-			<label for="my-drawer" class="btn max-md:btn-circle drawer-button"
-				><i class="fa-solid fa-gear"></i><span class="hidden md:block">Tracked tasks</span></label
-			>
-
-			<button class="btn max-md:btn-circle" onclick="modalInstructions.showModal()"
-				><i class="fa-solid fa-info"></i><span class="hidden md:block">Instructions</span></button
-			>
-		</div>
-	</Header>
-</div>
-
-<div class="container mx-auto columns-1 gap-2 md:columns-2 lg:columns-3 2xl:columns-4">
-	{#each $dataStore as category}
-		<CategoryItem {category} />
-	{/each}
-</div>
-
 <style>
-	.info-grid {
-		grid-template-columns: fit-content(0) 1fr;
+	.settingsInterval:not(:has(input[type='checkbox'])),
+	.settingsCategory:not(:has(input[type='checkbox'])),
+	.collapse:not(:has(li)) {
+		display: none;
 	}
 
-	.settingsCategory:not(:has(li)) {
-		display: none;
+	.collapse:not(:last-child) {
+		margin-bottom: 0.5rem;
+	}
+
+	.collapse-content li:first-child {
+		padding-top: 0;
+	}
+
+	.collapse-content li:last-child {
+		padding-bottom: 0;
+	}
+
+	.collapse-content li:has(input[type='checkbox']:checked) {
+		text-decoration: line-through;
+		opacity: 0.5;
+	}
+
+	.info-grid {
+		grid-template-columns: fit-content(0) 1fr;
 	}
 </style>

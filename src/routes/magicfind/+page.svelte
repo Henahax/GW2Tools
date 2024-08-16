@@ -1,28 +1,25 @@
 <script lang="ts">
-	import { dataStore as dataStore } from './store';
-	import { onMount } from 'svelte';
-	import Header from '$lib/header.svelte';
-	import Item from './Item.svelte';
-	import data from '../../assets/magicfind.json';
+	import Title from '$lib/Title.svelte';
+	import categories from './categories.json';
+	import itemList from './items.json';
+	import type { Item } from './types';
 
-	onMount(() => {
-		$dataStore = data;
-	});
+	let items: Item[] = $state(itemList as Item[]);
+	let sum: number = $derived(getSum(items));
 
-	$: $dataStore, getSum();
-
-	let sum = 0;
-
-	function getSum() {
-		sum = 0;
-		console.log($dataStore);
-		for (let c = 0; c < $dataStore.length; c++) {
-			for (let i = 0; i < $dataStore[c].items.length; i++) {
-				if ($dataStore[c].items[i].checked) {
-					sum += $dataStore[c].items[i].value;
+	function getSum(myItems: Item[]) {
+		let mySum: number = 0;
+		myItems.forEach((item) => {
+			if (item.type === 'number' || (item.type === 'checkbox' && item.checked)) {
+				mySum += Number(item.value);
+			} else if (item.type === 'select' && item.options) {
+				const selectedOption = item.options.find((option) => option.value == item.value);
+				if (selectedOption) {
+					mySum += Number(selectedOption.value);
 				}
 			}
-		}
+		});
+		return mySum;
 	}
 </script>
 
@@ -30,9 +27,21 @@
 	<title>GW2Tools: Magic Find</title>
 </svelte:head>
 
-<!-- overlays -->
-<dialog id="modalInstructions" class="modal modal-bottom sm:modal-middle">
+<Title
+	title="Magic Find Calculator"
+	subtitle="Plan your magic find buffs to reach the maximum cap without wasting limited boosters"
+>
+	<button class="btn btn-primary max-md:btn-square" onclick={infoModalMagicfind.showModal()}>
+		<i class="fa-solid fa-question"></i>
+		<div class="max-md:hidden">Info</div>
+	</button>
+</Title>
+
+<dialog id="infoModalMagicfind" class="modal modal-bottom sm:modal-middle">
 	<div class="modal-box">
+		<form method="dialog">
+			<button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+		</form>
 		<h3 class="text-lg font-bold">Instructions</h3>
 		<div class="info-grid grid items-center gap-4 p-4">
 			<div class="flex items-center justify-center text-2xl">
@@ -65,34 +74,77 @@
 	</form>
 </dialog>
 
-<Header
-	title="Magic Find Calculator"
-	subtitle="Plan your magic find buffs to reach the maximum cap without wasting limited boosters"
->
-	<button class="btn max-md:btn-circle" onclick="modalInstructions.showModal()">
-		<i class="fa-solid fa-info"></i>
-		<span class="hidden md:block">Instructions</span>
-	</button>
-</Header>
-
-<table class="table-zebra table-xs table-pin-rows table">
-	<thead class="bg-green-500 text-sm">
+<table class="table-zebra table-xs table-pin-rows mx-auto table w-fit">
+	<thead class="text-sm">
 		<tr class="bg-base-100 shadow">
-			<th class="flex w-fit items-center"
-				><input class="checkbox" type="checkbox" disabled checked /></th
-			>
+			<th>
+				<input class="checkbox" type="checkbox" disabled checked />
+			</th>
 			<th class="text-right">value</th>
 			<th></th>
 			<th>info</th>
 		</tr>
 	</thead>
 	<tbody>
-		{#each $dataStore as category}
+		{#each categories as category}
 			<tr>
 				<th colspan="4">{category.name}</th>
 			</tr>
-			{#each category.items as item}
-				<Item {item} />
+			{#each items.filter((item) => item.category === category.id) as item}
+				<tr>
+					{#if item.type === 'checkbox'}
+						<td>
+							<input
+								id={item.id}
+								class="checkbox checkbox-lg"
+								type="checkbox"
+								bind:checked={item.checked}
+							/>
+						</td>
+						<td>
+							<label class="flex h-full w-full justify-end" for={item.id}>{item.value}</label>
+						</td>
+					{:else if item.type === 'number'}
+						<td colspan="2">
+							<input
+								id={item.id}
+								class="input input-bordered input-sm w-24 text-right"
+								bind:value={item.value}
+							/>
+						</td>
+					{:else if item.type === 'select' && item.options}
+						<td colspan="2">
+							<select
+								id={item.id}
+								class="select select-bordered select-sm w-24"
+								bind:value={item.value}
+							>
+								{#each item.options as option}
+									<option value={option.value}>{option.description}</option>
+								{/each}
+							</select>
+						</td>
+					{/if}
+					<td>
+						<label class="flex flex-row flex-wrap items-center" for={item.id}>
+							{#each item.icons as icon}
+								<img class="size-8 min-w-8" src={icon} alt="" />
+							{/each}
+						</label>
+					</td>
+					<td>
+						<label for={item.id}>
+							<div>
+								{#each item.names as name}
+									<a class="link link-primary font-semibold" href={name.link}>{name.name}</a>
+								{/each}
+							</div>
+							<div>
+								{item.description}
+							</div>
+						</label>
+					</td>
+				</tr>
 			{/each}
 		{/each}
 	</tbody>
