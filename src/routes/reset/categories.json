@@ -25,23 +25,13 @@
         "index": 6
     },
     {
-        "id": "eventstyria",
-        "name": "Events: Tyria",
+        "id": "festivals",
+        "name": "Festivals",
         "index": 7
     },
     {
-        "id": "eventsheartofthorns",
-        "name": "Events: Heart of Thorns",
-        "index": 8
-    },
-    {
-        "id": "eventspathoffire",
-        "name": "Events: Path of Fire",
-        "index": 9
-    },
-    {
-        "id": "eventsicebroodsaga",
-        "name": "Events: Icebrood Saga",
+        "id": "eventssecretsoftheobscure",
+        "name": "Events: Secrets of the Obscure",
         "index": 10
     },
     {
@@ -50,13 +40,23 @@
         "index": 11
     },
     {
-        "id": "eventssecretsoftheobscure",
-        "name": "Events: Secrets of the Obscure",
+        "id": "eventsicebroodsaga",
+        "name": "Events: Icebrood Saga",
         "index": 12
     },
     {
-        "id": "festivals",
-        "name": "Festivals",
-        "index": 20
+        "id": "eventspathoffire",
+        "name": "Events: Path of Fire",
+        "index": 13
+    },
+    {
+        "id": "eventsheartofthorns",
+        "name": "Events: Heart of Thorns",
+        "index": 14
+    },
+    {
+        "id": "eventstyria",
+        "name": "Events: Tyria",
+        "index": 15
     }
 ]

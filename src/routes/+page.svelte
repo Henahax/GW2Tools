@@ -45,7 +45,7 @@
 	<div class="mx-auto grid grid-cols-1 grid-rows-1 gap-4 py-8 md:grid-cols-2">
 		{#each tools as tool}
 			<a
-				class="card bg-base-300 hover:bg-base-200 flex flex-col gap-2 p-8 text-center shadow duration-300 ease-in-out"
+				class="card bg-base-100 hover:bg-base-200 flex flex-col gap-2 p-8 text-center shadow duration-300 ease-in-out"
 				href={tool.path}
 			>
 				<i class="px-4 text-4xl {tool.icon}"></i>
