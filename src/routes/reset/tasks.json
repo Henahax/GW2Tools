@@ -182,7 +182,7 @@
 		"name": "Mystic Clovers",
 		"interval": "weekly",
 		"icon": "https://wiki.guildwars2.com/images/7/7c/Mystic_Clover.png",
-		"description": "various currencies",
+		"description": "Various currencies",
 		"link": "https://wiki.guildwars2.com/wiki/Mystic_Clover",
 		"display": true
 	},
@@ -1441,7 +1441,7 @@
 		"name": "Ley-Line Anomaly",
 		"interval": "daily",
 		"icon": "https://wiki.guildwars2.com/images/6/67/Ley-Line_Anomaly_portrait.png",
-		"location": "Gendarren Fields / Iron Marches / Timberline Falls",
+		"description": "Rewards Mystic Coin",
 		"link": "https://wiki.guildwars2.com/wiki/Legendary_Ley-Line_Anomaly",
 		"display": true,
 		"timer": {
