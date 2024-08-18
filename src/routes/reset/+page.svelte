@@ -12,18 +12,18 @@
 
 	let intervals = [
 		{
-			id: 'daily',
-			timer: 'Daily',
-			tasks: 'Daily Tasks',
-			reset: 'resets daily',
-			class: 'fa-regular fa-clock'
-		},
-		{
 			id: 'weekly',
 			timer: 'Weekly',
 			tasks: 'Weekly Tasks',
 			reset: 'resets weekly',
 			class: 'fa-regular fa-calendar'
+		},
+		{
+			id: 'daily',
+			timer: 'Daily',
+			tasks: 'Daily Tasks',
+			reset: 'resets daily',
+			class: 'fa-regular fa-clock'
 		}
 	];
 
@@ -179,7 +179,10 @@
 						<div
 							class="columns-1 gap-2 {interval.id === 'daily' ? 'xl:columns-2 2xl:columns-3' : ''}"
 						>
-							{#each categories as category}
+							<!-- sort categories with only checked tasks to the back -->
+							{#each categories
+								.slice()
+								.sort((a, b) => Number(tasks.some((task) => task.interval === interval.id && task.category === b.id && task.display && !task.checked)) - Number(tasks.some((task) => task.interval === interval.id && task.category === a.id && task.display && !task.checked))) as category}
 								<div
 									class="collapse-arrow bg-base-100 card collapse shadow-xl"
 									class:opacity-50={tasks.filter(
@@ -276,7 +279,7 @@
 			</div>
 
 			<div class="flex w-full flex-col gap-4 overflow-y-auto p-4">
-				{#each intervals.reverse() as interval}
+				{#each intervals as interval}
 					<div class="settingsInterval">
 						<h3 class="text-lg font-bold">{interval.tasks}</h3>
 						<div class="flex flex-col gap-2">
