@@ -51,25 +51,6 @@
 		});
 	}
 
-	//Prüfen ob überflüssig
-	async function handleCheckboxChange(task: Task) {
-		// Temporarily store the current checked state
-		const previousChecked = task.checked;
-
-		// Toggle the checked value in the task
-		task.checked = !task.checked;
-
-		// Manually trigger the setCookie function
-		try {
-			await setCookie(task);
-		} catch (error) {
-			console.error('Error setting cookie:', error);
-
-			// Revert the checked state if the cookie setting fails
-			task.checked = previousChecked;
-		}
-	}
-
 	async function setCookie(task: Task, isSetting = false) {
 		let time = new Date().getTime();
 		let suffix: string;
@@ -198,9 +179,7 @@
 						<div
 							class="columns-1 gap-2 {interval.id === 'daily' ? 'xl:columns-2 2xl:columns-3' : ''}"
 						>
-							{#each categories
-								.slice()
-								.sort((a, b) => Number(tasks.some((task) => task.interval === interval.id && task.category === b.id && task.display && !task.checked)) - Number(tasks.some((task) => task.interval === interval.id && task.category === a.id && task.display && !task.checked))) as category}
+							{#each categories as category}
 								<div
 									class="collapse-arrow bg-base-100 card collapse shadow-xl"
 									class:opacity-50={tasks.filter(
@@ -235,8 +214,8 @@
 														<input
 															class="checkbox checkbox-lg"
 															type="checkbox"
-															checked={task.checked}
-															onchange={async () => handleCheckboxChange(task)}
+															bind:checked={task.checked}
+															onchange={() => setCookie(task)}
 														/>
 														<img class="size-8" src={task.icon} alt={task.name} />
 														<div class="flex flex-col">
