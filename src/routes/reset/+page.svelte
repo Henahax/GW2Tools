@@ -51,7 +51,7 @@
 		});
 	}
 
-	function setCookie(task: Task, isSetting = false) {
+	async function setCookie(task: Task, isSetting = false) {
 		let time = new Date().getTime();
 		let suffix: string;
 		let value: boolean;
@@ -179,10 +179,7 @@
 						<div
 							class="columns-1 gap-2 {interval.id === 'daily' ? 'xl:columns-2 2xl:columns-3' : ''}"
 						>
-							<!-- sort categories with only checked tasks to the back -->
-							{#each categories
-								.slice()
-								.sort((a, b) => Number(tasks.some((task) => task.interval === interval.id && task.category === b.id && task.display && !task.checked)) - Number(tasks.some((task) => task.interval === interval.id && task.category === a.id && task.display && !task.checked))) as category}
+							{#each categories as category}
 								<div
 									class="collapse-arrow bg-base-100 card collapse shadow-xl"
 									class:opacity-50={tasks.filter(
