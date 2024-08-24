@@ -158,9 +158,9 @@
 		"link": "https://fast.farming-community.eu/conversions/tyrian-defense-seal"
 	},
 	{
-		"id": "ChunkOfAncientAmbergris",
+		"id": "FishmongerArborstone",
 		"category": "vendors",
-		"name": "Chunk of Ancient Ambergris",
+		"name": "Fishmonger Arborstone",
 		"interval": "daily",
 		"icon": "https://wiki.guildwars2.com/images/2/25/Chunk_of_Ancient_Ambergris.png",
 		"link": "https://wiki.guildwars2.com/wiki/Taro_Everclaw",
@@ -320,6 +320,34 @@
 		"display": true
 	},
 	{
+		"id": "KodanCacheKeys",
+		"category": "vendors",
+		"name": "Kodan Cache Keys",
+		"interval": "daily",
+		"icon": "https://wiki.guildwars2.com/images/0/07/Kodan_Cache_Key.png",
+		"location": "Lowland Shore / Janthir Syntri",
+		"link": "https://wiki.guildwars2.com/index.php?title=Kodan_Cache_Key",
+		"display": true
+	},
+	{
+		"id": "FishmongerLowlandShore",
+		"category": "vendors",
+		"name": "Fishmonger Lowland Shore",
+		"interval": "daily",
+		"icon": "https://wiki.guildwars2.com/images/2/25/Chunk_of_Ancient_Ambergris.png",
+		"location": "Lowland Shore",
+		"display": true
+	},
+	{
+		"id": "MythicalKodanCache",
+		"category": "misc",
+		"name": "Mythical Kodan Cache",
+		"interval": "daily",
+		"icon": "https://wiki.guildwars2.com/images/9/97/Janthiri_Gear_Box.png",
+		"location": "Lowland Shore, Janthir Syntri",
+		"link": "https://wiki.guildwars2.com/wiki/Locked_Mythical_Kodan_Cache"
+	},
+	{
 		"id": "DivineLuckyEnvelopes",
 		"category": "festivals",
 		"name": "Divine Lucky Envelopes",
@@ -365,6 +393,34 @@
 		"icon": "https://wiki.guildwars2.com/images/a/a7/Chest_of_Legendary_Shards.png",
 		"description": "Weekly Sales",
 		"link": "https://wiki.guildwars2.com/wiki/Festival_Rewards_Vendor"
+	},
+	{
+		"id": "OfMistsAndMonsters",
+		"category": "eventsjanthirwilds",
+		"name": "Of Mists and Monsters",
+		"interval": "daily",
+		"icon": "https://wiki.guildwars2.com/images/a/ad/Janthir_Wilds-_Hero%27s_Choice_Chest.png",
+		"location": "Janthir Syntri",
+		"link": "https://wiki.guildwars2.com/wiki/Of_Mists_and_Monsters",
+		"timer": {
+			"duration": [0, 15],
+			"times": [
+				[0, 30],
+				[2, 30],
+				[4, 30],
+				[6, 30],
+				[8, 30],
+				[10, 30],
+				[12, 30],
+				[14, 30],
+				[16, 30],
+				[18, 30],
+				[20, 30],
+				[22, 30],
+				[24, 30]
+			]
+		},
+		"display": true
 	},
 	{
 		"id": "UnlockingWizardsTower",
@@ -443,7 +499,7 @@
 		"category": "eventssecretsoftheobscure",
 		"name": "Convergences",
 		"interval": "daily",
-		"icon": "https://wiki.guildwars2.com/images/5/51/Kryptis_Rift_Extraction.png",
+		"icon": "https://wiki.guildwars2.com/images/1/13/Rift_Extraction.png",
 		"location": "Wizard's Tower",
 		"link": "https://wiki.guildwars2.com/wiki/Convergences",
 		"display": true,
@@ -1463,7 +1519,6 @@
 			]
 		}
 	},
-
 	{
 		"id": "PlateOfPiquantPlantFood",
 		"category": "crafting",

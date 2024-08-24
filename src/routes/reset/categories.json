@@ -30,6 +30,11 @@
         "index": 7
     },
     {
+        "id": "eventsjanthirwilds",
+        "name": "Events: Janthir Wilds",
+        "index": 10
+    },
+    {
         "id": "eventssecretsoftheobscure",
         "name": "Events: Secrets of the Obscure",
         "index": 10
