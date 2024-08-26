@@ -6,26 +6,10 @@
 	import EventTimer from './EventTimer.svelte';
 	import categories from './categories.json';
 	import taskList from './tasks.json';
+	import intervals from './intervals.json';
 
 	let tasks: Task[] = $state(taskList as Task[]);
 	let filter = $state('');
-
-	let intervals = [
-		{
-			id: 'weekly',
-			timer: 'Weekly',
-			tasks: 'Weekly Tasks',
-			reset: 'resets weekly',
-			class: 'fa-regular fa-calendar'
-		},
-		{
-			id: 'daily',
-			timer: 'Daily',
-			tasks: 'Daily Tasks',
-			reset: 'resets daily',
-			class: 'fa-regular fa-clock'
-		}
-	];
 
 	$effect(() => {
 		getCookieValues(tasks);
@@ -189,6 +173,7 @@
 											task.display &&
 											!task.checked
 									).length === 0}
+									id={category.id}
 								>
 									<input
 										class="collapse-checkbox"
