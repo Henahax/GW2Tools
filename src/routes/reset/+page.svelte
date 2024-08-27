@@ -6,28 +6,27 @@
 	import EventTimer from './EventTimer.svelte';
 	import intervals from './intervals.json';
 	import categories from './categories.json';
-	import taskList from './tasks.json';
+	import tasks from './tasks.json';
 
-	let tasks: Task[] = $state(taskList as Task[]);
+	//let tasks: Task[] = $state(taskList as Task[]);
 	let filter = $state('');
 
 	let data = $state([] as any);
 
 	function init() {
+		let test = [] as any;
+
 		const cookies = document.cookie.split('; ').map((cookie) => {
 			const [name, value] = cookie.split('=');
 			const [namespace, subname] = name.split('.');
 			return { namespace, subname, value };
 		});
 
-		intervals.forEach((interval: any) => {
-			interval.categories = [];
-
-			categories.forEach((category: any) => {
-				// Create a new copy of the category for each interval
-				const categoryCopy = { ...category, tasks: [] };
-
-				taskList.forEach((task) => {
+		intervals.forEach((interval) => {
+			let myCategories = [];
+			categories.forEach((category) => {
+				let myTasks = [];
+				tasks.forEach((task) => {
 					if (task.interval === interval.id && task.category === category.id) {
 						cookies.forEach(({ namespace, subname, value }) => {
 							if (namespace === task.id) {
@@ -38,28 +37,26 @@
 								}
 							}
 						});
-
-						categoryCopy.tasks.push(task);
+						myTasks.push(task);
 					}
+					//todo
 				});
-
-				// Push the category copy to interval only if it has tasks
-				if (categoryCopy.tasks.length > 0) {
-					interval.categories.push(categoryCopy);
+				if (myTasks.length > 0) {
+					category.tasks = myTasks;
+					myCategories.push(category);
 				}
 			});
-
-			// Push the interval only if it has categories
-			if (interval.categories.length > 0) {
-				data.push(interval);
+			if (myCategories.length > 0) {
+				interval.categories = myCategories;
+				test.push(interval);
 			}
 		});
-
+		data = test;
 		console.log(data);
 	}
 
 	$effect(() => {
-		getCookieValues(tasks);
+		//getCookieValues(tasks);
 		init();
 	});
 
@@ -198,6 +195,7 @@
 			</form>
 		</dialog>
 
+		<!--
 		<div class="mx-auto flex w-full flex-col justify-center gap-4 px-2 pb-2 sm:flex-row">
 			{#each intervals as interval}
 				{#if tasks.filter((task) => task.interval === interval.id && task.display).length > 0}
@@ -289,12 +287,13 @@
 				{/if}
 			{/each}
 		</div>
+		-->
 
-		<div class="mx-auto flex w-full flex-row justify-center gap-4 px-2 pb-2 sm:flex-row">
-			{#each data as test}
+		<div class="mx-auto flex w-full flex-col justify-center gap-4 px-2 pb-2 sm:flex-row">
+			{#each data as interval}
 				<div>
-					<h1 class="text-4xl">{test.reset}</h1>
-					{#each test.categories as category}
+					<h1 class="text-4xl">{interval.reset}</h1>
+					{#each interval.categories as category}
 						<div>
 							<h2 class="text-2xl">{category.name}</h2>
 							{#each category.tasks as task}
@@ -306,6 +305,7 @@
 			{/each}
 		</div>
 	</div>
+	<!--
 	<div class="drawer-side z-50">
 		<label for="my-drawer" aria-label="close sidebar" class="drawer-overlay"></label>
 
@@ -373,6 +373,7 @@
 			</div>
 		</div>
 	</div>
+-->
 </div>
 
 <style>
