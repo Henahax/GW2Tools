@@ -4,15 +4,63 @@
 	import { getUTCTimeForStartOfNextDay, getUTCTimeForStartOfNextWeek } from './functions.svelte';
 	import IntervalTimer from './IntervalTimer.svelte';
 	import EventTimer from './EventTimer.svelte';
+	import intervals from './intervals.json';
 	import categories from './categories.json';
 	import taskList from './tasks.json';
-	import intervals from './intervals.json';
 
 	let tasks: Task[] = $state(taskList as Task[]);
 	let filter = $state('');
 
+	let data = $state([] as any);
+
+	function init() {
+		const cookies = document.cookie.split('; ').map((cookie) => {
+			const [name, value] = cookie.split('=');
+			const [namespace, subname] = name.split('.');
+			return { namespace, subname, value };
+		});
+
+		intervals.forEach((interval: any) => {
+			interval.categories = [];
+
+			categories.forEach((category: any) => {
+				// Create a new copy of the category for each interval
+				const categoryCopy = { ...category, tasks: [] };
+
+				taskList.forEach((task) => {
+					if (task.interval === interval.id && task.category === category.id) {
+						cookies.forEach(({ namespace, subname, value }) => {
+							if (namespace === task.id) {
+								if (subname === 'display') {
+									task.display = value === 'true';
+								} else if (subname === 'checked') {
+									task.checked = value === 'true';
+								}
+							}
+						});
+
+						categoryCopy.tasks.push(task);
+					}
+				});
+
+				// Push the category copy to interval only if it has tasks
+				if (categoryCopy.tasks.length > 0) {
+					interval.categories.push(categoryCopy);
+				}
+			});
+
+			// Push the interval only if it has categories
+			if (interval.categories.length > 0) {
+				data.push(interval);
+			}
+		});
+
+		console.log(data);
+	}
+
 	$effect(() => {
 		getCookieValues(tasks);
+		init();
 	});
 
 	function getCookieValues(tasks: Task[]) {
@@ -239,6 +287,22 @@
 						</div>
 					</div>
 				{/if}
+			{/each}
+		</div>
+
+		<div class="mx-auto flex w-full flex-row justify-center gap-4 px-2 pb-2 sm:flex-row">
+			{#each data as test}
+				<div>
+					<h1 class="text-4xl">{test.reset}</h1>
+					{#each test.categories as category}
+						<div>
+							<h2 class="text-2xl">{category.name}</h2>
+							{#each category.tasks as task}
+								{task.name}
+							{/each}
+						</div>
+					{/each}
+				</div>
 			{/each}
 		</div>
 	</div>
