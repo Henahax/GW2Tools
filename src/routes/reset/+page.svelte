@@ -16,6 +16,7 @@
 	function init() {
 		let test = [] as any;
 
+		// Parse cookies
 		const cookies = document.cookie.split('; ').map((cookie) => {
 			const [name, value] = cookie.split('=');
 			const [namespace, subname] = name.split('.');
@@ -23,9 +24,15 @@
 		});
 
 		intervals.forEach((interval) => {
+			// Clone the interval object to avoid mutating the original
+			let newInterval = { ...interval };
 			let myCategories = [];
+
 			categories.forEach((category) => {
+				// Clone the category object to avoid mutating the original
+				let newCategory = { ...category };
 				let myTasks = [];
+
 				tasks.forEach((task) => {
 					if (task.interval === interval.id && task.category === category.id) {
 						cookies.forEach(({ namespace, subname, value }) => {
@@ -39,20 +46,22 @@
 						});
 						myTasks.push(task);
 					}
-					//todo
 				});
+
 				if (myTasks.length > 0) {
-					category.tasks = myTasks;
-					myCategories.push(category);
+					newCategory.tasks = myTasks; // Assign tasks to the cloned category
+					myCategories.push(newCategory);
 				}
 			});
+
 			if (myCategories.length > 0) {
-				interval.categories = myCategories;
-				test.push(interval);
+				newInterval.categories = myCategories;
+				test.push(newInterval);
 			}
 		});
+
+		// Assign the processed data to the global `data` variable
 		data = test;
-		console.log(data);
 	}
 
 	$effect(() => {
@@ -292,15 +301,65 @@
 		<div class="mx-auto flex w-full flex-col justify-center gap-4 px-2 pb-2 sm:flex-row">
 			{#each data as interval}
 				<div>
-					<h1 class="text-4xl">{interval.reset}</h1>
-					{#each interval.categories as category}
-						<div>
-							<h2 class="text-2xl">{category.name}</h2>
-							{#each category.tasks as task}
-								{task.name}
-							{/each}
-						</div>
-					{/each}
+					<h2 class="text-xl">{interval.reset}</h2>
+
+					<div
+						class="columns-1 gap-2 {interval.id === 'daily' ? 'xl:columns-2 2xl:columns-3' : ''}"
+					>
+						{#each interval.categories as category}
+							<div class="bg-base-200 collapse-plus collapse">
+								<input type="checkbox" checked />
+								<div class="collapse-title flex flex-row items-center gap-2 text-lg">
+									<i class={interval.class}></i>
+									{category.name}
+								</div>
+								<div class="collapse-content">
+									<ul class="flex flex-col gap-2">
+										{#each category.tasks as task}
+											{#if task.display}
+												<li class="flex flex-row">
+													<label class="flex w-full flex-row items-center gap-2">
+														<input
+															class="checkbox checkbox-lg"
+															type="checkbox"
+															bind:checked={task.checked}
+														/>
+														<img class="size-8" src={task.icon} alt={task.name} />
+														<div class="flex flex-col">
+															<div class="text-sm font-semibold">{task.name}</div>
+															{#if task.location}
+																<div class="text-xs opacity-70">
+																	<i class="fa-solid fa-location-dot"></i>
+																	{task.location}
+																</div>
+															{/if}
+															{#if task.description}
+																<div class="text-xs opacity-70">{task.description}</div>
+															{/if}
+														</div>
+													</label>
+													{#if !task.checked}
+														<div class="flex flex-col">
+															<div class="flex flex-row justify-end gap-1 text-sm">
+																<a href={task.link} title="more info">
+																	<i class="fa-regular fa-circle-question"></i>
+																</a>
+															</div>
+															{#if task.timer}
+																<div class="flex flex-col justify-end text-right text-xs">
+																	<EventTimer {task} />
+																</div>
+															{/if}
+														</div>
+													{/if}
+												</li>
+											{/if}
+										{/each}
+									</ul>
+								</div>
+							</div>
+						{/each}
+					</div>
 				</div>
 			{/each}
 		</div>
@@ -377,6 +436,7 @@
 </div>
 
 <style>
+	/*
 	.settingsInterval:not(:has(input[type='checkbox'])),
 	.settingsCategory:not(:has(input[type='checkbox'])),
 	.collapse:not(:has(li)) {
@@ -403,4 +463,5 @@
 	.info-grid {
 		grid-template-columns: fit-content(0) 1fr;
 	}
+		*/
 </style>
