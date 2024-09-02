@@ -225,7 +225,11 @@
 						class="columns-1 gap-2 {interval.id === 'daily' ? 'xl:columns-2 2xl:columns-3' : ''}"
 					>
 						{#each interval.categories as category}
-							<div class="bg-base-100 collapse-plus collapse">
+							<div
+								class="bg-base-100 collapse-plus collapse"
+								class:opacity-50={category.tasks.filter((tasks) => tasks.display && !tasks.checked)
+									.length === 0}
+							>
 								<input
 									type="checkbox"
 									checked={category.tasks.filter((tasks) => tasks.display && !tasks.checked)
