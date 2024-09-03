@@ -1,6 +1,5 @@
 <script lang="ts">
 	import Title from '$lib/Title.svelte';
-	import type { Task } from './types';
 	import { getUTCTimeForStartOfNextDay, getUTCTimeForStartOfNextWeek } from './functions.svelte';
 	import IntervalTimer from './IntervalTimer.svelte';
 	import EventTimer from './EventTimer.svelte';
@@ -8,13 +7,13 @@
 	import categories from './categories.json';
 	import tasks from './tasks.json';
 
-	// TODO: Cookies!
+	import type { Interval, Category, Task } from './types';
 
 	let filter = $state('');
-	let data = $state([] as any);
+	let data = $state([] as Interval[]);
 
 	function init() {
-		let test = [] as any;
+		let initData = [] as any;
 
 		// Parse cookies
 		const cookies = document.cookie.split('; ').map((cookie) => {
@@ -25,13 +24,13 @@
 
 		intervals.forEach((interval) => {
 			// Clone the interval object to avoid mutating the original
-			let newInterval = { ...interval };
-			let myCategories = [];
+			let newInterval = { ...(interval as Interval) };
+			let myCategories = [] as Category[];
 
 			categories.forEach((category) => {
 				// Clone the category object to avoid mutating the original
-				let newCategory = { ...category };
-				let myTasks = [];
+				let newCategory = { ...(category as Category) };
+				let myTasks = [] as Task[];
 
 				tasks.forEach((task) => {
 					if (task.interval === interval.id && task.category === category.id) {
@@ -56,38 +55,17 @@
 
 			if (myCategories.length > 0) {
 				newInterval.categories = myCategories;
-				test.push(newInterval);
+				initData.push(newInterval);
 			}
 		});
 
 		// Assign the processed data to the global `data` variable
-		data = test;
+		data = initData;
 	}
 
 	$effect(() => {
-		//getCookieValues(tasks);
 		init();
 	});
-
-	function getCookieValues(tasks: Task[]) {
-		const cookies = document.cookie.split('; ').map((cookie) => {
-			const [name, value] = cookie.split('=');
-			const [namespace, subname] = name.split('.');
-			return { namespace, subname, value };
-		});
-
-		tasks.forEach((task) => {
-			cookies.forEach(({ namespace, subname, value }) => {
-				if (namespace === task.id) {
-					if (subname === 'display') {
-						task.display = value === 'true';
-					} else if (subname === 'checked') {
-						task.checked = value === 'true';
-					}
-				}
-			});
-		});
-	}
 
 	async function setCookie(task: Task, isSetting = false) {
 		let time = new Date().getTime();
@@ -206,7 +184,7 @@
 
 		<div class="mx-auto flex w-full flex-col justify-center gap-4 px-2 pb-2 sm:flex-row">
 			{#each data as interval}
-				<div class="test flex flex-col gap-2">
+				<div class="flex flex-col gap-2">
 					<h2 class="px-2 text-lg font-bold">
 						{#if interval && interval.categories}
 							{interval.tasks}
@@ -225,67 +203,71 @@
 						class="columns-1 gap-2 {interval.id === 'daily' ? 'xl:columns-2 2xl:columns-3' : ''}"
 					>
 						{#each interval.categories as category}
-							<div
-								class="bg-base-100 collapse-plus collapse"
-								class:opacity-50={category.tasks.filter((tasks) => tasks.display && !tasks.checked)
-									.length === 0}
-							>
-								<input
-									type="checkbox"
-									checked={category.tasks.filter((tasks) => tasks.display && !tasks.checked)
-										.length !== 0}
-								/>
-								<div class="collapse-title flex flex-row items-center gap-2 font-semibold">
-									<i class={interval.class}></i>
-									{category.name}
-								</div>
-								<div class="collapse-content">
-									<ul class="flex flex-col justify-center gap-2">
-										{#each category.tasks as task}
-											{#if task.display}
-												<li class="flex flex-row gap-4">
-													<label
-														class="flex w-full cursor-pointer flex-row items-center gap-2 hover:brightness-125"
-													>
-														<input
-															class="checkbox checkbox-lg"
-															type="checkbox"
-															bind:checked={task.checked}
-														/>
-														<img class="size-8" src={task.icon} alt={task.name} />
-														<div class="flex flex-col">
-															<div class="text-sm font-semibold">{task.name}</div>
-															{#if task.location}
-																<div class="text-xs opacity-70">
-																	<i class="fa-solid fa-location-dot"></i>
-																	{task.location}
-																</div>
-															{/if}
-															{#if task.description}
-																<div class="text-xs opacity-70">{task.description}</div>
-															{/if}
-														</div>
-													</label>
-													{#if !task.checked}
-														<div class="flex flex-col justify-center">
-															<div class="flex flex-row justify-end gap-1 text-sm">
-																<a class="hover:opacity-50" href={task.link} title="more info">
-																	<i class="fa-regular fa-circle-question"></i>
-																</a>
+							{#if category.tasks.filter((task:Task) => task.display).length > 0}
+								<div
+									class="bg-base-100 collapse-plus collapse"
+									class:opacity-50={category.tasks.filter(
+										(tasks) => tasks.display && !tasks.checked
+									).length === 0}
+								>
+									<input
+										type="checkbox"
+										checked={category.tasks.filter((task:Task) => task.display && !task.checked)
+											.length !== 0}
+									/>
+									<div class="collapse-title flex flex-row items-center gap-2 font-semibold">
+										<i class={interval.class}></i>
+										{category.name}
+									</div>
+									<div class="collapse-content">
+										<ul class="flex flex-col justify-center gap-2">
+											{#each category.tasks as task}
+												{#if task.display}
+													<li class="flex flex-row gap-4">
+														<label
+															class="flex w-full cursor-pointer flex-row items-center gap-2 hover:brightness-125"
+														>
+															<input
+																class="checkbox checkbox-lg"
+																type="checkbox"
+																bind:checked={task.checked}
+																onchange={() => setCookie(task)}
+															/>
+															<img class="size-8" src={task.icon} alt={task.name} />
+															<div class="flex flex-col">
+																<div class="text-sm font-semibold">{task.name}</div>
+																{#if task.location}
+																	<div class="text-xs opacity-70">
+																		<i class="fa-solid fa-location-dot"></i>
+																		{task.location}
+																	</div>
+																{/if}
+																{#if task.description}
+																	<div class="text-xs opacity-70">{task.description}</div>
+																{/if}
 															</div>
-															{#if task.timer}
-																<div class="flex flex-col justify-end text-right text-xs">
-																	<EventTimer {task} />
+														</label>
+														{#if !task.checked}
+															<div class="flex flex-col justify-center">
+																<div class="flex flex-row justify-end gap-1 text-sm">
+																	<a class="hover:opacity-50" href={task.link} title="more info">
+																		<i class="fa-regular fa-circle-question"></i>
+																	</a>
 																</div>
-															{/if}
-														</div>
-													{/if}
-												</li>
-											{/if}
-										{/each}
-									</ul>
+																{#if task.timer}
+																	<div class="flex flex-col justify-end text-right text-xs">
+																		<EventTimer {task} />
+																	</div>
+																{/if}
+															</div>
+														{/if}
+													</li>
+												{/if}
+											{/each}
+										</ul>
+									</div>
 								</div>
-							</div>
+							{/if}
 						{/each}
 					</div>
 				</div>
@@ -301,7 +283,7 @@
 				<div class="flex flex-row items-center justify-between gap-4">
 					<h2 class="text-xl">Displayed Tasks</h2>
 					<label for="my-drawer" aria-label="close sidebar" class="btn btn-ghost btn-xs btn-square">
-						<i class="fa-solid fa-xmark"></i>
+						✕
 					</label>
 				</div>
 
@@ -311,10 +293,8 @@
 				</label>
 			</div>
 
-			<!-- TODO: Filter -->
-
 			<div class="flex w-full flex-col gap-8 overflow-y-auto p-4">
-				{#each data.filter( (interval) => interval.categories.some( (category) => category.tasks.some((task) => task.name
+				{#each data.filter( (interval:Interval) => interval.categories.some( (category) => category.tasks.some((task) => task.name
 											.toLowerCase()
 											.includes(filter.toLowerCase()) || (task.location && task.location
 												.toLowerCase()
@@ -342,7 +322,12 @@
 														.toLowerCase()
 														.includes(filter.toLowerCase()))) as task}
 											<label class="flex flex-row items-center gap-2 py-1 hover:brightness-125">
-												<input class="checkbox" type="checkbox" bind:checked={task.display} />
+												<input
+													class="checkbox"
+													type="checkbox"
+													bind:checked={task.display}
+													onchange={() => setCookie(task, true)}
+												/>
 												<img class="size-8" src={task.icon} alt={task.name} />
 												<div class="flex flex-col justify-center">
 													<div class="text-sm">{task.name}</div>
@@ -375,12 +360,10 @@
 	.collapse:not(:last-child) {
 		margin-bottom: 0.5rem;
 	}
-
 	.collapse-content li:has(input[type='checkbox']:checked) {
 		text-decoration: line-through;
 		opacity: 0.5;
 	}
-
 	.info-grid {
 		grid-template-columns: fit-content(0) 1fr;
 	}

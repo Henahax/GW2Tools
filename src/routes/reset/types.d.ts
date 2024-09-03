@@ -1,3 +1,19 @@
+export type Interval = {
+	id: string;
+	timer: string;
+	tasks: string;
+	reset: string;
+	class: string;
+	categories: Category[];
+};
+
+export type Category = {
+	id: string;
+	name: string;
+	index: number;
+	tasks: Task[];
+};
+
 export type Task = {
 	id: string;
 	category: string;
