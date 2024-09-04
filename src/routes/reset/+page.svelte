@@ -1,12 +1,12 @@
 <script lang="ts">
 	import Title from '$lib/Title.svelte';
-	import { getUTCTimeForStartOfNextDay, getUTCTimeForStartOfNextWeek } from './functions.svelte';
 	import IntervalTimer from './IntervalTimer.svelte';
 	import EventTimer from './EventTimer.svelte';
 	import intervalsData from './intervals.json';
 	import categoriesData from './categories.json';
 	import tasksData from './tasks.json';
 	import type { Interval, Category, Task } from './types';
+	import { getUTCTimeForStartOfNextDay, getUTCTimeForStartOfNextWeek } from './functions.svelte';
 
 	const intervals: Interval[] = intervalsData as Interval[];
 	const categories: Category[] = categoriesData as Category[];
