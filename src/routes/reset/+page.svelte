@@ -3,17 +3,20 @@
 	import { getUTCTimeForStartOfNextDay, getUTCTimeForStartOfNextWeek } from './functions.svelte';
 	import IntervalTimer from './IntervalTimer.svelte';
 	import EventTimer from './EventTimer.svelte';
-	import intervals from './intervals.json';
-	import categories from './categories.json';
-	import tasks from './tasks.json';
-
+	import intervalsData from './intervals.json';
+	import categoriesData from './categories.json';
+	import tasksData from './tasks.json';
 	import type { Interval, Category, Task } from './types';
+
+	const intervals: Interval[] = intervalsData as Interval[];
+	const categories: Category[] = categoriesData as Category[];
+	const tasks: Task[] = tasksData as Task[];
 
 	let filter = $state('');
 	let data = $state([] as Interval[]);
 
 	function init() {
-		let initData = [] as any;
+		let initData = [] as Interval[];
 
 		// Parse cookies
 		const cookies = document.cookie.split('; ').map((cookie) => {
@@ -22,17 +25,17 @@
 			return { namespace, subname, value };
 		});
 
-		intervals.forEach((interval) => {
+		intervals.forEach((interval: Interval) => {
 			// Clone the interval object to avoid mutating the original
 			let newInterval = { ...(interval as Interval) };
 			let myCategories = [] as Category[];
 
-			categories.forEach((category) => {
+			categories.forEach((category: Category) => {
 				// Clone the category object to avoid mutating the original
 				let newCategory = { ...(category as Category) };
 				let myTasks = [] as Task[];
 
-				tasks.forEach((task) => {
+				tasks.forEach((task: Task) => {
 					if (task.interval === interval.id && task.category === category.id) {
 						cookies.forEach(({ namespace, subname, value }) => {
 							if (namespace === task.id) {
