@@ -27,7 +27,7 @@
 
 		<div
 			class="columns-1 gap-2 space-y-2 {interval.id === 'daily'
-				? 'xl:columns-2 2xl:columns-3'
+				? 'lg:columns-2 xl:columns-3 2xl:columns-4'
 				: ''}"
 		>
 			{#each interval.categories as category}

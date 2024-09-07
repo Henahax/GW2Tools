@@ -2,11 +2,11 @@
 	import { getUTCTimeForStartOfNextDay } from '../functions.svelte';
 	import type { Task } from '../types';
 
-	let { task }: MyProps = $props();
-
-	interface MyProps {
+	interface Props {
 		task: Task;
 	}
+
+	let { task }: Props = $props();
 
 	let nextEventTime: [Date, object, string] = $state([new Date(), {}, '']);
 	let targetTime: number = $state(0);
