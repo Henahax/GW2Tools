@@ -1,5 +1,5 @@
 <script lang="ts">
-	import CategoryElement from './CategoryElement.svelte';
+	import ListCategory from './ListCategory.svelte';
 	import type { Interval } from '../types';
 
 	interface Props {
@@ -31,7 +31,7 @@
 				: ''}"
 		>
 			{#each interval.categories as category}
-				<CategoryElement {category} icon={interval.class} />
+				<ListCategory {category} icon={interval.class} />
 			{/each}
 		</div>
 	</div>

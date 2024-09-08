@@ -1,12 +1,12 @@
 <script lang="ts">
 	import Title from '$lib/Title.svelte';
 	import type { Interval, Category, Task } from './types';
-	import { setCookie } from './functions.svelte';
-	import IntervalTimer from './IntervalTimer.svelte';
+	import IntervalTimer from './lib/IntervalTimer.svelte';
+	import ListInterval from './lib/ListInterval.svelte';
+	import SettingsInterval from './lib/SettingsInterval.svelte';
 	import intervalsData from './intervals.json';
 	import categoriesData from './categories.json';
 	import tasksData from './tasks.json';
-	import IntervalElement from './lib/IntervalElement.svelte';
 
 	const intervals: Interval[] = intervalsData as Interval[];
 	const categories: Category[] = categoriesData as Category[];
@@ -158,7 +158,7 @@
 
 		<div class="mx-auto flex w-full flex-col justify-center gap-4 px-2 pb-2 sm:flex-row">
 			{#each data as interval}
-				<IntervalElement {interval} />
+				<ListInterval {interval} />
 			{/each}
 		</div>
 	</div>
@@ -189,55 +189,7 @@
 												.includes(filter.toLowerCase())) || (task.description && task.description
 												.toLowerCase()
 												.includes(filter.toLowerCase()))) ) ) as interval}
-					<div class="flex flex-col gap-2">
-						<h3 class="text-lg font-bold">{interval.tasks}:</h3>
-						<div class="flex flex-col gap-4">
-							{#each interval.categories.filter( (category) => category.tasks.some((task) => task.name
-												.toLowerCase()
-												.includes(filter.toLowerCase()) || (task.location && task.location
-													.toLowerCase()
-													.includes(filter.toLowerCase())) || (task.description && task.description
-													.toLowerCase()
-													.includes(filter.toLowerCase()))) ) as category}
-								<div>
-									<div class="font-semibold">{category.name}</div>
-									<div class="flex flex-col justify-center">
-										{#each category.tasks.filter((task) => task.name
-													.toLowerCase()
-													.includes(filter.toLowerCase()) || (task.location && task.location
-														.toLowerCase()
-														.includes(filter.toLowerCase())) || (task.description && task.description
-														.toLowerCase()
-														.includes(filter.toLowerCase()))) as task}
-											<label class="flex flex-row items-center gap-2 py-1 hover:brightness-125">
-												<input
-													class="checkbox"
-													type="checkbox"
-													bind:checked={task.display}
-													onchange={() => setCookie(task, true)}
-												/>
-												<img class="size-8" src={task.icon} alt={task.name} />
-												<div class="flex flex-col justify-center">
-													<div class="text-sm">{task.name}</div>
-													{#if task.location}
-														<div class="text-xs opacity-50">
-															<i class="fa-solid fa-location-dot"></i>
-															{task.location}
-														</div>
-													{/if}
-													{#if task.description}
-														<div class="text-xs opacity-50">
-															{task.description}
-														</div>
-													{/if}
-												</div>
-											</label>
-										{/each}
-									</div>
-								</div>
-							{/each}
-						</div>
-					</div>
+					<SettingsInterval {interval} {filter} />
 				{/each}
 			</div>
 		</div>

@@ -1,6 +1,5 @@
 <script lang="ts">
-	import TaskElement from './TaskElement.svelte';
-
+	import ListTask from './ListTask.svelte';
 	import type { Category, Task } from '../types';
 
 	let { category, icon }: Props = $props();
@@ -29,7 +28,7 @@
 		<div class="collapse-content">
 			<ul class="flex flex-col justify-center gap-2">
 				{#each category.tasks as task}
-					<TaskElement {task} />
+					<ListTask {task} />
 				{/each}
 			</ul>
 		</div>
