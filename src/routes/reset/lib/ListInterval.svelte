@@ -25,14 +25,18 @@
 			{/if}
 		</h2>
 
-		<div
-			class="columns-1 gap-2 space-y-2 {interval.id === 'daily'
-				? 'lg:columns-2 xl:columns-3 2xl:columns-4'
-				: ''}"
-		>
+		<div class="todo">
 			{#each interval.categories as category}
 				<ListCategory {category} icon={interval.class} />
 			{/each}
 		</div>
 	</div>
 {/if}
+
+<style>
+	.todo {
+		display: flex;
+		gap: 0.5rem;
+		flex-flow: column wrap;
+	}
+</style>
