@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Title from '$lib/Title.svelte';
+
 	import type { Interval, Category, Task } from './types';
 	import IntervalTimer from './lib/IntervalTimer.svelte';
 	import ListInterval from './lib/ListInterval.svelte';
