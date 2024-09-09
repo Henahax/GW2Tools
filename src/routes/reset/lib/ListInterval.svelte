@@ -25,7 +25,11 @@
 			{/if}
 		</h2>
 
-		<div class="todo">
+		<div
+			class="columns-1 gap-2 space-y-2 {interval.id === 'daily'
+				? 'xl:columns-2 2xl:columns-3'
+				: ''}"
+		>
 			{#each interval.categories as category}
 				<ListCategory {category} icon={interval.class} />
 			{/each}
