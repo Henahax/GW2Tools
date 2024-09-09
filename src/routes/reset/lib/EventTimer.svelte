@@ -1,11 +1,12 @@
 <script lang="ts">
-	import { getUTCTimeForStartOfNextDay } from './functions.svelte';
-	import type { Task } from './types';
+	import { getUTCTimeForStartOfNextDay } from '../functions.svelte';
+	import type { Task } from '../types';
 
-	interface MyProps {
+	interface Props {
 		task: Task;
 	}
-	let { task }: MyProps = $props();
+
+	let { task }: Props = $props();
 
 	let nextEventTime: [Date, object, string] = $state([new Date(), {}, '']);
 	let targetTime: number = $state(0);
@@ -13,7 +14,6 @@
 	let soon = $state(false);
 	let duration: [string, string] = $state(['00', '00']);
 	let add: string = $state('');
-
 	let timeRemaining = $state(calculateTimeRemaining());
 
 	$effect(() => {
