@@ -130,16 +130,6 @@
 		"display": true
 	},
 	{
-		"id": "DrizzlewoodMaterialDonations",
-		"category": "vendors",
-		"name": "Drizzlewood Material Donations",
-		"interval": "daily",
-		"icon": "https://wiki.guildwars2.com/images/6/6d/Quaestor_%28overhead_icon%29.png",
-		"location": "Drizzlewood Coast",
-		"link": "https://fast.farming-community.eu/open-world/drizzlewood-material-donation",
-		"display": true
-	},
-	{
 		"id": "EternalIce",
 		"category": "vendors",
 		"name": "Eternal Ice",
@@ -156,6 +146,16 @@
 		"icon": "https://wiki.guildwars2.com/images/4/40/Tyrian_Defense_Seal_%28item%29.png",
 		"location": "Eye of the North",
 		"link": "https://fast.farming-community.eu/conversions/tyrian-defense-seal"
+	},
+	{
+		"id": "DrizzlewoodMaterialDonations",
+		"category": "vendors",
+		"name": "Drizzlewood Material Donations",
+		"interval": "daily",
+		"icon": "https://wiki.guildwars2.com/images/6/6d/Quaestor_%28overhead_icon%29.png",
+		"location": "Drizzlewood Coast",
+		"link": "https://fast.farming-community.eu/open-world/drizzlewood-material-donation",
+		"display": true
 	},
 	{
 		"id": "FishmongerArborstone",
