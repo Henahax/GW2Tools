@@ -36,11 +36,3 @@
 		</div>
 	</div>
 {/if}
-
-<style>
-	.todo {
-		display: flex;
-		gap: 0.5rem;
-		flex-flow: column wrap;
-	}
-</style>
