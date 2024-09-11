@@ -1,6 +1,6 @@
 <script lang="ts">
 	import ListCategory from './ListCategory.svelte';
-	import type { Interval } from '../types';
+	import type { Interval } from '$lib/types/reset/types';
 
 	interface Props {
 		interval: Interval;

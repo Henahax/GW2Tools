@@ -1,8 +1,8 @@
 <script lang="ts">
-	import Title from '$lib/Title.svelte';
-	import categories from './categories.json';
-	import itemList from './items.json';
-	import type { Item } from './types';
+	import Title from '$lib/components/Title.svelte';
+	import categories from '$lib/data/magicfind/categories.json';
+	import itemList from '$lib/data/magicfind/items.json';
+	import type { Item } from '$lib/types/magicfind/types';
 
 	let items: Item[] = $state(itemList as Item[]);
 	let sum: number = $derived(getSum(items));

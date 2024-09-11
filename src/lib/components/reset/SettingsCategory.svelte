@@ -1,6 +1,6 @@
 <script lang="ts">
 	import SettingsTask from './SettingsTask.svelte';
-	import type { Category } from '../types';
+	import type { Category } from '$lib/types/reset/types';
 
 	interface Props {
 		category: Category;

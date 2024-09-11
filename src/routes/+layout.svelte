@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { onNavigate } from '$app/navigation';
 	import './styles.css';
-	import NavItems from '$lib/NavItems.svelte';
+	import NavItems from '$lib/components/NavItems.svelte';
 
 	onNavigate((navigation) => {
 		// @ts-ignore

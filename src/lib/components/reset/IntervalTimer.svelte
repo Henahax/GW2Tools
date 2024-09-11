@@ -1,5 +1,8 @@
 <script lang="ts">
-	import { getUTCTimeForStartOfNextDay, getUTCTimeForStartOfNextWeek } from '../functions.svelte';
+	import {
+		getUTCTimeForStartOfNextDay,
+		getUTCTimeForStartOfNextWeek
+	} from '$lib/functions/reset/functions.svelte';
 	let { interval } = $props();
 
 	let timeRemaining = $state(calculateTimeRemaining());
