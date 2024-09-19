@@ -1,6 +1,6 @@
 <script lang="ts">
 	import ListTask from './ListTask.svelte';
-	import type { Category, Task } from '../types';
+	import type { Category, Task } from '$lib/types/reset/types';
 
 	let { category, icon }: Props = $props();
 

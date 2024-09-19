@@ -1,6 +1,6 @@
 <script lang="ts">
-	import Title from '$lib/Title.svelte';
-	import salvagekits from './salvage.json';
+	import Title from '$lib/components/Title.svelte';
+	import salvagekits from '$lib/data/ecto/salvage.json';
 </script>
 
 <svelte:head>

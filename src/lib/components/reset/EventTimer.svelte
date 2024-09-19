@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { getUTCTimeForStartOfNextDay } from '../functions.svelte';
-	import type { Task } from '../types';
+	import { getUTCTimeForStartOfNextDay } from '$lib/functions/reset/functions.svelte';
+	import type { Task } from '$lib/types/reset/types';
 
 	interface Props {
 		task: Task;

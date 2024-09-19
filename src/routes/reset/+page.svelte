@@ -1,13 +1,13 @@
 <script lang="ts">
-	import Title from '$lib/Title.svelte';
+	import Title from '$lib/components/Title.svelte';
 
-	import type { Interval, Category, Task } from './types';
-	import IntervalTimer from './lib/IntervalTimer.svelte';
-	import ListInterval from './lib/ListInterval.svelte';
-	import SettingsInterval from './lib/SettingsInterval.svelte';
-	import intervalsData from './intervals.json';
-	import categoriesData from './categories.json';
-	import tasksData from './tasks.json';
+	import type { Interval, Category, Task } from '$lib/types/reset/types';
+	import IntervalTimer from '$lib/components/reset/IntervalTimer.svelte';
+	import ListInterval from '$lib/components/reset/ListInterval.svelte';
+	import SettingsInterval from '$lib/components/reset/SettingsInterval.svelte';
+	import intervalsData from '$lib/data/reset/intervals.json';
+	import categoriesData from '$lib/data/reset/categories.json';
+	import tasksData from '$lib/data/reset/tasks.json';
 
 	const intervals: Interval[] = intervalsData as Interval[];
 	const categories: Category[] = categoriesData as Category[];

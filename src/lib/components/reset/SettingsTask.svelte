@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { setCookie } from '../functions.svelte';
-	import type { Task } from '../types';
+	import { setCookie } from '$lib/functions/reset/functions.svelte';
+	import type { Task } from '$lib/types/reset/types';
 
 	interface Props {
 		task: Task;

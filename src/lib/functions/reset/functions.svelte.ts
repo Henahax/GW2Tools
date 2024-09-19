@@ -1,4 +1,4 @@
-import type { Task } from './types';
+import type { Task } from '$lib/types/reset/types';
 
 export function getUTCTimeForStartOfNextDay() {
 	const now = new Date();

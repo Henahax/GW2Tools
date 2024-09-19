@@ -1,5 +1,5 @@
 <script>
-	import Title from '../lib/Title.svelte';
+	import Title from '$lib/components/Title.svelte';
 	let tools = [
 		{
 			name: 'Reset',
