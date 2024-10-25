@@ -26,9 +26,7 @@
 		</h2>
 
 		<div
-			class="columns-1 gap-2 space-y-2 {interval.id === 'daily'
-				? 'xl:columns-2 2xl:columns-3'
-				: ''}"
+			class="columns-1 gap-2 space-y-2 {interval.id === 'daily' ? 'lg:columns-2 xl:columns-3' : ''}"
 		>
 			{#each interval.categories as category}
 				<ListCategory {category} icon={interval.class} />
