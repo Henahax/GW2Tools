@@ -36,7 +36,7 @@
 		{#if !task.checked}
 			<div class="flex flex-col justify-center">
 				<div class="flex flex-row justify-end gap-1 text-sm">
-					<a class="hover:opacity-50" href={task.link} title="more info">
+					<a class="hover:opacity-50" href={task.link} title="more info" aria-label="more info">
 						<i class="fa-regular fa-circle-question"></i>
 					</a>
 				</div>

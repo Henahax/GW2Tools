@@ -1,5 +1,5 @@
 export type Interval = {
-	id: string;
+	readonly id: string;
 	timer: string;
 	tasks: string;
 	reset: string;
@@ -8,21 +8,21 @@ export type Interval = {
 };
 
 export type Category = {
-	id: string;
-	name: string;
-	index: number;
+	readonly id: string;
+	readonly name: string;
+	readonly index: number;
 	tasks: Task[];
 };
 
 export type Task = {
-	id: string;
-	category: string;
-	name: string;
-	interval: daily | weekly;
-	icon: string;
-	description?: string;
-	link: string;
-	location?: string;
+	readonly id: string;
+	readonly category: string;
+	readonly name: string;
+	readonly interval: daily | weekly;
+	readonly icon: string;
+	readonly description?: string;
+	readonly link: string;
+	readonly location?: string;
 	display?: boolean;
 	timer?: Timer;
 	checked?: boolean;
