@@ -1,38 +1,38 @@
-# GW2 Tools
+# sv
 
-Tool Collection for Guild Wars 2
+Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
 
-## 📖 Features
+## Creating a project
 
-### Reset
+If you're seeing this, you've probably already done this step. Congrats!
 
-- checklist item config
-- reset timers
-- item checklist
-- item links
-- item timers
+```bash
+# create a new project in the current directory
+npx sv create
 
-#### todo
+# create a new project in my-app
+npx sv create my-app
+```
 
-- alarm
-- compact design
+## Developing
 
-### Magicfind
+Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
 
-- checklist
-- calculator
+```bash
+npm run dev
 
-## 🎯 Goal
+# or start the server and open the app in a new browser tab
+npm run dev -- --open
+```
 
-- Combine my previous Guild Wars 2 projects into a single one
-- Add new tools
-- prettier unified visual design
-- Try out and learn new technologies
-- 2024 Svelte 5 rework
+## Building
 
-## 💡 Technologies
+To create a production version of your app:
 
-- [SvelteKit](https://kit.svelte.dev/)
-- [Tailwind](https://tailwindcss.com/)
-- [daisyUI](https://daisyui.com/)
-- [Docker](https://www.docker.com/)
+```bash
+npm run build
+```
+
+You can preview the production build with `npm run preview`.
+
+> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
