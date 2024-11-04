@@ -4,10 +4,10 @@
 </script>
 
 <div class="flex min-h-dvh flex-col">
-	<header>
+	<header class="w-full">
 		<div class="inline-flex gap-8">
-			<Button variant="link" href="/">Logo, Name
-			</Button>
+			<Button>Menu</Button>
+			<Button variant="ghost" href="/">GW2Tools</Button>
 			<nav>
 				<ul class="inline-flex gap-4">
 					<li><Button variant="link" href="/reset">Reset</Button></li>
@@ -21,5 +21,5 @@
 		<slot />
 	</main>
 
-	<footer>footer</footer>
+	<footer class="w-full">footer</footer>
 </div>
