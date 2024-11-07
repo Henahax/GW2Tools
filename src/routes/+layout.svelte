@@ -4,20 +4,19 @@
 </script>
 
 <div class="flex min-h-dvh flex-col">
-	<header class="w-full">
-		<div class="inline-flex gap-8">
-			<Button>Menu</Button>
-			<Button variant="ghost" href="/">GW2Tools</Button>
-			<nav>
-				<ul class="inline-flex gap-4">
-					<li><Button variant="link" href="/reset">Reset</Button></li>
-					<li><Button variant="link" href="/magicfind">Magic Find</Button></li>
+	<header class="inline-flex w-full">
+		<div class="inline-flex max-w-screen-2xl mx-auto w-full">
+			<Button class="text-lg px-4" variant="ghost" size="lg" href="/">GW2Tools</Button>
+			<nav class="inline-flex w-full justify-end">
+				<ul class="inline-flex">
+					<li><Button class="px-4 inline-flex gap-2" variant="ghost" size="lg" href="/reset"><i class="fa-solid fa-arrows-rotate"></i>Reset</Button></li>
+					<li><Button class="px-4 inline-flex gap-2" variant="ghost" size="lg" href="/magicfind"><i class="fa-solid fa-clover"></i>Magic Find</Button></li>
 				</ul>
 			</nav>
 		</div>
 	</header>
 
-	<main class="h-full grow">
+	<main class="h-full grow max-w-screen-2xl mx-auto">
 		<slot />
 	</main>
 
