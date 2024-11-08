@@ -35,7 +35,7 @@
 
 
 <style>
-	:root{
+	* {
 		color: var(--foreground)
 	}
 </style>
