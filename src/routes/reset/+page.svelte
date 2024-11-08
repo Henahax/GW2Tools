@@ -2,6 +2,7 @@
 	import * as Collapsible from '$lib/components/ui/collapsible/index.js';
 	import { Button } from '$lib/components/ui/button/index.js';
 	import { Checkbox } from '$lib/components/ui/checkbox';
+	import * as Card from '$lib/components/ui/card';
 
 	import EventTimer from '$lib/components/EventTimer.svelte';
 
@@ -10,6 +11,7 @@
 	import intervalsData from '$lib/data/intervals.json';
 	import categoriesData from '$lib/data/categories.json';
 	import tasksData from '$lib/data/tasks.json';
+	import { setCookie } from '$lib/functions/functions';
 
 	const intervals: Interval[] = intervalsData as Interval[];
 	const categories: Category[] = categoriesData as Category[];
@@ -74,9 +76,9 @@
 	});
 </script>
 
-<section class="flex flex-col mx-auto">
+<section class="mx-auto flex flex-col">
 	<div>Test</div>
-	<div class="flex flex-col gap-4 p-2 sm:flex-row w-fit">
+	<div class="flex w-fit flex-col gap-4 p-2 sm:flex-row">
 		{#each data as interval}
 			{#if interval.categories.reduce((sum, category) => sum + category.tasks.filter((task) => task.display).length, 0) > 0}
 				<div class="flex flex-col gap-2">
@@ -100,59 +102,69 @@
 							: ''}"
 					>
 						{#each interval.categories as category}
-							<Collapsible.Root open class="w-full break-inside-avoid rounded-xl border">
-								<Collapsible.Trigger asChild let:builder>
-									<Button builders={[builder]} variant="ghost" size="sm" class="w-full">
-										<h3 class="inline-flex w-full items-center gap-2 px-1.5">
-											<i class={interval.class}></i>
-											{category.name}
-										</h3>
-									</Button>
-								</Collapsible.Trigger>
-								<Collapsible.Content class="px-2 py-1">
-									<ul class="flex flex-col justify-center px-1 divide-y">
-										{#each category.tasks as task}
-											<li class="flex flex-row items-center gap-2">
-												<label class="flex grow flex-row items-center gap-4 py-1 cursor-pointer">
-													<Checkbox class="scale-150 mx-1" />
-													<img class="size-8" src={task.icon} alt={task.name} />
-													<div class="flex flex-col">
-														<div class="text-sm font-semibold">{task.name}</div>
-														{#if task.description}
-															<div class="text-xs opacity-70">{task.description}</div>
-														{/if}
-														{#if task.location}
-															<div class="text-xs opacity-70">
-																<i class="fa-solid fa-location-dot"></i>
-																{task.location}
+							<Card.Root class="border-neutral-800">
+								<Card.Content class="p-0">
+									<Collapsible.Root open class="break-inside-avoid border-none">
+										<Collapsible.Trigger asChild let:builder>
+											<Button builders={[builder]} variant="ghost" size="sm" class="w-full">
+												<h3 class="inline-flex w-full items-center gap-2">
+													<i class={interval.class}></i>
+													{category.name}
+												</h3>
+											</Button>
+										</Collapsible.Trigger>
+										<Collapsible.Content>
+											<ul class="flex flex-col justify-center divide-y divide-neutral-800 px-2">
+												{#each category.tasks as task}
+													<li class="flex flex-row items-center gap-2">
+														<label
+															class="flex grow cursor-pointer flex-row items-center gap-3"
+														>
+															<Checkbox
+																bind:checked={task.checked}
+																onchange={setCookie(task)}
+																class="mx-1 scale-150"
+															/>
+															<img class="size-8 rounded" src={task.icon} alt={task.name} />
+															<div class="flex flex-col">
+																<div class="text-sm font-semibold">{task.name}</div>
+																{#if task.description}
+																	<div class="text-xs opacity-70">{task.description}</div>
+																{/if}
+																{#if task.location}
+																	<div class="text-xs opacity-70">
+																		<i class="fa-solid fa-location-dot"></i>
+																		{task.location}
+																	</div>
+																{/if}
+															</div>
+														</label>
+														{#if !task.checked}
+															<div class="flex flex-col justify-center">
+																<div class="flex flex-row justify-end gap-1 text-sm">
+																	<a
+																		class="hover:opacity-50"
+																		href={task.link}
+																		title="more info"
+																		aria-label="more info"
+																	>
+																		<i class="fa-regular fa-circle-question"></i>
+																	</a>
+																</div>
+																{#if task.timer}
+																	<div class="flex flex-col justify-end text-right text-xs">
+																		<EventTimer {task} />
+																	</div>
+																{/if}
 															</div>
 														{/if}
-													</div>
-												</label>
-												{#if !task.checked}
-													<div class="flex flex-col justify-center">
-														<div class="flex flex-row justify-end gap-1 text-sm">
-															<a
-																class="hover:opacity-50"
-																href={task.link}
-																title="more info"
-																aria-label="more info"
-															>
-																<i class="fa-regular fa-circle-question"></i>
-															</a>
-														</div>
-														{#if task.timer}
-															<div class="flex flex-col justify-end text-right text-xs">
-																<EventTimer {task} />
-															</div>
-														{/if}
-													</div>
-												{/if}
-											</li>
-										{/each}
-									</ul>
-								</Collapsible.Content>
-							</Collapsible.Root>
+													</li>
+												{/each}
+											</ul>
+										</Collapsible.Content>
+									</Collapsible.Root>
+								</Card.Content>
+							</Card.Root>
 						{/each}
 					</div>
 				</div>
@@ -162,7 +174,7 @@
 </section>
 
 <style>
-	ul li:hover{
+	ul li:hover {
 		filter: brightness(1.1);
 	}
 </style>
