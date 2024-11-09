@@ -36,6 +36,6 @@
 
 <style>
 	* {
-		color: var(--foreground)
+		color: var(--primary)
 	}
 </style>
