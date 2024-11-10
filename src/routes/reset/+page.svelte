@@ -115,7 +115,7 @@
 												</Button>
 											</Collapsible.Trigger>
 											<Collapsible.Content>
-												<ul class="flex flex-col justify-center divide-y divide-neutral-800 px-2">
+												<ul class="flex flex-col justify-center divide-y divide-neutral-800 px-2 py-1">
 													{#each category.tasks as task}
 														<li class="flex flex-row items-center gap-2 p-1">
 															<label class="flex grow cursor-pointer flex-row items-center gap-3 {task.checked ? 'opacity-50' : ''}">
