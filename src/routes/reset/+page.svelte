@@ -1,8 +1,8 @@
 <script lang="ts">
+	import * as Card from '$lib/components/ui/card';
 	import * as Collapsible from '$lib/components/ui/collapsible/index.js';
 	import { Button } from '$lib/components/ui/button/index.js';
 	import { Checkbox } from '$lib/components/ui/checkbox';
-	import * as Card from '$lib/components/ui/card';
 
 	import EventTimer from '$lib/components/EventTimer.svelte';
 
