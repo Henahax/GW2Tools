@@ -3,6 +3,7 @@
 	import * as Collapsible from '$lib/components/ui/collapsible/index.js';
 	import { Button } from '$lib/components/ui/button/index.js';
 	import { Checkbox } from '$lib/components/ui/checkbox';
+	import * as Drawer from '$lib/components/ui/drawer/index.js';
 
 	import EventTimer from '$lib/components/EventTimer.svelte';
 
@@ -18,6 +19,8 @@
 	const tasks: Task[] = tasksData as Task[];
 
 	let filter = $state('');
+	let open = $state(false);
+
 	let data = $state([] as Interval[]);
 
 	function init() {
@@ -77,7 +80,31 @@
 </script>
 
 <section class="mx-auto flex flex-col">
-	<div>Test</div>
+	<div>
+		<Drawer.Root bind:open class="max-w-md">
+			<Drawer.Trigger asChild let:builder>
+				<Button variant="outline" builders={[builder]}>Edit Profile</Button>
+			</Drawer.Trigger>
+			<Drawer.Content>
+				<Drawer.Header class="text-left">
+					<Drawer.Title>Edit profile</Drawer.Title>
+					<Drawer.Description>
+						Make changes to your profile here. Click save when you're done.
+					</Drawer.Description>
+				</Drawer.Header>
+				<form class="grid items-start gap-4 px-4">
+					<div class="grid gap-2">aa</div>
+					<div class="grid gap-2">bb</div>
+					<Button type="submit">Save changes</Button>
+				</form>
+				<Drawer.Footer class="pt-2">
+					<Drawer.Close asChild let:builder>
+						<Button variant="outline" builders={[builder]}>Cancel</Button>
+					</Drawer.Close>
+				</Drawer.Footer>
+			</Drawer.Content>
+		</Drawer.Root>
+	</div>
 	<div class="flex w-fit flex-col gap-4 p-2 sm:flex-row">
 		{#each data as interval}
 			{#if interval.categories.reduce((sum, category) => sum + category.tasks.filter((task) => task.display).length, 0) > 0}
@@ -103,7 +130,7 @@
 					>
 						{#each interval.categories as category}
 							{#if category.tasks.filter((task: Task) => task.display).length > 0}
-								<Card.Root class="border-neutral-800 shadow-md">
+								<Card.Root class="border-neutral-800 bg-neutral-900 text-neutral-300 shadow-md">
 									<Card.Content class="p-0">
 										<Collapsible.Root open class="break-inside-avoid border-none">
 											<Collapsible.Trigger asChild let:builder>
@@ -115,10 +142,16 @@
 												</Button>
 											</Collapsible.Trigger>
 											<Collapsible.Content>
-												<ul class="flex flex-col justify-center divide-y divide-neutral-800 px-2 py-1">
+												<ul
+													class="flex flex-col justify-center divide-y divide-neutral-800 px-2 py-1"
+												>
 													{#each category.tasks as task}
 														<li class="flex flex-row items-center gap-2 p-1">
-															<label class="flex grow cursor-pointer flex-row items-center gap-3 {task.checked ? 'opacity-50' : ''}">
+															<label
+																class="flex grow cursor-pointer flex-row items-center gap-3 {task.checked
+																	? 'opacity-50'
+																	: ''}"
+															>
 																<Checkbox
 																	bind:checked={task.checked}
 																	onchange={setCookie(task)}
@@ -126,7 +159,13 @@
 																/>
 																<img class="size-8 rounded" src={task.icon} alt={task.name} />
 																<div class="flex flex-col">
-																	<div class="text-sm font-semibold { task.checked ? 'line-through' : '' }">{task.name}</div>
+																	<div
+																		class="text-sm font-semibold {task.checked
+																			? 'line-through'
+																			: ''}"
+																	>
+																		{task.name}
+																	</div>
 																	{#if !task.checked}
 																		{#if task.description}
 																			<div class="text-xs opacity-70">{task.description}</div>
