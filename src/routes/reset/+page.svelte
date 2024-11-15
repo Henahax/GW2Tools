@@ -103,7 +103,7 @@
 					>
 						{#each interval.categories as category}
 							{#if category.tasks.filter((task: Task) => task.display).length > 0}
-								<Card.Root class="border-neutral-800">
+								<Card.Root class="border-neutral-800 shadow-md">
 									<Card.Content class="p-0">
 										<Collapsible.Root open class="break-inside-avoid border-none">
 											<Collapsible.Trigger asChild let:builder>

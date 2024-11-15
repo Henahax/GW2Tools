@@ -1,7 +1,7 @@
 <script lang="ts">
 	import '../app.css';
 	import { Button } from '$lib/components/ui/button';
-	import { ModeWatcher } from "mode-watcher";
+	import { ModeWatcher } from 'mode-watcher';
 </script>
 
 <div class="flex min-h-dvh flex-col">
@@ -11,14 +11,16 @@
 			<nav class="inline-flex w-full justify-end">
 				<ul class="inline-flex">
 					<li>
-						<Button class="inline-flex gap-2 px-4" variant="ghost" size="lg" href="/reset"
-							><i class="fa-solid fa-arrows-rotate"></i>Reset</Button
-						>
+						<Button class="inline-flex gap-2 px-4" variant="ghost" size="lg" href="/reset">
+							<i class="fa-solid fa-arrows-rotate"></i>
+							<span class="hidden sm:flex">Reset</span>
+						</Button>
 					</li>
 					<li>
-						<Button class="inline-flex gap-2 px-4" variant="ghost" size="lg" href="/magicfind"
-							><i class="fa-solid fa-clover"></i>Magic Find</Button
-						>
+						<Button class="inline-flex gap-2 px-4" variant="ghost" size="lg" href="/magicfind">
+							<i class="fa-solid fa-clover"></i>
+							<span class="hidden sm:flex">Magic Find</span>
+						</Button>
 					</li>
 				</ul>
 			</nav>
@@ -30,12 +32,15 @@
 		<slot />
 	</main>
 
-	<footer class="w-full">footer</footer>
+	<footer class="flex w-full flex-row justify-center text-xs">
+		<div class="flex grow items-center justify-center text-neutral-400">© henahax.de 2024</div>
+		<Button
+			class="inline-flex gap-2 px-4 text-xs"
+			variant="ghost"
+			href="https://github.com/Henahax/GW2Tools"
+		>
+			<i class="fa-brands fa-github"></i>
+			<span class="hidden sm:flex">Sourcecode</span>
+		</Button>
+	</footer>
 </div>
-
-
-<style>
-	* {
-		color: var(--primary)
-	}
-</style>
