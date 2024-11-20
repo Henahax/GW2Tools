@@ -423,6 +423,30 @@
 		"display": true
 	},
 	{
+		"id": "ConvergenceMountBalrior",
+		"category": "eventsjanthirwilds",
+		"name": "Convergence: Mount Balrior",
+		"interval": "daily",
+		"icon": "https://wiki.guildwars2.com/images/7/77/Janthir_Syntri-_Hero%27s_Choice_Chest.png",
+		"location": "Lowland Shore",
+		"link": "https://wiki.guildwars2.com/wiki/Convergence:_Mount_Balrior",
+		"display": true,
+		"timer": {
+			"duration": [0, 10],
+			"times": [
+				[0, 0],
+				[3, 0],
+				[6, 0],
+				[9, 0],
+				[12, 0],
+				[15, 0],
+				[18, 0],
+				[21, 0],
+				[24, 0]
+			]
+		}
+	},
+	{
 		"id": "UnlockingWizardsTower",
 		"category": "eventssecretsoftheobscure",
 		"name": "Unlocking the Wizard's Tower",
