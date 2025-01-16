@@ -134,7 +134,7 @@
 					</td>
 					<td>
 						<label for={item.id}>
-							<div>
+							<div class="flex gap-1.5">
 								{#each item.names as name}
 									<a class="link link-primary font-semibold" href={name.link}>{name.name}</a>
 								{/each}
