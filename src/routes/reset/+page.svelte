@@ -93,13 +93,13 @@
 					{/each}
 				</div>
 				<div class="flex flex-col gap-2 sm:flex-row">
-					<label for="my-drawer" class="btn btn-outline max-md:btn-square">
+					<label for="my-drawer" class="btn btn-outline max-lg:btn-square">
 						<i class="fa-solid fa-gear"></i>
-						<div class="max-md:hidden">Settings</div>
+						<div class="max-lg:hidden">Settings</div>
 					</label>
-					<button class="btn btn-primary max-md:btn-square" onclick={infoModalReset.showModal()}>
+					<button class="btn btn-primary max-lg:btn-square" onclick={infoModalReset.showModal()}>
 						<i class="fa-solid fa-question"></i>
-						<div class="max-md:hidden">Info</div>
+						<div class="max-lg:hidden">Info</div>
 					</button>
 				</div>
 			</div>

@@ -37,12 +37,23 @@
 	</button>
 </Title>
 
+<div class="inline-flex text-sm px-4 py-2 gap-1.5">
+	<p>Based on</p>
+	<a
+		class="link link-primary font-semibold"
+		href="https://wiki.guildwars2.com/wiki/Magic_Find#Maximizing_magic_find"
+	>
+		 maximizing magic find
+	</a>
+</div>
+
 <dialog id="infoModalMagicfind" class="modal modal-bottom sm:modal-middle">
 	<div class="modal-box">
 		<form method="dialog">
 			<button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
 		</form>
 		<h3 class="text-lg font-bold">Instructions</h3>
+		
 		<div class="info-grid grid items-center gap-4 p-4">
 			<div class="flex items-center justify-center text-2xl">
 				<i class="fa-solid fa-square-check"></i>
