@@ -254,39 +254,6 @@
         "description": "Lucky Draketail, Lucky New Year Firework (Stack duration)"
     },
     {
-        "id": "CelebrationBonus",
-        "category": "boosters",
-        "type": "checkbox",
-        "value": 100,
-        "icons": [
-            "https://wiki.guildwars2.com/images/2/2e/Celebration_Booster.png",
-            "https://wiki.guildwars2.com/images/2/25/Birthday_Booster.png"
-        ],
-        "names": [
-            {
-                "name": "Celebration Bonus",
-                "link": "https://wiki.guildwars2.com/wiki/Celebration_Bonus"
-            }
-        ],
-        "description": "Celebration Booster, Birthday Booster"
-    },
-    {
-        "id": "BlackLionBooster",
-        "category": "boosters",
-        "type": "checkbox",
-        "value": 100,
-        "icons": [
-            "https://wiki.guildwars2.com/images/a/a4/Black_Lion_Booster.png"
-        ],
-        "names": [
-            {
-                "name": "Black Lion Booster",
-                "link": "https://wiki.guildwars2.com/wiki/Black_Lion_Booster"
-            }
-        ],
-        "description": "Available for Black Lion Statuettes"
-    },
-    {
         "id": "MagicFindBoost",
         "category": "boosters",
         "type": "checkbox",
@@ -324,5 +291,38 @@
             }
         ],
         "description": "Item Booster, Item Booster (masterwork), Heroic Booster, Enchanted Reward Boost, Candy Corn Gobbler"
+    },
+    {
+        "id": "CelebrationBonus",
+        "category": "boosters",
+        "type": "checkbox",
+        "value": 100,
+        "icons": [
+            "https://wiki.guildwars2.com/images/2/2e/Celebration_Booster.png",
+            "https://wiki.guildwars2.com/images/2/25/Birthday_Booster.png"
+        ],
+        "names": [
+            {
+                "name": "Celebration Bonus",
+                "link": "https://wiki.guildwars2.com/wiki/Celebration_Bonus"
+            }
+        ],
+        "description": "Celebration Booster, Birthday Booster"
+    },
+    {
+        "id": "BlackLionBooster",
+        "category": "boosters",
+        "type": "checkbox",
+        "value": 100,
+        "icons": [
+            "https://wiki.guildwars2.com/images/a/a4/Black_Lion_Booster.png"
+        ],
+        "names": [
+            {
+                "name": "Black Lion Booster",
+                "link": "https://wiki.guildwars2.com/wiki/Black_Lion_Booster"
+            }
+        ],
+        "description": "Available for Black Lion Statuettes"
     }
 ]

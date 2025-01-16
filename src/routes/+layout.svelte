@@ -48,7 +48,7 @@
 
 	<footer class="footer bg-base-200 flex items-center p-2 text-xs">
 		<div class="grow"></div>
-		<div class="w-fit">© henahax.de 2024</div>
+		<div class="w-fit">© henahax.de 2025</div>
 		<div class="flex grow justify-end">
 			<a class="btn btn-ghost btn-xs" href="https://github.com/Henahax/GW2Tools">
 				<i class="fa-brands fa-github"></i>Sourcecode
