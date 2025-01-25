@@ -192,7 +192,7 @@
 		"name": "Mystic Coins",
 		"interval": "weekly",
 		"icon": "https://wiki.guildwars2.com/images/b/b5/Mystic_Coin.png",
-		"description": "Blue Prophet Shards",
+		"location": "Wizard's Tower",
 		"link": "https://wiki.guildwars2.com/wiki/Mystic_Coin",
 		"display": true
 	},
