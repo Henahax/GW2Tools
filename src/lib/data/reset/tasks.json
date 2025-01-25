@@ -187,6 +187,16 @@
 		"display": true
 	},
 	{
+		"id": "MysticCoins",
+		"category": "vendors",
+		"name": "Mystic Coins",
+		"interval": "weekly",
+		"icon": "https://wiki.guildwars2.com/images/b/b5/Mystic_Coin.png",
+		"description": "Blue Prophet Shards",
+		"link": "https://wiki.guildwars2.com/wiki/Mystic_Coin",
+		"display": true
+	},
+	{
 		"id": "MistHardenedLockboxKey",
 		"category": "vendors",
 		"name": "Mist-Hardened Lockbox Key",
