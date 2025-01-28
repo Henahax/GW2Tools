@@ -37,7 +37,7 @@
 	</button>
 </Title>
 
-<div class="inline-flex text-sm px-4 py-2 gap-1.5">
+<div class="mx-auto flex w-full max-w-screen-2xl text-sm px-4 py-2 gap-1.5">
 	<p>Based on</p>
 	<a
 		class="link link-primary font-semibold"
