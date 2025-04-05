@@ -1,6 +1,6 @@
 version: '3.8'
 services:
-  app:
+  gw2-tools-app:
     image: henahax/gw2tools:latest
     container_name: gw2tools
     environment:
@@ -8,14 +8,14 @@ services:
       - PGID=1000
       - TZ=Europe/Berlin
       - PORT=3000
-      - DATABASE_URL=postgres://root:Holz1337@db:5432/gw2tools
+      - DATABASE_URL=postgres://root:Holz1337@gw2tools-db:5432/gw2tools
     ports:
       - 8080:3000
     depends_on:
-      - db
+      - gw2tools-db
     restart: unless-stopped
 
-  db:
+  gw2-tools-db:
     image: postgres:latest
     container_name: gw2tools-db
     environment:

@@ -1,7 +1,7 @@
 services:
-  db:
+  gw2tools-db:
     image: postgres
-    container_name: db
+    container_name: gw2tools-db
     restart: unless-stopped
     ports:
       - 5432:5432
@@ -13,7 +13,7 @@ services:
       - local_pgdata:/var/lib/postgresql/data
   admin:
     image: dpage/pgadmin4
-    container_name: pgadmin
+    container_name: gw2tools-pgadmin
     restart: unless-stopped
     ports:
       - "8888:80"
