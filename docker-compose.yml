@@ -1,12 +1,37 @@
-version: '2.1'
+version: '3.8'
 services:
-  nginx:
+  app:
     image: henahax/gw2tools:latest
-    container_name: henahax-gw2tools
+    container_name: gw2tools
     environment:
       - PUID=1000
       - PGID=1000
       - TZ=Europe/Berlin
+      - PORT=3000
+      - DATABASE_URL=postgres://root:Holz1337@db:5432/gw2tools
     ports:
       - 8080:3000
+    depends_on:
+      - db
     restart: unless-stopped
+
+  db:
+    image: postgres:latest
+    container_name: gw2tools-db
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=Holz1337
+      - POSTGRES_DB=gw2tools
+      - PGDATA=/var/lib/postgresql/data/pgdata
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U root -d gw2tools" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+volumes:
+  postgres-data:
+    name: gw2tools-data

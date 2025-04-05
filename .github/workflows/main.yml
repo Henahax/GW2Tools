@@ -10,22 +10,53 @@ on:
 jobs:
   Docker:
     runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:latest
+        env:
+          POSTGRES_USER: root
+          POSTGRES_PASSWORD: Holz1337
+          POSTGRES_DB: gw2tools
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: latest
 
       - name: setup git config
         run: |
           git config user.name "GitHub Actions Bot"
           git config user.email "${{ secrets.EMAIL }}"
 
-      - name: Dependecies
+      - name: Install Dependencies
         run: npm ci
 
+      - name: Run Database Migrations
+        env:
+          DATABASE_URL: postgresql://root:Holz1337@localhost:5432/gw2tools
+        run: npm run db:push
+
+      - name: Seed Database
+        env:
+          DATABASE_URL: postgresql://root:Holz1337@localhost:5432/gw2tools
+        run: npm run db:seed
+
       - name: Build
-        run: npm run build
+        env:
+          DATABASE_URL: postgresql://root:Holz1337@localhost:5432/gw2tools
+        run: |
+          npm run build
+          mkdir -p docker-build
+          cp -r build/ docker-build/
+          cp package*.json docker-build/
+          cp drizzle.config.ts docker-build/
 
       - name: Save version
         id: version
