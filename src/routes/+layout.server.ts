@@ -4,6 +4,7 @@ import { roles, users } from "../lib/server/db/schema";
 import { eq } from 'drizzle-orm';
 import type { RequestEvent } from '@sveltejs/kit';
 
+/*
 export const load: PageServerLoad = async (event: RequestEvent) => {
 
     let id = 0;
@@ -18,3 +19,4 @@ export const load: PageServerLoad = async (event: RequestEvent) => {
         user: myUser[0]
     };
 };
+*/

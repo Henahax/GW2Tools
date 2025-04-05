@@ -17,7 +17,7 @@ export function generateSessionToken() {
 
 export async function createSession(token: string, userId: number) {
 	const sessionId = encodeHexLowerCase(sha256(new TextEncoder().encode(token)));
-	const session: table.Session = {
+	const session: table.TableSession = {
 		id: sessionId,
 		userId: userId,
 		expiresAt: new Date(Date.now() + DAY_IN_MS * 30)

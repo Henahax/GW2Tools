@@ -1,8 +1,9 @@
 import { db } from "../lib/server/db/db";
-import { scales, users, entries, roles } from "../lib/server/db/schema";
+import { users, roles } from "../lib/server/db/schema";
 import { eq, desc } from "drizzle-orm";
 import type { PageServerLoad } from './$types';
 
+/*
 export const load: PageServerLoad = async (event) => {
 
     const myScales = await db.select().from(scales).orderBy(scales.value);
@@ -21,3 +22,4 @@ export const load: PageServerLoad = async (event) => {
         user: myUser[0]
     };
 };
+*/

@@ -3,3 +3,36 @@
 
 @plugin '@tailwindcss/forms';
 @plugin '@tailwindcss/typography';
+
+:root {
+	background-color: var(--color-neutral-900);
+	color: var(--color-neutral-100);
+	font-size: 1rem;
+}
+
+input,
+select,
+textarea {
+	border-radius: 0.25rem;
+	background-color: var(--color-neutral-900);
+}
+
+input:hover,
+select:hover,
+textarea:hover {
+	background-color: var(--color-neutral-800);
+}
+
+input[type='checkbox'],
+select {
+	cursor: pointer;
+}
+
+input:disabled {
+	opacity: 0.5;
+}
+
+input[type='checkbox'] {
+	height: 2rem;
+	width: 2rem;
+}
