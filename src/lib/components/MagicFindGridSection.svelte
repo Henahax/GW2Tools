@@ -9,11 +9,8 @@
 </script>
 
 <section class="col-span-full grid grid-cols-subgrid gap-4">
-	<button
-		class="col-span-full grid grid-cols-2 grid-cols-subgrid items-center rounded text-left"
-		onclick={toggle}
-	>
-		<div>
+	<button class="col-span-full flex items-center gap-4 rounded text-left" onclick={toggle}>
+		<div class="w-2">
 			{#if open}
 				<i class="fa-solid fa-chevron-down"></i>
 			{:else}
@@ -38,5 +35,9 @@
 		transition: height 0.5s ease;
 		overflow: clip;
 		interpolate-size: allow-keywords;
+	}
+
+	section:has(button:hover) {
+		background-color: var(--color-neutral-800);
 	}
 </style>

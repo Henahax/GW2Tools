@@ -15,6 +15,7 @@ select,
 textarea {
 	border-radius: 0.25rem;
 	background-color: var(--color-neutral-900);
+	border-color: var(--color-neutral-500);
 }
 
 input:hover,
@@ -32,9 +33,14 @@ input:disabled {
 	opacity: 0.5;
 }
 
-input[type='checkbox'] {
-	height: 2rem;
-	width: 2rem;
+input[type='checkbox'],
+input[type='radio'] {
+	height: 1.5rem;
+	width: 1.5rem;
+}
+
+input[type='radio'] {
+	border-radius: 100%;
 }
 
 button {

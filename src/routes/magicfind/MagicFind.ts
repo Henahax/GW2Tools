@@ -4,18 +4,19 @@ export class MagicFind {
 }
 
 export class MagicFindCategory {
+    name: string = ""
     description: string = "";
     items: MagicFindItem[] = [];
 }
 
 export class MagicFindItem {
+    value: number = 0;
+    description: string = "";
     icons: string[] = [];
     names: [{ name: string, link: string }] = [{ name: "", link: "" }];
-    description: string = "";
 }
 
 export class MagicFindItemNumber extends MagicFindItem {
-    value: number = 0;
 
     setValue(newValue: number): void {
         this.value = newValue;
@@ -23,7 +24,6 @@ export class MagicFindItemNumber extends MagicFindItem {
 }
 
 export class MagicFindItemBool extends MagicFindItem {
-    value: number = 0;
     checked: boolean = false;
 
     setChecked(newChecked: boolean): void {
@@ -31,8 +31,16 @@ export class MagicFindItemBool extends MagicFindItem {
     }
 }
 
+export class MagicFindItemRadio extends MagicFindItem {
+    checked: boolean = false;
+    name: string = ""
+
+    setChecked(newChecked: boolean): void {
+        this.checked = newChecked;
+    }
+}
+
 export class MagicFindItemSelect extends MagicFindItem {
-    value: number = 0;
 
     options: [{ value: number, description: string }] = [{ value: 0, description: "" }];
     selected: number = 0;
