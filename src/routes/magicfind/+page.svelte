@@ -1,4 +1,5 @@
 <script lang="ts">
+	import MagicFindGridSection from '$lib/components/MagicFindGridSection.svelte';
 	import {
 		MagicFind,
 		MagicFindCategory,
@@ -42,6 +43,7 @@
 		{
 			name: 'season',
 			description: 'seasonal bonus (festivals / bonus events)',
+			type: 'radio',
 			items: []
 		},
 		{
@@ -144,55 +146,52 @@
 </script>
 
 <div class="grid w-fit grid-cols-[auto_auto_auto_1fr] gap-4 self-center justify-self-center">
-	<div class="col-span-full grid grid-cols-subgrid items-center text-lg">
-		<div class="col-span-3">value</div>
+	<div class="col-span-full grid grid-cols-subgrid items-center">
+		<div></div>
+		<div></div>
+		<div></div>
 		<div>description</div>
 	</div>
 	{#each magicfind.categories as category: MagicFindCategory}
-		<details class="col-span-full grid grid-cols-subgrid" open>
-			<summary class="col-span-full">{category.description}</summary>
+		<MagicFindGridSection {category}>
 			{#each category.items as item: MagicFindItem}
-				{#if item instanceof MagicFindItemSelect}
-					<select class="col-span-2">
-						{#each item.options as option}
-							<option class="text-right" value={option.value}>
-								{option.description}
-							</option>
+				<label class="col-span-full grid grid-cols-subgrid items-center">
+					{#if item instanceof MagicFindItemSelect}
+						<select class="col-span-2">
+							{#each item.options as option}
+								<option class="text-right" value={option.value}>
+									{option.description}
+								</option>
+							{/each}
+						</select>
+					{:else if item instanceof MagicFindItemNumber}
+						<input
+							type="number"
+							class="col-span-2 text-right"
+							value={item.value}
+							min="0"
+							max="350"
+							step="1"
+							onchange={(e) => {
+								item.setValue(parseInt(e.target.value));
+							}}
+						/>
+					{:else if item instanceof MagicFindItemBool}
+						<input type="checkbox" />
+						<div class="text-right">{item.value}</div>
+					{/if}
+					<div>
+						{#each item.icons as icon}
+							<img class="size-8" src={icon} alt="icon" />
 						{/each}
-					</select>
-				{:else if item instanceof MagicFindItemNumber}
-					<input
-						type="number"
-						class="col-span-2"
-						value={item.value}
-						min="0"
-						max="350"
-						step="1"
-						onchange={(e) => {
-							item.setValue(parseInt(e.target.value));
-						}}
-					/>
-				{:else if item instanceof MagicFindItemBool}
-					<input type="checkbox" />
-					<div class="">{item.value}</div>
-				{/if}
-				<div class="">
-					{#each item.icons as icon}
-						<img class="size-8" src={icon} alt="icon" />
-					{/each}
-				</div>
-				<div>{item.description}</div>
+					</div>
+					<div>{item.description}</div>
+				</label>
 			{/each}
-		</details>
+		</MagicFindGridSection>
 	{/each}
 	<div class="col-span-full grid grid-cols-subgrid items-center text-lg">
 		<div class="col-span-2 text-right">{totalValue}</div>
 		<div class="col-span-2">% (of max 750%)</div>
 	</div>
 </div>
-
-<style>
-	summary {
-		cursor: pointer;
-	}
-</style>
