@@ -4,12 +4,13 @@ export class MagicFind {
 }
 
 export class MagicFindCategory {
-    name: string = ""
+    id: string = ""
     description: string = "";
     items: MagicFindItem[] = [];
 }
 
 export class MagicFindItem {
+    id: string = "";
     value: number = 0;
     description: string = "";
     icons: string[] = [];
@@ -33,7 +34,7 @@ export class MagicFindItemBool extends MagicFindItem {
 
 export class MagicFindItemRadio extends MagicFindItem {
     checked: boolean = false;
-    name: string = ""
+    id: string = ""
 
     setChecked(newChecked: boolean): void {
         this.checked = newChecked;

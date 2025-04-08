@@ -8,8 +8,11 @@
 	}
 </script>
 
-<section class="col-span-full grid grid-cols-subgrid gap-4">
-	<button class="col-span-full flex items-center gap-4 rounded text-left" onclick={toggle}>
+<section class="col-span-full grid grid-cols-subgrid">
+	<button
+		class="col-span-full grid grid-cols-subgrid rounded-lg border border-neutral-800 p-2 text-left"
+		onclick={toggle}
+	>
 		<div class="w-2">
 			{#if open}
 				<i class="fa-solid fa-chevron-down"></i>
@@ -22,7 +25,7 @@
 		</div>
 	</button>
 	<div
-		class="section-content col-span-full grid grid-cols-subgrid items-center gap-4 {open
+		class="section-content col-span-full grid grid-cols-subgrid items-center px-2 {open
 			? ''
 			: 'h-0'}"
 	>
@@ -31,13 +34,13 @@
 </section>
 
 <style>
+	button:hover {
+		border-color: var(--color-neutral-500);
+	}
+
 	.section-content {
 		transition: height 0.5s ease;
 		overflow: clip;
 		interpolate-size: allow-keywords;
-	}
-
-	section:has(button:hover) {
-		background-color: var(--color-neutral-800);
 	}
 </style>

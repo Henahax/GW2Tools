@@ -11,20 +11,21 @@
 
 	const magicFindData = [
 		{
-			name: 'character',
+			id: 'character',
 			description: 'character (account & gear)',
 			items: [
 				{
-					name: 'account bonus',
+					id: 'account-bonus',
+					description: 'account bonus',
 					icons: [
 						'https://wiki.guildwars2.com/images/thumb/3/31/Magic_Find.png/20px-Magic_Find.png'
 					],
 					type: 'number',
 					value: 0
 				},
-				{ name: 'enrichtment', value: 20 },
+				{ id: 'enrichtment', value: 20 },
 				{
-					name: 'guild magic find',
+					id: 'guild-magi- find',
 					icons: ['https://wiki.guildwars2.com/images/e/ee/Endless_Toymaker%27s_Tonic.png'],
 					type: 'select',
 					options: [
@@ -42,17 +43,19 @@
 			]
 		},
 		{
-			name: 'season',
+			id: 'season',
 			description: 'seasonal bonus (festivals / bonus events)',
 			type: 'radio',
 			items: [
 				{
+					id: 'no-event',
 					type: 'radio',
 					value: '0',
 					description: 'no event',
 					checked: true
 				},
 				{
+					id: 'pvp-rush',
 					type: 'radio',
 					value: '200',
 					description: 'Player vs. Player Rush',
@@ -65,6 +68,7 @@
 					]
 				},
 				{
+					id: 'wvw-rush',
 					type: 'radio',
 					value: '50',
 					description: 'World vs. World Rush',
@@ -77,6 +81,7 @@
 					]
 				},
 				{
+					id: 'new-hero',
 					type: 'radio',
 					value: '50',
 					description: 'New Hero Jump Start',
@@ -89,6 +94,7 @@
 					]
 				},
 				{
+					id: 'lunar-new-year',
 					type: 'radio',
 					value: '15',
 					description: 'Lunar New Year',
@@ -103,12 +109,12 @@
 			]
 		},
 		{
-			name: 'map bonus',
+			id: 'map-bonus',
 			description: 'map bonus',
 			items: []
 		},
 		{
-			name: 'banners',
+			id: 'banners',
 			description: 'banners (guild & items)',
 			items: [
 				{
@@ -142,14 +148,83 @@
 			]
 		},
 		{
-			name: 'consumables',
+			id: 'consumables',
 			description: 'consumables (crafting & trading post)',
 			items: []
 		},
 		{
-			name: 'boosters',
+			id: 'boosters',
 			description: 'boosters (accountbound)',
-			items: []
+			items: [
+				{
+					id: 'magic-find-boost',
+					type: 'bool',
+					value: 50,
+					icons: [
+						'https://wiki.guildwars2.com/images/b/b6/Magic_Find_Booster.png',
+						'https://wiki.guildwars2.com/images/f/ff/Enchanted_Reward_Boost.png',
+						'https://wiki.guildwars2.com/images/4/4d/Communal_Boost_Bonfire.png',
+						'https://wiki.guildwars2.com/images/3/3e/Dragon%27s_Fortune_Fireworks.png',
+						'https://wiki.guildwars2.com/images/9/9d/Hallows_Fortune_Fireworks.png'
+					],
+					names: [
+						{
+							name: 'Magic Find Boost',
+							link: 'https://wiki.guildwars2.com/wiki/Magic_Find_Boost'
+						}
+					],
+					description:
+						"Magic Find Boosters, Communal Boost Bonfires, Kite Fortunes, Dragon's Fortune Fireworks Hallows Fortune Fireworks."
+				},
+				{
+					id: 'item-boost',
+					type: 'bool',
+					value: 50,
+					icons: [
+						'https://wiki.guildwars2.com/images/b/b6/Magic_Find_Booster.png',
+						'https://wiki.guildwars2.com/images/f/ff/Enchanted_Reward_Boost.png',
+						'https://wiki.guildwars2.com/images/8/82/Heroic_Booster.png',
+						'https://wiki.guildwars2.com/images/7/73/Candy_Corn_Gobbler_Pack.png'
+					],
+					names: [
+						{
+							name: 'Item Booster',
+							link: 'https://wiki.guildwars2.com/wiki/Item_Booster_(effect)'
+						}
+					],
+					description:
+						'Item Booster, Item Booster (masterwork), Heroic Booster, Enchanted Reward Boost, Candy Corn Gobbler'
+				},
+				{
+					id: 'celebration-boost',
+					type: 'bool',
+					value: 100,
+					icons: [
+						'https://wiki.guildwars2.com/images/2/2e/Celebration_Booster.png',
+						'https://wiki.guildwars2.com/images/2/25/Birthday_Booster.png'
+					],
+					names: [
+						{
+							name: 'Celebration Bonus',
+							link: 'https://wiki.guildwars2.com/wiki/Celebration_Bonus'
+						}
+					],
+					description: 'Celebration Booster, Birthday Booster'
+				},
+				{
+					id: 'black-lion-boost',
+					type: 'bool',
+					value: 100,
+					icons: ['https://wiki.guildwars2.com/images/a/a4/Black_Lion_Booster.png'],
+					names: [
+						{
+							name: 'Black Lion Booster',
+							link: 'https://wiki.guildwars2.com/wiki/Black_Lion_Booster'
+						}
+					],
+					description: 'Available for Black Lion Statuettes'
+				}
+			]
 		}
 	];
 
@@ -158,7 +233,7 @@
 
 	magicFindData.forEach((seedCategory) => {
 		let category: MagicFindCategory = new MagicFindCategory();
-		category.name = seedCategory.name;
+		category.id = seedCategory.id;
 		category.description = seedCategory.description;
 		seedCategory.items.forEach((seedItem) => {
 			if (seedItem.type === 'number') {
@@ -217,9 +292,7 @@
 	}
 </script>
 
-<div
-	class="grid w-fit grid-cols-[auto_auto_auto_1fr] gap-x-4 gap-y-2 self-center justify-self-center text-xs"
->
+<div class="grid w-fit grid-cols-[auto_auto_auto_1fr] self-center justify-self-center text-xs">
 	<div class="col-span-full grid grid-cols-subgrid items-center">
 		<div></div>
 		<div></div>
@@ -229,9 +302,9 @@
 	{#each magicfind.categories as category: MagicFindCategory}
 		<MagicFindGridSection {category}>
 			{#each category.items as item: MagicFindItem}
-				<label class="col-span-full grid grid-cols-subgrid items-center px-4">
+				<label class="col-span-full grid grid-cols-subgrid items-center">
 					{#if item instanceof MagicFindItemSelect}
-						<select class="col-span-2 text-xs">
+						<select id={item.id} class="col-span-2 text-xs">
 							{#each item.options as option}
 								<option class="text-right" value={option.value}>
 									{option.description}
@@ -240,6 +313,7 @@
 						</select>
 					{:else if item instanceof MagicFindItemNumber}
 						<input
+							id={item.id}
 							type="number"
 							class="col-span-2 text-right text-xs"
 							value={item.value}
@@ -251,10 +325,10 @@
 							}}
 						/>
 					{:else if item instanceof MagicFindItemBool}
-						<input type="checkbox" checked={item.checked} />
+						<input id={item.id} type="checkbox" checked={item.checked} />
 						<div class="text-right">{item.value}</div>
 					{:else if item instanceof MagicFindItemRadio}
-						<input type="radio" name={category.name} checked={item.checked} />
+						<input id={item.id} type="radio" name={category.id} checked={item.checked} />
 						<div class="text-right">{item.value}</div>
 					{/if}
 					<div class="flex flex-wrap">
@@ -263,7 +337,7 @@
 						{/each}
 					</div>
 					<div class="flex flex-col">
-						<div class="flex flex-wrap">
+						<div class="flex flex-wrap gap-2">
 							{#each item.names as name}
 								<a href={name.link}>{name.name}</a>
 							{/each}
