@@ -9,6 +9,9 @@
 	--background: var(--color-neutral-950);
 	--foreground: var(--color-neutral-50);
 
+	--card-background: var(--color-neutral-900);
+	--card-background-light: var(--color-neutral-800);
+
 	font-size: 1rem;
 }
 
@@ -47,4 +50,17 @@ input[type='radio'] {
 
 button {
 	cursor: pointer;
+}
+
+.magicfind {
+	background-color: var(--card-background);
+}
+
+.magicfind-head,
+.magicfind-foot {
+	background-color: var(--card-background);
+}
+
+.magicfind-button {
+	background-color: var(--card-background-light);
 }
