@@ -10,14 +10,14 @@
 
 <section class="col-span-full grid grid-cols-subgrid">
 	<button
-		class="col-span-full grid grid-cols-subgrid rounded-lg border border-neutral-800 p-2 text-left"
+		class="col-span-full grid grid-cols-subgrid border border-neutral-800 bg-neutral-800 p-2 text-left"
 		onclick={toggle}
 	>
-		<div class="w-2">
+		<div>
 			{#if open}
-				<i class="fa-solid fa-chevron-down"></i>
+				<i class="fa-solid fa-minus"></i>
 			{:else}
-				<i class="fa-solid fa-chevron-right"></i>
+				<i class="fa-solid fa-plus"></i>
 			{/if}
 		</div>
 		<div class="col-span-3">
@@ -25,7 +25,7 @@
 		</div>
 	</button>
 	<div
-		class="section-content col-span-full grid grid-cols-subgrid items-center px-2 {open
+		class="section-content col-span-full grid grid-cols-subgrid items-center divide-y divide-neutral-800 {open
 			? ''
 			: 'h-0'}"
 	>

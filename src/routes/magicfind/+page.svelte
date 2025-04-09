@@ -292,17 +292,20 @@
 	}
 </script>
 
-<div class="grid w-fit grid-cols-[auto_auto_auto_1fr] self-center justify-self-center text-xs">
-	<div class="col-span-full grid grid-cols-subgrid items-center">
-		<div></div>
-		<div></div>
+<div
+	class="grid w-fit grid-cols-[auto_auto_auto_1fr] gap-x-4 self-center justify-self-center rounded-lg border border-neutral-800 text-xs"
+>
+	<div
+		class="col-span-full grid grid-cols-subgrid items-center border border-neutral-800 p-2 text-base"
+	>
+		<div class="col-span-2 text-right">value</div>
 		<div></div>
 		<div>description</div>
 	</div>
 	{#each magicfind.categories as category: MagicFindCategory}
 		<MagicFindGridSection {category}>
 			{#each category.items as item: MagicFindItem}
-				<label class="col-span-full grid grid-cols-subgrid items-center">
+				<label class="col-span-full grid grid-cols-subgrid items-center p-2">
 					{#if item instanceof MagicFindItemSelect}
 						<select id={item.id} class="col-span-2 text-xs">
 							{#each item.options as option}
@@ -348,7 +351,9 @@
 			{/each}
 		</MagicFindGridSection>
 	{/each}
-	<div class="col-span-full grid grid-cols-subgrid items-center">
+	<div
+		class="col-span-full grid grid-cols-subgrid items-center border border-neutral-800 p-2 text-base"
+	>
 		<div class="col-span-2 text-right">{totalValue}</div>
 		<div class="col-span-2">% (of max 750%)</div>
 	</div>

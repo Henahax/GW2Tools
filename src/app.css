@@ -5,8 +5,10 @@
 @plugin '@tailwindcss/typography';
 
 :root {
-	background-color: var(--color-neutral-900);
-	color: var(--color-neutral-100);
+	color-scheme: dark;
+	--background: var(--color-neutral-950);
+	--foreground: var(--color-neutral-50);
+
 	font-size: 1rem;
 }
 
