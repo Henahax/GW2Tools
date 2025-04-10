@@ -12,10 +12,15 @@
 		</nav>
 		<div>C</div>
 	</header>
-	<main class="flex grow flex-col items-center justify-center self-center p-4">
+	<main class="flex grow flex-col items-center justify-center self-center">
 		{@render children()}
 	</main>
-	<footer>henahax</footer>
+	<footer class="flex justify-center gap-8 p-2 text-sm text-neutral-400">
+		<div class="grow text-center">© henahax.de 2025</div>
+		<a href="https://github.com/Henahax/GW2Tools" aria-label="GitHub">
+			<i class="fa-brands fa-github"></i>
+		</a>
+	</footer>
 </app>
 
 <style>

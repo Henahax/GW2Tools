@@ -9,8 +9,12 @@
 	--background: var(--color-neutral-950);
 	--foreground: var(--color-neutral-50);
 
+	--primary: var(--color-indigo-500);
+
 	--card-background: var(--color-neutral-900);
 	--card-background-light: var(--color-neutral-800);
+
+	--border: var(--color-neutral-800);
 
 	font-size: 1rem;
 }
@@ -63,4 +67,19 @@ button {
 
 .magicfind-button {
 	background-color: var(--card-background-light);
+}
+
+.magicfind a {
+	text-decoration: none;
+	color: var(--primary);
+}
+
+.magicfind a:hover {
+	text-decoration: underline;
+}
+
+.magicfind,
+.magicfind-head,
+.magicfind-foot {
+	border-color: var(--border);
 }

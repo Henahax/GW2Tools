@@ -10,7 +10,7 @@
 
 <section class="col-span-full grid grid-cols-subgrid">
 	<button
-		class="magicfind-button col-span-full grid grid-cols-subgrid border border-neutral-800 p-2 text-left"
+		class="magicfind-button col-span-full flex gap-4 border border-neutral-800 p-2 text-left font-bold"
 		onclick={toggle}
 	>
 		<div>
