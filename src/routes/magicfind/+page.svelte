@@ -23,21 +23,21 @@
 					type: 'number',
 					value: 0
 				},
-				{ id: 'enrichtment', value: 20 },
 				{
-					id: 'guild-magi- find',
-					icons: ['https://wiki.guildwars2.com/images/e/ee/Endless_Toymaker%27s_Tonic.png'],
-					type: 'select',
-					options: [
-						{ value: 0, description: '0' },
-						{ value: 3, description: '3' },
-						{ value: 4, description: '4' },
-						{ value: 5, description: '5' },
-						{ value: 6, description: '6' },
-						{ value: 7, description: '7' },
-						{ value: 8, description: '8' },
-						{ value: 9, description: '9' },
-						{ value: 10, description: '10' }
+					id: 'enrichtment',
+					type: 'bool',
+					value: 20,
+					description: "Amulet Slot: Magical, Otter's Blessing, Wurm's",
+					icons: [
+						'https://wiki.guildwars2.com/images/1/11/Magical_Infusion.png',
+						'https://wiki.guildwars2.com/images/9/9c/Otter%27s_Blessing_Enrichment.png',
+						'https://wiki.guildwars2.com/images/f/f7/Wurm%27s_Karmic_Blessing_Enrichment.png'
+					],
+					names: [
+						{
+							name: 'Magic Find Enrichment',
+							link: 'https://wiki.guildwars2.com/wiki/Enrichment'
+						}
 					]
 				}
 			]
@@ -55,28 +55,15 @@
 					checked: true
 				},
 				{
-					id: 'pvp-rush',
+					id: 'lunar-new-year',
 					type: 'radio',
-					value: '200',
-					description: 'Player vs. Player Rush',
-					icons: ['https://wiki.guildwars2.com/images/7/76/Glorious_Fervor.png'],
+					value: '15',
+					description: 'Lunar New Year',
+					icons: ['https://wiki.guildwars2.com/images/f/f1/Memories_of_Home.png'],
 					names: [
 						{
-							name: 'Greater Call of the Mists',
-							link: 'https://wiki.guildwars2.com/wiki/Greater_Call_of_the_Mists'
-						}
-					]
-				},
-				{
-					id: 'wvw-rush',
-					type: 'radio',
-					value: '50',
-					description: 'World vs. World Rush',
-					icons: ['https://wiki.guildwars2.com/images/7/76/Glorious_Fervor.png'],
-					names: [
-						{
-							name: 'Greater Call of the Mists (WvW)',
-							link: 'https://wiki.guildwars2.com/wiki/Greater_Call_of_the_Mists_(WvW)'
+							name: 'Memories of Home',
+							link: 'https://wiki.guildwars2.com/wiki/Memories_of_Home'
 						}
 					]
 				},
@@ -94,15 +81,28 @@
 					]
 				},
 				{
-					id: 'lunar-new-year',
+					id: 'wvw-rush',
 					type: 'radio',
-					value: '15',
-					description: 'Lunar New Year',
-					icons: ['https://wiki.guildwars2.com/images/f/f1/Memories_of_Home.png'],
+					value: '50',
+					description: 'World vs. World Rush',
+					icons: ['https://wiki.guildwars2.com/images/7/76/Glorious_Fervor.png'],
 					names: [
 						{
-							name: 'Memories of Home',
-							link: 'https://wiki.guildwars2.com/wiki/Memories_of_Home'
+							name: 'Greater Call of the Mists (WvW)',
+							link: 'https://wiki.guildwars2.com/wiki/Greater_Call_of_the_Mists_(WvW)'
+						}
+					]
+				},
+				{
+					id: 'pvp-rush',
+					type: 'radio',
+					value: '200',
+					description: 'Player vs. Player Rush',
+					icons: ['https://wiki.guildwars2.com/images/7/76/Glorious_Fervor.png'],
+					names: [
+						{
+							name: 'Greater Call of the Mists',
+							link: 'https://wiki.guildwars2.com/wiki/Greater_Call_of_the_Mists'
 						}
 					]
 				}
@@ -111,7 +111,59 @@
 		{
 			id: 'map-bonus',
 			description: 'map bonus',
-			items: []
+			items: [
+				{
+					id: 'perseverance',
+					type: 'select',
+					description: 'Gained by assisting Pact forces in the Silverwastes (30% per Event)',
+					options: [
+						{
+							value: 0,
+							description: ''
+						},
+						{
+							value: 30,
+							description: '1 Stack'
+						},
+						{
+							value: 60,
+							description: '2 Stacks'
+						},
+						{
+							value: 90,
+							description: '3 Stacks'
+						},
+						{
+							value: 120,
+							description: '4 Stacks'
+						},
+						{
+							value: 150,
+							description: '5 Stacks'
+						}
+					],
+					icons: ['https://wiki.guildwars2.com/images/7/7f/Perseverance.png'],
+					names: [
+						{
+							name: 'Perseverance',
+							link: 'https://wiki.guildwars2.com/wiki/Perseverance'
+						}
+					]
+				},
+				{
+					id: 'hero-of-the-wastes',
+					type: 'bool',
+					value: 50,
+					icons: ['https://wiki.guildwars2.com/images/7/74/Hero_of_the_Wastes.png'],
+					names: [
+						{
+							name: 'Hero of the Wastes',
+							link: 'https://wiki.guildwars2.com/wiki/Hero_of_the_Wastes'
+						}
+					],
+					description: 'Participating in the Mordrem Vinewrath meta event'
+				}
+			]
 		},
 		{
 			id: 'banners',
@@ -149,9 +201,96 @@
 		},
 		{
 			id: 'consumables',
-			description: 'consumables (crafting & trading post)',
-			items: []
+			description: 'consumables (crafting, trading post, vendors)',
+			items: [
+				{
+					id: 'guild-magic-find',
+					type: 'select',
+					description: 'Guild Tavern',
+					options: [
+						{ value: 0, description: '' },
+						{ value: 3, description: '3%' },
+						{ value: 4, description: '4%' },
+						{ value: 5, description: '5%' },
+						{ value: 6, description: '6%' },
+						{ value: 7, description: '7%' },
+						{ value: 8, description: '8%' },
+						{ value: 9, description: '9%' },
+						{ value: 10, description: '10%' }
+					],
+					icons: ['https://wiki.guildwars2.com/images/e/ee/Endless_Toymaker%27s_Tonic.png'],
+					names: [
+						{
+							name: 'Guild Magic Find',
+							link: 'https://wiki.guildwars2.com/wiki/Guild_Magic_Find'
+						}
+					]
+				},
+				{
+					id: 'nourishment',
+					type: 'bool',
+					value: 40,
+					description:
+						'Chocolate Cream (with active boons) / Longevity Noodles (during Lunar New Year)',
+					icons: [
+						'https://wiki.guildwars2.com/images/8/8a/Chocolate_Omnomberry_Cream.png',
+						'https://wiki.guildwars2.com/images/e/eb/Longevity_Noodles.png'
+					],
+					names: [
+						{
+							name: 'Chocolate Omnomberry Cream',
+							link: 'https://wiki.guildwars2.com/wiki/Chocolate_Omnomberry_Cream'
+						},
+						{
+							name: 'Longevity Noodles',
+							link: 'https://wiki.guildwars2.com/wiki/Longevity_Noodles'
+						}
+					]
+				},
+				{
+					id: 'enhancement',
+					type: 'bool',
+					value: 30,
+					description: 'Sharpening Skull, Flask of Pumpkin Oil, Lump of Crystallized Nougat',
+					icons: [
+						'https://wiki.guildwars2.com/images/e/ee/Sharpening_Skull.png',
+						'https://wiki.guildwars2.com/images/7/71/Flask_of_Pumpkin_Oil.png',
+						'https://wiki.guildwars2.com/images/8/8f/Lump_of_Crystallized_Nougat.png'
+					],
+					names: [
+						{
+							name: 'Feline Blessing',
+							link: 'https://wiki.guildwars2.com/wiki/Sharpening_Skull'
+						},
+						{
+							name: "Pumpkin's Blessing",
+							link: 'https://wiki.guildwars2.com/wiki/Flask_of_Pumpkin_Oil'
+						},
+						{
+							name: "Ghoul's Blessing",
+							link: 'https://wiki.guildwars2.com/wiki/Lump_of_Crystallized_Nougat'
+						}
+					]
+				},
+				{
+					id: 'new-years-gift',
+					type: 'bool',
+					value: 10,
+					description: 'Lucky Draketail, Lucky New Year Firework (Stack duration)',
+					icons: [
+						'https://wiki.guildwars2.com/images/f/f3/Lucky_Draketail.png',
+						'https://wiki.guildwars2.com/images/7/7d/Lucky_New_Year_Firework.png'
+					],
+					names: [
+						{
+							name: "New Year's Gift",
+							link: 'https://wiki.guildwars2.com/wiki/New_Year%27s_Gift'
+						}
+					]
+				}
+			]
 		},
+
 		{
 			id: 'boosters',
 			description: 'boosters (accountbound)',
@@ -296,7 +435,7 @@
 	class="grid w-fit grid-cols-[auto_auto_auto_1fr] gap-x-4 self-center justify-self-center rounded-lg border border-neutral-800 text-xs"
 >
 	<div
-		class="col-span-full grid grid-cols-subgrid items-center border border-neutral-800 p-2 text-base"
+		class="sticky top-0 col-span-full grid grid-cols-subgrid items-center border border-neutral-800 p-2 text-base"
 	>
 		<div class="col-span-2 text-right">value</div>
 		<div></div>
@@ -352,7 +491,7 @@
 		</MagicFindGridSection>
 	{/each}
 	<div
-		class="col-span-full grid grid-cols-subgrid items-center border border-neutral-800 p-2 text-base"
+		class=" sticky bottom-0 col-span-full grid grid-cols-subgrid items-center border border-neutral-800 p-2 text-base"
 	>
 		<div class="col-span-2 text-right">{totalValue}</div>
 		<div class="col-span-2">% (of max 750%)</div>
