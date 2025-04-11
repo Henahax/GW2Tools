@@ -1,7 +1,7 @@
 [
     {
         "id": "character",
-        "description": "character (account & gear)",
+        "name": "character (account & gear)",
         "items": [
             {
                 "id": "account-bonus",
@@ -33,7 +33,7 @@
     },
     {
         "id": "season",
-        "description": "seasonal bonus (festivals / bonus events)",
+        "name": "seasonal bonus (festivals / bonus events)",
         "type": "radio",
         "items": [
             {
@@ -107,7 +107,7 @@
     },
     {
         "id": "vendors",
-        "description": "vendors & preparations",
+        "name": "vendors & preparations",
         "items": [
             {
                 "id": "guild-magic-find",
@@ -195,7 +195,7 @@
     },
     {
         "id": "banners",
-        "description": "banners (guild & items)",
+        "name": "banners (guild & items)",
         "items": [
             {
                 "type": "bool",
@@ -230,7 +230,7 @@
     },
     {
         "id": "consumables",
-        "description": "consumables (crafting, trading post, vendors)",
+        "name": "consumables (crafting, trading post, vendors)",
         "items": [
             {
                 "id": "nourishment",
@@ -297,7 +297,7 @@
     },
     {
         "id": "map-bonus",
-        "description": "map bonus",
+        "name": "map bonus",
         "items": [
             {
                 "id": "perseverance",
@@ -358,7 +358,7 @@
     },
     {
         "id": "boosters",
-        "description": "boosters (accountbound)",
+        "name": "boosters (accountbound)",
         "items": [
             {
                 "id": "item-boost",

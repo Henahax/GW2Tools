@@ -7,12 +7,12 @@
 	<header class="flex items-center justify-between bg-neutral-800 p-4">
 		<div>GW2Tools</div>
 		<nav>
-			<a href="/reset">reset</a>
-			<a href="/magicfind">magic find</a>
+			<a href="/reset"><i class="fa-solid fa-arrows-rotate"></i>reset</a>
+			<a href="/magicfind"><i class="fa-solid fa-clover"></i>magic find</a>
 		</nav>
 		<div>C</div>
 	</header>
-	<main class="flex grow flex-col items-center justify-center self-center">
+	<main class="flex grow flex-col">
 		{@render children()}
 	</main>
 	<footer class="flex justify-center gap-8 p-2 text-sm text-neutral-400">

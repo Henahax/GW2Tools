@@ -21,7 +21,7 @@
 			{/if}
 		</div>
 		<div class="col-span-3">
-			{category.description}
+			{category.name}
 		</div>
 	</button>
 	<div
