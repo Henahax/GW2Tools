@@ -11,7 +11,7 @@
                 "name": "Vendors",
                 "tasks": [
                     {
-                        "id": "MysticClovers",
+                        "id": "mystic-clovers",
                         "name": "Mystic Clovers",
                         "icon": "https://wiki.guildwars2.com/images/7/7c/Mystic_Clover.png",
                         "description": "Various currencies",
@@ -19,7 +19,7 @@
                         "display": true
                     },
                     {
-                        "id": "MysticCoins",
+                        "id": "mystic-coins",
                         "name": "Mystic Coins",
                         "icon": "https://wiki.guildwars2.com/images/b/b5/Mystic_Coin.png",
                         "location": "Wizard's Tower",
@@ -27,14 +27,14 @@
                         "display": true
                     },
                     {
-                        "id": "MistHardenedLockboxKey",
+                        "id": "mist-hardened-lockbox-key",
                         "name": "Mist-Hardened Lockbox Key",
                         "icon": "https://wiki.guildwars2.com/images/a/ad/Mist-Hardened_Lockbox_Key.png",
                         "location": "WvW-Maps",
                         "link": "https://wiki.guildwars2.com/wiki/Mist-Hardened_Lockbox_Key"
                     },
                     {
-                        "id": "AntiqueSummoningStones",
+                        "id": "antique-summoning-stones",
                         "name": "Antique Summoning Stones",
                         "icon": "https://wiki.guildwars2.com/images/f/f6/Antique_Summoning_Stone.png",
                         "location": "Arborstone",
@@ -42,7 +42,7 @@
                         "display": true
                     },
                     {
-                        "id": "WizardsTowerExchangeWeekly",
+                        "id": "wizards-tower-exchange-weekly",
                         "name": "Wizard's Tower Exchange",
                         "icon": "https://wiki.guildwars2.com/images/c/cd/Portable_Wizard%27s_Tower_Exchange.png",
                         "location": "Wizard's Tower",
@@ -50,7 +50,7 @@
                         "display": true
                     },
                     {
-                        "id": "HomesteadRefinement",
+                        "id": "homestead-refinement",
                         "name": "Homestead Refinement",
                         "icon": "https://wiki.guildwars2.com/images/7/7a/Summon_Conjured_Doorway.png",
                         "location": "Hearth's Glow",
@@ -70,7 +70,7 @@
                         "link": "https://www.youtube.com/watch?v=1KdasTB2rNM"
                     },
                     {
-                        "id": "VigilEmissaryChest",
+                        "id": "vigil-emissary-chest",
                         "name": "Vigil Emissary Chest",
                         "icon": "https://wiki.guildwars2.com/images/e/eb/Community_Goal_Reward-_Tier_5.png",
                         "location": "Eye of the North",
@@ -83,7 +83,7 @@
                 "name": "Festivals",
                 "tasks": [
                     {
-                        "id": "FestivalRewardsVendor",
+                        "id": "festival-rewards-vendor",
                         "name": "Festival Rewards Vendor",
                         "icon": "https://wiki.guildwars2.com/images/a/a7/Chest_of_Legendary_Shards.png",
                         "description": "Weekly Sales",
@@ -103,22 +103,214 @@
             {
                 "id": "items",
                 "name": "Items",
-                "tasks": []
+                "tasks": [
+                    {
+                        "id": "mawdrey",
+                        "name": "Mawdrey II",
+                        "icon": "https://wiki.guildwars2.com/images/d/d2/Mawdrey_II.png",
+                        "description": "Piles of Bloodstone Dust",
+                        "link": "https://wiki.guildwars2.com/wiki/Mawdrey_II"
+                    },
+                    {
+                        "id": "princess",
+                        "name": "Princess",
+                        "icon": "https://wiki.guildwars2.com/images/f/f2/Princess.png",
+                        "description": "Dragonite Ore",
+                        "link": "https://wiki.guildwars2.com/wiki/Princess"
+                    },
+                    {
+                        "id": "star-of-gratitude",
+                        "name": "Star of Gratitude",
+                        "icon": "https://wiki.guildwars2.com/images/5/52/Star_of_Gratitude.png",
+                        "description": "Empyreal Fragments",
+                        "link": "https://wiki.guildwars2.com/wiki/Star_of_Gratitude"
+                    },
+                    {
+                        "id": "gleam-of-sentience",
+                        "name": "Gleam of Sentience",
+                        "icon": "https://wiki.guildwars2.com/images/1/1e/Sentient_Singularity.png",
+                        "description": "Ascended crafting materials & Unbound Magic",
+                        "link": "https://wiki.guildwars2.com/wiki/Gleam_of_Sentience"
+                    },
+                    {
+                        "id": "volatile-singularity",
+                        "name": "Volatile Singularity",
+                        "icon": "https://wiki.guildwars2.com/images/1/1e/Sentient_Singularity.png",
+                        "description": "Volatile Magic",
+                        "link": "https://wiki.guildwars2.com/wiki/Volatile_Singularity"
+                    },
+                    {
+                        "id": "ley-energy-matter-converter",
+                        "name": "Ley-Energy Matter Converter",
+                        "icon": "https://wiki.guildwars2.com/images/9/96/Ley-Energy_Matter_Converter.png",
+                        "description": "HoT map currencies",
+                        "link": "https://wiki.guildwars2.com/wiki/Ley-Energy_Matter_Converter"
+                    },
+                    {
+                        "id": "spearmarshals-plea",
+                        "name": "Spearmarshal's Plea",
+                        "icon": "https://wiki.guildwars2.com/images/8/8e/Spearmarshal%27s_Plea.png",
+                        "description": "Eyes of Kormir",
+                        "link": "https://wiki.guildwars2.com/wiki/Spearmarshal%27s_Plea"
+                    },
+                    {
+                        "id": "karmic-converter",
+                        "name": "Karmic Converter",
+                        "icon": "https://wiki.guildwars2.com/images/c/cb/Karmic_Converter.png",
+                        "description": "Karma",
+                        "link": "https://wiki.guildwars2.com/wiki/Karmic_Converter"
+                    },
+                    {
+                        "id": "fractal-reliquary",
+                        "name": "Fractal Reliquary",
+                        "icon": "https://wiki.guildwars2.com/images/7/70/Fractal_Reliquary.png",
+                        "description": "Fractal Relics",
+                        "link": "https://wiki.guildwars2.com/wiki/Fractal_Reliquary"
+                    },
+                    {
+                        "id": "shards-of-glory-converter",
+                        "name": "Shards of Glory Converter",
+                        "icon": "https://wiki.guildwars2.com/images/4/47/Shards_of_Glory_Converter.png",
+                        "description": "Shards of Glory",
+                        "link": "https://wiki.guildwars2.com/wiki/Shards_of_Glory_Converter"
+                    },
+                    {
+                        "id": "memory-gobbler",
+                        "name": "Memory Gobbler",
+                        "icon": "https://wiki.guildwars2.com/images/b/b9/Memory_Gobbler.png",
+                        "description": "Memories of Battle",
+                        "link": "https://wiki.guildwars2.com/wiki/Memory_Gobbler"
+                    }
+                ]
             },
             {
                 "id": "vendors",
                 "name": "Vendors",
-                "tasks": []
+                "tasks": [
+                    {
+                        "id": "pact-scouts-mapping-materials",
+                        "name": "Pact Scout's Mapping Materials",
+                        "icon": "https://wiki.guildwars2.com/images/3/3c/Pact_Scout%27s_Mapping_Materials.png",
+                        "description": "Pact Supply Network Agents",
+                        "link": "https://wiki.guildwars2.com/wiki/Pact_Supply_Network_Agent#Locations"
+                    },
+                    {
+                        "id": "discounted-fractal-encryption-keys",
+                        "name": "Discounted Fractal Encryption Keys",
+                        "icon": "https://wiki.guildwars2.com/images/f/f0/Fractal_Encryption_Key.png",
+                        "location": "Mistlock Observatory / Mistlock Sanctuary",
+                        "link": "https://wiki.guildwars2.com/wiki/Deeply_Discounted_Fractal_Encryption_Key"
+                    },
+                    {
+                        "id": "funerary-incense",
+                        "name": "Funerary Incense",
+                        "icon": "https://wiki.guildwars2.com/images/5/53/Funerary_Incense.png",
+                        "location": "Domain of Vabbi, Desert Highland",
+                        "link": "https://wiki.guildwars2.com/wiki/Funerary_Incense"
+                    },
+                    {
+                        "id": "provisioner-tokens",
+                        "name": "Provisioner Tokens",
+                        "icon": "https://wiki.guildwars2.com/images/9/9d/Provisioner_Token.png",
+                        "location": "Central Tyria & HoT & SotO",
+                        "link": "https://wiki.guildwars2.com/wiki/Faction_Provisioner#Faction_Provisioners"
+                    },
+                    {
+                        "id": "eternal-ice",
+                        "name": "Eternal Ice",
+                        "icon": "https://wiki.guildwars2.com/images/2/23/Eternal_Ice_Shard.png",
+                        "location": "Eye of the North / Bjora Marches",
+                        "link": "https://wiki.guildwars2.com/wiki/Eternal_Ice_Shard#Sold_by"
+                    },
+                    {
+                        "id": "tyrian-defense-seals",
+                        "name": "Tyrian Defense Seals Discounted",
+                        "icon": "https://wiki.guildwars2.com/images/4/40/Tyrian_Defense_Seal_%28item%29.png",
+                        "location": "Eye of the North",
+                        "link": "https://fast.farming-community.eu/conversions/tyrian-defense-seal"
+                    },
+                    {
+                        "id": "drizzlewood-material-donations",
+                        "name": "Drizzlewood Material Donations",
+                        "icon": "https://wiki.guildwars2.com/images/6/6d/Quaestor_%28overhead_icon%29.png",
+                        "location": "Drizzlewood Coast",
+                        "link": "https://fast.farming-community.eu/open-world/drizzlewood-material-donation"
+                    },
+                    {
+                        "id": "fishmonger-arborstone",
+                        "name": "Fishmonger Arborstone",
+                        "icon": "https://wiki.guildwars2.com/images/2/25/Chunk_of_Ancient_Ambergris.png",
+                        "link": "https://wiki.guildwars2.com/wiki/Taro_Everclaw",
+                        "location": "Arborstone"
+                    },
+                    {
+                        "id": "writ-of-dragons-end",
+                        "name": "Writ of Dragon's End",
+                        "icon": "https://wiki.guildwars2.com/images/2/28/Writ_of_Dragon%27s_End.png",
+                        "link": "https://wiki.guildwars2.com/wiki/Writ_of_Dragon%27s_End"
+                    }
+                ]
             },
             {
                 "id": "harvesting",
                 "name": "Harvesting",
-                "tasks": []
+                "tasks": [
+                    {
+                        "id": "home-instance",
+                        "name": "Home Instance",
+                        "icon": "https://wiki.guildwars2.com/images/5/56/Home_Portal_Stone.png",
+                        "description": "Charged Quartz Crystal, Harvesting Nodes, Chests",
+                        "link": "https://wiki.guildwars2.com/wiki/Home_instance#List_of_home_instance_upgrades"
+                    },
+                    {
+                        "id": "guild-hall",
+                        "name": "Guild Hall",
+                        "icon": "https://wiki.guildwars2.com/images/8/89/Guild_Hall_Obtained.png",
+                        "description": "Harvesting Nodes, Vendors, Tavern Boosts",
+                        "link": "https://wiki.guildwars2.com/wiki/Guild_hall#Features"
+                    },
+                    {
+                        "id": "permanent-gathering-nodes",
+                        "name": "Permanent Gathering Nodes",
+                        "icon": "https://wiki.guildwars2.com/images/4/43/Orichalcum_Ore.png",
+                        "description": "Rich Ores, Tree Circles, Gardens",
+                        "link": "https://gw2efficiency.com/gathering/permanent-nodes?filter.order_by=profit"
+                    },
+                    {
+                        "id": "uplands-oasis",
+                        "name": "Uplands Oasis",
+                        "icon": "https://wiki.guildwars2.com/images/e/ed/Fire_Orchid_Blossom.png",
+                        "location": "Dry Top",
+                        "link": "https://wiki.guildwars2.com/wiki/Uplands_Oasis"
+                    },
+                    {
+                        "id": "hidden-garden",
+                        "name": "Hidden Garden",
+                        "icon": "https://wiki.guildwars2.com/images/c/cb/Leaf_of_Kudzu.png",
+                        "location": "Mount Maelstrom",
+                        "link": "https://wiki.guildwars2.com/wiki/Hidden_Garden"
+                    }
+                ]
             },
             {
                 "id": "crafting",
                 "name": "Crafting",
-                "tasks": []
+                "tasks": [
+                    {
+                        "id": "ascended-crafting",
+                        "name": "Ascended Crafting",
+                        "icon": "https://wiki.guildwars2.com/images/c/cf/Crafting_icon.png",
+                        "description": "Ectoplasm Refinements",
+                        "link": "https://wiki.guildwars2.com/wiki/Server_reset#Crafted_items"
+                    },
+                    {
+                        "id": "plate-of-piquant-plant-food",
+                        "name": "Plate of Piquant Plant Food",
+                        "icon": "https://wiki.guildwars2.com/images/2/22/Plate_of_Piquant_Plant_Food.png",
+                        "description": "Chef",
+                        "link": "https://wiki.guildwars2.com/wiki/Plate_of_Piquant_Plant_Food"
+                    }
+                ]
             },
             {
                 "id": "misc",
@@ -131,37 +323,37 @@
                 "tasks": []
             },
             {
-                "id": "eventsjanthirwilds",
+                "id": "events-janthir-wilds",
                 "name": "Events: Janthir Wilds",
                 "tasks": []
             },
             {
-                "id": "eventssecretsoftheobscure",
+                "id": "events-secrets-of-theobscure",
                 "name": "Events: Secrets of the Obscure",
                 "tasks": []
             },
             {
-                "id": "eventsendofdragons",
+                "id": "events-end-of-dragons",
                 "name": "Events: End of Dragons",
                 "tasks": []
             },
             {
-                "id": "eventsicebroodsaga",
+                "id": "events-icebrood-saga",
                 "name": "Events: Icebrood Saga",
                 "tasks": []
             },
             {
-                "id": "eventspathoffire",
+                "id": "events-path-of-fire",
                 "name": "Events: Path of Fire",
                 "tasks": []
             },
             {
-                "id": "eventsheartofthorns",
+                "id": "events-heart-of-thorns",
                 "name": "Events: Heart of Thorns",
                 "tasks": []
             },
             {
-                "id": "eventstyria",
+                "id": "events-tyria",
                 "name": "Events: Tyria",
                 "tasks": []
             }

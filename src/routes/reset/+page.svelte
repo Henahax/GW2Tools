@@ -69,3 +69,9 @@
 		{/each}
 	</div>
 </div>
+
+<style>
+	a:hover {
+		color: var(--color-neutral-400);
+	}
+</style>
