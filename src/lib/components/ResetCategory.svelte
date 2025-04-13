@@ -8,7 +8,7 @@
 	}
 </script>
 
-<div class="col-span-full grid grid-cols-subgrid">
+<div class="col-span-full grid break-inside-avoid grid-cols-subgrid border">
 	<button class="col-span-full border" onclick={toggle}>{category.name}</button>
 	<div
 		class="section-content col-span-full grid grid-cols-subgrid divide-y divide-neutral-500 px-2 {open

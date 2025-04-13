@@ -3,7 +3,6 @@
 	import data from './magicfind.json';
 	import {
 		MagicFind,
-		MagicFindCategory,
 		MagicFindItemSelect,
 		MagicFindItemNumber,
 		MagicFindItemBool,
@@ -15,7 +14,7 @@
 </script>
 
 <div
-	class="magicfind my-auto grid w-fit grid-cols-[auto_auto_1fr_4fr] gap-x-4 self-center justify-self-center rounded-lg border text-xs"
+	class="magicfind my-auto grid w-fit grid-cols-[auto_auto_1fr_4fr] gap-x-4 self-center justify-self-center rounded-lg text-xs"
 >
 	<div
 		class="magicfind-head sticky top-0 col-span-full grid grid-cols-subgrid items-center border border-neutral-800 p-2 text-base"
