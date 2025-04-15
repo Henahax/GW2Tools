@@ -17,6 +17,8 @@ export class ResetCategory {
     id = "";
     name = "";
     tasks = $state<ResetTask[]>([]);
+
+    displayedTasksCount = $derived(getDispayedTasksCount(this.tasks));
 }
 
 export class ResetTask {
@@ -38,4 +40,8 @@ export class ResetTask {
 export class ResetTimer {
     duration = $state<[number, number]>([0, 0]);
     times = $state<[number, number][]>([[0, 0]])
+}
+
+function getDispayedTasksCount(tasks: ResetTask[]): number {
+    return tasks.filter(task => task.display === true).length;
 }

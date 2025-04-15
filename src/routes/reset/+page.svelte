@@ -29,7 +29,7 @@
 	<div class="grid grid-cols-1 gap-4 sm:grid-cols-[auto_1fr]">
 		{#each data as interval}
 			<div class="flex w-full flex-col">
-				<div>{interval.tasks}</div>
+				<div>{interval.tasks} ()</div>
 
 				<div
 					class={interval.id === 'weekly' ? 'columns-1' : 'columns-1 lg:columns-2 2xl:columns-3'}
@@ -42,8 +42,8 @@
 										<input type="checkbox" id={task.id} />
 										<img class="size-8 rounded" src={task.icon} alt={task.description} />
 										<div class="flex flex-col">
-											<div>{task.name}</div>
-											<div class="flex flex-col text-xs">
+											<div class="text-sm">{task.name}</div>
+											<div class="flex flex-col text-xs text-neutral-400">
 												{#if task.location}
 													<div class="flex items-center gap-1.5">
 														<i class="fa-solid fa-location-dot"></i>{task.location}
@@ -56,6 +56,7 @@
 										</div>
 										<div>
 											<a
+												class="text-sm text-neutral-400"
 												href={task.link}
 												target="_blank"
 												rel="noopener noreferrer"

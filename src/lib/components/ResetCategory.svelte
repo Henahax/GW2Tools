@@ -9,9 +9,11 @@
 </script>
 
 <div
-	class="col-span-full grid break-inside-avoid grid-cols-subgrid rounded-xl border border-neutral-800 bg-black"
+	class="col-span-full grid break-inside-avoid grid-cols-subgrid rounded-md border border-neutral-800 bg-neutral-950"
 >
-	<button class="col-span-full rounded-xl bg-neutral-700" onclick={toggle}>{category.name}</button>
+	<button class="col-span-full rounded-md bg-neutral-900 text-sm text-neutral-400" onclick={toggle}
+		>{category.name} ()</button
+	>
 	<div
 		class="section-content col-span-full grid grid-cols-subgrid divide-y divide-neutral-500 px-2 {open
 			? ''
@@ -26,5 +28,10 @@
 		transition: height 0.25s ease;
 		overflow: clip;
 		interpolate-size: allow-keywords;
+	}
+
+	button:hover {
+		background-color: var(--color-neutral-800);
+		color: white;
 	}
 </style>
