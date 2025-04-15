@@ -25,8 +25,8 @@
 	</div>
 </div>
 
-<div class="flex grow flex-col justify-center">
-	<div class="grid grid-cols-1 gap-4 self-center sm:grid-cols-[auto_1fr]">
+<div class="flex flex-col items-center justify-center">
+	<div class="grid grid-cols-1 gap-4 sm:grid-cols-[auto_1fr]">
 		{#each data as interval}
 			<div class="flex w-full flex-col">
 				<div>{interval.tasks}</div>
@@ -34,7 +34,7 @@
 				<div
 					class={interval.id === 'weekly' ? 'columns-1' : 'columns-1 lg:columns-2 2xl:columns-3'}
 				>
-					<div class="grid grid-cols-[auto_auto_1fr_auto] border">
+					<div class="grid grid-cols-[auto_auto_1fr_auto]">
 						{#each interval.categories as category}
 							<ResetCategory {category}>
 								{#each category.tasks as task}
