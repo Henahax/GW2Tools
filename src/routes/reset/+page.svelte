@@ -1,8 +1,20 @@
 <script lang="ts">
-	import ResetCategory from '$lib/components/ResetCategory.svelte';
+	import ResetCategoryElement from '$lib/components/ResetCategoryElement.svelte';
 	import resetData from './reset.json';
+	import { Reset, ResetInterval, ResetTask, ResetCategory } from './Reset.svelte';
 
-	let data = $state(resetData);
+	// Initialize with proper class instances to enable state
+	let data = $state(
+		resetData.map((interval) => {
+			const resetInterval = Object.assign(new ResetInterval(), interval);
+			resetInterval.categories = interval.categories.map((category) => {
+				const resetCategory = Object.assign(new ResetCategory(), category);
+				resetCategory.tasks = category.tasks.map((task) => Object.assign(new ResetTask(), task));
+				return resetCategory;
+			});
+			return resetInterval;
+		})
+	);
 </script>
 
 <div class="flex w-full justify-between">
@@ -28,18 +40,29 @@
 <div class="flex flex-col items-center justify-center">
 	<div class="grid grid-cols-1 gap-4 sm:grid-cols-[auto_1fr]">
 		{#each data as interval}
-			<div class="flex w-full flex-col">
-				<div>{interval.tasks} ()</div>
+			<div class="flex w-full flex-col gap-2">
+				<div>
+					{interval.tasks} ({interval.categories
+						.flatMap((c) => c.tasks)
+						.filter((t) => t.display && t.checked).length}/{interval.categories
+						.flatMap((c) => c.tasks)
+						.filter((t) => t.display).length})
+				</div>
 
 				<div
 					class={interval.id === 'weekly' ? 'columns-1' : 'columns-1 lg:columns-2 2xl:columns-3'}
 				>
 					<div class="grid grid-cols-[auto_auto_1fr_auto]">
-						{#each interval.categories as category}
-							<ResetCategory {category}>
-								{#each category.tasks as task}
+						{#each interval.categories as category: ResetCategory}
+							<ResetCategoryElement {category} icon={interval.icon}>
+								{#each category.tasks.filter((task) => task.display === true) as task: ResetTask}
 									<label class="col-span-full grid grid-cols-subgrid items-center gap-4 p-2">
-										<input type="checkbox" id={task.id} />
+										<input
+											type="checkbox"
+											id={task.id}
+											checked={task.checked}
+											onchange={(e) => task.setChecked(e.currentTarget.checked)}
+										/>
 										<img class="size-8 rounded" src={task.icon} alt={task.description} />
 										<div class="flex flex-col">
 											<div class="text-sm">{task.name}</div>
@@ -67,7 +90,7 @@
 										</div>
 									</label>
 								{/each}
-							</ResetCategory>
+							</ResetCategoryElement>
 						{/each}
 					</div>
 				</div>

@@ -8,7 +8,7 @@ export class ResetInterval {
     timer = "";
     tasks = "";
     reset = ""
-    class = "";
+    icon = "";
 
     categories = $state<ResetCategory[]>([]);
 }
@@ -16,16 +16,15 @@ export class ResetInterval {
 export class ResetCategory {
     id = "";
     name = "";
-    tasks = $state<ResetTask[]>([]);
 
-    displayedTasksCount = $derived(getDispayedTasksCount(this.tasks));
+    tasks = $state<ResetTask[]>([]);
 }
 
 export class ResetTask {
     id = "";
     display = false;
 
-    isDone = false;
+    checked = $state(false);
 
     name = "";
     icon = "";
@@ -35,13 +34,13 @@ export class ResetTask {
 
     link = "";
     timers? = $state<ResetTimer>()
+
+    setChecked(value: boolean) {
+        this.checked = value;
+    }
 }
 
 export class ResetTimer {
     duration = $state<[number, number]>([0, 0]);
     times = $state<[number, number][]>([[0, 0]])
-}
-
-function getDispayedTasksCount(tasks: ResetTask[]): number {
-    return tasks.filter(task => task.display === true).length;
 }

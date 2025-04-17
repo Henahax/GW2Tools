@@ -4,7 +4,7 @@
         "timer": "Weekly",
         "tasks": "Weekly Tasks",
         "reset": "resets weekly",
-        "class": "fa-regular fa-calendar",
+        "icon": "fa-regular fa-calendar",
         "categories": [
             {
                 "id": "vendors",
@@ -38,8 +38,7 @@
                         "name": "Antique Summoning Stones",
                         "icon": "https://wiki.guildwars2.com/images/f/f6/Antique_Summoning_Stone.png",
                         "location": "Arborstone",
-                        "link": "https://wiki.guildwars2.com/wiki/Leivas#Weekly_Sales",
-                        "display": true
+                        "link": "https://wiki.guildwars2.com/wiki/Leivas#Weekly_Sales"
                     },
                     {
                         "id": "wizards-tower-exchange-weekly",
@@ -98,7 +97,7 @@
         "timer": "Daily",
         "tasks": "Daily Tasks",
         "reset": "resets daily",
-        "class": "fa-regular fa-clock",
+        "icon": "fa-regular fa-clock",
         "categories": [
             {
                 "id": "items",
@@ -192,7 +191,8 @@
                         "name": "Pact Scout's Mapping Materials",
                         "icon": "https://wiki.guildwars2.com/images/3/3c/Pact_Scout%27s_Mapping_Materials.png",
                         "description": "Pact Supply Network Agents",
-                        "link": "https://wiki.guildwars2.com/wiki/Pact_Supply_Network_Agent#Locations"
+                        "link": "https://wiki.guildwars2.com/wiki/Pact_Supply_Network_Agent#Locations",
+                        "display": true
                     },
                     {
                         "id": "discounted-fractal-encryption-keys",
@@ -234,14 +234,16 @@
                         "name": "Drizzlewood Material Donations",
                         "icon": "https://wiki.guildwars2.com/images/6/6d/Quaestor_%28overhead_icon%29.png",
                         "location": "Drizzlewood Coast",
-                        "link": "https://fast.farming-community.eu/open-world/drizzlewood-material-donation"
+                        "link": "https://fast.farming-community.eu/open-world/drizzlewood-material-donation",
+                        "display": true
                     },
                     {
                         "id": "fishmonger-arborstone",
                         "name": "Fishmonger Arborstone",
                         "icon": "https://wiki.guildwars2.com/images/2/25/Chunk_of_Ancient_Ambergris.png",
                         "link": "https://wiki.guildwars2.com/wiki/Taro_Everclaw",
-                        "location": "Arborstone"
+                        "location": "Arborstone",
+                        "display": true
                     },
                     {
                         "id": "writ-of-dragons-end",
@@ -257,17 +259,19 @@
                 "tasks": [
                     {
                         "id": "home-instance",
-                        "name": "Home Instance",
+                        "name": "Home Instance / Homestead",
                         "icon": "https://wiki.guildwars2.com/images/5/56/Home_Portal_Stone.png",
                         "description": "Charged Quartz Crystal, Harvesting Nodes, Chests",
-                        "link": "https://wiki.guildwars2.com/wiki/Home_instance#List_of_home_instance_upgrades"
+                        "link": "https://wiki.guildwars2.com/wiki/Home_instance#List_of_home_instance_upgrades",
+                        "dispay": true
                     },
                     {
                         "id": "guild-hall",
                         "name": "Guild Hall",
                         "icon": "https://wiki.guildwars2.com/images/8/89/Guild_Hall_Obtained.png",
                         "description": "Harvesting Nodes, Vendors, Tavern Boosts",
-                        "link": "https://wiki.guildwars2.com/wiki/Guild_hall#Features"
+                        "link": "https://wiki.guildwars2.com/wiki/Guild_hall#Features",
+                        "display": true
                     },
                     {
                         "id": "permanent-gathering-nodes",
@@ -301,7 +305,8 @@
                         "name": "Ascended Crafting",
                         "icon": "https://wiki.guildwars2.com/images/c/cf/Crafting_icon.png",
                         "description": "Ectoplasm Refinements",
-                        "link": "https://wiki.guildwars2.com/wiki/Server_reset#Crafted_items"
+                        "link": "https://wiki.guildwars2.com/wiki/Server_reset#Crafted_items",
+                        "display": true
                     },
                     {
                         "id": "plate-of-piquant-plant-food",
