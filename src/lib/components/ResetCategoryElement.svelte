@@ -1,13 +1,7 @@
 <script lang="ts">
-	import { ResetCategory, ResetTask } from '../../routes/reset/Reset.svelte';
+	import { ResetTask } from '../../routes/reset/Reset.svelte';
 
 	let { children, category, icon } = $props();
-
-	let open = $state(true);
-
-	function toggle() {
-		open = !open;
-	}
 </script>
 
 <div
@@ -18,8 +12,8 @@
 		: ''}"
 >
 	<button
-		class="col-span-full flex items-center justify-center gap-2 rounded-md bg-neutral-900 px-2 text-sm text-neutral-400"
-		onclick={toggle}
+		class="col-span-full flex items-center gap-2 rounded-md bg-neutral-900 px-5 text-sm text-neutral-400"
+		onclick={() => category.toggleOpen()}
 		><i class={icon}></i>{category.name} ({category.tasks
 			.filter((task: ResetTask) => task.display === true)
 			.filter((task: ResetTask) => task.checked === true).length}/{category.tasks.filter(
@@ -27,7 +21,7 @@
 		).length})</button
 	>
 	<div
-		class="section-content col-span-full grid grid-cols-subgrid divide-y divide-neutral-500 px-2 {open
+		class="section-content col-span-full grid grid-cols-subgrid divide-y divide-neutral-500 px-2 {category.open
 			? ''
 			: 'h-0'}"
 	>

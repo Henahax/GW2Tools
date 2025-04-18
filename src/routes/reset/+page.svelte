@@ -41,7 +41,7 @@
 	<div class="grid grid-cols-1 gap-4 sm:grid-cols-[auto_1fr]">
 		{#each data as interval}
 			<div class="flex w-full flex-col gap-2">
-				<div>
+				<div class="px-4">
 					{interval.tasks} ({interval.categories
 						.flatMap((c) => c.tasks)
 						.filter((t) => t.display && t.checked).length}/{interval.categories

@@ -56,6 +56,31 @@ button {
 	cursor: pointer;
 }
 
+.btn {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	padding: 0.5rem 1rem;
+	border-radius: 0.5rem;
+}
+
+.btn-primary {
+	background-color: var(--primary);
+	color: var(--foreground);
+}
+
+.btn-outline {
+}
+
+.btn-ghost {
+	border: none;
+	color: var(--foreground);
+}
+
+.btn-ghost:hover {
+	background-color: rgba(255, 255, 255, 0.1);
+}
+
 .magicfind {
 	background-color: var(--card-background);
 }

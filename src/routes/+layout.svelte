@@ -4,11 +4,11 @@
 </script>
 
 <app class="flex min-h-dvh flex-col">
-	<header class="flex items-center justify-between bg-neutral-800 p-4">
-		<div>GW2Tools</div>
-		<nav>
-			<a href="/reset"><i class="fa-solid fa-arrows-rotate"></i>reset</a>
-			<a href="/magicfind"><i class="fa-solid fa-clover"></i>magic find</a>
+	<header class="flex items-center justify-between bg-neutral-800 px-4 py-2">
+		<a class="btn btn-ghost" href="/">GW2Tools</a>
+		<nav class="flex">
+			<a class="btn btn-ghost" href="/reset"><i class="fa-solid fa-arrows-rotate"></i>reset</a>
+			<a class="btn btn-ghost" href="/magicfind"><i class="fa-solid fa-clover"></i>magic find</a>
 		</nav>
 		<div>C</div>
 	</header>

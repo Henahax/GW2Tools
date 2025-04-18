@@ -17,7 +17,13 @@ export class ResetCategory {
     id = "";
     name = "";
 
+    open = $state(true);
+
     tasks = $state<ResetTask[]>([]);
+
+    toggleOpen() {
+        this.open = !this.open;
+    }
 }
 
 export class ResetTask {
