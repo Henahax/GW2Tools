@@ -12,13 +12,18 @@
 		</nav>
 		<div>C</div>
 	</header>
-	<main class="flex grow flex-col">
+	<main class="flex max-w-screen-2xl grow flex-col self-center">
 		{@render children()}
 	</main>
-	<footer class="flex justify-center gap-8 p-2 text-sm text-neutral-400">
+	<footer class="flex items-center justify-center gap-8 p-2 text-sm text-neutral-400">
 		<div class="grow text-center">© henahax.de 2025</div>
-		<a href="https://github.com/Henahax/GW2Tools" aria-label="GitHub">
+		<a
+			class="btn btn-ghost btn-square"
+			href="https://github.com/Henahax/GW2Tools"
+			aria-label="GitHub"
+		>
 			<i class="fa-brands fa-github"></i>
+			<span class="max-sm:hidden">Sourcecode</span>
 		</a>
 	</footer>
 </app>

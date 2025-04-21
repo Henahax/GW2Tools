@@ -1,0 +1,100 @@
+[
+    {
+        "id": "MythicalKodanCache",
+        "category": "misc",
+        "name": "Mythical Kodan Cache",
+        "interval": "daily",
+        "icon": "https://wiki.guildwars2.com/images/9/97/Janthiri_Gear_Box.png",
+        "location": "Lowland Shore, Janthir Syntri",
+        "link": "https://wiki.guildwars2.com/wiki/Locked_Mythical_Kodan_Cache"
+    },
+    {
+        "id": "DivineLuckyEnvelopes",
+        "category": "festivals",
+        "name": "Divine Lucky Envelopes",
+        "interval": "daily",
+        "icon": "https://wiki.guildwars2.com/images/9/96/Divine_Lucky_Envelope.png",
+        "location": "Divinity's Reach & Guild Hall",
+        "description": "Lunar New Year",
+        "link": "https://wiki.guildwars2.com/wiki/Divine_Lucky_Envelope"
+    },
+    {
+        "id": "FourWindsTreasureHunt",
+        "category": "festivals",
+        "name": "Treasure Hunt",
+        "interval": "daily",
+        "icon": "https://wiki.guildwars2.com/images/0/03/Bazaar_of_the_Four_Winds.png",
+        "location": "Labyrinthine Cliffs",
+        "description": "Festival of the Four Winds",
+        "link": "https://wiki.guildwars2.com/wiki/Participate_in_the_treasure_hunt!",
+        "timer": {
+            "duration": [
+                0,
+                30
+            ],
+            "times": [
+                [
+                    0,
+                    30
+                ],
+                [
+                    2,
+                    30
+                ],
+                [
+                    4,
+                    30
+                ],
+                [
+                    6,
+                    30
+                ],
+                [
+                    8,
+                    30
+                ],
+                [
+                    10,
+                    30
+                ],
+                [
+                    12,
+                    30
+                ],
+                [
+                    14,
+                    30
+                ],
+                [
+                    16,
+                    30
+                ],
+                [
+                    18,
+                    30
+                ],
+                [
+                    20,
+                    30
+                ],
+                [
+                    22,
+                    30
+                ],
+                [
+                    24,
+                    30
+                ]
+            ]
+        }
+    },
+    {
+        "id": "FestivalRewardsVendor",
+        "category": "festivals",
+        "name": "Festival Rewards Vendor",
+        "interval": "weekly",
+        "icon": "https://wiki.guildwars2.com/images/a/a7/Chest_of_Legendary_Shards.png",
+        "description": "Weekly Sales",
+        "link": "https://wiki.guildwars2.com/wiki/Festival_Rewards_Vendor"
+    }
+]

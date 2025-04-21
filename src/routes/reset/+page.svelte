@@ -1,45 +1,40 @@
 <script lang="ts">
 	import ResetCategoryElement from '$lib/components/ResetCategoryElement.svelte';
 	import resetData from './reset.json';
-	import { Reset, ResetInterval, ResetTask, ResetCategory } from './Reset.svelte';
+	import { Reset } from './Reset.svelte';
 
-	// Initialize with proper class instances to enable state
-	let data = $state(
-		resetData.map((interval) => {
-			const resetInterval = Object.assign(new ResetInterval(), interval);
-			resetInterval.categories = interval.categories.map((category) => {
-				const resetCategory = Object.assign(new ResetCategory(), category);
-				resetCategory.tasks = category.tasks.map((task) => Object.assign(new ResetTask(), task));
-				return resetCategory;
-			});
-			return resetInterval;
-		})
-	);
+	let reset = $state(new Reset(resetData));
 </script>
 
-<div class="flex w-full justify-between">
-	<div>Reset</div>
-	<div class="flex">
-		<div class="flex">
-			<div class="flex flex-col">
-				<div>Weekly:</div>
-				<div>1234</div>
-			</div>
-			<div class="flex flex-col">
-				<div>Weekly:</div>
-				<div>1234</div>
-			</div>
+<div class="flex items-center gap-8 py-4">
+	<div class="flex grow flex-col">
+		<div class="text-3xl">Reset</div>
+		<div>unter</div>
+	</div>
+
+	<div class="grid grid-flow-col grid-cols-[auto_auto] gap-4 sm:grid-cols-[auto_auto_auto_auto]">
+		<div class="flex flex-col text-end">
+			<div class="text-sm">Weekly:</div>
+			<div>zeit</div>
 		</div>
-		<div class="flex">
-			<div>Button 1</div>
-			<div>Button 2</div>
+		<div class="flex flex-col text-end">
+			<div class="text-sm">Daily:</div>
+			<div>zeit</div>
 		</div>
+		<button class="btn btn-outline max-sm:btn-square">
+			<i class="fa-solid fa-gear"></i>
+			<span class="max-sm:hidden">Settings</span>
+		</button>
+		<button class="btn btn-primary max-sm:btn-square">
+			<i class="fa-solid fa-question"></i>
+			<span class="max-sm:hidden">Info</span>
+		</button>
 	</div>
 </div>
 
 <div class="flex flex-col items-center justify-center">
 	<div class="grid grid-cols-1 gap-4 sm:grid-cols-[auto_1fr]">
-		{#each data as interval}
+		{#each reset.intervals as interval}
 			<div class="flex w-full flex-col gap-2">
 				<div class="px-4">
 					{interval.tasks} ({interval.categories
@@ -49,9 +44,7 @@
 						.filter((t) => t.display).length})
 				</div>
 
-				<div
-					class={interval.id === 'weekly' ? 'columns-1' : 'columns-1 lg:columns-2 2xl:columns-3'}
-				>
+				<div class={interval.id === 'weekly' ? 'columns-1' : 'columns-1 lg:columns-2 xl:columns-3'}>
 					<div class="grid grid-cols-[auto_auto_1fr_auto]">
 						{#each interval.categories as category: ResetCategory}
 							<ResetCategoryElement {category} icon={interval.icon}>

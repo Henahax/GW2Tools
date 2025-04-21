@@ -1,5 +1,19 @@
 export class Reset {
     intervals = $state<ResetInterval[]>([]);
+
+    constructor(data?: any[]) {
+        if (data) {
+            this.intervals = data.map(interval => {
+                let resetInterval = Object.assign(new ResetInterval(), interval);
+                resetInterval.categories = interval.categories.map((category: any) => {
+                    let resetCategory = Object.assign(new ResetCategory(), category);
+                    resetCategory.tasks = category.tasks.map((task: any) => Object.assign(new ResetTask(), task));
+                    return resetCategory;
+                });
+                return resetInterval;
+            });
+        }
+    }
 }
 
 export class ResetInterval {
@@ -28,7 +42,9 @@ export class ResetCategory {
 
 export class ResetTask {
     id = "";
-    display = false;
+
+    // todo : false
+    display = $state(true);
 
     checked = $state(false);
 
