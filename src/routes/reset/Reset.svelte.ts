@@ -60,9 +60,22 @@ export class ResetTask {
     setChecked(value: boolean) {
         this.checked = value;
     }
+
+    setDisplay(value: boolean) {
+        this.display = value;
+    }
 }
 
 export class ResetTimer {
     duration = $state<[number, number]>([0, 0]);
     times = $state<[number, number][]>([[0, 0]])
+}
+
+export function getUTCTimeForStartOfNextDay() {
+    const now = new Date();
+    const tomorrow = new Date(now);
+    tomorrow.setUTCDate(tomorrow.getUTCDate() + 1);
+    tomorrow.setUTCHours(0, 0, 0, 0);
+
+    return tomorrow;
 }

@@ -6,7 +6,7 @@
 	let reset = $state(new Reset(resetData));
 </script>
 
-<div class="flex items-center gap-8 py-4">
+<div class="flex items-center gap-8 p-4">
 	<div class="flex grow flex-col">
 		<div class="text-3xl">Reset</div>
 		<div>unter</div>
@@ -32,7 +32,7 @@
 	</div>
 </div>
 
-<div class="flex flex-col items-center justify-center">
+<div class="flex flex-col items-center justify-center p-2">
 	<div class="grid grid-cols-1 gap-4 sm:grid-cols-[auto_1fr]">
 		{#each reset.intervals as interval}
 			<div class="flex w-full flex-col gap-2">
