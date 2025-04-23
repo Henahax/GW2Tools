@@ -1,3 +1,5 @@
+import { getUTCTimeForStartOfNextDay, getUTCTimeForStartOfNextWeek } from "$lib/functions/reset.svelte";
+
 export class Reset {
     intervals = $state<ResetInterval[]>([]);
 
@@ -18,21 +20,18 @@ export class Reset {
 
 export class ResetInterval {
     id = "";
-
+    interval: Interval = Interval.daily;
     timer = "";
     tasks = "";
     reset = ""
     icon = "";
-
     categories = $state<ResetCategory[]>([]);
 }
 
 export class ResetCategory {
     id = "";
     name = "";
-
     open = $state(true);
-
     tasks = $state<ResetTask[]>([]);
 
     toggleOpen() {
@@ -42,27 +41,23 @@ export class ResetCategory {
 
 export class ResetTask {
     id = "";
-
-    // todo : false
-    display = $state(true);
-
+    display = $state(true); // todo : false
     checked = $state(false);
-
     name = "";
     icon = "";
-
+    link = "";
     description? = "";
     location? = "";
-
-    link = "";
     timers? = $state<ResetTimer>()
-
-    setChecked(value: boolean) {
-        this.checked = value;
-    }
 
     setDisplay(value: boolean) {
         this.display = value;
+        setCookie(this.id, CookieType.display);
+    }
+
+    setChecked(value: boolean, interval: Interval) {
+        this.checked = value;
+        setCookie(this.id, CookieType.checked, interval);
     }
 }
 
@@ -71,11 +66,32 @@ export class ResetTimer {
     times = $state<[number, number][]>([[0, 0]])
 }
 
-export function getUTCTimeForStartOfNextDay() {
-    const now = new Date();
-    const tomorrow = new Date(now);
-    tomorrow.setUTCDate(tomorrow.getUTCDate() + 1);
-    tomorrow.setUTCHours(0, 0, 0, 0);
+enum Interval { daily, weekly }
+enum CookieType { checked, display }
 
-    return tomorrow;
+function setCookie(taskId: string, type: CookieType, interval?: Interval) {
+    let time = new Date().getTime();
+    let value: boolean = false;
+    let suffix: string = "";
+    if (type === CookieType.display) {
+        suffix = ".display";
+        time += 365 * 24 * 60 * 60 * 1000;
+    } else if (type === CookieType.checked && interval) {
+        switch (interval as Interval) {
+            case Interval.weekly: {
+                suffix = ".weekly";
+                time = getUTCTimeForStartOfNextWeek().getTime();
+                break;
+            }
+            case Interval.daily: {
+                suffix = ".daily";
+                time = getUTCTimeForStartOfNextDay().getTime();
+                break;
+            }
+            default: {
+                return;
+            }
+        }
+    }
+    document.cookie = taskId + suffix + '=' + value + ';expires=' + new Date(time).toUTCString() + ';path=/';
 }

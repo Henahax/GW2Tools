@@ -4,6 +4,13 @@
 	import { Reset } from './Reset.svelte';
 
 	let reset = $state(new Reset(resetData));
+
+	let overlayOpen = $state(false);
+
+	function toggleOverlay() {
+		console.log('aaa');
+		overlayOpen = !overlayOpen;
+	}
 </script>
 
 <div class="flex items-center gap-8 p-4">
@@ -21,7 +28,7 @@
 			<div class="text-sm">Daily:</div>
 			<div>zeit</div>
 		</div>
-		<button class="btn btn-outline max-sm:btn-square">
+		<button class="btn btn-outline max-sm:btn-square" onclick={toggleOverlay}>
 			<i class="fa-solid fa-gear"></i>
 			<span class="max-sm:hidden">Settings</span>
 		</button>
@@ -92,7 +99,60 @@
 	</div>
 </div>
 
+<div
+	class="overlay w-dvh absolute bottom-0 left-0 right-0 top-0 h-dvh {overlayOpen ? '' : 'hidden'}"
+>
+	<div class="flex h-dvh w-fit flex-col gap-2 overflow-y-auto bg-green-500 p-2">
+		<div class="flex w-full items-center justify-between gap-4">
+			<div class="text-xl">Displayed Tasks:</div>
+			<button class="btn btn-ghost btn-square" aria-label="close" onclick={toggleOverlay}>
+				<i class="fa-solid fa-xmark"></i>
+			</button>
+		</div>
+		<input class="w-full" type="search" placeholder="Search" />
+		<div class="flex flex-col gap-4">
+			{#each reset.intervals as interval}
+				<div>
+					<div class="text-lg font-bold">{interval.timer}</div>
+					<div class="flex flex-col gap-2">
+						{#each interval.categories as category: ResetCategory}
+							<div>
+								<div class="font-semibold">{category.name}</div>
+								<div class="flex flex-col gap-1">
+									{#each category.tasks as task: ResetTask}
+										<label class="grid grid-cols-[auto_auto_1fr] items-center gap-2">
+											<input type="checkbox" />
+											<img class="size-8 rounded" src={task.icon} alt={task.name} />
+											<div class="flex flex-col">
+												<div class="text-sm">{task.name}</div>
+												{#if task.location}
+													<div class="flex items-center gap-1.5 text-xs">
+														<i class="fa-solid fa-location-dot"></i>{task.location}
+													</div>
+												{/if}
+												{#if task.description}
+													<div class="text-xs">{task.description}</div>
+												{/if}
+											</div>
+										</label>
+									{/each}
+								</div>
+							</div>
+						{/each}
+					</div>
+				</div>
+			{/each}
+		</div>
+	</div>
+</div>
+
 <style>
+	.overlay {
+		background-color: rgba(0, 0, 0, 0.5);
+		backdrop-filter: blur(0.125rem);
+		z-index: 50;
+	}
+
 	a:hover {
 		color: var(--color-neutral-400);
 	}
