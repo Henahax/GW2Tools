@@ -13,7 +13,7 @@
 		<div>C</div>
 	</header>
 	<main class="flex w-full grow flex-col overflow-y-auto">
-		<div class="h-full w-full self-center">
+		<div class=" flex h-full w-full flex-col self-center">
 			{@render children()}
 			<footer class="flex items-center justify-center gap-8 p-2 text-sm text-neutral-400">
 				<div class="grow text-center">© henahax.de 2025</div>

@@ -41,7 +41,7 @@ export class ResetCategory {
 
 export class ResetTask {
     id = "";
-    display = $state(true); // todo : false
+    display = $state(false);
     checked = $state(false);
     name = "";
     icon = "";
@@ -55,9 +55,14 @@ export class ResetTask {
         setCookie(this.id, CookieType.display);
     }
 
-    setChecked(value: boolean, interval: Interval) {
+    setChecked(value: boolean, interval: ResetInterval, category: ResetCategory) {
         this.checked = value;
-        setCookie(this.id, CookieType.checked, interval);
+
+        if (category.tasks.filter(task => task.display).filter(task => !task.checked).length === 0) {
+            category.open = false;
+        }
+
+        setCookie(this.id, CookieType.checked, interval.interval);
     }
 }
 

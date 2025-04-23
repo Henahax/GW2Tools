@@ -7,6 +7,8 @@
 
 	let overlayOpen = $state(false);
 
+	let filter = $state('');
+
 	function toggleOverlay() {
 		console.log('aaa');
 		overlayOpen = !overlayOpen;
@@ -39,7 +41,7 @@
 	</div>
 </div>
 
-<div class="flex flex-col items-center justify-center p-2">
+<div class="flex grow flex-col items-center p-2">
 	<div class="grid grid-cols-1 gap-4 sm:grid-cols-[auto_1fr]">
 		{#each reset.intervals as interval}
 			<div class="flex w-full flex-col gap-2">
@@ -51,7 +53,11 @@
 						.filter((t) => t.display).length})
 				</div>
 
-				<div class={interval.id === 'weekly' ? 'columns-1' : 'test'}>
+				<div
+					class={interval.id === 'weekly'
+						? 'columns-1'
+						: 'columns-1 gap-2 lg:columns-2 xl:columns-3'}
+				>
 					<div class="grid grid-cols-[auto_auto_1fr_auto]">
 						{#each interval.categories as category: ResetCategory}
 							<ResetCategoryElement {category} icon={interval.icon}>
@@ -60,8 +66,8 @@
 										<input
 											type="checkbox"
 											id={task.id}
-											checked={task.checked}
-											onchange={(e) => task.setChecked(e.currentTarget.checked)}
+											bind:checked={task.checked}
+											onchange={(e) => task.setChecked(e.currentTarget.checked, interval, category)}
 										/>
 										<img class="size-8 rounded" src={task.icon} alt={task.description} />
 										<div class="flex flex-col">
@@ -104,8 +110,8 @@
 		? ''
 		: 'hidden'}"
 >
-	<label class="overlay grow" for="closeResetMenu"></label>
-	<div class="flex h-dvh w-fit flex-col bg-green-500">
+	<label class="overlay backdrop-blur-xs grow" for="closeResetMenu"></label>
+	<div class="menu flex h-dvh w-fit flex-col bg-green-500">
 		<div class="p-4">
 			<div class="flex w-full items-center justify-between gap-4">
 				<div class="text-xl">Displayed Tasks:</div>
@@ -118,7 +124,7 @@
 					<i class="fa-solid fa-xmark"></i>
 				</button>
 			</div>
-			<input class="w-full" type="search" placeholder="Search" />
+			<input class="w-full" type="search" placeholder="Search" bind:value={filter} />
 		</div>
 		<div class="flex flex-col gap-4 overflow-y-auto p-4">
 			{#each reset.intervals as interval}
@@ -129,9 +135,15 @@
 							<div>
 								<div class="font-semibold">{category.name}</div>
 								<div class="flex flex-col gap-1">
-									{#each category.tasks as task: ResetTask}
+									{#each category.tasks.filter((task) => task.name
+												.toLowerCase()
+												.includes(filter.toLowerCase()) || (task.location && task.location
+													.toLowerCase()
+													.includes(filter.toLowerCase())) || (task.description && task.description
+													.toLowerCase()
+													.includes(filter.toLowerCase()))) as task: ResetTask}
 										<label class="grid grid-cols-[auto_auto_1fr] items-center gap-2">
-											<input type="checkbox" />
+											<input type="checkbox" bind:checked={task.display} />
 											<img class="size-8 rounded" src={task.icon} alt={task.name} />
 											<div class="flex flex-col">
 												<div class="text-sm">{task.name}</div>
@@ -158,17 +170,17 @@
 
 <style>
 	.overlay {
-		background-color: rgba(0, 0, 0, 0.5);
-		backdrop-filter: blur(0.125rem);
 		z-index: 50;
+	}
+
+	/* TODO */
+	.menu {
+		transition: width 0.25s ease;
+		overflow: clip;
+		interpolate-size: allow-keywords;
 	}
 
 	a:hover {
 		color: var(--color-neutral-400);
-	}
-
-	.test {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
 	}
 </style>
