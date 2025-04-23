@@ -51,7 +51,7 @@
 						.filter((t) => t.display).length})
 				</div>
 
-				<div class={interval.id === 'weekly' ? 'columns-1' : 'columns-1 lg:columns-2 xl:columns-3'}>
+				<div class={interval.id === 'weekly' ? 'columns-1' : 'test'}>
 					<div class="grid grid-cols-[auto_auto_1fr_auto]">
 						{#each interval.categories as category: ResetCategory}
 							<ResetCategoryElement {category} icon={interval.icon}>
@@ -100,17 +100,27 @@
 </div>
 
 <div
-	class="overlay w-dvh absolute bottom-0 left-0 right-0 top-0 h-dvh {overlayOpen ? '' : 'hidden'}"
+	class="absolute bottom-0 right-0 top-0 flex h-dvh w-dvw justify-end border border-neutral-800 {overlayOpen
+		? ''
+		: 'hidden'}"
 >
-	<div class="flex h-dvh w-fit flex-col gap-2 overflow-y-auto bg-green-500 p-2">
-		<div class="flex w-full items-center justify-between gap-4">
-			<div class="text-xl">Displayed Tasks:</div>
-			<button class="btn btn-ghost btn-square" aria-label="close" onclick={toggleOverlay}>
-				<i class="fa-solid fa-xmark"></i>
-			</button>
+	<label class="overlay grow" for="closeResetMenu"></label>
+	<div class="flex h-dvh w-fit flex-col bg-green-500">
+		<div class="p-4">
+			<div class="flex w-full items-center justify-between gap-4">
+				<div class="text-xl">Displayed Tasks:</div>
+				<button
+					id="closeResetMenu"
+					class="btn btn-ghost btn-square"
+					aria-label="close"
+					onclick={toggleOverlay}
+				>
+					<i class="fa-solid fa-xmark"></i>
+				</button>
+			</div>
+			<input class="w-full" type="search" placeholder="Search" />
 		</div>
-		<input class="w-full" type="search" placeholder="Search" />
-		<div class="flex flex-col gap-4">
+		<div class="flex flex-col gap-4 overflow-y-auto p-4">
 			{#each reset.intervals as interval}
 				<div>
 					<div class="text-lg font-bold">{interval.timer}</div>
@@ -155,5 +165,10 @@
 
 	a:hover {
 		color: var(--color-neutral-400);
+	}
+
+	.test {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
 	}
 </style>

@@ -45,8 +45,7 @@
                         "name": "Wizard's Tower Exchange",
                         "icon": "https://wiki.guildwars2.com/images/c/cd/Portable_Wizard%27s_Tower_Exchange.png",
                         "location": "Wizard's Tower",
-                        "link": "https://wiki.guildwars2.com/wiki/Gharr_Leadclaw",
-                        "display": true
+                        "link": "https://wiki.guildwars2.com/wiki/Gharr_Leadclaw"
                     },
                     {
                         "id": "homestead-refinement",
@@ -62,7 +61,7 @@
                 "name": "Miscellaneous",
                 "tasks": [
                     {
-                        "id": "AltParking",
+                        "id": "alt-parking",
                         "name": "Alt-Parking",
                         "icon": "https://wiki.guildwars2.com/images/7/70/Character_Slot_Expansion.png",
                         "description": "Open Chests with Alt-Charactes",
@@ -94,6 +93,84 @@
                         "icon": "https://wiki.guildwars2.com/images/a/a7/Chest_of_Legendary_Shards.png",
                         "description": "Weekly Sales",
                         "link": "https://wiki.guildwars2.com/wiki/Festival_Rewards_Vendor"
+                    },
+                    {
+                        "id": "divine-lucky-envelopes",
+                        "name": "Divine Lucky Envelopes",
+                        "interval": "daily",
+                        "icon": "https://wiki.guildwars2.com/images/9/96/Divine_Lucky_Envelope.png",
+                        "location": "Divinity's Reach & Guild Hall",
+                        "description": "Lunar New Year",
+                        "link": "https://wiki.guildwars2.com/wiki/Divine_Lucky_Envelope"
+                    },
+                    {
+                        "id": "four-winds-treasure-hunt",
+                        "name": "Treasure Hunt",
+                        "interval": "daily",
+                        "icon": "https://wiki.guildwars2.com/images/0/03/Bazaar_of_the_Four_Winds.png",
+                        "location": "Labyrinthine Cliffs",
+                        "description": "Festival of the Four Winds",
+                        "link": "https://wiki.guildwars2.com/wiki/Participate_in_the_treasure_hunt!",
+                        "timer": {
+                            "duration": [
+                                0,
+                                30
+                            ],
+                            "times": [
+                                [
+                                    0,
+                                    30
+                                ],
+                                [
+                                    2,
+                                    30
+                                ],
+                                [
+                                    4,
+                                    30
+                                ],
+                                [
+                                    6,
+                                    30
+                                ],
+                                [
+                                    8,
+                                    30
+                                ],
+                                [
+                                    10,
+                                    30
+                                ],
+                                [
+                                    12,
+                                    30
+                                ],
+                                [
+                                    14,
+                                    30
+                                ],
+                                [
+                                    16,
+                                    30
+                                ],
+                                [
+                                    18,
+                                    30
+                                ],
+                                [
+                                    20,
+                                    30
+                                ],
+                                [
+                                    22,
+                                    30
+                                ],
+                                [
+                                    24,
+                                    30
+                                ]
+                            ]
+                        }
                     }
                 ]
             }
@@ -150,7 +227,8 @@
                         "name": "Ley-Energy Matter Converter",
                         "icon": "https://wiki.guildwars2.com/images/9/96/Ley-Energy_Matter_Converter.png",
                         "description": "HoT map currencies",
-                        "link": "https://wiki.guildwars2.com/wiki/Ley-Energy_Matter_Converter"
+                        "link": "https://wiki.guildwars2.com/wiki/Ley-Energy_Matter_Converter",
+                        "display": true
                     },
                     {
                         "id": "spearmarshals-plea",
@@ -206,7 +284,8 @@
                         "name": "Discounted Fractal Encryption Keys",
                         "icon": "https://wiki.guildwars2.com/images/f/f0/Fractal_Encryption_Key.png",
                         "location": "Mistlock Observatory / Mistlock Sanctuary",
-                        "link": "https://wiki.guildwars2.com/wiki/Deeply_Discounted_Fractal_Encryption_Key"
+                        "link": "https://wiki.guildwars2.com/wiki/Deeply_Discounted_Fractal_Encryption_Key",
+                        "display": true
                     },
                     {
                         "id": "funerary-incense",
@@ -249,8 +328,7 @@
                         "name": "Fishmonger Arborstone",
                         "icon": "https://wiki.guildwars2.com/images/2/25/Chunk_of_Ancient_Ambergris.png",
                         "link": "https://wiki.guildwars2.com/wiki/Taro_Everclaw",
-                        "location": "Arborstone",
-                        "display": true
+                        "location": "Arborstone"
                     },
                     {
                         "id": "writ-of-dragons-end",
@@ -259,21 +337,21 @@
                         "link": "https://wiki.guildwars2.com/wiki/Writ_of_Dragon%27s_End"
                     },
                     {
-                        "id": "WizardsTowerExchange",
+                        "id": "wizards-tower-exchange",
                         "name": "Wizard's Tower Exchange",
                         "icon": "https://wiki.guildwars2.com/images/c/cd/Portable_Wizard%27s_Tower_Exchange.png",
                         "location": "Wizard's Tower",
                         "link": "https://wiki.guildwars2.com/wiki/Gharr_Leadclaw"
                     },
                     {
-                        "id": "KodanCacheKeys",
+                        "id": "kodan-cache-keys",
                         "name": "Kodan Cache Keys",
                         "icon": "https://wiki.guildwars2.com/images/0/07/Kodan_Cache_Key.png",
                         "location": "Lowland Shore / Janthir Syntri",
                         "link": "https://wiki.guildwars2.com/index.php?title=Kodan_Cache_Key"
                     },
                     {
-                        "id": "FishmongerLowlandShore",
+                        "id": "fishmonger-lowland-shore",
                         "name": "Fishmonger Lowland Shore",
                         "icon": "https://wiki.guildwars2.com/images/2/25/Chunk_of_Ancient_Ambergris.png",
                         "location": "Lowland Shore"
@@ -290,7 +368,7 @@
                         "icon": "https://wiki.guildwars2.com/images/5/56/Home_Portal_Stone.png",
                         "description": "Charged Quartz Crystal, Harvesting Nodes, Chests",
                         "link": "https://wiki.guildwars2.com/wiki/Home_instance#List_of_home_instance_upgrades",
-                        "dispay": true
+                        "display": true
                     },
                     {
                         "id": "guild-hall",
@@ -343,16 +421,6 @@
                         "link": "https://wiki.guildwars2.com/wiki/Plate_of_Piquant_Plant_Food"
                     }
                 ]
-            },
-            {
-                "id": "misc",
-                "name": "Miscellaneous",
-                "tasks": []
-            },
-            {
-                "id": "festivals",
-                "name": "Festivals",
-                "tasks": []
             },
             {
                 "id": "events-janthir-wilds",
@@ -688,7 +756,7 @@
                 "name": "Events: End of Dragons",
                 "tasks": [
                     {
-                        "id": "AetherbladeAssault",
+                        "id": "aetherblade-assault",
                         "name": "Aetherblade Assault",
                         "icon": "https://wiki.guildwars2.com/images/0/0a/Deluxe_Gear_Box_%28End_of_Dragons%29.png",
                         "location": "Seitung Province",
@@ -755,7 +823,7 @@
                         }
                     },
                     {
-                        "id": "KainengBlackout",
+                        "id": "kaineng-blackout",
                         "name": "Kaineng Blackout",
                         "icon": "https://wiki.guildwars2.com/images/0/0a/Deluxe_Gear_Box_%28End_of_Dragons%29.png",
                         "location": "New Kaineng City",
@@ -822,7 +890,7 @@
                         }
                     },
                     {
-                        "id": "GangWar",
+                        "id": "gang-war",
                         "name": "Gang War",
                         "icon": "https://wiki.guildwars2.com/images/0/0a/Deluxe_Gear_Box_%28End_of_Dragons%29.png",
                         "location": "Echovald Wilds",
@@ -889,7 +957,7 @@
                         }
                     },
                     {
-                        "id": "BattleForJadeSea",
+                        "id": "battle-for-jade-sea",
                         "name": "The Battle for the Jade Sea",
                         "icon": "https://wiki.guildwars2.com/images/0/0a/Deluxe_Gear_Box_%28End_of_Dragons%29.png",
                         "location": "Dragon's End",
@@ -956,7 +1024,7 @@
                         }
                     },
                     {
-                        "id": "JadeCrisis",
+                        "id": "jade-crisis",
                         "name": "The Jade Crisis",
                         "icon": "https://wiki.guildwars2.com/images/0/0a/Deluxe_Gear_Box_%28End_of_Dragons%29.png",
                         "location": "Gyala Delve",
@@ -969,7 +1037,7 @@
                 "name": "Events: Icebrood Saga",
                 "tasks": [
                     {
-                        "id": "ChampionOfTheIceDragon",
+                        "id": "champion-of-the-ice-dragon",
                         "name": "Champion of the Ice Dragon",
                         "icon": "https://wiki.guildwars2.com/images/3/37/Drakkar%27s_Hoard.png",
                         "location": "Bjora Marches",
@@ -1114,7 +1182,7 @@
                         }
                     },
                     {
-                        "id": "TowerOfNightmares",
+                        "id": "tower-of-nightmares",
                         "name": "Tower of Nightmares",
                         "icon": "https://wiki.guildwars2.com/images/6/68/Tricolor_Key.png",
                         "location": "Eye of the North",
@@ -1181,7 +1249,7 @@
                         }
                     },
                     {
-                        "id": "TwistedMarionette",
+                        "id": "twisted-marionette",
                         "name": "Twisted Marionette",
                         "icon": "https://wiki.guildwars2.com/images/d/d1/Hoard_of_the_Marionette_Warden.png",
                         "location": "Eye of the North",
@@ -1248,7 +1316,7 @@
                         }
                     },
                     {
-                        "id": "BattleForLionsArch",
+                        "id": "battle-for-lions-arch",
                         "name": "Battle For Lion's Arch",
                         "icon": "https://wiki.guildwars2.com/images/e/e0/Chest_of_Exotic_Equipment.png",
                         "location": "Eye of the North",
@@ -1315,7 +1383,7 @@
                         }
                     },
                     {
-                        "id": "Dragonstorm",
+                        "id": "dragonstorm",
                         "name": "Dragonstorm",
                         "icon": "https://wiki.guildwars2.com/images/d/da/Gift_of_Aurene_%28container%29.png",
                         "location": "Eye of the North",
@@ -1388,7 +1456,7 @@
                 "name": "Events: Path of Fire",
                 "tasks": [
                     {
-                        "id": "CasinoBlitz",
+                        "id": "casino-blitz",
                         "name": "Casino Blitz",
                         "icon": "https://wiki.guildwars2.com/images/e/eb/The_Spearmarshal%27s_Gift.png",
                         "location": "Crystal Oasis",
@@ -1455,7 +1523,7 @@
                         }
                     },
                     {
-                        "id": "TheSearchForBuriedTreasure",
+                        "id": "the-search-for-buried-treasure",
                         "name": "The Search for Buried Treasure",
                         "icon": "https://wiki.guildwars2.com/images/c/c1/Buried_Treasure.png",
                         "location": "Desert Highlands",
@@ -1522,7 +1590,7 @@
                         }
                     },
                     {
-                        "id": "ThePathToAscension",
+                        "id": "the-path-to-ascension",
                         "name": "The Path to Ascension",
                         "icon": "https://wiki.guildwars2.com/images/8/89/Glint%27s_Crystalline_Chest.png",
                         "location": "Elon Riverlands",
@@ -1667,7 +1735,7 @@
                         }
                     },
                     {
-                        "id": "MawsOfTorment",
+                        "id": "maws-of-torment",
                         "name": "Maws of Torment",
                         "icon": "https://wiki.guildwars2.com/images/a/a1/Chest_of_the_Warbeast_Conqueror.png",
                         "location": "The Desolation",
@@ -1812,7 +1880,7 @@
                         }
                     },
                     {
-                        "id": "ForgedWithFire",
+                        "id": "forged-with-fire",
                         "name": "Forged with Fire",
                         "icon": "https://wiki.guildwars2.com/images/d/dd/Kito%27s_Secret_Cache.png",
                         "location": "Domain of Vabbi",
@@ -2017,7 +2085,7 @@
                         }
                     },
                     {
-                        "id": "Palawadan",
+                        "id": "palawadan",
                         "name": "Palawadan",
                         "icon": "https://wiki.guildwars2.com/images/d/d8/Grasp_of_Joko.png",
                         "location": "Domain of Istan",
@@ -2084,7 +2152,7 @@
                         }
                     },
                     {
-                        "id": "DeathBrandedShatterer",
+                        "id": "death-branded-shatterer",
                         "name": "Death-Branded Shatterer",
                         "icon": "https://wiki.guildwars2.com/images/d/d7/Crystal_Infusion.png",
                         "location": "Jahai Bluffs",
@@ -2151,7 +2219,7 @@
                         }
                     },
                     {
-                        "id": "ThunderheadKeep",
+                        "id": "thunderhead-keep",
                         "name": "Thunderhead Keep",
                         "icon": "https://wiki.guildwars2.com/images/0/00/Light_of_Deldrimor_Plate.png",
                         "location": "Thunderhead Peaks",
@@ -2291,7 +2359,7 @@
                         }
                     },
                     {
-                        "id": "TheBattleOfDragonfall",
+                        "id": "the-battle-of-dragonfall",
                         "name": "The Battle of Dragonfall",
                         "icon": "https://wiki.guildwars2.com/images/d/da/Gift_of_Aurene_%28container%29.png",
                         "location": "Dragonfall",
@@ -2304,7 +2372,7 @@
                 "name": "Events: Heart of Thorns",
                 "tasks": [
                     {
-                        "id": "NightBosses",
+                        "id": "night-bosses",
                         "name": "Night Bosses",
                         "icon": "https://render.guildwars2.com/file/08DC26975002D02B68BEF2A46EF2A89E7243FD63/1424065.png",
                         "location": "Verdant Brink",
@@ -2371,7 +2439,7 @@
                         }
                     },
                     {
-                        "id": "BattleInTarir",
+                        "id": "battle-in-tarir",
                         "name": "Battle in Tarir",
                         "icon": "https://wiki.guildwars2.com/images/2/24/Auric_Basin-_Hero%27s_Choice_Chest.png",
                         "location": "Auric Basin",
@@ -2438,7 +2506,7 @@
                         }
                     },
                     {
-                        "id": "AgainstTheChakGerent",
+                        "id": "against-the-chak-gerent",
                         "name": "Against the Chak Gerent",
                         "icon": "https://wiki.guildwars2.com/images/2/27/Tangled_Depths-_Hero%27s_Choice_Chest.png",
                         "location": "Tangled Depths",
@@ -2505,7 +2573,7 @@
                         }
                     },
                     {
-                        "id": "DragonsStand",
+                        "id": "dragons-stand",
                         "name": "Dragon's Stand",
                         "icon": "https://wiki.guildwars2.com/images/e/e7/Dragon%27s_Stand-_Hero%27s_Choice_Chest.png",
                         "location": "Dragon's Stand",
@@ -2578,7 +2646,7 @@
                 "name": "Events: Tyria",
                 "tasks": [
                     {
-                        "id": "SvanirShamanChief",
+                        "id": "svanir-shaman-chief",
                         "name": "Svanir Shaman Chief",
                         "icon": "https://wiki.guildwars2.com/images/2/2f/Icy_Core.png",
                         "location": "Wayfarer Foothills",
@@ -2645,7 +2713,7 @@
                         }
                     },
                     {
-                        "id": "FireElemental",
+                        "id": "fire-elemental",
                         "name": "Fire Elemental",
                         "icon": "https://wiki.guildwars2.com/images/9/9d/Heart_of_a_Fire_Elemental.png",
                         "location": "Metrica Province",
@@ -2712,7 +2780,7 @@
                         }
                     },
                     {
-                        "id": "ShadowBehemoth",
+                        "id": "shadow-behemoth",
                         "name": "Shadow Behemoth",
                         "icon": "https://wiki.guildwars2.com/images/f/f7/Underworld_Shadow.png",
                         "location": "Queensdale",
@@ -2779,7 +2847,7 @@
                         }
                     },
                     {
-                        "id": "GreatJungleWurm",
+                        "id": "great-jungle-wurm",
                         "name": "Great Jungle Wurm",
                         "icon": "https://wiki.guildwars2.com/images/a/a0/Swamp_Protector.png",
                         "location": "Caledon Forest",
@@ -2846,7 +2914,7 @@
                         }
                     },
                     {
-                        "id": "ModniirUlgoth",
+                        "id": "modniir-ulgoth",
                         "name": "Modniir Ulgoth",
                         "icon": "https://wiki.guildwars2.com/images/2/26/Ulgoth%27s_Tail.png",
                         "location": "Harathi Hinterlands",
@@ -2897,7 +2965,7 @@
                         }
                     },
                     {
-                        "id": "AdmiralTaidhaCovington",
+                        "id": "admiral-taidha-covington",
                         "name": "Admiral Taidha Covington",
                         "icon": "https://wiki.guildwars2.com/images/8/8c/Ocean_Supremacy.png",
                         "location": "Bloodtide Coast",
@@ -2948,7 +3016,7 @@
                         }
                     },
                     {
-                        "id": "TheShatterer",
+                        "id": "the-shatterer",
                         "name": "The Shatterer",
                         "icon": "https://wiki.guildwars2.com/images/5/58/Master_Tuning_Crystal.png",
                         "location": "Blazeridge Steppes",
@@ -2999,7 +3067,7 @@
                         }
                     },
                     {
-                        "id": "Megadestroyer",
+                        "id": "megadestroyer",
                         "name": "Megadestroyer",
                         "icon": "https://wiki.guildwars2.com/images/6/65/Heart_of_the_Megadestroyer.png",
                         "location": "Mount Maelstrom",
@@ -3050,7 +3118,7 @@
                         }
                     },
                     {
-                        "id": "InquestGolemMarkII",
+                        "id": "inquest-golem-mark-ii",
                         "name": "Inquest Golem Mark II",
                         "icon": "https://wiki.guildwars2.com/images/a/af/Symbol_of_the_Inquest.png",
                         "location": "Mount Maelstrom",
@@ -3101,7 +3169,7 @@
                         }
                     },
                     {
-                        "id": "ClawOfJormag",
+                        "id": "claw-of-jormag",
                         "name": "Claw of Jormag",
                         "icon": "https://wiki.guildwars2.com/images/b/bc/Orrian_Artifact_Shards.png",
                         "location": "Frostgorge Sound",
@@ -3152,7 +3220,7 @@
                         }
                     },
                     {
-                        "id": "TripleTrouble",
+                        "id": "triple-trouble",
                         "name": "Triple Trouble",
                         "icon": "https://wiki.guildwars2.com/images/b/bc/Mini_Cobalt_Great_Jungle_Wurm_Head.png",
                         "location": "Bloodtide Coast",
@@ -3195,7 +3263,7 @@
                         }
                     },
                     {
-                        "id": "Tequatl",
+                        "id": "tequatl",
                         "name": "Tequatl",
                         "icon": "https://wiki.guildwars2.com/images/4/45/Mini_Tequatl_the_Sunless.png",
                         "location": "Sparkfly Fen",
@@ -3238,7 +3306,7 @@
                         }
                     },
                     {
-                        "id": "KarkaQueen",
+                        "id": "karka-queen",
                         "name": "Karka Queen",
                         "icon": "https://wiki.guildwars2.com/images/f/f0/Dream_of_the_Ancient.png",
                         "location": "Southsun Cove",
@@ -3281,7 +3349,7 @@
                         }
                     },
                     {
-                        "id": "LeyLineAnomaly",
+                        "id": "ley-line-anomaly",
                         "name": "Ley-Line Anomaly",
                         "icon": "https://wiki.guildwars2.com/images/6/67/Ley-Line_Anomaly_portrait.png",
                         "description": "Rewards Mystic Coin",
