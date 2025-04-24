@@ -1,7 +1,7 @@
 <script lang="ts">
 	import ResetCategoryElement from '$lib/components/ResetCategoryElement.svelte';
 	import resetData from './reset.json';
-	import { Reset } from './Reset.svelte';
+	import { Reset, ResetInterval } from './Reset.svelte';
 
 	let reset = $state(new Reset(resetData));
 
@@ -105,36 +105,54 @@
 	</div>
 </div>
 
-<div
-	class="absolute bottom-0 right-0 top-0 flex h-dvh w-dvw justify-end border border-neutral-800 {overlayOpen
+<label
+	class="overlay backdrop-blur-xs absolute bottom-0 right-0 top-0 flex h-dvh w-dvw grow justify-end {overlayOpen
 		? ''
 		: 'hidden'}"
+	for="closeResetMenu"
 >
-	<label class="overlay backdrop-blur-xs grow" for="closeResetMenu"></label>
-	<div class="menu flex h-dvh w-fit flex-col bg-green-500">
-		<div class="p-4">
-			<div class="flex w-full items-center justify-between gap-4">
-				<div class="text-xl">Displayed Tasks:</div>
-				<button
-					id="closeResetMenu"
-					class="btn btn-ghost btn-square"
-					aria-label="close"
-					onclick={toggleOverlay}
-				>
-					<i class="fa-solid fa-xmark"></i>
-				</button>
-			</div>
-			<input class="w-full" type="search" placeholder="Search" bind:value={filter} />
+</label>
+<div
+	class="menu absolute bottom-0 right-0 top-0 flex flex h-dvh h-dvh flex-col border-l border-neutral-800 bg-neutral-900 shadow-lg {overlayOpen
+		? 'open'
+		: ''}"
+>
+	<div class="flex flex-col gap-2 p-4">
+		<div class="flex w-full items-center justify-between gap-4">
+			<div class="text-xl">Displayed Tasks:</div>
+			<button
+				id="closeResetMenu"
+				class="btn btn-ghost btn-square"
+				aria-label="close"
+				onclick={toggleOverlay}
+			>
+				<i class="fa-solid fa-xmark"></i>
+			</button>
 		</div>
-		<div class="flex flex-col gap-4 overflow-y-auto p-4">
-			{#each reset.intervals as interval}
+		<input class="w-full" type="search" placeholder="Search" bind:value={filter} />
+	</div>
+	<div class="overflow-y-auto">
+		<div class="flex flex-col gap-4 p-4">
+			{#each reset.intervals.filter( (interval: ResetInterval) => interval.categories.some( (category) => category.tasks.some((task) => task.name
+										.toLowerCase()
+										.includes(filter.toLowerCase()) || (task.location && task.location
+											.toLowerCase()
+											.includes(filter.toLowerCase())) || (task.description && task.description
+											.toLowerCase()
+											.includes(filter.toLowerCase()))) ) ) as interval}
 				<div>
 					<div class="text-lg font-bold">{interval.timer}</div>
 					<div class="flex flex-col gap-2">
-						{#each interval.categories as category: ResetCategory}
+						{#each interval.categories.filter((category) => category.tasks.some((task) => task.name
+										.toLowerCase()
+										.includes(filter.toLowerCase()) || (task.location && task.location
+											.toLowerCase()
+											.includes(filter.toLowerCase())) || (task.description && task.description
+											.toLowerCase()
+											.includes(filter.toLowerCase())))) as category: ResetCategory}
 							<div>
 								<div class="font-semibold">{category.name}</div>
-								<div class="flex flex-col gap-1">
+								<div class="flex flex-col gap-2">
 									{#each category.tasks.filter((task) => task.name
 												.toLowerCase()
 												.includes(filter.toLowerCase()) || (task.location && task.location
@@ -144,16 +162,15 @@
 													.includes(filter.toLowerCase()))) as task: ResetTask}
 										<label class="grid grid-cols-[auto_auto_1fr] items-center gap-2">
 											<input type="checkbox" bind:checked={task.display} />
-											<img class="size-8 rounded" src={task.icon} alt={task.name} />
-											<div class="flex flex-col">
-												<div class="text-sm">{task.name}</div>
-												{#if task.location}
-													<div class="flex items-center gap-1.5 text-xs">
+											<img class="size-6 rounded" src={task.icon} alt={task.name} />
+											<div class="flex flex-col text-xs">
+												<div class="font-bold">{task.name}</div>
+												{#if task.description}
+													<div class="text-neutral-400">{task.description}</div>
+												{:else if task.location}
+													<div class="flex items-center gap-1.5 text-xs text-neutral-400">
 														<i class="fa-solid fa-location-dot"></i>{task.location}
 													</div>
-												{/if}
-												{#if task.description}
-													<div class="text-xs">{task.description}</div>
 												{/if}
 											</div>
 										</label>
@@ -170,14 +187,20 @@
 
 <style>
 	.overlay {
-		z-index: 50;
+		position: fixed;
+		z-index: 10;
 	}
 
-	/* TODO */
 	.menu {
-		transition: width 0.25s ease;
-		overflow: clip;
-		interpolate-size: allow-keywords;
+		position: fixed;
+		z-index: 50;
+		height: 100vh;
+		transition: transform 0.25s ease-in-out;
+		transform: translateX(100%);
+	}
+
+	.menu.open {
+		transform: translateX(0);
 	}
 
 	a:hover {

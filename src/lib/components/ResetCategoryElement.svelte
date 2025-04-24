@@ -5,14 +5,14 @@
 </script>
 
 <div
-	class="col-span-full grid break-inside-avoid grid-cols-subgrid rounded-md border border-neutral-800 bg-neutral-950 {category.tasks.filter(
+	class="col-span-full grid break-inside-avoid grid-cols-subgrid rounded-sm border border-neutral-800 bg-neutral-900 {category.tasks.filter(
 		(task: ResetTask) => task.display === true
 	).length === 0
 		? 'hidden'
 		: ''}"
 >
 	<button
-		class="col-span-full flex items-center gap-2 rounded-md bg-neutral-900 px-4 py-1 text-xs text-neutral-400 max-sm:py-2"
+		class="col-span-full flex items-center gap-2 rounded-sm bg-neutral-800 px-4 py-1 text-xs text-neutral-400 max-sm:py-2"
 		onclick={() => category.toggleOpen()}
 	>
 		<i class={icon}></i>
