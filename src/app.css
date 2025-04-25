@@ -63,6 +63,7 @@ button {
 	padding: 0.5rem 1rem;
 	border-radius: 0.5rem;
 	justify-content: center;
+	transition: all 0.25s ease-in-out;
 }
 
 .btn-primary {
@@ -85,32 +86,4 @@ button {
 
 .btn-ghost:hover {
 	background-color: rgba(255, 255, 255, 0.1);
-}
-
-.magicfind {
-	background-color: var(--card-background);
-}
-
-.magicfind-head,
-.magicfind-foot {
-	background-color: var(--card-background);
-}
-
-.magicfind-button {
-	background-color: var(--card-background-light);
-}
-
-.magicfind a {
-	text-decoration: none;
-	color: var(--primary);
-}
-
-.magicfind a:hover {
-	text-decoration: underline;
-}
-
-.magicfind,
-.magicfind-head,
-.magicfind-foot {
-	border-color: var(--border);
 }

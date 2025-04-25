@@ -4,77 +4,64 @@ export class MagicFind {
     constructor(data?: any[]) {
         if (data) {
             this.categories = data.map(seedCategory => {
-                const category = new MagicFindCategory();
-                category.id = seedCategory.id;
-                category.name = seedCategory.name;
-
-                category.items = seedCategory.items.map(seedItem => {
-                    if (seedItem.type === 'number') {
-                        const item = new MagicFindItemNumber();
-                        item.description = seedItem.description || '';
-                        item.value = typeof seedItem.value === 'string' ? parseInt(seedItem.value) : seedItem.value || 0;
-                        item.icons = seedItem.icons || [];
-                        item.names = [{ name: seedItem.names?.[0]?.name || '', link: seedItem.names?.[0]?.link || '' }];
-                        return item;
-                    } else if (seedItem.type === 'select') {
-                        const item = new MagicFindItemSelect();
-                        item.description = seedItem.description;
-                        item.icons = seedItem.icons || [];
-                        item.names = [{ name: seedItem.names?.[0]?.name || '', link: seedItem.names?.[0]?.link || '' }];
-                        item.options = seedItem.options.map((option: { value: number; description: string }) => {
-                            return { value: option.value, description: option.description };
-                        });
-                        return item;
-                    } else if (seedItem.type === 'bool') {
-                        const item = new MagicFindItemBool();
-                        item.description = seedItem.description || '';
-                        item.value = typeof seedItem.value === 'string' ? parseInt(seedItem.value) : seedItem.value || 0;
-                        item.icons = seedItem.icons || [];
-                        item.names = [{ name: seedItem.names?.[0]?.name || '', link: seedItem.names?.[0]?.link || '' }];
-                        const boolItem = seedItem as { checked?: boolean };
-                        item.checked = !!boolItem.checked;
-                        return item;
-                    } else if (seedItem.type === 'radio') {
-                        const item = new MagicFindItemRadio();
-                        item.description = seedItem.description || '';
-                        item.value = typeof seedItem.value === 'string' ? parseInt(seedItem.value) : seedItem.value || 0;
-                        item.icons = seedItem.icons || [];
-                        item.names = [{ name: seedItem.names?.[0]?.name || '', link: seedItem.names?.[0]?.link || '' }];
-                        const radioItem = seedItem as { checked?: boolean };
-                        item.checked = !!radioItem.checked;
-                        return item;
-                    }
-                    return new MagicFindItem(); // fallback
+                const category = Object.assign(new MagicFindCategory(), {
+                    id: seedCategory.id,
+                    name: seedCategory.name
                 });
 
+                category.items = seedCategory.items.map((seedItem: any) => {
+                    let item: MagicFindItem;
+
+                    switch (seedItem.type) {
+                        case 'number':
+                            item = Object.assign(new MagicFindItemNumber(), seedItem);
+                            break;
+                        case 'select':
+                            item = Object.assign(new MagicFindItemSelect(), seedItem);
+                            break;
+                        case 'bool':
+                            item = Object.assign(new MagicFindItemBool(), seedItem);
+                            break;
+                        case 'radio':
+                            item = Object.assign(new MagicFindItemRadio(), seedItem);
+                            break;
+                        default:
+                            item = Object.assign(new MagicFindItem(), seedItem);
+                    }
+                    return item;
+                });
                 return category;
             });
         }
     }
 
     get total(): number {
-        let total = 0;
-        for (const category of this.categories) {
-            for (const item of category.items) {
+        return this.categories.reduce((total, category) => {
+            return total + category.items.reduce((categoryTotal, item) => {
                 if (item instanceof MagicFindItemNumber) {
-                    total += item.value;
-                } else if (item instanceof MagicFindItemBool) {
-                    total += item.checked ? item.value : 0;
-                } else if (item instanceof MagicFindItemRadio) {
-                    total += item.checked ? item.value : 0;
+                    return categoryTotal + item.value;
+                } else if (item instanceof MagicFindItemBool && item.checked) {
+                    return categoryTotal + item.value;
+                } else if (item instanceof MagicFindItemRadio && item.checked) {
+                    return categoryTotal + (typeof item.value === 'string' ? parseInt(item.value) : item.value);
                 } else if (item instanceof MagicFindItemSelect) {
-                    total += item.selected;
+                    return categoryTotal + item.selected;
                 }
-            }
-        }
-        return total;
+                return categoryTotal;
+            }, 0);
+        }, 0);
     }
 }
 
 export class MagicFindCategory {
     id = "";
     name = "";
+    open = $state(true);
     items = $state<MagicFindItem[]>([]);
+
+    toggleOpen() {
+        this.open = !this.open;
+    }
 
     setCheckedRadio(): void {
         this.items.forEach((item) => {
@@ -117,7 +104,7 @@ export class MagicFindItemRadio extends MagicFindItem {
 }
 
 export class MagicFindItemSelect extends MagicFindItem {
-    options: [{ value: number, description: string }] = [{ value: 0, description: "" }];
+    options: { value: number, description: string }[] = [{ value: 0, description: "" }];
     selected = $state(0);
 
     setSelected(newSelected: number): void {

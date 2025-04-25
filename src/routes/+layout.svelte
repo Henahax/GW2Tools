@@ -5,12 +5,18 @@
 
 <app class="flex h-dvh flex-col">
 	<header class="flex items-center justify-between bg-neutral-800 px-4 py-2">
-		<a class="btn btn-ghost" href="/">GW2Tools</a>
+		<a class="btn btn-ghost text-xl font-bold" href="/">GW2Tools</a>
 		<nav class="flex">
-			<a class="btn btn-ghost" href="/reset"><i class="fa-solid fa-arrows-rotate"></i>reset</a>
-			<a class="btn btn-ghost" href="/magicfind"><i class="fa-solid fa-clover"></i>magic find</a>
+			<a class="btn btn-ghost" href="/reset">
+				<i class="fa-solid fa-arrows-rotate"></i>
+				<span class="max-sm:hidden">reset</span>
+			</a>
+			<a class="btn btn-ghost" href="/magicfind">
+				<i class="fa-solid fa-clover"></i>
+				<span class="max-sm:hidden">magic find</span>
+			</a>
 		</nav>
-		<div>C</div>
+		<div>todo: Login</div>
 	</header>
 	<main class="flex w-full grow flex-col overflow-y-auto">
 		<div class=" flex h-full w-full flex-col self-center">
