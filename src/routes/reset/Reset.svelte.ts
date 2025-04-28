@@ -5,6 +5,8 @@ export class Reset {
         if (data) {
             this.intervals = data.map(interval => {
                 let resetInterval = Object.assign(new ResetInterval(), interval);
+                resetInterval.interval = interval.interval === "weekly" ? Interval.weekly : Interval.daily;
+                resetInterval.updateTime(); // Call updateTime after setting the interval
                 resetInterval.categories = interval.categories.map((category: any) => {
                     let resetCategory = Object.assign(new ResetCategory(), category);
                     resetCategory.tasks = category.tasks.map((task: any) => Object.assign(new ResetTask(), task));
@@ -24,6 +26,25 @@ export class ResetInterval {
     reset = ""
     icon = "";
     categories = $state<ResetCategory[]>([]);
+
+    time = $state(0);
+
+    constructor() {
+        this.updateTime();
+    }
+
+    updateTime() {
+        this.time = this.getTime();
+    }
+
+    getTime() {
+        if (this.interval === Interval.daily) {
+            return getUTCTimeForStartOfNextDay().getTime();
+        } else if (this.interval === Interval.weekly) {
+            return getUTCTimeForStartOfNextWeek().getTime();
+        }
+        return 0;
+    }
 }
 
 export class ResetCategory {

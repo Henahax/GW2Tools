@@ -1,6 +1,7 @@
 [
     {
         "id": "weekly",
+        "interval": "weekly",
         "timer": "Weekly",
         "tasks": "Weekly Tasks",
         "reset": "resets weekly",
@@ -97,7 +98,6 @@
                     {
                         "id": "divine-lucky-envelopes",
                         "name": "Divine Lucky Envelopes",
-                        "interval": "daily",
                         "icon": "https://wiki.guildwars2.com/images/9/96/Divine_Lucky_Envelope.png",
                         "location": "Divinity's Reach & Guild Hall",
                         "description": "Lunar New Year",
@@ -106,7 +106,6 @@
                     {
                         "id": "four-winds-treasure-hunt",
                         "name": "Treasure Hunt",
-                        "interval": "daily",
                         "icon": "https://wiki.guildwars2.com/images/0/03/Bazaar_of_the_Four_Winds.png",
                         "location": "Labyrinthine Cliffs",
                         "description": "Festival of the Four Winds",
@@ -178,6 +177,7 @@
     },
     {
         "id": "daily",
+        "interval": "daily",
         "timer": "Daily",
         "tasks": "Daily Tasks",
         "reset": "resets daily",

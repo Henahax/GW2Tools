@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Timer from '$lib/components/Timer.svelte';
 	import resetData from './reset.json';
 	import { Reset, ResetInterval, ResetTask } from './Reset.svelte';
 
@@ -20,14 +21,12 @@
 	</div>
 
 	<div class="grid grid-flow-col grid-cols-[auto_auto] gap-4 sm:grid-cols-[auto_auto_auto_auto]">
-		<div class="flex flex-col text-end">
-			<div class="text-sm">Weekly:</div>
-			<div>zeit</div>
-		</div>
-		<div class="flex flex-col text-end">
-			<div class="text-sm">Daily:</div>
-			<div>zeit</div>
-		</div>
+		{#each reset.intervals as interval}
+			<div class="flex flex-col text-end">
+				<div class="text-sm">{interval.timer}</div>
+				<Timer time={interval.time} />
+			</div>
+		{/each}
 		<button class="btn btn-outline" onclick={toggleOverlay}>
 			<i class="fa-solid fa-gear"></i>
 			<span class="max-sm:hidden">Settings</span>
