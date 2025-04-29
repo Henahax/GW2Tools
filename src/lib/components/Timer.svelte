@@ -5,7 +5,7 @@
 	let count = $state(time - new Date().getTime());
 
 	function formatTime(milliseconds: number) {
-		const seconds = Math.floor(milliseconds / 1000);
+		const seconds = Math.floor(Math.abs(milliseconds) / 1000);
 		const days = Math.floor(seconds / 86400);
 		const hours = Math.floor((seconds % 86400) / 3600);
 		const minutes = Math.floor((seconds % 3600) / 60);

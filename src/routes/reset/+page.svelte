@@ -1,4 +1,5 @@
 <script lang="ts">
+	import EventTimer from '$lib/components/EventTimer.svelte';
 	import Timer from '$lib/components/Timer.svelte';
 	import resetData from './reset.json';
 	import { Reset, ResetInterval, ResetTask } from './Reset.svelte';
@@ -116,7 +117,7 @@
 												{/if}
 											</div>
 											{#if !task.checked}
-												<div>
+												<div class="flex flex-col items-end">
 													<a
 														class="text-sm text-neutral-500 transition ease-in-out hover:text-neutral-200"
 														href={task.link}
@@ -126,6 +127,9 @@
 													>
 														<i class="fa-solid fa-circle-info"></i>
 													</a>
+													{#if task.timer}
+														<EventTimer />
+													{/if}
 												</div>
 											{/if}
 										</label>
