@@ -67,7 +67,7 @@ export class ResetTask {
     link = "";
     description? = "";
     location? = "";
-    timers? = $state<ResetTimer>()
+    timer? = $state<ResetTimer>()
 
     setDisplay(value: boolean) {
         this.display = value;

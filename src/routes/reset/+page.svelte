@@ -127,9 +127,9 @@
 													>
 														<i class="fa-solid fa-circle-info"></i>
 													</a>
-													{#each task.timers as timer: ResetTimer}
-														<EventTimer {timer} />
-													{/each}
+													{#if task.timer}
+														<EventTimer timer={task.timer} />
+													{/if}
 												</div>
 											{/if}
 										</label>

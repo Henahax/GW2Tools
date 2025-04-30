@@ -2,12 +2,15 @@
 	import Timer from './Timer.svelte';
 	import { ResetTimer } from '../../routes/reset/Reset.svelte';
 
-	let timer: ResetTimer = $props();
+	let { timer } = $props<{ timer: ResetTimer }>();
 
-	let targetTime = $state(0);
+	let targetTime = $derived(timer.targetTime);
+	let add = $derived(timer.add);
 </script>
 
 <div class="flex flex-col items-end text-xs text-neutral-400">
 	<Timer time={targetTime} />
-	<div>{0}</div>
+	{#if add}
+		<div>{add}</div>
+	{/if}
 </div>
