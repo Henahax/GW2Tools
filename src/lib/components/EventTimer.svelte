@@ -5,10 +5,6 @@
 	let timer: ResetTimer = $props();
 
 	let targetTime = $state(0);
-
-	function getNextEventTime() {
-		let now = new Date();
-	}
 </script>
 
 <div class="flex flex-col items-end text-xs text-neutral-400">

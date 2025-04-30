@@ -89,15 +89,16 @@ export class ResetTimer {
     duration = $state<[number, number]>([0, 0]);
     times = $state<[number, number, string?][]>([[0, 0]])
 
-    targetTime = $state();
-    add = $state("");
+    targetTime = $state(this.getNextEventTime().next);
+    add = $state(this.getNextEventTime().add);
 
     isActive = $state(false);
     isSoon = $state(false);
 
-
-    // test
     getNextEventTime() {
+        let next = 0;
+        let add = "";
+
         let now = new Date();
         let startOfNextDay = getUTCTimeForStartOfNextDay();
         let startOfThisDay = startOfNextDay.getTime() - 24 * 60 * 60 * 1000;
@@ -106,14 +107,14 @@ export class ResetTimer {
             if (startOfThisDay + time[0] * 60 * 60 * 1000
                 + time[1] * 60 * 1000 + this.duration[0] * 60 * 60 * 1000 + this.duration[1] * 60 * 1000 > now.getTime()
             ) {
-                this.targetTime = startOfThisDay + time[0] * 60 * 60 * 1000 + time[1] * 60 * 1000;
+                next = startOfThisDay + time[0] * 60 * 60 * 1000 + time[1] * 60 * 1000;
                 if (time[2]) {
-                    this.add = time[2];
+                    add = time[2];
                 }
                 break;
             }
         }
-        return;
+        return { next: next, add: add };
     }
 }
 
