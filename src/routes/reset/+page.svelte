@@ -3,6 +3,10 @@
 	import Timer from '$lib/components/Timer.svelte';
 	import resetData from './reset.json';
 	import { Reset, ResetInterval, ResetTask } from './Reset.svelte';
+	import {
+		getUTCTimeForStartOfNextWeek,
+		getUTCTimeForStartOfNextDay
+	} from '$lib/functions/ResetFunctions.svelte';
 
 	let reset = $state(new Reset(resetData));
 
@@ -22,12 +26,15 @@
 	</div>
 
 	<div class="grid grid-flow-col grid-cols-[auto_auto] gap-4 sm:grid-cols-[auto_auto_auto_auto]">
-		{#each reset.intervals as interval}
-			<div class="flex flex-col text-end">
-				<div class="text-sm">{interval.timer}</div>
-				<Timer time={interval.time} />
-			</div>
-		{/each}
+		<div class="flex flex-col text-end">
+			<div class="text-sm">{reset.intervals[0].timer}</div>
+			<Timer time={getUTCTimeForStartOfNextWeek()} />
+		</div>
+		<div class="flex flex-col text-end">
+			<div class="text-sm">{reset.intervals[1].timer}</div>
+			<Timer time={getUTCTimeForStartOfNextDay()} />
+		</div>
+
 		<button class="btn btn-outline" onclick={toggleOverlay}>
 			<i class="fa-solid fa-gear"></i>
 			<span class="max-sm:hidden">Settings</span>
@@ -127,9 +134,11 @@
 													>
 														<i class="fa-solid fa-circle-info"></i>
 													</a>
-													{#each task.timers as timer: ResetTimer}
-														<EventTimer {timer} />
-													{/each}
+													<!--
+													{#if task.timer}
+														<EventTimer timer={task.timer} />
+													{/if}
+													-->
 												</div>
 											{/if}
 										</label>

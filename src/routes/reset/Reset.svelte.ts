@@ -1,3 +1,5 @@
+import { getUTCTimeForStartOfNextWeek, getUTCTimeForStartOfNextDay } from "$lib/functions/ResetFunctions.svelte";
+
 export class Reset {
     intervals = $state<ResetInterval[]>([]);
 
@@ -6,10 +8,21 @@ export class Reset {
             this.intervals = data.map(interval => {
                 let resetInterval = Object.assign(new ResetInterval(), interval);
                 resetInterval.interval = interval.interval === "weekly" ? Interval.weekly : Interval.daily;
-                resetInterval.updateTime(); // Call updateTime after setting the interval
                 resetInterval.categories = interval.categories.map((category: any) => {
                     let resetCategory = Object.assign(new ResetCategory(), category);
-                    resetCategory.tasks = category.tasks.map((task: any) => Object.assign(new ResetTask(), task));
+                    resetCategory.tasks = category.tasks.map((task: any) => {
+                        let resetTask = Object.assign(new ResetTask(), task);
+                        if (task.timer) {
+                            resetTask.timer = Object.assign(new ResetTimer(), task.timer);
+                            resetTask.timer.duration = task.timer.duration.map((duration: any) => {
+                                // todo
+                            });
+                            resetTask.timer.times = task.timer.times.map((time: any) => {
+                                // todo
+                            });
+                        }
+                        return resetTask;
+                    });
                     return resetCategory;
                 });
                 return resetInterval;
@@ -28,23 +41,6 @@ export class ResetInterval {
     categories = $state<ResetCategory[]>([]);
 
     time = $state(0);
-
-    constructor() {
-        this.updateTime();
-    }
-
-    updateTime() {
-        this.time = this.getTime();
-    }
-
-    getTime() {
-        if (this.interval === Interval.daily) {
-            return getUTCTimeForStartOfNextDay().getTime();
-        } else if (this.interval === Interval.weekly) {
-            return getUTCTimeForStartOfNextWeek().getTime();
-        }
-        return 0;
-    }
 }
 
 export class ResetCategory {
@@ -67,7 +63,7 @@ export class ResetTask {
     link = "";
     description? = "";
     location? = "";
-    timers? = $state<ResetTimer>()
+    timer? = $state<ResetTimer>()
 
     setDisplay(value: boolean) {
         this.display = value;
@@ -88,34 +84,6 @@ export class ResetTask {
 export class ResetTimer {
     duration = $state<[number, number]>([0, 0]);
     times = $state<[number, number, string?][]>([[0, 0]])
-
-    targetTime = $state(this.getNextEventTime().next);
-    add = $state(this.getNextEventTime().add);
-
-    isActive = $state(false);
-    isSoon = $state(false);
-
-    getNextEventTime() {
-        let next = 0;
-        let add = "";
-
-        let now = new Date();
-        let startOfNextDay = getUTCTimeForStartOfNextDay();
-        let startOfThisDay = startOfNextDay.getTime() - 24 * 60 * 60 * 1000;
-
-        for (let time of this.times) {
-            if (startOfThisDay + time[0] * 60 * 60 * 1000
-                + time[1] * 60 * 1000 + this.duration[0] * 60 * 60 * 1000 + this.duration[1] * 60 * 1000 > now.getTime()
-            ) {
-                next = startOfThisDay + time[0] * 60 * 60 * 1000 + time[1] * 60 * 1000;
-                if (time[2]) {
-                    add = time[2];
-                }
-                break;
-            }
-        }
-        return { next: next, add: add };
-    }
 }
 
 enum Interval { daily, weekly }
@@ -146,31 +114,4 @@ function setCookie(taskId: string, type: CookieType, interval?: Interval) {
         }
     }
     document.cookie = taskId + suffix + '=' + value + ';expires=' + new Date(time).toUTCString() + ';path=/';
-}
-
-function getUTCTimeForStartOfNextDay() {
-    let now = new Date();
-    let tomorrow = new Date(now);
-
-    tomorrow.setUTCDate(tomorrow.getUTCDate() + 1);
-    tomorrow.setUTCHours(0, 0, 0, 0);
-
-    return tomorrow;
-}
-
-function getUTCTimeForStartOfNextWeek() {
-    let now = new Date();
-    let nextMonday = new Date();
-
-    while (nextMonday.getUTCDay() !== 1) {
-        nextMonday.setUTCDate(nextMonday.getUTCDate() + 1);
-    }
-
-    nextMonday.setUTCHours(7, 30, 0, 0);
-
-    if (nextMonday < now) {
-        nextMonday.setUTCDate(nextMonday.getUTCDate() + 7);
-    }
-
-    return nextMonday;
 }
