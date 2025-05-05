@@ -1,12 +1,11 @@
 <script lang="ts">
-	import EventTimer from '$lib/components/EventTimer.svelte';
 	import Timer from '$lib/components/Timer.svelte';
 	import resetData from './reset.json';
 	import { Reset, ResetInterval, ResetTask } from './Reset.svelte';
 	import {
-		getUTCTimeForStartOfNextWeek,
-		getUTCTimeForStartOfNextDay
-	} from '$lib/functions/ResetFunctions.svelte';
+		getUTCTimeForStartOfNextDay,
+		getUTCTimeForStartOfNextWeek
+	} from '$lib/helpers/ResetFunctions';
 
 	let reset = $state(new Reset(resetData));
 
@@ -265,8 +264,5 @@
 
 	label {
 		cursor: pointer;
-	}
-
-	label:has(input[type='checkbox']:checked) {
 	}
 </style>

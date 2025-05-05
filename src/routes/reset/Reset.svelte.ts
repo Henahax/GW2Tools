@@ -1,4 +1,4 @@
-import { getUTCTimeForStartOfNextWeek, getUTCTimeForStartOfNextDay } from "$lib/functions/ResetFunctions.svelte";
+import { getUTCTimeForStartOfNextWeek, getUTCTimeForStartOfNextDay } from "$lib/helpers/ResetFunctions";
 
 export class Reset {
     intervals = $state<ResetInterval[]>([]);
