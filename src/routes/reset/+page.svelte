@@ -6,6 +6,7 @@
 		getUTCTimeForStartOfNextDay,
 		getUTCTimeForStartOfNextWeek
 	} from '$lib/helpers/ResetFunctions';
+	import EventTimer from '$lib/components/EventTimer.svelte';
 
 	let reset = $state(new Reset(resetData));
 
@@ -83,7 +84,7 @@
 										.length})
 								</button>
 								<div
-									class="section-content col-span-full grid grid-cols-subgrid divide-y divide-neutral-800 px-2 {category.open
+									class="section-content col-span-full grid grid-cols-subgrid divide-y divide-neutral-800 {category.open
 										? ''
 										: 'h-0'}"
 								>
@@ -101,45 +102,43 @@
 													task.setChecked(e.currentTarget.checked, interval, category)}
 											/>
 											<img
-												class="self-center justify-self-center rounded {task.checked
-													? 'size-6'
-													: 'size-8'}"
+												class="size-8 self-center justify-self-center rounded {task.checked
+													? 'opacity-50'
+													: ''}"
 												src={task.icon}
 												alt={task.description}
 											/>
 											<div class="flex flex-col">
-												<div class="text-sm">{task.name}</div>
-												{#if !task.checked}
-													<div class="flex flex-col text-xs text-neutral-400">
-														{#if task.location}
-															<div class="flex items-center gap-1.5">
-																<i class="fa-solid fa-location-dot"></i>{task.location}
-															</div>
-														{/if}
-														{#if task.description}
-															<div>{task.description}</div>
-														{/if}
-													</div>
-												{/if}
+												<div class="text-xs">{task.name}</div>
+												<div class="flex flex-col text-xs text-neutral-400">
+													{#if task.location}
+														<div class="flex items-center gap-1.5">
+															<i class="fa-solid fa-location-dot"></i>{task.location}
+														</div>
+													{/if}
+													{#if task.description}
+														<div>{task.description}</div>
+													{/if}
+												</div>
 											</div>
-											{#if !task.checked}
-												<div class="flex flex-col items-end">
-													<a
-														class="text-sm text-neutral-500 transition ease-in-out hover:text-neutral-200"
-														href={task.link}
-														target="_blank"
-														rel="noopener noreferrer"
-														aria-label={task.description}
-													>
-														<i class="fa-solid fa-circle-info"></i>
-													</a>
-													<!--
+
+											<div class="flex flex-col items-end">
+												<a
+													class="text-sm text-neutral-500 transition ease-in-out hover:text-neutral-200"
+													href={task.link}
+													target="_blank"
+													rel="noopener noreferrer"
+													aria-label={task.description}
+												>
+													<i class="fa-solid fa-circle-info"></i>
+												</a>
+
+												{#if !task.checked}
 													{#if task.timer}
 														<EventTimer timer={task.timer} />
 													{/if}
-													-->
-												</div>
-											{/if}
+												{/if}
+											</div>
 										</label>
 									{/each}
 								</div>

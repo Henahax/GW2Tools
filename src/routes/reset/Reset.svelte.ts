@@ -14,12 +14,8 @@ export class Reset {
                         let resetTask = Object.assign(new ResetTask(), task);
                         if (task.timer) {
                             resetTask.timer = Object.assign(new ResetTimer(), task.timer);
-                            resetTask.timer.duration = task.timer.duration.map((duration: any) => {
-                                // todo
-                            });
-                            resetTask.timer.times = task.timer.times.map((time: any) => {
-                                // todo
-                            });
+                            resetTask.timer.duration = task.timer.duration;
+                            resetTask.timer.times = task.timer.times;
                         }
                         return resetTask;
                     });

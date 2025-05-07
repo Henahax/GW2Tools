@@ -4,6 +4,8 @@
 
 	let { timer } = $props<{ timer: ResetTimer }>();
 
+	console.log(timer);
+
 	let targetTime = $derived(timer.targetTime);
 	let add = $derived(timer.add);
 </script>
