@@ -19,6 +19,25 @@
 	}
 </script>
 
+<div class="absolute z-50 m-4 flex flex-col self-center rounded rounded-md bg-green-500 p-4">
+	<div class="flex h-fit w-full items-center justify-end text-sm">
+		<button aria-label="close" class="btn btn-ghost rounded-full">
+			<i class="fa-solid fa-xmark"></i>
+		</button>
+	</div>
+	<div class="flex w-full">Instructions</div>
+	<div class="grid grid-cols-2 gap-4">
+		<i class="fa-solid fa-gear"></i>
+		<div></div>
+		<i class="fa-solid fa-square-check"></i>
+		<div></div>
+		<i class="fa-solid fa-circle-info"></i>
+		<div></div>
+		<div>00:13:37</div>
+		<div></div>
+	</div>
+</div>
+
 <div class="flex w-full items-center gap-8 self-center p-4">
 	<div class="flex grow flex-col">
 		<div class="text-3xl">Reset</div>
