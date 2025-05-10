@@ -1,8 +1,8 @@
 <script lang="ts">
 	import FlipDigit from './FlipDigit.svelte';
 
-	let { time } = $props();
-	let count = $state(time - new Date().getTime());
+	let { currentTime, targetTime } = $props();
+	let seconds = $derived(targetTime - currentTime);
 
 	function formatTime(milliseconds: number) {
 		const seconds = Math.floor(Math.abs(milliseconds) / 1000);
@@ -19,20 +19,10 @@
 		};
 	}
 
-	$effect(() => {
-		const interval = setInterval(() => {
-			count -= 1000;
-		}, 1000);
-
-		return () => {
-			clearInterval(interval);
-		};
-	});
-
-	let formattedTime = $derived(formatTime(count));
+	let formattedTime = $derived(formatTime(seconds));
 </script>
 
-<div class="timer">
+<div class="timer inline-flex items-center">
 	{#if parseInt(formattedTime.days) > 0}
 		{#each formattedTime.days.split('') as digit}
 			<FlipDigit {digit} />
@@ -50,9 +40,4 @@
 </div>
 
 <style>
-	.timer {
-		display: inline-flex;
-		align-items: center;
-		font-family: monospace;
-	}
 </style>
