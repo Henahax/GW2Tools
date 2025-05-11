@@ -312,7 +312,8 @@
 						"id": "fishmonger-lowland-shore",
 						"name": "Fishmonger Lowland Shore",
 						"icon": "https://wiki.guildwars2.com/images/2/25/Chunk_of_Ancient_Ambergris.png",
-						"location": "Lowland Shore"
+						"location": "Lowland Shore",
+						"link": "https://wiki.guildwars2.com/wiki/Bending_Reed"
 					}
 				]
 			},

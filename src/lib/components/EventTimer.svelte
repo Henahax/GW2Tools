@@ -12,7 +12,7 @@
 	let active = $derived(getNextEventTime()[3]);
 	let soon = $derived(getNextEventTime()[4]);
 
-	function getNextEventTime() {
+	function getNextEventTime(): [Date, [number, number], string, boolean, boolean] {
 		let startOfNextDay = getUTCTimeForStartOfNextDay();
 		let startOfThisDay = startOfNextDay.getTime() - 24 * 60 * 60 * 1000;
 
