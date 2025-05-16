@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Timer from './Timer.svelte';
-	import { ResetTimer } from '../../routes/reset/Reset.svelte';
+	import { ResetTimer } from '../../../routes/reset/Reset.svelte';
 	import { getUTCTimeForStartOfNextDay } from '$lib/helpers/ResetFunctions';
 
 	let { currentTime, timer } = $props<{ currentTime: number; timer: ResetTimer }>();

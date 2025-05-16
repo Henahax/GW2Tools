@@ -1,12 +1,13 @@
 <script lang="ts">
-	import Timer from '$lib/components/Timer.svelte';
 	import resetData from './reset.json';
 	import { Reset, ResetInterval, ResetTask } from './Reset.svelte';
 	import {
 		getUTCTimeForStartOfNextDay,
 		getUTCTimeForStartOfNextWeek
 	} from '$lib/helpers/ResetFunctions';
-	import EventTimer from '$lib/components/EventTimer.svelte';
+	import Timer from '$lib/components/reset/Timer.svelte';
+	import Category from '$lib/components/reset/Category.svelte';
+	import Interval from '$lib/components/reset/Interval.svelte';
 
 	let reset = $state(new Reset(resetData));
 
@@ -61,104 +62,7 @@
 <div class="flex grow flex-col items-center self-center p-2">
 	<div class="grid grid-cols-1 gap-4 sm:grid-cols-[auto_1fr]">
 		{#each reset.intervals as interval}
-			<div class="flex w-full flex-col gap-2">
-				<div class="px-4">
-					{interval.tasks} ({interval.categories
-						.flatMap((c) => c.tasks)
-						.filter((t) => t.display && t.checked).length}/{interval.categories
-						.flatMap((c) => c.tasks)
-						.filter((t) => t.display).length})
-				</div>
-
-				<div
-					class={interval.id === 'weekly'
-						? 'columns-1'
-						: 'columns-1 gap-2 lg:columns-2 xl:columns-3'}
-				>
-					<div class="grid grid-cols-[auto_auto_1fr_auto]">
-						{#each interval.categories as category: ResetCategory}
-							<div
-								class="col-span-full grid break-inside-avoid grid-cols-subgrid rounded-sm border border-neutral-800 bg-neutral-900 {category.tasks.filter(
-									(task: ResetTask) => task.display === true
-								).length === 0
-									? 'hidden'
-									: ''}"
-							>
-								<button
-									class="col-span-full flex items-center gap-2 rounded-sm bg-neutral-800 px-4 py-1 text-xs text-neutral-400 max-sm:py-2"
-									onclick={() => category.toggleOpen()}
-								>
-									<i class={interval.icon}></i>
-									{category.name} ({category.tasks
-										.filter((task: ResetTask) => task.display === true)
-										.filter((task: ResetTask) => task.checked === true)
-										.length}/{category.tasks.filter((task: ResetTask) => task.display === true)
-										.length})
-								</button>
-								<div
-									class="section-content col-span-full grid grid-cols-subgrid divide-y divide-neutral-800 {category.open
-										? ''
-										: 'h-0'}"
-								>
-									{#each category.tasks.filter((task) => task.display === true) as task: ResetTask}
-										<label
-											class="col-span-full grid grid-cols-subgrid items-center gap-4 p-2 {task.checked
-												? 'text-neutral-400 line-through'
-												: ''}"
-										>
-											<input
-												type="checkbox"
-												id={task.id}
-												bind:checked={task.checked}
-												onchange={(e) =>
-													task.setChecked(e.currentTarget.checked, interval, category)}
-											/>
-											<img
-												class="size-8 self-center justify-self-center rounded {task.checked
-													? 'opacity-50'
-													: ''}"
-												src={task.icon}
-												alt={task.description}
-											/>
-											<div class="flex flex-col">
-												<div class="text-xs">{task.name}</div>
-												<div class="flex flex-col text-xs text-neutral-400">
-													{#if task.location}
-														<div class="flex items-center gap-1.5">
-															<i class="fa-solid fa-location-dot"></i>{task.location}
-														</div>
-													{/if}
-													{#if task.description}
-														<div>{task.description}</div>
-													{/if}
-												</div>
-											</div>
-
-											<div class="flex flex-col items-end">
-												<a
-													class="text-sm text-neutral-500 transition ease-in-out hover:text-neutral-200"
-													href={task.link}
-													target="_blank"
-													rel="noopener noreferrer"
-													aria-label={task.description}
-												>
-													<i class="fa-solid fa-circle-info"></i>
-												</a>
-
-												{#if !task.checked}
-													{#if task.timer}
-														<EventTimer {currentTime} timer={task.timer} />
-													{/if}
-												{/if}
-											</div>
-										</label>
-									{/each}
-								</div>
-							</div>
-						{/each}
-					</div>
-				</div>
-			</div>
+			<Interval {interval} {currentTime} />
 		{/each}
 	</div>
 </div>
@@ -261,19 +165,9 @@
 		transform: translateX(0);
 	}
 
-	.section-content {
-		transition: height 0.25s ease-in-out;
-		overflow: clip;
-		interpolate-size: allow-keywords;
-	}
-
 	/* TODO: Only Toggle Button */
 	button:hover {
 		background-color: var(--color-neutral-800);
 		color: white;
-	}
-
-	label {
-		cursor: pointer;
 	}
 </style>
