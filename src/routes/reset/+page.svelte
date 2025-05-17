@@ -6,15 +6,11 @@
 		getUTCTimeForStartOfNextWeek
 	} from '$lib/helpers/ResetFunctions';
 	import Timer from '$lib/components/reset/Timer.svelte';
-	import Category from '$lib/components/reset/Category.svelte';
 	import Interval from '$lib/components/reset/Interval.svelte';
 
 	let reset = $state(new Reset(resetData));
-
 	let overlayOpen = $state(false);
-
 	let filter = $state('');
-
 	let currentTime = $state(new Date().getTime());
 
 	$effect(() => {

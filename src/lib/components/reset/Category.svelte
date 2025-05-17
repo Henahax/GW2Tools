@@ -41,6 +41,7 @@
 <style>
 	.section-content {
 		transition: height 0.25s ease-in-out;
+		transition: width 0.25s ease-in-out;
 		overflow: clip;
 		interpolate-size: allow-keywords;
 	}
