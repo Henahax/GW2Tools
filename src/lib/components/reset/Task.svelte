@@ -11,7 +11,7 @@
 </script>
 
 <label
-	class="col-span-full grid grid-cols-subgrid items-center gap-4 p-2 {task.checked
+	class="col-span-full flex items-center gap-4 p-2 {task.checked
 		? 'text-neutral-400 line-through'
 		: ''}"
 >
@@ -26,7 +26,7 @@
 		src={task.icon}
 		alt={task.description}
 	/>
-	<div class="flex flex-col">
+	<div class="flex grow flex-col">
 		<div class="text-xs">{task.name}</div>
 		<div class="flex flex-col text-xs text-neutral-400">
 			{#if task.location}
@@ -40,7 +40,13 @@
 		</div>
 	</div>
 
-	<div class="flex flex-col items-end">
+	<div class="flex items-center gap-2">
+		{#if !task.checked}
+			{#if task.timer}
+				<EventTimer {currentTime} timer={task.timer} />
+			{/if}
+		{/if}
+
 		<a
 			class="text-sm text-neutral-500 transition ease-in-out hover:text-neutral-200"
 			href={task.link}
@@ -50,12 +56,6 @@
 		>
 			<i class="fa-solid fa-circle-info"></i>
 		</a>
-
-		{#if !task.checked}
-			{#if task.timer}
-				<EventTimer {currentTime} timer={task.timer} />
-			{/if}
-		{/if}
 	</div>
 </label>
 
