@@ -26,7 +26,7 @@
 		src={task.icon}
 		alt={task.description}
 	/>
-	<div class="flex grow flex-col">
+	<div class="flex grow flex-col gap-0.5">
 		<div class="text-xs">{task.name}</div>
 		<div class="flex flex-col text-xs text-neutral-400">
 			{#if task.location}

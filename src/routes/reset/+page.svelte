@@ -37,11 +37,11 @@
 	<div class="grid grid-flow-col grid-cols-[auto_auto] gap-4 sm:grid-cols-[auto_auto_auto_auto]">
 		<div class="flex flex-col text-end">
 			<div class="text-sm">{reset.intervals[0].timer}</div>
-			<Timer {currentTime} targetTime={getUTCTimeForStartOfNextWeek()} />
+			<Timer {currentTime} targetTime={getUTCTimeForStartOfNextWeek().getTime()} highestShown={0} />
 		</div>
 		<div class="flex flex-col text-end">
 			<div class="text-sm">{reset.intervals[1].timer}</div>
-			<Timer {currentTime} targetTime={getUTCTimeForStartOfNextDay()} />
+			<Timer {currentTime} targetTime={getUTCTimeForStartOfNextDay().getTime()} highestShown={1} />
 		</div>
 
 		<button class="btn btn-outline" onclick={toggleOverlay}>

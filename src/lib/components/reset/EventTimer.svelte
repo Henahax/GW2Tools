@@ -5,7 +5,7 @@
 
 	let { currentTime, timer } = $props<{ currentTime: number; timer: ResetTimer }>();
 
-	let targetTime = $derived(getNextEventTime()[0]);
+	let targetTime = $derived(getNextEventTime()[0].getTime());
 	let duration: [number, number] = $derived(getNextEventTime()[1]);
 	let add = $derived(getNextEventTime()[2]);
 
@@ -72,11 +72,17 @@
 			<i class="fa-solid fa-hourglass-half"></i>
 		{/if}
 		<div class="timer flex gap-0.5">
-			<Timer {currentTime} {targetTime} />
+			<Timer
+				{currentTime}
+				{targetTime}
+				highestShown={duration[0] > 0 ? 1 : active || soon ? 2 : 1}
+			/>
 			{#if active}
 				<div>/</div>
 				<div>
-					00:{duration[0].toString().padStart(2, '0')}:{duration[1].toString().padStart(2, '0')}
+					{duration[0] > 0 ? `${duration[0].toString().padStart(2, '0')}:` : ''}{duration[1]
+						.toString()
+						.padStart(2, '0')}:00
 				</div>
 			{/if}
 		</div>
