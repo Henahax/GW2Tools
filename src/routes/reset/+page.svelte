@@ -5,8 +5,9 @@
 		getUTCTimeForStartOfNextDay,
 		getUTCTimeForStartOfNextWeek
 	} from '$lib/helpers/ResetFunctions';
-	import Timer from '$lib/components/reset/Timer.svelte';
 	import Interval from '$lib/components/reset/Interval.svelte';
+
+	import NewTimer from '$lib/components/reset/NewTimer.svelte';
 
 	let reset = $state(new Reset(resetData));
 	let overlayOpen = $state(false);
@@ -37,11 +38,19 @@
 	<div class="grid grid-flow-col grid-cols-[auto_auto] gap-4 sm:grid-cols-[auto_auto_auto_auto]">
 		<div class="flex flex-col text-end">
 			<div class="text-sm">{reset.intervals[0].timer}</div>
-			<Timer {currentTime} targetTime={getUTCTimeForStartOfNextWeek().getTime()} highestShown={0} />
+			<NewTimer
+				targetTime={getUTCTimeForStartOfNextWeek().getTime()}
+				soonTime={86400000}
+				numbersShown={4}
+			/>
 		</div>
 		<div class="flex flex-col text-end">
 			<div class="text-sm">{reset.intervals[1].timer}</div>
-			<Timer {currentTime} targetTime={getUTCTimeForStartOfNextDay().getTime()} highestShown={1} />
+			<NewTimer
+				targetTime={getUTCTimeForStartOfNextDay().getTime()}
+				soonTime={3600000}
+				numbersShown={3}
+			/>
 		</div>
 
 		<button class="btn btn-outline" onclick={toggleOverlay}>
