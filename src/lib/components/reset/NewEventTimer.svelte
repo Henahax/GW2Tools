@@ -8,15 +8,16 @@
 	let nextEventTime = $derived(getNextEventTime(timer)[0].getTime());
 	let duration = $derived(getNextEventTime(timer)[1]);
 	let add = $derived(getNextEventTime(timer)[2]);
+	let numbersShown = $derived(duration[0] > 0 ? 3 : 2);
 
-	function getNextEventTime(timer: any): [Date, object, string] {
+	function getNextEventTime(timer: any): [Date, [number, number], string] {
 		let now = new Date().getTime();
 		let startOfNextDay = getUTCTimeForStartOfNextDay();
 		let startOfThisDay = startOfNextDay.getTime() - 24 * 60 * 60 * 1000;
 
 		let nextEventTime = now;
 		let add: string = '';
-		let duration = [0, 0];
+		let duration: [number, number] = [0, 0];
 
 		for (let i = 0; i < timer.times.length; i++) {
 			if (
@@ -40,4 +41,4 @@
 	}
 </script>
 
-<Timer targetTime={nextEventTime} {add} />
+<Timer targetTime={nextEventTime} {add} {duration} {numbersShown} />

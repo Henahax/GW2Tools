@@ -6,13 +6,15 @@
 		soonTime = 300000,
 		numbersShown = 3,
 		triggerReload = false,
-		add = ''
+		add = '',
+		duration = [0, 0]
 	} = $props<{
 		targetTime: number;
 		soonTime?: number;
 		numbersShown?: number;
 		triggerReload?: boolean;
 		add?: string;
+		duration?: [number, number];
 	}>();
 
 	let currentTime = $state(Math.abs(Date.now()));
@@ -20,6 +22,10 @@
 	let isSoon = $derived(difference < soonTime && difference > 0);
 	let isActive = $derived(difference < 0);
 	let formattedTime = $derived(formatTime(difference, numbersShown));
+
+	if (!triggerReload && !isActive) {
+		numbersShown = 3;
+	}
 
 	$effect(() => {
 		const interval = setInterval(() => {
@@ -82,26 +88,44 @@
 </script>
 
 <div
-	class="line-h flex flex-col items-end"
+	class="flex flex-col items-end"
 	class:text-green-500={isActive}
 	class:text-yellow-500={isSoon}
 	class:text-neutral-400={!isActive && !isSoon && !triggerReload}
 >
-	<div class="timer inline-flex items-center gap-1.5">
+	<div class="timer flex items-center gap-1.5">
 		{#if isActive && !triggerReload}
 			<i class="fa-solid fa-play"></i>
 		{:else if isSoon && !triggerReload}
 			<i class="fa-solid fa-hourglass-half"></i>
 		{/if}
-		<div class="inline-flex items-center">
-			{#each getTimeUnitsToShow(numbersShown, formattedTime) as unit, index}
-				{#each unit.value.split('') as digit}
-					<div>{digit}</div>
+		<div class="flex items-center gap-0.5">
+			<div class="flex items-center">
+				{#each getTimeUnitsToShow(numbersShown, formattedTime) as unit, index}
+					{#each unit.value.split('') as digit}
+						<div>{digit}</div>
+					{/each}
+					{#if index < getTimeUnitsToShow(numbersShown, formattedTime).length - 1}
+						<div>:</div>
+					{/if}
 				{/each}
-				{#if index < getTimeUnitsToShow(numbersShown, formattedTime).length - 1}
+			</div>
+			{#if (duration[0] > 0 || duration[1] > 0) && isActive}
+				<div>/</div>
+				<div class="inline-flex items-center">
+					{#if duration[0] > 0}
+						<div>
+							{duration[0].toString().padStart(2, '0')}
+						</div>
+						<div>:</div>
+					{/if}
+					<div>
+						{duration[1].toString().padStart(2, '0')}
+					</div>
 					<div>:</div>
-				{/if}
-			{/each}
+					<div>00</div>
+				</div>
+			{/if}
 		</div>
 	</div>
 	{#if add.length > 0}
