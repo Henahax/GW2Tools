@@ -1,25 +1,47 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
+
 	let {
 		targetTime,
 		soonTime = 300000,
-		numbersShown = 3
+		numbersShown = 3,
+		triggerReload = false,
+		add = ''
 	} = $props<{
 		targetTime: number;
 		soonTime?: number;
-		numbersShown: number;
+		numbersShown?: number;
+		triggerReload?: boolean;
+		add?: string;
 	}>();
 
 	let currentTime = $state(Math.abs(Date.now()));
 	let difference = $derived(targetTime - currentTime);
-	let isSoon = $derived(Math.abs(difference) < soonTime && difference > 0);
-	let isActive = $derived(Math.abs(difference) < 0);
+	let isSoon = $derived(difference < soonTime && difference > 0);
+	let isActive = $derived(difference < 0);
 	let formattedTime = $derived(formatTime(difference, numbersShown));
 
 	$effect(() => {
 		const interval = setInterval(() => {
-			currentTime = Math.abs(Date.now());
+			currentTime = Date.now();
+
+			// reload page on date change
+			if (triggerReload && difference < 0) {
+				goto(window.location.pathname);
+			}
 		}, 1000);
+
+		return () => clearInterval(interval);
 	});
+
+	function getTimeUnitsToShow(mode: number, time: ReturnType<typeof formatTime>) {
+		const units = [];
+		if (mode >= 4) units.push({ value: time.days });
+		if (mode >= 3) units.push({ value: time.hours });
+		if (mode >= 2) units.push({ value: time.minutes });
+		units.push({ value: time.seconds });
+		return units;
+	}
 
 	function formatTime(milliseconds: number, mode: number) {
 		const totalSeconds = Math.floor(Math.abs(milliseconds) / 1000);
@@ -60,50 +82,30 @@
 </script>
 
 <div
-	class="timer inline-flex items-center {isActive ? 'text-green-500' : ''} {isSoon
-		? 'text-yellow-500'
-		: ''}"
+	class="line-h flex flex-col items-end"
+	class:text-green-500={isActive}
+	class:text-yellow-500={isSoon}
+	class:text-neutral-400={!isActive && !isSoon && !triggerReload}
 >
-	{#if numbersShown === 4}
-		{#each formattedTime.days.split('') as digit}
-			<div>{digit}</div>
-		{/each}
-		<div>:</div>
-		{#each formattedTime.hours.split('') as digit}
-			<div>{digit}</div>
-		{/each}
-		<div>:</div>
-		{#each formattedTime.minutes.split('') as digit}
-			<div>{digit}</div>
-		{/each}
-		<div>:</div>
-		{#each formattedTime.seconds.split('') as digit}
-			<div>{digit}</div>
-		{/each}
-	{:else if numbersShown === 3}
-		{#each formattedTime.hours.split('') as digit}
-			<div>{digit}</div>
-		{/each}
-		<div>:</div>
-		{#each formattedTime.minutes.split('') as digit}
-			<div>{digit}</div>
-		{/each}
-		<div>:</div>
-		{#each formattedTime.seconds.split('') as digit}
-			<div>{digit}</div>
-		{/each}
-	{:else if numbersShown === 2}
-		{#each formattedTime.minutes.split('') as digit}
-			<div>{digit}</div>
-		{/each}
-		<div>:</div>
-		{#each formattedTime.seconds.split('') as digit}
-			<div>{digit}</div>
-		{/each}
-	{:else}
-		{#each formattedTime.seconds.split('') as digit}
-			<div>{digit}</div>
-		{/each}
+	<div class="timer inline-flex items-center gap-1.5">
+		{#if isActive && !triggerReload}
+			<i class="fa-solid fa-play"></i>
+		{:else if isSoon && !triggerReload}
+			<i class="fa-solid fa-hourglass-half"></i>
+		{/if}
+		<div class="inline-flex items-center">
+			{#each getTimeUnitsToShow(numbersShown, formattedTime) as unit, index}
+				{#each unit.value.split('') as digit}
+					<div>{digit}</div>
+				{/each}
+				{#if index < getTimeUnitsToShow(numbersShown, formattedTime).length - 1}
+					<div>:</div>
+				{/if}
+			{/each}
+		</div>
+	</div>
+	{#if add.length > 0}
+		<div>{add}</div>
 	{/if}
 </div>
 

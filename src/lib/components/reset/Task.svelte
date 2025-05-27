@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { ResetTask, ResetCategory, ResetInterval } from '../../../routes/reset/Reset.svelte';
-	import EventTimer from './EventTimer.svelte';
+	import EventTimer from '$lib/components/reset/NewEventTimer.svelte';
 
 	let { task, interval, category, currentTime } = $props<{
 		task: ResetTask;
@@ -40,10 +40,10 @@
 		</div>
 	</div>
 
-	<div class="flex items-center gap-2">
+	<div class="flex items-center gap-2 text-xs">
 		{#if !task.checked}
 			{#if task.timer}
-				<EventTimer {currentTime} timer={task.timer} />
+				<EventTimer timer={task.timer} />
 			{/if}
 		{/if}
 

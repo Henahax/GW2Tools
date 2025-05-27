@@ -17,7 +17,7 @@
 		: ''}"
 >
 	<button
-		class="col-span-full flex items-center gap-2 rounded-sm bg-neutral-800 px-4 py-1 text-xs text-neutral-400 max-sm:py-2"
+		class="col-span-full flex items-center gap-2 rounded-sm bg-neutral-800 px-3.5 py-1 text-xs text-neutral-400"
 		onclick={() => category.toggleOpen()}
 	>
 		<i class={interval.icon}></i>

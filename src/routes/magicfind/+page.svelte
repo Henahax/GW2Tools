@@ -105,7 +105,7 @@
 							{/each}
 						</div>
 						<div class="flex flex-col">
-							<div class="flex flex-wrap gap-4">
+							<div class="flex flex-wrap gap-x-2">
 								{#each item.names as name}
 									<a href={name.link} target="_blank" rel="noopener noreferrer">{name.name}</a>
 								{/each}

@@ -7,7 +7,7 @@
 	} from '$lib/helpers/ResetFunctions';
 	import Interval from '$lib/components/reset/Interval.svelte';
 
-	import NewTimer from '$lib/components/reset/NewTimer.svelte';
+	import Timer from '$lib/components/reset/NewTimer.svelte';
 
 	let reset = $state(new Reset(resetData));
 	let overlayOpen = $state(false);
@@ -29,27 +29,31 @@
 	}
 </script>
 
-<div class="flex w-full items-center gap-8 self-center p-4">
-	<div class="flex grow flex-col">
-		<div class="text-3xl">Reset</div>
-		<div>unter</div>
+<div class="flex w-full flex-wrap items-center gap-8 self-center p-4 max-sm:flex-col">
+	<div class="flex grow flex-col self-start">
+		<div class="text-2xl">Reset Checklist</div>
+		<div>chose displayed time-gated tasks</div>
 	</div>
 
-	<div class="grid grid-flow-col grid-cols-[auto_auto] gap-4 sm:grid-cols-[auto_auto_auto_auto]">
+	<div
+		class="grid grid-flow-col grid-cols-[auto_auto] gap-4 self-end sm:grid-cols-[auto_auto_auto_auto]"
+	>
 		<div class="flex flex-col text-end">
 			<div class="text-sm">{reset.intervals[0].timer}</div>
-			<NewTimer
+			<Timer
 				targetTime={getUTCTimeForStartOfNextWeek().getTime()}
 				soonTime={86400000}
 				numbersShown={4}
+				triggerReload={true}
 			/>
 		</div>
 		<div class="flex flex-col text-end">
 			<div class="text-sm">{reset.intervals[1].timer}</div>
-			<NewTimer
+			<Timer
 				targetTime={getUTCTimeForStartOfNextDay().getTime()}
-				soonTime={3600000}
+				soonTime={10800000}
 				numbersShown={3}
+				triggerReload={true}
 			/>
 		</div>
 
