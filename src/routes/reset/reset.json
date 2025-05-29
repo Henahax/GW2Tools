@@ -24,6 +24,7 @@
 						"name": "Mystic Coins",
 						"icon": "https://render.guildwars2.com/file/AB0317DF5B0E1BA47436A5420248660765154C08/62864.png",
 						"location": "Wizard's Tower",
+						"chatcode": "[&BB8OAAA=]",
 						"link": "https://wiki.guildwars2.com/wiki/Mystic_Coin",
 						"display": true
 					},
@@ -39,6 +40,7 @@
 						"name": "Antique Summoning Stones",
 						"icon": "https://render.guildwars2.com/file/04DDE41E0EF34E2962E9A44CAE609FAA05283A08/2595107.png",
 						"location": "Arborstone",
+						"chatcode": "[&BGMNAAA=]",
 						"link": "https://wiki.guildwars2.com/wiki/Leivas#Weekly_Sales"
 					},
 					{
@@ -46,6 +48,7 @@
 						"name": "Wizard's Tower Exchange",
 						"icon": "https://render.guildwars2.com/file/B31D303CE52BA0072006BD921AA3125ADBDD2CB6/3301297.png",
 						"location": "Wizard's Tower",
+						"chatcode": "[&BB8OAAA=]",
 						"link": "https://wiki.guildwars2.com/wiki/Gharr_Leadclaw"
 					},
 					{
@@ -53,6 +56,7 @@
 						"name": "Homestead Refinement",
 						"icon": "https://render.guildwars2.com/file/1866B143DEBFCBBAA31DAFB317544E56070AF174/3375059.png",
 						"location": "Hearth's Glow",
+						"chatcode": "[&BMUOAAA=]",
 						"link": "https://wiki.guildwars2.com/wiki/Hearth%27s_Glow#Objects"
 					}
 				]
@@ -80,6 +84,7 @@
 						"name": "Vigil Emissary Chest",
 						"icon": "https://render.guildwars2.com/file/489AD63A6803782E5CBE6B7244ED7F7C0FA0BB41/2149902.png",
 						"location": "Eye of the North",
+						"chatcode": "[&BAkMAAA=]",
 						"link": "https://wiki.guildwars2.com/wiki/Vigil_Emissary_Chest"
 					}
 				]
@@ -100,6 +105,7 @@
 						"name": "Divine Lucky Envelopes",
 						"icon": "https://render.guildwars2.com/file/9D94B96446F269662F6ACC2531394A06C0E03951/947657.png",
 						"location": "Divinity's Reach & Guild Hall",
+						"chatcode": "[&BCwDAAA=]",
 						"description": "Lunar New Year",
 						"link": "https://wiki.guildwars2.com/wiki/Divine_Lucky_Envelope"
 					},

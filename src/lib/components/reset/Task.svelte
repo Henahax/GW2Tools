@@ -8,6 +8,10 @@
 		interval: ResetInterval;
 		currentTime: number;
 	}>();
+
+	function copyToClipBoard(chatcode: string) {
+		navigator.clipboard.writeText(chatcode);
+	}
 </script>
 
 <label
@@ -47,15 +51,31 @@
 			{/if}
 		{/if}
 
-		<a
-			class="text-sm text-neutral-500 transition ease-in-out hover:text-neutral-200"
-			href={task.link}
-			target="_blank"
-			rel="noopener noreferrer"
-			aria-label={task.description}
-		>
-			<i class="fa-solid fa-circle-info"></i>
-		</a>
+		<div class="flex items-center gap-1">
+			{#if task.chatcode}
+				<button
+					class="text-sm text-neutral-500 transition ease-in-out hover:text-neutral-200"
+					aria-label="copy waypoint"
+					title="copy waypoint"
+					onclick={() => copyToClipBoard(task.chatcode)}
+				>
+					<i class="fa-solid fa-copy"></i>
+				</button>
+			{/if}
+
+			{#if task.link}
+				<a
+					class="text-sm text-neutral-500 transition ease-in-out hover:text-neutral-200"
+					href={task.link}
+					target="_blank"
+					title="open info link"
+					rel="noopener noreferrer"
+					aria-label="open info link"
+				>
+					<i class="fa-solid fa-circle-info"></i>
+				</a>
+			{/if}
+		</div>
 	</div>
 </label>
 

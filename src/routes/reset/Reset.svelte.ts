@@ -59,6 +59,7 @@ export class ResetTask {
     link = "";
     description? = "";
     location? = "";
+    chatcode? = "";
     timer? = $state<ResetTimer>()
 
     setDisplay(value: boolean) {
