@@ -14,7 +14,7 @@
 					{
 						"id": "mystic-clovers",
 						"name": "Mystic Clovers",
-						"icon": "https://wiki.guildwars2.com/images/7/7c/Mystic_Clover.png",
+						"icon": "https://render.guildwars2.com/file/FE9DC3E10D4B2AE16DADEB07CF28A058570E2EF3/455855.png",
 						"description": "Various currencies",
 						"link": "https://wiki.guildwars2.com/wiki/Mystic_Clover",
 						"display": true
@@ -22,7 +22,7 @@
 					{
 						"id": "mystic-coins",
 						"name": "Mystic Coins",
-						"icon": "https://wiki.guildwars2.com/images/b/b5/Mystic_Coin.png",
+						"icon": "https://render.guildwars2.com/file/AB0317DF5B0E1BA47436A5420248660765154C08/62864.png",
 						"location": "Wizard's Tower",
 						"link": "https://wiki.guildwars2.com/wiki/Mystic_Coin",
 						"display": true
@@ -30,21 +30,21 @@
 					{
 						"id": "mist-hardened-lockbox-key",
 						"name": "Mist-Hardened Lockbox Key",
-						"icon": "https://wiki.guildwars2.com/images/a/ad/Mist-Hardened_Lockbox_Key.png",
+						"icon": "https://render.guildwars2.com/file/1DCD981F974E3A3F134AA90223970105759F0F77/3072497.png",
 						"location": "WvW-Maps",
 						"link": "https://wiki.guildwars2.com/wiki/Mist-Hardened_Lockbox_Key"
 					},
 					{
 						"id": "antique-summoning-stones",
 						"name": "Antique Summoning Stones",
-						"icon": "https://wiki.guildwars2.com/images/f/f6/Antique_Summoning_Stone.png",
+						"icon": "https://render.guildwars2.com/file/04DDE41E0EF34E2962E9A44CAE609FAA05283A08/2595107.png",
 						"location": "Arborstone",
 						"link": "https://wiki.guildwars2.com/wiki/Leivas#Weekly_Sales"
 					},
 					{
 						"id": "wizards-tower-exchange-weekly",
 						"name": "Wizard's Tower Exchange",
-						"icon": "https://wiki.guildwars2.com/images/c/cd/Portable_Wizard%27s_Tower_Exchange.png",
+						"icon": "https://render.guildwars2.com/file/B31D303CE52BA0072006BD921AA3125ADBDD2CB6/3301297.png",
 						"location": "Wizard's Tower",
 						"link": "https://wiki.guildwars2.com/wiki/Gharr_Leadclaw"
 					},
