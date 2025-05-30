@@ -16,16 +16,31 @@
 		? 'hidden'
 		: ''}"
 >
+	<!-- todo: check if done -->
 	<button
-		class="col-span-full flex items-center gap-2 rounded-sm bg-neutral-800 px-3.5 py-1 text-xs text-neutral-400"
+		class="col-span-full flex items-center gap-2 rounded-sm border border-neutral-700 bg-neutral-800 py-1 pl-3.5 pr-2.5 text-xs text-neutral-400 hover:border-neutral-500"
 		onclick={() => category.toggleOpen()}
 	>
-		<i class={interval.icon}></i>
-		{category.name} ({category.tasks
+		{#if category.tasks
 			.filter((task: ResetTask) => task.display === true)
-			.filter((task: ResetTask) => task.checked === true).length}/{category.tasks.filter(
-			(task: ResetTask) => task.display === true
-		).length})
+			.filter((task: ResetTask) => task.checked === true).length === category.tasks.filter((task: ResetTask) => task.display === true).length}
+			<i class="fa-solid fa-check"></i>
+		{:else}
+			<i class={interval.icon}></i>
+		{/if}
+
+		<div class="grow text-left">
+			{category.name} ({category.tasks
+				.filter((task: ResetTask) => task.display === true)
+				.filter((task: ResetTask) => task.checked === true).length}/{category.tasks.filter(
+				(task: ResetTask) => task.display === true
+			).length})
+		</div>
+		{#if category.tasks
+			.filter((task: ResetTask) => task.display === true)
+			.filter((task: ResetTask) => task.checked === true).length === category.tasks.filter((task: ResetTask) => task.display === true).length}
+			<i class="fa-solid fa-check"></i>
+		{/if}
 	</button>
 	<div
 		class="section-content col-span-full grid grid-cols-subgrid divide-y divide-neutral-800 {category.open

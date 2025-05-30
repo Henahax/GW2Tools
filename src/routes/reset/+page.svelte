@@ -1,13 +1,13 @@
 <script lang="ts">
 	import resetData from './reset.json';
-	import { Reset, ResetInterval, ResetTask } from './Reset.svelte';
+	import { Reset, ResetInterval } from './Reset.svelte';
 	import {
 		getUTCTimeForStartOfNextDay,
 		getUTCTimeForStartOfNextWeek
 	} from '$lib/helpers/ResetFunctions';
 	import Interval from '$lib/components/reset/Interval.svelte';
 
-	import Timer from '$lib/components/reset/NewTimer.svelte';
+	import Timer from '$lib/components/reset/Timer.svelte';
 
 	let reset = $state(new Reset(resetData));
 	let overlayOpen = $state(false);
@@ -30,41 +30,42 @@
 </script>
 
 <div class="flex w-full flex-wrap items-center gap-8 self-center p-4 max-sm:flex-col">
-	<div class="flex grow flex-col self-start">
+	<div class="flex flex-col self-start">
 		<div class="text-2xl">Reset Checklist</div>
 		<div>chose displayed time-gated tasks</div>
 	</div>
 
-	<div
-		class="grid grid-flow-col grid-cols-[auto_auto] gap-4 self-end sm:grid-cols-[auto_auto_auto_auto]"
-	>
-		<div class="flex flex-col text-end">
-			<div class="text-sm">{reset.intervals[0].timer}</div>
-			<Timer
-				targetTime={getUTCTimeForStartOfNextWeek().getTime()}
-				soonTime={86400000}
-				numbersShown={4}
-				triggerReload={true}
-			/>
+	<div class="grid grow grid-flow-col gap-4 self-end">
+		<div class="flex grow justify-end gap-4">
+			<div class="flex flex-col text-end">
+				<div class="text-sm">{reset.intervals[0].timer}</div>
+				<Timer
+					targetTime={getUTCTimeForStartOfNextWeek().getTime()}
+					soonTime={86400000}
+					numbersShown={4}
+					triggerReload={true}
+				/>
+			</div>
+			<div class="flex flex-col text-end">
+				<div class="text-sm">{reset.intervals[1].timer}</div>
+				<Timer
+					targetTime={getUTCTimeForStartOfNextDay().getTime()}
+					soonTime={10800000}
+					numbersShown={3}
+					triggerReload={true}
+				/>
+			</div>
+			<div class="flex gap-2">
+				<button class="btn btn-primary">
+					<i class="fa-solid fa-question"></i>
+					<span class="max-sm:hidden">Info</span>
+				</button>
+				<button class="btn btn-outline" onclick={toggleOverlay}>
+					<i class="fa-solid fa-gear"></i>
+					<span class="max-sm:hidden">Settings</span>
+				</button>
+			</div>
 		</div>
-		<div class="flex flex-col text-end">
-			<div class="text-sm">{reset.intervals[1].timer}</div>
-			<Timer
-				targetTime={getUTCTimeForStartOfNextDay().getTime()}
-				soonTime={10800000}
-				numbersShown={3}
-				triggerReload={true}
-			/>
-		</div>
-
-		<button class="btn btn-outline" onclick={toggleOverlay}>
-			<i class="fa-solid fa-gear"></i>
-			<span class="max-sm:hidden">Settings</span>
-		</button>
-		<button class="btn btn-primary">
-			<i class="fa-solid fa-question"></i>
-			<span class="max-sm:hidden">Info</span>
-		</button>
 	</div>
 </div>
 
@@ -132,7 +133,11 @@
 													.toLowerCase()
 													.includes(filter.toLowerCase()))) as task: ResetTask}
 										<label class="grid grid-cols-[auto_auto_1fr] items-center gap-2">
-											<input type="checkbox" bind:checked={task.display} />
+											<input
+												type="checkbox"
+												bind:checked={task.display}
+												onchange={(e) => task.setDisplay(e.currentTarget.checked)}
+											/>
 											<img class="size-6 rounded" src={task.icon} alt={task.name} />
 											<div class="flex flex-col text-xs">
 												<div class="font-semibold">{task.name}</div>

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { ResetTask, ResetCategory, ResetInterval } from '../../../routes/reset/Reset.svelte';
-	import EventTimer from '$lib/components/reset/NewEventTimer.svelte';
+	import EventTimer from '$lib/components/reset/EventTimer.svelte';
 
 	let { task, interval, category, currentTime } = $props<{
 		task: ResetTask;
@@ -15,7 +15,7 @@
 </script>
 
 <label
-	class="col-span-full flex items-center gap-4 p-2 {task.checked
+	class="col-span-full flex items-center gap-4 px-2 py-1.5 {task.checked
 		? 'text-neutral-400 line-through'
 		: ''}"
 >
@@ -51,18 +51,7 @@
 			{/if}
 		{/if}
 
-		<div class="flex items-center gap-1">
-			{#if task.chatcode}
-				<button
-					class="text-sm text-neutral-500 transition ease-in-out hover:text-neutral-200"
-					aria-label="copy waypoint"
-					title="copy waypoint"
-					onclick={() => copyToClipBoard(task.chatcode)}
-				>
-					<i class="fa-solid fa-copy"></i>
-				</button>
-			{/if}
-
+		<div class="flex flex-col items-center">
 			{#if task.link}
 				<a
 					class="text-sm text-neutral-500 transition ease-in-out hover:text-neutral-200"
@@ -74,6 +63,16 @@
 				>
 					<i class="fa-solid fa-circle-info"></i>
 				</a>
+			{/if}
+			{#if task.chatcode}
+				<button
+					class="text-sm text-neutral-500 transition ease-in-out hover:text-neutral-200"
+					aria-label="copy waypoint"
+					title="copy waypoint"
+					onclick={() => copyToClipBoard(task.chatcode)}
+				>
+					<i class="fa-solid fa-copy"></i>
+				</button>
 			{/if}
 		</div>
 	</div>

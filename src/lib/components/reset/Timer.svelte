@@ -1,39 +1,80 @@
 <script lang="ts">
-	import FlipDigit from './FlipDigit.svelte';
+	import { goto } from '$app/navigation';
 
 	let {
-		highestShown = 0,
-		currentTime,
-		targetTime
-	} = $props<{ highestShown: number; currentTime: number; targetTime: number }>();
+		targetTime,
+		soonTime = 300000,
+		numbersShown = 3,
+		triggerReload = false,
+		add = '',
+		duration = [0, 0]
+	} = $props<{
+		targetTime: number;
+		soonTime?: number;
+		numbersShown?: number;
+		triggerReload?: boolean;
+		add?: string;
+		duration?: [number, number];
+	}>();
 
-	let seconds = $derived(targetTime - currentTime);
+	let currentTime = $state(Math.abs(Date.now()));
+	let difference = $derived(targetTime - currentTime);
+	let isSoon = $derived(difference < soonTime && difference > 0);
+	let isActive = $derived(difference < 0);
+	let formattedTime = $derived(formatTime(difference, numbersShown));
+
+	if (!triggerReload && !isActive) {
+		numbersShown = 3;
+	}
+
+	$effect(() => {
+		const interval = setInterval(() => {
+			currentTime = Date.now();
+
+			// reload page on date change
+			if (triggerReload && difference < 0) {
+				goto(window.location.pathname);
+			}
+		}, 1000);
+
+		return () => clearInterval(interval);
+	});
+
+	function getTimeUnitsToShow(mode: number, time: ReturnType<typeof formatTime>) {
+		const units = [];
+		if (mode >= 4) units.push({ value: time.days });
+		if (mode >= 3) units.push({ value: time.hours });
+		if (mode >= 2) units.push({ value: time.minutes });
+		units.push({ value: time.seconds });
+		return units;
+	}
 
 	function formatTime(milliseconds: number, mode: number) {
 		const totalSeconds = Math.floor(Math.abs(milliseconds) / 1000);
 		let days = 0,
 			hours = 0,
 			minutes = 0,
-			remainingSeconds = 0;
+			seconds = 0;
+		// Time formatting logic continues below
 
 		switch (mode) {
-			case 0: // DAYS
+			case 4: // DAYS
 				days = Math.floor(totalSeconds / 86400);
 				hours = Math.floor((totalSeconds % 86400) / 3600);
 				minutes = Math.floor((totalSeconds % 3600) / 60);
-				remainingSeconds = totalSeconds % 60;
+				seconds = totalSeconds % 60;
 				break;
-			case 1: // HOURS
+			case 3: // HOURS
 				hours = Math.floor(totalSeconds / 3600);
 				minutes = Math.floor((totalSeconds % 3600) / 60);
-				remainingSeconds = totalSeconds % 60;
+				seconds = totalSeconds % 60;
 				break;
 			case 2: // MINUTES
 				minutes = Math.floor(totalSeconds / 60);
-				remainingSeconds = totalSeconds % 60;
+				seconds = totalSeconds % 60;
 				break;
-			case 3: // SECONDS
-				remainingSeconds = totalSeconds;
+			case 1: // SECONDS
+				seconds = totalSeconds;
 				break;
 		}
 
@@ -41,48 +82,54 @@
 			days: days.toString().padStart(2, '0'),
 			hours: hours.toString().padStart(2, '0'),
 			minutes: minutes.toString().padStart(2, '0'),
-			seconds: remainingSeconds.toString().padStart(2, '0')
+			seconds: seconds.toString().padStart(2, '0')
 		};
 	}
-
-	let formattedTime = $derived(formatTime(seconds, highestShown));
 </script>
 
-<div class="timer inline-flex items-center">
-	{#if highestShown === 0}
-		{#each formattedTime.days.split('') as digit}
-			<FlipDigit {digit} />
-		{/each}:
-		{#each formattedTime.hours.split('') as digit}
-			<FlipDigit {digit} />
-		{/each}:
-		{#each formattedTime.minutes.split('') as digit}
-			<FlipDigit {digit} />
-		{/each}:
-		{#each formattedTime.seconds.split('') as digit}
-			<FlipDigit {digit} />
-		{/each}
-	{:else if highestShown === 1}
-		{#each formattedTime.hours.split('') as digit}
-			<FlipDigit {digit} />
-		{/each}:
-		{#each formattedTime.minutes.split('') as digit}
-			<FlipDigit {digit} />
-		{/each}:
-		{#each formattedTime.seconds.split('') as digit}
-			<FlipDigit {digit} />
-		{/each}
-	{:else if highestShown === 2}
-		{#each formattedTime.minutes.split('') as digit}
-			<FlipDigit {digit} />
-		{/each}:
-		{#each formattedTime.seconds.split('') as digit}
-			<FlipDigit {digit} />
-		{/each}
-	{:else}
-		{#each formattedTime.seconds.split('') as digit}
-			<FlipDigit {digit} />
-		{/each}
+<div
+	class="flex flex-col items-end"
+	class:text-green-500={isActive}
+	class:text-yellow-500={isSoon}
+	class:text-neutral-400={!isActive && !isSoon && !triggerReload}
+>
+	<div class="timer flex items-center gap-1.5">
+		{#if isActive && !triggerReload}
+			<i class="fa-solid fa-play"></i>
+		{:else if isSoon && !triggerReload}
+			<i class="fa-solid fa-hourglass-half"></i>
+		{/if}
+		<div class="flex items-center gap-0.5">
+			<div class="flex items-center">
+				{#each getTimeUnitsToShow(numbersShown, formattedTime) as unit, index}
+					{#each unit.value.split('') as digit}
+						<div>{digit}</div>
+					{/each}
+					{#if index < getTimeUnitsToShow(numbersShown, formattedTime).length - 1}
+						<div>:</div>
+					{/if}
+				{/each}
+			</div>
+			{#if (duration[0] > 0 || duration[1] > 0) && isActive}
+				<div>/</div>
+				<div class="inline-flex items-center">
+					{#if duration[0] > 0}
+						<div>
+							{duration[0].toString().padStart(2, '0')}
+						</div>
+						<div>:</div>
+					{/if}
+					<div>
+						{duration[1].toString().padStart(2, '0')}
+					</div>
+					<div>:</div>
+					<div>00</div>
+				</div>
+			{/if}
+		</div>
+	</div>
+	{#if add.length > 0}
+		<div>{add}</div>
 	{/if}
 </div>
 
