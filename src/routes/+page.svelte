@@ -2,7 +2,7 @@
 	let { data }: { data: any } = $props();
 </script>
 
-<div>TODO</div>
+<div class="grow">TODO</div>
 
 <style>
 </style>
