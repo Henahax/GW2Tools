@@ -16,7 +16,7 @@
 				<span class="max-sm:hidden">magic find</span>
 			</a>
 		</nav>
-		<div>todo: Login</div>
+		<div></div>
 	</header>
 	<main class="flex w-full max-w-7xl grow flex-col self-center overflow-y-auto">
 		<div class="flex h-full w-full flex-col self-center">

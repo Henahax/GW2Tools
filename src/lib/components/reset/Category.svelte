@@ -10,15 +10,13 @@
 </script>
 
 <div
-	class="col-span-full grid break-inside-avoid grid-cols-subgrid rounded-sm border border-neutral-800 bg-neutral-900 {category.tasks.filter(
-		(task: ResetTask) => task.display === true
-	).length === 0
-		? 'hidden'
-		: ''}"
+	class="col-span-full grid break-inside-avoid grid-cols-subgrid rounded-sm border border-neutral-800 shadow-md
+
+ {category.tasks.filter((task: ResetTask) => task.display === true).length === 0 ? 'hidden' : ''}"
 >
 	<!-- todo: check if done -->
 	<button
-		class="col-span-full flex items-center gap-2 rounded-sm border border-neutral-700 bg-neutral-800 py-1 pl-3.5 pr-2.5 text-xs text-neutral-400 hover:border-neutral-500"
+		class="col-span-full flex items-center gap-2 rounded border border-neutral-700 py-1 pl-3.5 pr-2.5 text-xs backdrop-blur-md hover:border-neutral-500"
 		onclick={() => category.toggleOpen()}
 	>
 		{#if category.tasks
@@ -55,6 +53,7 @@
 
 <style>
 	.section-content {
+		background-color: var(--card-background);
 		transition: height 0.25s ease-in-out;
 		transition: width 0.25s ease-in-out;
 		overflow: clip;

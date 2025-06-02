@@ -9,7 +9,12 @@
 	--background: var(--color-neutral-950);
 	--foreground: var(--color-neutral-50);
 
-	--primary: var(--color-indigo-500);
+	--background-muted: var(--color-neutral-600);
+	--foreground-muted: var(--color-neutral-400);
+
+	--primary: var(--color-indigo-600);
+	--primary-muted: var(--color-indigo-700);
+	--primary-highlight: var(--color-indigo-500);
 
 	--card-background: var(--color-neutral-900);
 	--card-background-light: var(--color-neutral-800);
@@ -17,6 +22,11 @@
 	--border: var(--color-neutral-800);
 
 	font-size: 1rem;
+}
+
+html {
+	background-color: var(--background);
+	color: var(--foreground);
 }
 
 input,
@@ -71,7 +81,15 @@ button {
 	color: var(--foreground);
 }
 
+.btn-primary:hover {
+	background-color: var(--primary-highlight);
+}
+
 .btn-outline {
+	border: 1px solid var(--foreground-muted);
+}
+
+.btn-outline:hover {
 	border: 1px solid var(--foreground);
 }
 

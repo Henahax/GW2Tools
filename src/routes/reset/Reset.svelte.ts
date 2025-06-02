@@ -16,11 +16,11 @@ export class Reset {
                         let resetTask = Object.assign(new ResetTask(), task);
                         cookies.filter(cookie => cookie.namespace === resetTask.id).forEach(cookie => {
                             if (cookie.subname === "display") {
-                                resetTask.display = cookie.value === "true";
+                                resetTask.setDisplay(cookie.value === "true");
                             } else if (cookie.subname === "weekly" && interval.interval === "weekly") {
-                                resetTask.checked = cookie.value === "true";
+                                resetTask.setChecked(cookie.value === "true", resetInterval, resetCategory);
                             } else if (cookie.subname === "daily" && interval.interval === "daily") {
-                                resetTask.checked = cookie.value === "true";
+                                resetTask.setChecked(cookie.value === "true", resetInterval, resetCategory);
                             }
                         });
 
@@ -31,6 +31,12 @@ export class Reset {
                         }
                         return resetTask;
                     });
+
+                    // Update category open state based on initial task states
+                    const displayedTasks = resetCategory.tasks.filter((task: ResetTask) => task.display);
+                    const allDisplayedTasksChecked = displayedTasks.length > 0 && displayedTasks.every((task: ResetTask) => task.checked);
+                    resetCategory.open = !allDisplayedTasksChecked;
+
                     return resetCategory;
                 });
                 return resetInterval;
@@ -82,9 +88,9 @@ export class ResetTask {
     setChecked(value: boolean, interval: ResetInterval, category: ResetCategory) {
         this.checked = value;
 
-        if (category.tasks.filter(task => task.display).filter(task => !task.checked).length === 0) {
-            category.open = false;
-        }
+        const displayedTasks = category.tasks.filter(task => task.display);
+        const allDisplayedTasksChecked = displayedTasks.length > 0 && displayedTasks.every(task => task.checked);
+        category.open = !allDisplayedTasksChecked;
 
         setCookie(value, this.id, CookieType.checked, interval.interval);
     }

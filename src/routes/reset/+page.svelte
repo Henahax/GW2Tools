@@ -178,10 +178,4 @@
 	.menu.open {
 		transform: translateX(0);
 	}
-
-	/* TODO: Only Toggle Button */
-	button:hover {
-		background-color: var(--color-neutral-800);
-		color: white;
-	}
 </style>
