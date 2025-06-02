@@ -15,7 +15,7 @@
 </script>
 
 <label
-	class="col-span-full flex items-center gap-4 px-2 py-1.5 {task.checked
+	class="col-span-full flex items-center gap-4 px-2 py-1.5 hover:brightness-125 {task.checked
 		? 'text-neutral-400 line-through'
 		: ''}"
 >
