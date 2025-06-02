@@ -4,18 +4,20 @@
 			title: 'test',
 			subtitle: 'test subtitle',
 			icon: 'fa-solid fa-arrows-rotate',
-			subitems: ['test1', 'test2']
+			subitems: ['test1', 'test2'],
+			link: '/reset'
 		},
 		{
 			title: 'test2',
 			subtitle: 'test subtitle 2',
 			icon: 'fa-solid fa-clover',
-			subitems: ['test1', 'test2']
+			subitems: ['test1', 'test2'],
+			link: '/magicfind'
 		}
 	];
 
 	const external = [
-		{ title: 'efficiency', subtitle: 'a' },
+		{ title: 'efficiency', subtitle: 'a', link: 'https://gw2efficiency.com' },
 		{ title: 'farming', subtitle: 'a' },
 		{ title: 'profits', subtitle: 'a' },
 		{ title: 'bltc', subtitle: 'a' },
@@ -29,7 +31,7 @@
 	<section class="flex flex-col">
 		<div class="grid w-fit grid-cols-2 gap-4 self-center max-sm:grid-cols-1">
 			{#each internal as item}
-				<div class="flex flex-col gap-2 rounded-2xl border p-4 text-center">
+				<a class="flex flex-col gap-2 rounded-2xl border p-4 text-center" href={item.link}>
 					<i class="text-4xl {item.icon}"></i>
 					<div>
 						<div class="text-2xl">{item.title}</div>
@@ -42,16 +44,16 @@
 							{/each}
 						</ul>
 					{/if}
-				</div>
+				</a>
 			{/each}
 		</div>
 	</section>
 	<div class="flex flex-wrap justify-center gap-2 self-center">
 		{#each external as item}
-			<div class="flex flex-col rounded-2xl border p-2 text-center">
+			<a class="flex flex-col rounded-2xl border p-2 text-center" href={item.link}>
 				<div>{item.title}</div>
 				<div class="text-xs">{item.subtitle}</div>
-			</div>
+			</a>
 		{/each}
 	</div>
 </div>

@@ -10,7 +10,7 @@
 </script>
 
 <div
-	class="col-span-full grid break-inside-avoid grid-cols-subgrid rounded-sm border border-neutral-800 shadow-md
+	class="col-span-full grid w-fit break-inside-avoid grid-cols-subgrid rounded-sm border border-neutral-800 shadow-md
 
  {category.tasks.filter((task: ResetTask) => task.display === true).length === 0 ? 'hidden' : ''}"
 >
@@ -54,8 +54,7 @@
 <style>
 	.section-content {
 		background-color: var(--card-background);
-		transition: height 0.25s ease-in-out;
-		transition: width 0.25s ease-in-out;
+		transition: height 0.5s ease-in-out;
 		overflow: clip;
 		interpolate-size: allow-keywords;
 	}

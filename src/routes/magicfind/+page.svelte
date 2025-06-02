@@ -159,7 +159,7 @@
 	}
 
 	.section-content {
-		transition: height 0.5s ease;
+		transition: height 0.5s ease-in-out;
 		overflow: clip;
 		interpolate-size: allow-keywords;
 	}

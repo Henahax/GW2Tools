@@ -18,7 +18,7 @@
 		</nav>
 		<div></div>
 	</header>
-	<main class="flex w-full max-w-7xl grow flex-col self-center overflow-y-auto">
+	<main class="flex w-full max-w-screen-2xl grow flex-col self-center">
 		<div class="flex h-full w-full flex-col self-center">
 			{@render children()}
 			<footer class="flex items-center justify-center gap-8 p-2 text-sm text-neutral-400">
