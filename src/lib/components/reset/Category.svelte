@@ -18,11 +18,11 @@
 </script>
 
 <div
-	class="category col-span-full grid break-inside-avoid grid-cols-subgrid rounded-sm border border-neutral-800 shadow-md"
+	class="collapsible col-span-full grid break-inside-avoid grid-cols-subgrid rounded-sm border border-neutral-800 shadow-md"
 	class:hidden={displayedTasks.length === 0}
 >
 	<button
-		class="col-span-full flex items-center gap-2 rounded border border-neutral-700 py-1 pl-3.5 pr-2.5 text-xs backdrop-blur-md"
+		class="collapsible-header col-span-full flex items-center gap-2 rounded border border-neutral-700 py-1 pl-3.5 pr-2.5 text-xs backdrop-blur-md"
 		onclick={() => category.toggleOpen()}
 	>
 		{#if allDisplayedTasksChecked}
@@ -39,7 +39,7 @@
 		{/if}
 	</button>
 	<div
-		class="items col-span-full grid grid-cols-subgrid divide-y divide-neutral-800"
+		class="collapsible-content col-span-full grid grid-cols-subgrid divide-y divide-neutral-800"
 		class:closed={!category.open}
 	>
 		{#each category.tasks.filter((task: ResetTask) => task.display === true) as task: ResetTask}
@@ -49,27 +49,4 @@
 </div>
 
 <style>
-	.category button:hover {
-		border: 1px solid var(--color-neutral-500);
-	}
-
-	.category:has(button:hover) {
-		border: 1px solid var(--color-neutral-500);
-	}
-
-	.items {
-		background-color: var(--card-background);
-		transition:
-			height 0.25s ease-in-out,
-			width 0.25s ease-in-out;
-		overflow: clip;
-		interpolate-size: allow-keywords;
-		will-change: transform, opacity;
-	}
-
-	.items.closed {
-		transform: scaleY(0);
-		opacity: 0;
-		height: 0;
-	}
 </style>

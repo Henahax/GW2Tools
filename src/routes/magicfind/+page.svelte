@@ -13,7 +13,7 @@
 </script>
 
 <div
-	class="magicfind my-auto grid w-fit grid-cols-[auto_auto_1fr_4fr] gap-x-4 self-center justify-self-center rounded-lg text-xs"
+	class="magicfind grid w-fit grid-cols-[auto_auto_1fr_4fr] gap-x-4 self-center rounded-lg text-xs"
 >
 	<div
 		class="magicfind-head sticky top-0 col-span-full grid grid-cols-subgrid items-center border border-neutral-800 p-2 text-base"
@@ -23,9 +23,9 @@
 		<div>description</div>
 	</div>
 	{#each magicfind.categories as category: MagicFindCategory}
-		<div class="category col-span-full grid grid-cols-subgrid border border-neutral-800">
+		<div class="collapsible col-span-full grid grid-cols-subgrid border border-neutral-800">
 			<button
-				class="col-span-full flex gap-4 border border-neutral-800 px-3.5 py-1 text-left font-bold max-sm:py-2"
+				class="collapsible-header col-span-full flex gap-4 border border-neutral-800 px-3.5 py-1 text-left font-bold max-sm:py-2"
 				onclick={() => category.toggleOpen()}
 			>
 				<div>
@@ -40,7 +40,7 @@
 				</div>
 			</button>
 			<div
-				class="items col-span-full grid grid-cols-subgrid items-center divide-y divide-neutral-800"
+				class="collapsible-content col-span-full grid grid-cols-subgrid items-center divide-y divide-neutral-800"
 				class:closed={!category.open}
 			>
 				{#each category.items as item: MagicFindItem}
@@ -133,17 +133,9 @@
 		background-color: var(--card-background);
 	}
 
-	.category:has(button:hover) {
-		border: 1px solid var(--color-neutral-500);
-	}
-
 	.magicfind-head,
 	.magicfind-foot {
 		background-color: var(--card-background);
-	}
-
-	.category button {
-		background-color: var(--card-background-light);
 	}
 
 	.magicfind a {
@@ -159,23 +151,5 @@
 	.magicfind-head,
 	.magicfind-foot {
 		border-color: var(--border);
-	}
-
-	.items {
-		transition:
-			height 0.5s ease-in-out,
-			width 0.5s ease-in-out;
-		overflow: clip;
-		interpolate-size: allow-keywords;
-	}
-
-	.items.closed {
-		transform: scaleY(0);
-		opacity: 0;
-		height: 0;
-	}
-
-	button:hover {
-		border-color: var(--color-neutral-500);
 	}
 </style>

@@ -109,3 +109,22 @@ button {
 .timer {
 	font-family: monospace;
 }
+
+.collapsible-header:hover,
+.collapsible:has(.collapsible-header:hover) {
+	border: 1px solid var(--color-neutral-500);
+}
+
+.collapsible-content {
+	transition:
+		height 0.25s ease-in-out,
+		opacity 0.25s ease-in-out;
+	overflow: clip;
+	interpolate-size: allow-keywords;
+	will-change: height, opacity;
+}
+
+.collapsible-content.closed {
+	opacity: 0;
+	height: 0;
+}
