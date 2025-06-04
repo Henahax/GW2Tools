@@ -42,11 +42,9 @@
 		class="items col-span-full grid grid-cols-subgrid divide-y divide-neutral-800"
 		class:closed={!category.open}
 	>
-		{#if category.open}
-			{#each category.tasks.filter((task: ResetTask) => task.display === true) as task: ResetTask}
-				<Task {task} {interval} {category} />
-			{/each}
-		{/if}
+		{#each category.tasks.filter((task: ResetTask) => task.display === true) as task: ResetTask}
+			<Task {task} {interval} {category} />
+		{/each}
 	</div>
 </div>
 
@@ -61,9 +59,17 @@
 
 	.items {
 		background-color: var(--card-background);
-		transition: height 0.25s ease-in-out;
-		transition: width 0.25s ease-in-out;
+		transition:
+			height 0.25s ease-in-out,
+			width 0.25s ease-in-out;
 		overflow: clip;
 		interpolate-size: allow-keywords;
+		will-change: transform, opacity;
+	}
+
+	.items.closed {
+		transform: scaleY(0);
+		opacity: 0;
+		height: 0;
 	}
 </style>
