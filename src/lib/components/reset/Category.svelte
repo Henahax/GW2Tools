@@ -61,15 +61,9 @@
 
 	.items {
 		background-color: var(--card-background);
-		transform-origin: top;
-		transition:
-			transform 0.25s ease-in-out,
-			opacity 0.25s ease-in-out;
-		will-change: transform, opacity;
-	}
-
-	.items.closed {
-		transform: scaleY(0);
-		opacity: 0;
+		transition: height 0.25s ease-in-out;
+		transition: width 0.25s ease-in-out;
+		overflow: clip;
+		interpolate-size: allow-keywords;
 	}
 </style>

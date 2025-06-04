@@ -16,8 +16,11 @@
 			.flatMap((category: ResetCategory) => category.tasks)
 			.filter((task: ResetTask) => task.display).length})
 	</div>
-
-	<div class={interval.id === 'weekly' ? 'columns-1' : 'columns-1 gap-2 lg:columns-2 xl:columns-3'}>
+	<div
+		class={interval.id === 'weekly'
+			? 'columns-1'
+			: 'columns-1 gap-2 lg:columns-2 xl:columns-3 2xl:columns-4'}
+	>
 		<div class="grid grid-cols-[auto_auto_1fr_auto]">
 			{#each interval.categories as category: ResetCategory}
 				<Category {category} {interval} {currentTime} />
@@ -25,3 +28,5 @@
 		</div>
 	</div>
 </div>
+
+<style></style>
