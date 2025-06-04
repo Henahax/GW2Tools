@@ -132,7 +132,9 @@
 													.includes(filter.toLowerCase())) || (task.description && task.description
 													.toLowerCase()
 													.includes(filter.toLowerCase()))) as task: ResetTask}
-										<label class="grid grid-cols-[auto_auto_1fr] items-center gap-2">
+										<label
+											class="grid grid-cols-[auto_auto_1fr] items-center gap-2 hover:brightness-125"
+										>
 											<input
 												type="checkbox"
 												bind:checked={task.display}
@@ -162,6 +164,10 @@
 </div>
 
 <style>
+	label {
+		cursor: pointer;
+	}
+
 	.overlay {
 		position: fixed;
 		z-index: 10;

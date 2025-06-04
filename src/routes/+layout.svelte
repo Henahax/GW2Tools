@@ -1,6 +1,6 @@
 <script lang="ts">
 	import '../app.css';
-	let { children, data } = $props();
+	let { children } = $props();
 </script>
 
 <app class="flex h-dvh flex-col">

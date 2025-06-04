@@ -1,6 +1,4 @@
 <script lang="ts">
-	let { data }: { data: any } = $props();
-
 	const internal = [
 		{
 			title: 'test',

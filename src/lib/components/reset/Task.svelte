@@ -2,11 +2,10 @@
 	import { ResetTask, ResetCategory, ResetInterval } from '../../../routes/reset/Reset.svelte';
 	import EventTimer from '$lib/components/reset/EventTimer.svelte';
 
-	let { task, interval, category, currentTime } = $props<{
+	let { task, interval, category } = $props<{
 		task: ResetTask;
 		category: ResetCategory;
 		interval: ResetInterval;
-		currentTime: number;
 	}>();
 
 	function copyToClipBoard(chatcode: string) {
@@ -15,9 +14,9 @@
 </script>
 
 <label
-	class="col-span-full flex items-center gap-4 px-2 py-1.5 hover:brightness-125 {task.checked
-		? 'text-neutral-400 line-through'
-		: ''}"
+	class="col-span-full flex items-center gap-4 px-2 py-1.5 hover:brightness-125"
+	class:text-neutral-400={task.checked}
+	class:line-through={task.checked}
 >
 	<input
 		type="checkbox"
@@ -26,7 +25,8 @@
 		onchange={(e) => task.setChecked(e.currentTarget.checked, interval, category)}
 	/>
 	<img
-		class="size-8 self-center justify-self-center rounded {task.checked ? 'opacity-50' : ''}"
+		class="size-8 self-center justify-self-center rounded"
+		class:opacity-50={task.checked}
 		src={task.icon}
 		alt={task.description}
 	/>
@@ -54,7 +54,7 @@
 		<div class="flex flex-col items-center">
 			{#if task.link}
 				<a
-					class="text-sm text-neutral-500 transition ease-in-out hover:text-neutral-200"
+					class="text-xs text-neutral-500 transition ease-in-out hover:text-neutral-200"
 					href={task.link}
 					target="_blank"
 					title="open info link"
@@ -66,7 +66,7 @@
 			{/if}
 			{#if task.chatcode}
 				<button
-					class="text-sm text-neutral-500 transition ease-in-out hover:text-neutral-200"
+					class="text-xs text-neutral-500 transition ease-in-out hover:text-neutral-200"
 					aria-label="copy waypoint"
 					title="copy waypoint"
 					onclick={() => copyToClipBoard(task.chatcode)}

@@ -36,6 +36,14 @@
 						"link": "https://wiki.guildwars2.com/wiki/Mist-Hardened_Lockbox_Key"
 					},
 					{
+						"id": "provisioner-tokens-weekly",
+						"name": "Provisioner Tokens",
+						"icon": "https://render.guildwars2.com/file/5CF6FC0B62554EBECAC6752AAFA2B8D80F726077/1302745.png",
+						"location": "Tyria, HoT, SotO, JW",
+						"link": "https://wiki.guildwars2.com/wiki/Faction_Provisioner#Faction_Provisioners",
+						"display": true
+					},
+					{
 						"id": "antique-summoning-stones",
 						"name": "Antique Summoning Stones",
 						"icon": "https://render.guildwars2.com/file/04DDE41E0EF34E2962E9A44CAE609FAA05283A08/2595107.png",
@@ -44,12 +52,13 @@
 						"link": "https://wiki.guildwars2.com/wiki/Leivas#Weekly_Sales"
 					},
 					{
-						"id": "wizards-tower-exchange-weekly",
-						"name": "Wizard's Tower Exchange",
-						"icon": "https://render.guildwars2.com/file/B31D303CE52BA0072006BD921AA3125ADBDD2CB6/3301297.png",
+						"id": "astral-fluctuating-mass",
+						"name": "Astral Fluctuating Mass",
+						"icon": "https://render.guildwars2.com/file/F294472FD16067583D90764F4207DC2980CACAB3/3301296.png",
 						"location": "Wizard's Tower",
 						"chatcode": "[&BB8OAAA=]",
-						"link": "https://wiki.guildwars2.com/wiki/Gharr_Leadclaw"
+						"link": "https://wiki.guildwars2.com/wiki/Portable_Wizard%27s_Tower_Exchange/Weekly,_Map_Currency,_Essence_%26_Bulk_Exchanges#Weekly_Sales",
+						"display": true
 					},
 					{
 						"id": "homestead-refinement",
@@ -152,6 +161,14 @@
 				"name": "Items",
 				"tasks": [
 					{
+						"id": "wizards-gobbler",
+						"name": "Wizard's Gobbler",
+						"icon": "https://render.guildwars2.com/file/11DBB6C814E5520610C2D5049805A16938A3222F/3629215.png",
+						"description": "All converters and some merchants",
+						"link": "https://wiki.guildwars2.com/wiki/Gharr_Leadclaw/Lion%27s_Arch_Exchanges#vendor2",
+						"display": true
+					},
+					{
 						"id": "mawdrey",
 						"name": "Mawdrey II",
 						"icon": "https://render.guildwars2.com/file/7D37CF59E3101EEED557DB3F6530A02BDFE95F68/855363.png",
@@ -191,8 +208,7 @@
 						"name": "Ley-Energy Matter Converter",
 						"icon": "https://render.guildwars2.com/file/E1376A9169E13FD1059FD5CF5BCED8EFE4CE0C01/1313125.png",
 						"description": "HoT map currencies",
-						"link": "https://wiki.guildwars2.com/wiki/Ley-Energy_Matter_Converter",
-						"display": true
+						"link": "https://wiki.guildwars2.com/wiki/Ley-Energy_Matter_Converter"
 					},
 					{
 						"id": "spearmarshals-plea",
@@ -259,11 +275,11 @@
 						"link": "https://wiki.guildwars2.com/wiki/Funerary_Incense"
 					},
 					{
-						"id": "provisioner-tokens",
+						"id": "provisioner-tokens-daily",
 						"name": "Provisioner Tokens",
 						"icon": "https://render.guildwars2.com/file/5CF6FC0B62554EBECAC6752AAFA2B8D80F726077/1302745.png",
-						"location": "Central Tyria & HoT & SotO",
-						"link": "https://wiki.guildwars2.com/wiki/Faction_Provisioner#Faction_Provisioners"
+						"location": "SotO",
+						"link": "https://wiki.guildwars2.com/wiki/Faction_Provisioner#List_of_Crafting_Materials_on_daily_rotation"
 					},
 					{
 						"id": "eternal-ice",
@@ -288,13 +304,6 @@
 						"display": true
 					},
 					{
-						"id": "fishmonger-arborstone",
-						"name": "Fishmonger Arborstone",
-						"icon": "https://render.guildwars2.com/file/C113C406281D94BB560701DF350BCA9AF592AFE9/2597025.png",
-						"link": "https://wiki.guildwars2.com/wiki/Taro_Everclaw",
-						"location": "Arborstone"
-					},
-					{
 						"id": "writ-of-dragons-end",
 						"name": "Writ of Dragon's End",
 						"icon": "https://render.guildwars2.com/file/073408A1070EF6EC7DD6C297DCCDB04D600B3BCF/2594269.png",
@@ -315,11 +324,36 @@
 						"link": "https://wiki.guildwars2.com/index.php?title=Kodan_Cache_Key"
 					},
 					{
-						"id": "fishmonger-lowland-shore",
-						"name": "Fishmonger Lowland Shore",
+						"id": "daily-catch-arborstone",
+						"name": "Daily Catch: Fishmonger Arborstone",
 						"icon": "https://render.guildwars2.com/file/C113C406281D94BB560701DF350BCA9AF592AFE9/2597025.png",
+						"link": "https://wiki.guildwars2.com/wiki/Daily_Catch#Arborstone_Fishmonger_Taro_Everclaw",
+						"location": "Arborstone",
+						"chatcode": "[&BGMNAAA=]"
+					},
+					{
+						"id": "daily-catch-lowland-shore",
+						"name": "Daily Catch: Fishmonger Lowland Shore",
+						"icon": "https://render.guildwars2.com/file/C113C406281D94BB560701DF350BCA9AF592AFE9/2597025.png",
+						"link": "https://wiki.guildwars2.com/wiki/Daily_Catch#Lowland_Shore_Fishmongers_Humbled_Den_and_Bending_Reed",
 						"location": "Lowland Shore",
-						"link": "https://wiki.guildwars2.com/wiki/Bending_Reed"
+						"chatcode": "[&BN8OAAA=]"
+					},
+					{
+						"id": "daily-catch-janthir-syntri",
+						"name": "Daily Catch: Fishmonger Janthir Syntri",
+						"icon": "https://render.guildwars2.com/file/C113C406281D94BB560701DF350BCA9AF592AFE9/2597025.png",
+						"link": "https://wiki.guildwars2.com/wiki/Daily_Catch#Janthir_Syntri_Fishmonger_Lupine_in_the_Wind",
+						"location": "Janthir Syntri",
+						"chatcode": "[&BCoPAAA=]"
+					},
+					{
+						"id": "daily-catch-mistburned-barrens",
+						"name": "Daily Catch: Fishmonger Mistburned Barrens",
+						"icon": "https://render.guildwars2.com/file/C113C406281D94BB560701DF350BCA9AF592AFE9/2597025.png",
+						"link": "https://wiki.guildwars2.com/wiki/Daily_Catch#Mistburned_Barrens_Fishmonger_Humbled_Den",
+						"location": "Mistburned Barrens",
+						"chatcode": "[&BFAPAAA=]"
 					}
 				]
 			},
@@ -339,7 +373,7 @@
 						"id": "guild-hall",
 						"name": "Guild Hall",
 						"icon": "https://render.guildwars2.com/file/059D10F806165FCE44DE1E0DB8B15834CB173A44/1228543.png",
-						"description": "Harvesting Nodes, Vendors, Tavern Boosts",
+						"description": "Harvesting Nodes, Tavern Boosts",
 						"link": "https://wiki.guildwars2.com/wiki/Guild_hall#Features",
 						"display": true
 					},
@@ -794,7 +828,7 @@
 					{
 						"id": "casino-blitz",
 						"name": "Casino Blitz",
-						"icon": "https://render.guildwars2.com/file/0B1BA898B3242C5CA5FA7A6F214521AADE01A125/1766453.png",
+						"icon": "https://render.guildwars2.com/file/C8246DDA51367909C74D2F68FFE6502B587607C8/1748126.png",
 						"location": "Crystal Oasis",
 						"link": "https://wiki.guildwars2.com/wiki/Crystal_Oasis:_Hero%27s_Choice_Chest",
 						"timer": {
@@ -844,7 +878,7 @@
 					{
 						"id": "the-path-to-ascension",
 						"name": "The Path to Ascension",
-						"icon": "https://render.guildwars2.com/file/80B59B2CCCF7599D11FA0FD2C32B012A5C0410D2/1766459.png",
+						"icon": "https://render.guildwars2.com/file/0B1BA898B3242C5CA5FA7A6F214521AADE01A125/1766453.png",
 						"location": "Elon Riverlands",
 						"link": "https://wiki.guildwars2.com/wiki/Elon_Riverlands:_Hero%27s_Choice_Chest",
 						"timer": {

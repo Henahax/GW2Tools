@@ -23,9 +23,9 @@
 		<div>description</div>
 	</div>
 	{#each magicfind.categories as category: MagicFindCategory}
-		<section class="col-span-full grid grid-cols-subgrid">
+		<div class="category col-span-full grid grid-cols-subgrid border border-neutral-800">
 			<button
-				class="magicfind-button col-span-full flex gap-4 border border-neutral-800 px-4 py-1 text-left font-bold max-sm:py-2"
+				class="col-span-full flex gap-4 border border-neutral-800 px-3.5 py-1 text-left font-bold max-sm:py-2"
 				onclick={() => category.toggleOpen()}
 			>
 				<div>
@@ -40,12 +40,11 @@
 				</div>
 			</button>
 			<div
-				class="section-content col-span-full grid grid-cols-subgrid items-center divide-y divide-neutral-800 {category.open
-					? ''
-					: 'h-0'}"
+				class="items col-span-full grid grid-cols-subgrid items-center divide-y divide-neutral-800"
+				class:closed={!category.open}
 			>
 				{#each category.items as item: MagicFindItem}
-					<label class="magicfind-item col-span-full grid grid-cols-subgrid items-center p-2">
+					<label class="col-span-full grid grid-cols-subgrid items-center p-2">
 						{#if item instanceof MagicFindItemSelect}
 							<select
 								id={item.id}
@@ -115,7 +114,7 @@
 					</label>
 				{/each}
 			</div>
-		</section>
+		</div>
 	{/each}
 	<div
 		class="magicfind-foot sticky bottom-0 col-span-full grid grid-cols-subgrid items-center border p-2 text-base"
@@ -134,18 +133,22 @@
 		background-color: var(--card-background);
 	}
 
+	.category:has(button:hover) {
+		border: 1px solid var(--color-neutral-500);
+	}
+
 	.magicfind-head,
 	.magicfind-foot {
 		background-color: var(--card-background);
 	}
 
-	.magicfind-button {
+	.category button {
 		background-color: var(--card-background-light);
 	}
 
 	.magicfind a {
 		text-decoration: none;
-		color: var(--primary);
+		color: var(--primary-highlight);
 	}
 
 	.magicfind a:hover {
@@ -158,10 +161,18 @@
 		border-color: var(--border);
 	}
 
-	.section-content {
-		transition: height 0.5s ease;
+	.items {
+		transition:
+			height 0.5s ease-in-out,
+			width 0.5s ease-in-out;
 		overflow: clip;
 		interpolate-size: allow-keywords;
+	}
+
+	.items.closed {
+		transform: scaleY(0);
+		opacity: 0;
+		height: 0;
 	}
 
 	button:hover {
