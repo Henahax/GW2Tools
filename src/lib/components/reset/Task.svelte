@@ -18,6 +18,7 @@
 	class:line-through={task.checked}
 >
 	<input
+		class:opacity-50={task.checked}
 		type="checkbox"
 		id={task.id}
 		bind:checked={task.checked}
@@ -30,8 +31,8 @@
 		alt={task.description}
 	/>
 	<div class="flex grow flex-col gap-0.5">
-		<div class="text-xs">{task.name}</div>
-		<div class="subtitle flex flex-col text-xs">
+		<div class="text-xs" class:opacity-50={task.checked}>{task.name}</div>
+		<div class="subtitle flex flex-col text-xs" class:opacity-50={task.checked}>
 			{#if task.location}
 				<div class="flex items-center gap-1.5">
 					<i class="fa-solid fa-location-dot"></i>{task.location}
@@ -50,7 +51,7 @@
 			{/if}
 		{/if}
 
-		<div class="flex flex-col items-center gap-0.5">
+		<div class="flex flex-col items-center gap-0.5" class:opacity-50={task.checked}>
 			{#if task.link}
 				<a
 					class="text-xs transition ease-in-out"
