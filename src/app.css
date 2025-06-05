@@ -1,0 +1,145 @@
+@import 'tailwindcss';
+@import '../node_modules/@fortawesome/fontawesome-free/css/all.min.css';
+
+@plugin '@tailwindcss/forms';
+@plugin '@tailwindcss/typography';
+
+:root {
+	color-scheme: dark;
+	--background: var(--color-slate-950);
+	--foreground: var(--color-slate-100);
+	--foreground-muted: var(--color-slate-400);
+	--background-muted: var(--color-slate-900);
+
+	--primary: var(--color-slate-400);
+	--primary-highlight: var(--color-slate-300);
+
+	--card-button-background: var(--color-slate-950);
+	--card-background: var(--color-slate-900);
+	--card-border-color: var(--color-slate-700);
+
+	font-size: 1rem;
+}
+
+html {
+	background-color: var(--background);
+	color: var(--foreground);
+}
+
+header {
+	background-color: var(--background-muted);
+}
+
+input,
+select,
+textarea {
+	border-radius: 0.25rem;
+	background-color: var(--background);
+	border-color: var(--foreground-muted);
+}
+
+input:hover,
+select:hover,
+textarea:hover {
+	border-color: var(--foreground);
+}
+
+input[type='checkbox'],
+select {
+	cursor: pointer;
+}
+
+input:disabled {
+	opacity: 0.5;
+}
+
+input[type='checkbox'],
+input[type='radio'] {
+	height: 1.5rem;
+	width: 1.5rem;
+}
+
+input[type='radio'] {
+	border-radius: 100%;
+}
+
+button {
+	cursor: pointer;
+}
+
+.btn {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	padding: 0.5rem 1rem;
+	border-radius: 0.5rem;
+	justify-content: center;
+	transition: all 0.25s ease-in-out;
+}
+
+.btn-primary {
+	background-color: var(--primary);
+	color: var(--background);
+}
+
+.btn-primary:hover {
+	background-color: var(--primary-highlight);
+}
+
+.btn-outline {
+	border: 1px solid var(--foreground-muted);
+}
+
+.btn-outline:hover {
+	border: 1px solid var(--foreground);
+}
+
+.btn-square {
+	padding: 0.5rem 0.5rem;
+}
+
+.btn-ghost {
+	border: none;
+	color: var(--foreground);
+}
+
+.btn-ghost:hover {
+	background-color: rgba(255, 255, 255, 0.1);
+}
+
+.timer {
+	font-family: monospace;
+}
+
+.collapsible {
+	background-color: var(--card-background);
+	border: 1px solid var(--card-border-color);
+}
+
+.collapsible-header {
+	color: var(--foreground-muted);
+	background-color: var(--card-button-background);
+}
+
+.collapsible-header:hover {
+	color: var(--foreground);
+}
+
+.collapsible-header:hover,
+.collapsible:has(.collapsible-header:hover) {
+	border-color: var(--primary);
+}
+
+.collapsible-content {
+	transition:
+		height 0.25s ease-in-out,
+		opacity 0.25s ease-in-out;
+	overflow: clip;
+	interpolate-size: allow-keywords;
+	will-change: height, opacity;
+}
+
+.collapsible-content.closed {
+	opacity: 0;
+	height: 0;
+}

@@ -1,65 +1,58 @@
-<script>
-	import Title from '$lib/components/Title.svelte';
-	let tools = [
+<script lang="ts">
+	const internal = [
 		{
-			name: 'Reset',
-			path: '/reset',
+			title: 'test',
+			subtitle: 'test subtitle',
 			icon: 'fa-solid fa-arrows-rotate',
-			description: 'checklist for daily and weekly tasks',
-			bulletpoints: [
-				'select displayed tasks from 50+ in the options',
-				'vendors with daily/weekly reset',
-				'crafting & harvesting',
-				'events & world bosses with timers'
-			]
+			subitems: ['test1', 'test2'],
+			link: '/reset'
 		},
 		{
-			name: 'Magic Find',
-			path: '/magicfind',
+			title: 'test2',
+			subtitle: 'test subtitle 2',
 			icon: 'fa-solid fa-clover',
-			description: 'calculator for optimising magic find',
-			bulletpoints: ['account bonuses', 'equipment', 'effects', 'consumables']
+			subitems: ['test1', 'test2'],
+			link: '/magicfind'
 		}
-		/*
-		,
-		{
-			name: 'Ecto Salvage',
-			path: '/ecto',
-			icon: 'fa-solid fa-screwdriver-wrench',
-			description: 'calculator for salvaging ectos',
-			bulletpoints: ['all salvage kits', 'live prices', 'hypothetical prices']
-		}
-		*/
+	];
+
+	const external = [
+		{ title: 'efficiency', subtitle: 'a', link: 'https://gw2efficiency.com' },
+		{ title: 'farming', subtitle: 'a' },
+		{ title: 'profits', subtitle: 'a' },
+		{ title: 'bltc', subtitle: 'a' },
+		{ title: 'builds', subtitle: 'a' },
+		{ title: 'datawars', subtitle: 'a' }
 	];
 </script>
 
-<svelte:head>
-	<title>GW2Tools: Home</title>
-</svelte:head>
-
-<Title title="Henahax' Guild Wars 2 Tools" subtitle="Tool Collection for efficiency and profit"
-></Title>
-
-<div class="mx-auto flex flex-col justify-center">
-	<!-- lg:grid-cols-3 -->
-	<div class="mx-auto grid grid-cols-1 grid-rows-1 gap-4 py-8 md:grid-cols-2">
-		{#each tools as tool}
-			<a
-				class="card bg-base-100 hover:bg-base-200 flex flex-col gap-2 p-8 text-center shadow duration-300 ease-in-out"
-				href={tool.path}
-			>
-				<i class="px-4 text-4xl {tool.icon}"></i>
-				<div>
-					<h3 class="text-xl">{tool.name}</h3>
-					<h4 class="text-sm">{tool.description}</h4>
-				</div>
-				<ul class="mx-auto w-fit list-disc text-left text-xs">
-					{#if tool.bulletpoints}
-						{#each tool.bulletpoints as bulletpoint}
-							<li>{bulletpoint}</li>
-						{/each}
+<div class="flex grow flex-col justify-center gap-8">
+	<h1 class="self-center text-3xl">Test</h1>
+	<section class="flex flex-col">
+		<div class="grid w-fit grid-cols-2 gap-4 self-center max-sm:grid-cols-1">
+			{#each internal as item}
+				<a class="flex flex-col gap-2 rounded-2xl border p-4 text-center" href={item.link}>
+					<i class="text-4xl {item.icon}"></i>
+					<div>
+						<div class="text-2xl">{item.title}</div>
+						<div>{item.subtitle}</div>
+					</div>
+					{#if item.subitems.length > 0}
+						<ul class="w-fit list-disc self-center text-xs">
+							{#each item.subitems as subitem}
+								<li class="w-fit">{subitem}</li>
+							{/each}
+						</ul>
 					{/if}
-				</ul>
+				</a>
+			{/each}
+		</div>
+	</section>
+	<div class="flex flex-wrap justify-center gap-2 self-center">
+		{#each external as item}
+			<a class="flex flex-col rounded-2xl border p-2 text-center" href={item.link}>
+				<div>{item.title}</div>
+				<div class="text-xs">{item.subtitle}</div>
 			</a>
 		{/each}
 	</div>

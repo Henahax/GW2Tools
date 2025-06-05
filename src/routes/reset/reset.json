@@ -1,0 +1,1561 @@
+[
+	{
+		"id": "weekly",
+		"interval": "weekly",
+		"timer": "Weekly",
+		"tasks": "Weekly Tasks",
+		"reset": "resets weekly",
+		"icon": "fa-regular fa-calendar",
+		"categories": [
+			{
+				"id": "vendors",
+				"name": "Vendors",
+				"tasks": [
+					{
+						"id": "mystic-clovers",
+						"name": "Mystic Clovers",
+						"icon": "https://render.guildwars2.com/file/FE9DC3E10D4B2AE16DADEB07CF28A058570E2EF3/455855.png",
+						"description": "Various currencies",
+						"link": "https://wiki.guildwars2.com/wiki/Mystic_Clover",
+						"display": true
+					},
+					{
+						"id": "mystic-coins",
+						"name": "Mystic Coins",
+						"icon": "https://render.guildwars2.com/file/AB0317DF5B0E1BA47436A5420248660765154C08/62864.png",
+						"location": "Wizard's Tower",
+						"chatcode": "[&BB8OAAA=]",
+						"link": "https://wiki.guildwars2.com/wiki/Mystic_Coin",
+						"display": true
+					},
+					{
+						"id": "mist-hardened-lockbox-key",
+						"name": "Mist-Hardened Lockbox Key",
+						"icon": "https://render.guildwars2.com/file/1DCD981F974E3A3F134AA90223970105759F0F77/3072497.png",
+						"location": "WvW-Maps",
+						"link": "https://wiki.guildwars2.com/wiki/Mist-Hardened_Lockbox_Key"
+					},
+					{
+						"id": "provisioner-tokens-weekly",
+						"name": "Provisioner Tokens",
+						"icon": "https://render.guildwars2.com/file/5CF6FC0B62554EBECAC6752AAFA2B8D80F726077/1302745.png",
+						"location": "Tyria, HoT, SotO, JW",
+						"link": "https://wiki.guildwars2.com/wiki/Faction_Provisioner#Faction_Provisioners",
+						"display": true
+					},
+					{
+						"id": "antique-summoning-stones",
+						"name": "Antique Summoning Stones",
+						"icon": "https://render.guildwars2.com/file/04DDE41E0EF34E2962E9A44CAE609FAA05283A08/2595107.png",
+						"location": "Arborstone",
+						"chatcode": "[&BGMNAAA=]",
+						"link": "https://wiki.guildwars2.com/wiki/Leivas#Weekly_Sales"
+					},
+					{
+						"id": "astral-fluctuating-mass",
+						"name": "Astral Fluctuating Mass",
+						"icon": "https://render.guildwars2.com/file/F294472FD16067583D90764F4207DC2980CACAB3/3301296.png",
+						"location": "Wizard's Tower",
+						"chatcode": "[&BB8OAAA=]",
+						"link": "https://wiki.guildwars2.com/wiki/Portable_Wizard%27s_Tower_Exchange/Weekly,_Map_Currency,_Essence_%26_Bulk_Exchanges#Weekly_Sales",
+						"display": true
+					},
+					{
+						"id": "homestead-refinement",
+						"name": "Homestead Refinement",
+						"icon": "https://render.guildwars2.com/file/1866B143DEBFCBBAA31DAFB317544E56070AF174/3375059.png",
+						"location": "Hearth's Glow",
+						"chatcode": "[&BMUOAAA=]",
+						"link": "https://wiki.guildwars2.com/wiki/Hearth%27s_Glow#Objects"
+					}
+				]
+			},
+			{
+				"id": "misc",
+				"name": "Miscellaneous",
+				"tasks": [
+					{
+						"id": "alt-parking",
+						"name": "Alt-Parking",
+						"icon": "https://render.guildwars2.com/file/C37541040CA3E1D50CC84ECF2DBB016CAA612AA9/498982.png",
+						"description": "Open Chests with Alt-Charactes",
+						"link": "https://fast.farming-community.eu/open-world/alt-parking"
+					},
+					{
+						"id": "black-lion-chest-key",
+						"name": "Black Lion Chest Key",
+						"icon": "https://render.guildwars2.com/file/207BDD31BC494A07A0A1691705079100066D3F2F/414998.png",
+						"description": "Level 10 Human Story",
+						"link": "https://www.youtube.com/watch?v=1KdasTB2rNM"
+					},
+					{
+						"id": "vigil-emissary-chest",
+						"name": "Vigil Emissary Chest",
+						"icon": "https://render.guildwars2.com/file/489AD63A6803782E5CBE6B7244ED7F7C0FA0BB41/2149902.png",
+						"location": "Eye of the North",
+						"chatcode": "[&BAkMAAA=]",
+						"link": "https://wiki.guildwars2.com/wiki/Vigil_Emissary_Chest"
+					}
+				]
+			},
+			{
+				"id": "festivals",
+				"name": "Festivals",
+				"tasks": [
+					{
+						"id": "festival-rewards-vendor",
+						"name": "Festival Rewards Vendor",
+						"icon": "https://render.guildwars2.com/file/02BEB919E40F2A4E61AF3AD8AA3701A7D99A62EA/1493226.png",
+						"description": "Weekly Sales",
+						"link": "https://wiki.guildwars2.com/wiki/Festival_Rewards_Vendor"
+					},
+					{
+						"id": "divine-lucky-envelopes",
+						"name": "Divine Lucky Envelopes",
+						"icon": "https://render.guildwars2.com/file/9D94B96446F269662F6ACC2531394A06C0E03951/947657.png",
+						"location": "Divinity's Reach & Guild Hall",
+						"chatcode": "[&BCwDAAA=]",
+						"description": "Lunar New Year",
+						"link": "https://wiki.guildwars2.com/wiki/Divine_Lucky_Envelope"
+					},
+					{
+						"id": "four-winds-treasure-hunt",
+						"name": "Treasure Hunt",
+						"icon": "https://render.guildwars2.com/file/9BED5B1BC4DC043E72CA9A6F07704D4EF875655E/2015706.png",
+						"location": "Labyrinthine Cliffs",
+						"description": "Festival of the Four Winds",
+						"link": "https://wiki.guildwars2.com/wiki/Participate_in_the_treasure_hunt!",
+						"timer": {
+							"duration": [0, 30],
+							"times": [
+								[0, 30],
+								[2, 30],
+								[4, 30],
+								[6, 30],
+								[8, 30],
+								[10, 30],
+								[12, 30],
+								[14, 30],
+								[16, 30],
+								[18, 30],
+								[20, 30],
+								[22, 30],
+								[24, 30]
+							]
+						}
+					}
+				]
+			}
+		]
+	},
+	{
+		"id": "daily",
+		"interval": "daily",
+		"timer": "Daily",
+		"tasks": "Daily Tasks",
+		"reset": "resets daily",
+		"icon": "fa-regular fa-clock",
+		"categories": [
+			{
+				"id": "items",
+				"name": "Items",
+				"tasks": [
+					{
+						"id": "wizards-gobbler",
+						"name": "Wizard's Gobbler",
+						"icon": "https://render.guildwars2.com/file/11DBB6C814E5520610C2D5049805A16938A3222F/3629215.png",
+						"description": "Converters and some merchants",
+						"link": "https://fast.farming-community.eu/open-world/gizmos",
+						"display": true
+					},
+					{
+						"id": "mawdrey",
+						"name": "Mawdrey II",
+						"icon": "https://render.guildwars2.com/file/7D37CF59E3101EEED557DB3F6530A02BDFE95F68/855363.png",
+						"description": "Piles of Bloodstone Dust",
+						"link": "https://wiki.guildwars2.com/wiki/Mawdrey_II"
+					},
+					{
+						"id": "princess",
+						"name": "Princess",
+						"icon": "https://render.guildwars2.com/file/B9F4A85C1DD60E497A914542689DF90777189741/1010525.png",
+						"description": "Dragonite Ore",
+						"link": "https://wiki.guildwars2.com/wiki/Princess"
+					},
+					{
+						"id": "star-of-gratitude",
+						"name": "Star of Gratitude",
+						"icon": "https://render.guildwars2.com/file/2811361BD046C43AE1C157BB5A06B67FE39F7D1B/924593.png",
+						"description": "Empyreal Fragments",
+						"link": "https://wiki.guildwars2.com/wiki/Star_of_Gratitude"
+					},
+					{
+						"id": "gleam-of-sentience",
+						"name": "Gleam of Sentience",
+						"icon": "https://render.guildwars2.com/file/00A1C1286ECDA5A467136BBBA09ED4DA71C9E65F/1676685.png",
+						"description": "Ascended crafting materials & Unbound Magic",
+						"link": "https://wiki.guildwars2.com/wiki/Gleam_of_Sentience"
+					},
+					{
+						"id": "volatile-singularity",
+						"name": "Volatile Singularity",
+						"icon": "https://render.guildwars2.com/file/00A1C1286ECDA5A467136BBBA09ED4DA71C9E65F/1676685.png",
+						"description": "Volatile Magic",
+						"link": "https://wiki.guildwars2.com/wiki/Volatile_Singularity"
+					},
+					{
+						"id": "ley-energy-matter-converter",
+						"name": "Ley-Energy Matter Converter",
+						"icon": "https://render.guildwars2.com/file/E1376A9169E13FD1059FD5CF5BCED8EFE4CE0C01/1313125.png",
+						"description": "HoT map currencies",
+						"link": "https://wiki.guildwars2.com/wiki/Ley-Energy_Matter_Converter"
+					},
+					{
+						"id": "spearmarshals-plea",
+						"name": "Spearmarshal's Plea",
+						"icon": "https://render.guildwars2.com/file/591C805535FCAB23A408B20864D1C01F3F1B282C/1766886.png",
+						"description": "Eyes of Kormir",
+						"link": "https://wiki.guildwars2.com/wiki/Spearmarshal%27s_Plea"
+					},
+					{
+						"id": "karmic-converter",
+						"name": "Karmic Converter",
+						"icon": "https://render.guildwars2.com/file/9B330AD17E94C0EB5B210267CF3A751EF36C617F/866785.png",
+						"description": "Karma",
+						"link": "https://wiki.guildwars2.com/wiki/Karmic_Converter"
+					},
+					{
+						"id": "fractal-reliquary",
+						"name": "Fractal Reliquary",
+						"icon": "https://render.guildwars2.com/file/6204473F5133BC10C90503F6E835CE089A6D9D93/888384.png",
+						"description": "Fractal Relics",
+						"link": "https://wiki.guildwars2.com/wiki/Fractal_Reliquary"
+					},
+					{
+						"id": "shards-of-glory-converter",
+						"name": "Shards of Glory Converter",
+						"icon": "https://render.guildwars2.com/file/FE04FD605C7846725560ECE11DE2D8090EF8146F/1614379.png",
+						"description": "Shards of Glory",
+						"link": "https://wiki.guildwars2.com/wiki/Shards_of_Glory_Converter"
+					},
+					{
+						"id": "memory-gobbler",
+						"name": "Memory Gobbler",
+						"icon": "https://render.guildwars2.com/file/FB6AE405387714DFCED30FCEECFA0CC9A1A2462A/1701125.png",
+						"description": "Memories of Battle",
+						"link": "https://wiki.guildwars2.com/wiki/Memory_Gobbler"
+					}
+				]
+			},
+			{
+				"id": "vendors",
+				"name": "Vendors",
+				"tasks": [
+					{
+						"id": "pact-scouts-mapping-materials",
+						"name": "Pact Scout's Mapping Materials",
+						"icon": "https://render.guildwars2.com/file/2C0705112C2DA3C2555F29D4FB09CEC9BC77179D/904658.png",
+						"description": "Pact Supply Network Agents",
+						"link": "https://wiki.guildwars2.com/wiki/Pact_Supply_Network_Agent#Locations",
+						"display": true
+					},
+					{
+						"id": "discounted-fractal-encryption-keys",
+						"name": "Discounted Fractal Encryption Keys",
+						"icon": "https://render.guildwars2.com/file/44D851C8A8C0803AF0D0D9DF6D0CF4CD6F78059B/1200198.png",
+						"location": "Mistlock Observatory / Mistlock Sanctuary",
+						"link": "https://wiki.guildwars2.com/wiki/Deeply_Discounted_Fractal_Encryption_Key",
+						"display": true
+					},
+					{
+						"id": "funerary-incense",
+						"name": "Funerary Incense",
+						"icon": "https://render.guildwars2.com/file/18E7F86FAFFA1FEBB53E0101C4F807724B7709BA/1894675.png",
+						"location": "Domain of Vabbi, Desert Highland",
+						"link": "https://wiki.guildwars2.com/wiki/Funerary_Incense"
+					},
+					{
+						"id": "provisioner-tokens-daily",
+						"name": "Provisioner Tokens",
+						"icon": "https://render.guildwars2.com/file/5CF6FC0B62554EBECAC6752AAFA2B8D80F726077/1302745.png",
+						"location": "SotO",
+						"link": "https://wiki.guildwars2.com/wiki/Faction_Provisioner#List_of_Crafting_Materials_on_daily_rotation"
+					},
+					{
+						"id": "eternal-ice",
+						"name": "Eternal Ice",
+						"icon": "https://render.guildwars2.com/file/D40CAAE1BEE9C8B3606534F501A244E5E3149852/2220776.png",
+						"location": "Eye of the North / Bjora Marches",
+						"link": "https://wiki.guildwars2.com/wiki/Eternal_Ice_Shard#Sold_by"
+					},
+					{
+						"id": "tyrian-defense-seals",
+						"name": "Tyrian Defense Seals Discounted",
+						"icon": "https://render.guildwars2.com/file/490E7AE3CFFA21116035A01AA30A052A05676A2F/2351432.png",
+						"location": "Eye of the North",
+						"link": "https://fast.farming-community.eu/conversions/tyrian-defense-seal"
+					},
+					{
+						"id": "drizzlewood-material-donations",
+						"name": "Drizzlewood Material Donations",
+						"icon": "https://render.guildwars2.com/file/5D5AEFC0F1F278E0619F2000241F78A9476A3167/2293277.png",
+						"location": "Drizzlewood Coast",
+						"link": "https://fast.farming-community.eu/open-world/drizzlewood-material-donation",
+						"display": true
+					},
+					{
+						"id": "writ-of-dragons-end",
+						"name": "Writ of Dragon's End",
+						"icon": "https://render.guildwars2.com/file/073408A1070EF6EC7DD6C297DCCDB04D600B3BCF/2594269.png",
+						"link": "https://wiki.guildwars2.com/wiki/Writ_of_Dragon%27s_End"
+					},
+					{
+						"id": "wizards-tower-exchange",
+						"name": "Wizard's Tower Exchange",
+						"icon": "https://render.guildwars2.com/file/B31D303CE52BA0072006BD921AA3125ADBDD2CB6/3301297.png",
+						"location": "Wizard's Tower",
+						"link": "https://wiki.guildwars2.com/wiki/Gharr_Leadclaw"
+					},
+					{
+						"id": "kodan-cache-keys",
+						"name": "Kodan Cache Keys",
+						"icon": "https://render.guildwars2.com/file/03C10F16F618B0170D5810DFDC2CC8557B4AD60A/3374822.png",
+						"location": "Lowland Shore / Janthir Syntri",
+						"link": "https://wiki.guildwars2.com/index.php?title=Kodan_Cache_Key"
+					},
+					{
+						"id": "daily-catch-arborstone",
+						"name": "Daily Catch: Fishmonger Arborstone",
+						"icon": "https://render.guildwars2.com/file/C113C406281D94BB560701DF350BCA9AF592AFE9/2597025.png",
+						"link": "https://wiki.guildwars2.com/wiki/Daily_Catch#Arborstone_Fishmonger_Taro_Everclaw",
+						"location": "Arborstone",
+						"chatcode": "[&BGMNAAA=]"
+					},
+					{
+						"id": "daily-catch-lowland-shore",
+						"name": "Daily Catch: Fishmonger Lowland Shore",
+						"icon": "https://render.guildwars2.com/file/C113C406281D94BB560701DF350BCA9AF592AFE9/2597025.png",
+						"link": "https://wiki.guildwars2.com/wiki/Daily_Catch#Lowland_Shore_Fishmongers_Humbled_Den_and_Bending_Reed",
+						"location": "Lowland Shore",
+						"chatcode": "[&BN8OAAA=]"
+					},
+					{
+						"id": "daily-catch-janthir-syntri",
+						"name": "Daily Catch: Fishmonger Janthir Syntri",
+						"icon": "https://render.guildwars2.com/file/C113C406281D94BB560701DF350BCA9AF592AFE9/2597025.png",
+						"link": "https://wiki.guildwars2.com/wiki/Daily_Catch#Janthir_Syntri_Fishmonger_Lupine_in_the_Wind",
+						"location": "Janthir Syntri",
+						"chatcode": "[&BCoPAAA=]"
+					},
+					{
+						"id": "daily-catch-mistburned-barrens",
+						"name": "Daily Catch: Fishmonger Mistburned Barrens",
+						"icon": "https://render.guildwars2.com/file/C113C406281D94BB560701DF350BCA9AF592AFE9/2597025.png",
+						"link": "https://wiki.guildwars2.com/wiki/Daily_Catch#Mistburned_Barrens_Fishmonger_Humbled_Den",
+						"location": "Mistburned Barrens",
+						"chatcode": "[&BFAPAAA=]"
+					}
+				]
+			},
+			{
+				"id": "harvesting",
+				"name": "Harvesting",
+				"tasks": [
+					{
+						"id": "home-instance",
+						"name": "Home Instance / Homestead",
+						"icon": "https://render.guildwars2.com/file/FA290C7D3EE1BE71A0702765F091263D4519BE20/849446.png",
+						"description": "Charged Quartz Crystal, Harvesting Nodes, Chests",
+						"link": "https://wiki.guildwars2.com/wiki/Home_instance#List_of_home_instance_upgrades",
+						"display": true
+					},
+					{
+						"id": "guild-hall",
+						"name": "Guild Hall",
+						"icon": "https://render.guildwars2.com/file/059D10F806165FCE44DE1E0DB8B15834CB173A44/1228543.png",
+						"description": "Harvesting Nodes, Tavern Boosts",
+						"link": "https://wiki.guildwars2.com/wiki/Guild_hall#Features",
+						"display": true
+					},
+					{
+						"id": "permanent-gathering-nodes",
+						"name": "Permanent Gathering Nodes",
+						"icon": "https://render.guildwars2.com/file/C794670D0300082C1BA45921FBAD4EB63217722B/919376.png",
+						"description": "Rich Ores, Tree Circles, Gardens",
+						"link": "https://gw2efficiency.com/gathering/permanent-nodes?filter.order_by=profit"
+					},
+					{
+						"id": "uplands-oasis",
+						"name": "Uplands Oasis",
+						"icon": "https://render.guildwars2.com/file/D667F038D601D31EC35F08E96EB1C832026E3A21/1677062.png",
+						"location": "Dry Top",
+						"link": "https://wiki.guildwars2.com/wiki/Uplands_Oasis"
+					},
+					{
+						"id": "hidden-garden",
+						"name": "Hidden Garden",
+						"icon": "https://render.guildwars2.com/file/16E4FC0E74FB0174317E380021570AF92D3F1992/1200915.png",
+						"location": "Mount Maelstrom",
+						"link": "https://wiki.guildwars2.com/wiki/Hidden_Garden"
+					}
+				]
+			},
+			{
+				"id": "crafting",
+				"name": "Crafting",
+				"tasks": [
+					{
+						"id": "ascended-crafting",
+						"name": "Ascended Crafting",
+						"icon": "https://render.guildwars2.com/file/297016ABEE19531ECC5FB30A193606E7DE7AB468/582349.png",
+						"description": "Ectoplasm Refinements",
+						"link": "https://wiki.guildwars2.com/wiki/Server_reset#Crafted_items",
+						"display": true
+					},
+					{
+						"id": "plate-of-piquant-plant-food",
+						"name": "Plate of Piquant Plant Food",
+						"icon": "https://render.guildwars2.com/file/7102024A5FA50AD002FBE915F7FE69D7CDD919B3/849443.png",
+						"description": "Chef",
+						"link": "https://wiki.guildwars2.com/wiki/Plate_of_Piquant_Plant_Food"
+					}
+				]
+			},
+			{
+				"id": "events-janthir-wilds",
+				"name": "Events: Janthir Wilds",
+				"tasks": [
+					{
+						"id": "of-mists-and-monsters",
+						"name": "Of Mists and Monsters",
+						"icon": "https://render.guildwars2.com/file/00AABCE916B695E81295E92D2A42ECC37E9039D5/3374827.png",
+						"location": "Janthir Syntri",
+						"link": "https://wiki.guildwars2.com/wiki/Of_Mists_and_Monsters",
+						"timer": {
+							"duration": [0, 15],
+							"times": [
+								[0, 30],
+								[2, 30],
+								[4, 30],
+								[6, 30],
+								[8, 30],
+								[10, 30],
+								[12, 30],
+								[14, 30],
+								[16, 30],
+								[18, 30],
+								[20, 30],
+								[22, 30],
+								[24, 30]
+							]
+						}
+					},
+					{
+						"id": "a-titanic-voyage",
+						"name": "A Titanic Voyage",
+						"icon": "https://render.guildwars2.com/file/00AABCE916B695E81295E92D2A42ECC37E9039D5/3374827.png",
+						"location": "Bava Nisos",
+						"link": "https://wiki.guildwars2.com/wiki/A_Titanic_Voyage",
+						"timer": {
+							"duration": [0, 25],
+							"times": [
+								[1, 20],
+								[3, 20],
+								[5, 20],
+								[7, 20],
+								[9, 20],
+								[11, 20],
+								[13, 20],
+								[15, 20],
+								[17, 20],
+								[19, 20],
+								[21, 20],
+								[23, 20],
+								[25, 20]
+							]
+						}
+					},
+					{
+						"id": "convergence-mount-balrior",
+						"name": "Convergence: Mount Balrior",
+						"icon": "https://render.guildwars2.com/file/00AABCE916B695E81295E92D2A42ECC37E9039D5/3374827.png",
+						"location": "Lowland Shore",
+						"link": "https://wiki.guildwars2.com/wiki/Convergence:_Mount_Balrior",
+						"timer": {
+							"duration": [0, 10],
+							"times": [
+								[0, 0],
+								[3, 0],
+								[6, 0],
+								[9, 0],
+								[12, 0],
+								[15, 0],
+								[18, 0],
+								[21, 0],
+								[24, 0]
+							]
+						}
+					}
+				]
+			},
+			{
+				"id": "events-secrets-of-the-obscure",
+				"name": "Events: Secrets of the Obscure",
+				"tasks": [
+					{
+						"id": "unlocking-wizards-tower",
+						"name": "Unlocking the Wizard's Tower",
+						"icon": "https://render.guildwars2.com/file/DE1D62A95F57470D61E15D47D20159D8E2BB18FB/3122157.png",
+						"location": "Skywatch Archipelago",
+						"link": "https://wiki.guildwars2.com/wiki/Skywatch_Archipelago:_Hero%27s_Choice_Chest",
+						"timer": {
+							"duration": [0, 25],
+							"times": [
+								[1, 0],
+								[3, 0],
+								[5, 0],
+								[7, 0],
+								[9, 0],
+								[11, 0],
+								[13, 0],
+								[15, 0],
+								[17, 0],
+								[19, 0],
+								[21, 0],
+								[23, 0],
+								[25, 0]
+							]
+						}
+					},
+					{
+						"id": "defense-of-amnytas",
+						"name": "The Defense of Amnytas",
+						"icon": "https://render.guildwars2.com/file/F1100DBF0DF2BE50F609EE0F92E0043BE8C35F9D/3122155.png",
+						"location": "Amnytas",
+						"link": "https://wiki.guildwars2.com/wiki/Amnytas:_Hero%27s_Choice_Chest",
+						"timer": {
+							"duration": [0, 25],
+							"times": [
+								[0, 0],
+								[2, 0],
+								[4, 0],
+								[6, 0],
+								[8, 0],
+								[10, 0],
+								[12, 0],
+								[14, 0],
+								[16, 0],
+								[18, 0],
+								[20, 0],
+								[22, 0],
+								[24, 0]
+							]
+						}
+					},
+					{
+						"id": "ignaxious-knaebelag",
+						"name": "Ignaxious / Knaebelag",
+						"icon": "https://render.guildwars2.com/file/6C0CDA94EC94FA906493E2050DDECDD5965877FD/3199530.png",
+						"location": "Inner Nayos",
+						"link": "https://wiki.guildwars2.com/wiki/Inner_Nayos:_Hero%27s_Choice_Chest"
+					},
+					{
+						"id": "eparch",
+						"name": "Eparch, the Consumed King",
+						"icon": "https://render.guildwars2.com/file/6C0CDA94EC94FA906493E2050DDECDD5965877FD/3199530.png",
+						"location": "Inner Nayos",
+						"link": "https://wiki.guildwars2.com/wiki/Citadel_of_Zakiros:_Hero%27s_Choice_Chest"
+					},
+					{
+						"id": "convergence-outer-nayos",
+						"name": "Convergence Outer Nayos",
+						"icon": "https://render.guildwars2.com/file/46EC231103323FB5EEBBC1AEF74AE015050F013E/3122156.png",
+						"location": "Wizard's Tower",
+						"link": "https://wiki.guildwars2.com/wiki/Convergences",
+						"timer": {
+							"duration": [0, 10],
+							"times": [
+								[1, 30],
+								[4, 30],
+								[7, 30],
+								[10, 30],
+								[13, 30],
+								[16, 30],
+								[19, 30],
+								[22, 30],
+								[25, 30]
+							]
+						}
+					}
+				]
+			},
+			{
+				"id": "events-end-of-dragons",
+				"name": "Events: End of Dragons",
+				"tasks": [
+					{
+						"id": "aetherblade-assault",
+						"name": "Aetherblade Assault",
+						"icon": "https://render.guildwars2.com/file/FDF5B9F3AE45086BE55CF4CF7C79F313D6A01E61/2594264.png",
+						"location": "Seitung Province",
+						"link": "https://wiki.guildwars2.com/wiki/Seitung_Province:_Hero%27s_Choice_Chest",
+						"timer": {
+							"duration": [0, 30],
+							"times": [
+								[1, 30],
+								[3, 30],
+								[5, 30],
+								[7, 30],
+								[9, 30],
+								[11, 30],
+								[13, 30],
+								[15, 30],
+								[17, 30],
+								[19, 30],
+								[21, 30],
+								[23, 30],
+								[25, 30]
+							]
+						}
+					},
+					{
+						"id": "kaineng-blackout",
+						"name": "Kaineng Blackout",
+						"icon": "https://render.guildwars2.com/file/FDF5B9F3AE45086BE55CF4CF7C79F313D6A01E61/2594264.png",
+						"location": "New Kaineng City",
+						"link": "https://wiki.guildwars2.com/wiki/New_Kaineng_City:_Hero%27s_Choice_Chest",
+						"timer": {
+							"duration": [0, 40],
+							"times": [
+								[0, 0],
+								[2, 0],
+								[4, 0],
+								[6, 0],
+								[8, 0],
+								[10, 0],
+								[12, 0],
+								[14, 0],
+								[16, 0],
+								[18, 0],
+								[20, 0],
+								[22, 0],
+								[24, 0]
+							]
+						}
+					},
+					{
+						"id": "gang-war",
+						"name": "Gang War",
+						"icon": "https://render.guildwars2.com/file/FDF5B9F3AE45086BE55CF4CF7C79F313D6A01E61/2594264.png",
+						"location": "Echovald Wilds",
+						"link": "https://wiki.guildwars2.com/wiki/Echovald_Wilds:_Hero%27s_Choice_Chest",
+						"timer": {
+							"duration": [0, 35],
+							"times": [
+								[0, 30, "Gang War"],
+								[1, 40, "Aspenwood"],
+								[2, 30, "Gang War"],
+								[3, 40, "Aspenwood"],
+								[4, 30, "Gang War"],
+								[5, 40, "Aspenwood"],
+								[6, 30, "Gang War"],
+								[7, 40, "Aspenwood"],
+								[8, 30, "Gang War"],
+								[9, 40, "Aspenwood"],
+								[10, 30, "Gang War"],
+								[11, 40, "Aspenwood"],
+								[12, 30, "Gang War"],
+								[13, 40, "Aspenwood"],
+								[14, 30, "Gang War"],
+								[15, 40, "Aspenwood"],
+								[16, 30, "Gang War"],
+								[17, 40, "Aspenwood"],
+								[18, 30, "Gang War"],
+								[19, 40, "Aspenwood"],
+								[20, 30, "Gang War"],
+								[21, 40, "Aspenwood"],
+								[22, 30, "Gang War"],
+								[23, 40, "Aspenwood"],
+								[24, 30, "Gang War"],
+								[25, 40, "Aspenwood"]
+							]
+						}
+					},
+					{
+						"id": "battle-for-jade-sea",
+						"name": "The Battle for the Jade Sea",
+						"icon": "https://render.guildwars2.com/file/FDF5B9F3AE45086BE55CF4CF7C79F313D6A01E61/2594264.png",
+						"location": "Dragon's End",
+						"link": "https://wiki.guildwars2.com/wiki/Dragon%27s_End:_Hero%27s_Choice_Chest",
+						"timer": {
+							"duration": [1, 0],
+							"times": [
+								[1, 0],
+								[3, 0],
+								[5, 0],
+								[7, 0],
+								[9, 0],
+								[11, 0],
+								[13, 0],
+								[15, 0],
+								[17, 0],
+								[19, 0],
+								[21, 0],
+								[23, 0],
+								[25, 0]
+							]
+						}
+					},
+					{
+						"id": "jade-crisis",
+						"name": "The Jade Crisis",
+						"icon": "https://render.guildwars2.com/file/FDF5B9F3AE45086BE55CF4CF7C79F313D6A01E61/2594264.png",
+						"location": "Gyala Delve",
+						"link": "https://wiki.guildwars2.com/wiki/Gyala_Delve:_Hero%27s_Choice_Chest"
+					}
+				]
+			},
+			{
+				"id": "events-icebrood-saga",
+				"name": "Events: Icebrood Saga",
+				"tasks": [
+					{
+						"id": "champion-of-the-ice-dragon",
+						"name": "Champion of the Ice Dragon",
+						"icon": "https://render.guildwars2.com/file/0EA2AF7DF40C1BE623CB0A01BE29D8400875A10A/2256323.png",
+						"location": "Bjora Marches",
+						"link": "https://wiki.guildwars2.com/wiki/Champion_of_the_Ice_Dragon",
+						"timer": {
+							"duration": [0, 35],
+							"times": [
+								[1, 5, "Drakkar"],
+								[1, 45, "Storms of Winter"],
+								[3, 5, "Drakkar"],
+								[3, 45, "Storms of Winter"],
+								[5, 5, "Drakkar"],
+								[5, 45, "Storms of Winter"],
+								[7, 5, "Drakkar"],
+								[7, 45, "Storms of Winter"],
+								[9, 5, "Drakkar"],
+								[9, 45, "Storms of Winter"],
+								[11, 5, "Drakkar"],
+								[11, 45, "Storms of Winter"],
+								[13, 5, "Drakkar"],
+								[13, 45, "Storms of Winter"],
+								[15, 5, "Drakkar"],
+								[15, 45, "Storms of Winter"],
+								[17, 5, "Drakkar"],
+								[17, 45, "Storms of Winter"],
+								[19, 5, "Drakkar"],
+								[19, 45, "Storms of Winter"],
+								[21, 5, "Drakkar"],
+								[21, 45, "Storms of Winter"],
+								[23, 5, "Drakkar"],
+								[23, 45, "Storms of Winter"],
+								[25, 5, "Drakkar"],
+								[25, 45, "Storms of Winter"]
+							]
+						}
+					},
+					{
+						"id": "tower-of-nightmares",
+						"name": "Tower of Nightmares",
+						"icon": "https://render.guildwars2.com/file/0D2FACB7EBAA534CA1090F57B6CC4971597119F1/674810.png",
+						"location": "Eye of the North",
+						"link": "https://wiki.guildwars2.com/wiki/The_Tower_of_Nightmares",
+						"timer": {
+							"duration": [0, 15],
+							"times": [
+								[1, 30],
+								[3, 30],
+								[5, 30],
+								[7, 30],
+								[9, 30],
+								[11, 30],
+								[13, 30],
+								[15, 30],
+								[17, 30],
+								[19, 30],
+								[21, 30],
+								[23, 30],
+								[25, 30]
+							]
+						}
+					},
+					{
+						"id": "twisted-marionette",
+						"name": "Twisted Marionette",
+						"icon": "https://render.guildwars2.com/file/EC12BE596939FA100394651B5715F33A0046EB36/711847.png",
+						"location": "Eye of the North",
+						"link": "https://wiki.guildwars2.com/wiki/The_Twisted_Marionette",
+						"timer": {
+							"duration": [0, 20],
+							"times": [
+								[0, 0],
+								[2, 0],
+								[4, 0],
+								[6, 0],
+								[8, 0],
+								[10, 0],
+								[12, 0],
+								[14, 0],
+								[16, 0],
+								[18, 0],
+								[20, 0],
+								[22, 0],
+								[24, 0]
+							]
+						}
+					},
+					{
+						"id": "battle-for-lions-arch",
+						"name": "Battle For Lion's Arch",
+						"icon": "https://render.guildwars2.com/file/B5A8994BD8E654A00C1B395CBA4EB7085A17D053/924578.png",
+						"location": "Eye of the North",
+						"link": "https://wiki.guildwars2.com/wiki/The_Battle_For_Lion's_Arch",
+						"timer": {
+							"duration": [0, 15],
+							"times": [
+								[0, 30],
+								[2, 30],
+								[4, 30],
+								[6, 30],
+								[8, 30],
+								[10, 30],
+								[12, 30],
+								[14, 30],
+								[16, 30],
+								[18, 30],
+								[20, 30],
+								[22, 30],
+								[24, 30]
+							]
+						}
+					},
+					{
+						"id": "dragonstorm",
+						"name": "Dragonstorm",
+						"icon": "https://render.guildwars2.com/file/B0792659BC28020A0E23C959E759B2C8956AB295/2140410.png",
+						"location": "Eye of the North",
+						"link": "https://wiki.guildwars2.com/wiki/Dragonstorm",
+						"timer": {
+							"duration": [0, 20],
+							"times": [
+								[1, 0],
+								[3, 0],
+								[5, 0],
+								[7, 0],
+								[9, 0],
+								[11, 0],
+								[13, 0],
+								[15, 0],
+								[17, 0],
+								[19, 0],
+								[21, 0],
+								[23, 0],
+								[25, 0]
+							]
+						}
+					}
+				]
+			},
+			{
+				"id": "events-path-of-fire",
+				"name": "Events: Path of Fire",
+				"tasks": [
+					{
+						"id": "casino-blitz",
+						"name": "Casino Blitz",
+						"icon": "https://render.guildwars2.com/file/C8246DDA51367909C74D2F68FFE6502B587607C8/1748126.png",
+						"location": "Crystal Oasis",
+						"link": "https://wiki.guildwars2.com/wiki/Crystal_Oasis:_Hero%27s_Choice_Chest",
+						"timer": {
+							"duration": [0, 25],
+							"times": [
+								[0, 5],
+								[2, 5],
+								[4, 5],
+								[6, 5],
+								[8, 5],
+								[10, 5],
+								[12, 5],
+								[14, 5],
+								[16, 5],
+								[18, 5],
+								[20, 5],
+								[22, 5],
+								[24, 5]
+							]
+						}
+					},
+					{
+						"id": "the-search-for-buried-treasure",
+						"name": "The Search for Buried Treasure",
+						"icon": "https://render.guildwars2.com/file/657E455192B49F07FC437E42504C3C70D3565D61/1766454.png",
+						"location": "Desert Highlands",
+						"link": "https://wiki.guildwars2.com/wiki/The_Search_for_Buried_Treasure",
+						"timer": {
+							"duration": [0, 20],
+							"times": [
+								[1, 0],
+								[3, 0],
+								[5, 0],
+								[7, 0],
+								[9, 0],
+								[11, 0],
+								[13, 0],
+								[15, 0],
+								[17, 0],
+								[19, 0],
+								[21, 0],
+								[23, 0],
+								[25, 0]
+							]
+						}
+					},
+					{
+						"id": "the-path-to-ascension",
+						"name": "The Path to Ascension",
+						"icon": "https://render.guildwars2.com/file/0B1BA898B3242C5CA5FA7A6F214521AADE01A125/1766453.png",
+						"location": "Elon Riverlands",
+						"link": "https://wiki.guildwars2.com/wiki/Elon_Riverlands:_Hero%27s_Choice_Chest",
+						"timer": {
+							"duration": [0, 20],
+							"times": [
+								[1, 30, "Augury Rock"],
+								[1, 55, "Doppelganger"],
+								[3, 30, "Augury Rock"],
+								[3, 55, "Doppelganger"],
+								[5, 30, "Augury Rock"],
+								[5, 55, "Doppelganger"],
+								[7, 30, "Augury Rock"],
+								[7, 55, "Doppelganger"],
+								[9, 30, "Augury Rock"],
+								[9, 55, "Doppelganger"],
+								[11, 30, "Augury Rock"],
+								[11, 55, "Doppelganger"],
+								[13, 30, "Augury Rock"],
+								[13, 55, "Doppelganger"],
+								[15, 30, "Augury Rock"],
+								[15, 55, "Doppelganger"],
+								[17, 30, "Augury Rock"],
+								[17, 55, "Doppelganger"],
+								[19, 30, "Augury Rock"],
+								[19, 55, "Doppelganger"],
+								[21, 30, "Augury Rock"],
+								[21, 55, "Doppelganger"],
+								[23, 30, "Augury Rock"],
+								[23, 55, "Doppelganger"],
+								[25, 30, "Augury Rock"],
+								[25, 55, "Doppelganger"]
+							]
+						}
+					},
+					{
+						"id": "maws-of-torment",
+						"name": "Maws of Torment",
+						"icon": "https://render.guildwars2.com/file/80B59B2CCCF7599D11FA0FD2C32B012A5C0410D2/1766459.png",
+						"location": "The Desolation",
+						"link": "https://wiki.guildwars2.com/wiki/The_Desolation:_Hero%27s_Choice_Chest",
+						"timer": {
+							"duration": [0, 20],
+							"times": [
+								[1, 0, "Maws of Torment"],
+								[1, 30, "Junundu Rising"],
+								[3, 0, "Maws of Torment"],
+								[3, 30, "Junundu Rising"],
+								[5, 0, "Maws of Torment"],
+								[5, 30, "Junundu Rising"],
+								[7, 0, "Maws of Torment"],
+								[7, 30, "Junundu Rising"],
+								[9, 0, "Maws of Torment"],
+								[9, 30, "Junundu Rising"],
+								[11, 0, "Maws of Torment"],
+								[11, 30, "Junundu Rising"],
+								[13, 0, "Maws of Torment"],
+								[13, 30, "Junundu Rising"],
+								[15, 0, "Maws of Torment"],
+								[15, 30, "Junundu Rising"],
+								[17, 0, "Maws of Torment"],
+								[17, 30, "Junundu Rising"],
+								[19, 0, "Maws of Torment"],
+								[19, 30, "Junundu Rising"],
+								[21, 0, "Maws of Torment"],
+								[21, 30, "Junundu Rising"],
+								[23, 0, "Maws of Torment"],
+								[23, 30, "Junundu Rising"],
+								[25, 0, "Maws of Torment"],
+								[25, 30, "Junundu Rising"]
+							]
+						}
+					},
+					{
+						"id": "forged-with-fire",
+						"name": "Forged with Fire",
+						"icon": "https://render.guildwars2.com/file/7C1475BFB76AAEE22C5FBBF8C4C57EB6CFB10197/1766452.png",
+						"location": "Domain of Vabbi",
+						"link": "https://wiki.guildwars2.com/wiki/Domain_of_Vabbi:_Hero%27s_Choice_Chest",
+						"timer": {
+							"duration": [0, 30],
+							"times": [
+								[0, 0, "Forged with Fire"],
+								[0, 30, "Serpent's Ire"],
+								[1, 0, "Forged with Fire"],
+								[2, 0, "Forged with Fire"],
+								[2, 30, "Serpent's Ire"],
+								[3, 0, "Forged with Fire"],
+								[4, 0, "Forged with Fire"],
+								[4, 30, "Serpent's Ire"],
+								[5, 0, "Forged with Fire"],
+								[6, 0, "Forged with Fire"],
+								[6, 30, "Serpent's Ire"],
+								[7, 0, "Forged with Fire"],
+								[8, 0, "Forged with Fire"],
+								[8, 30, "Serpent's Ire"],
+								[9, 0, "Forged with Fire"],
+								[10, 0, "Forged with Fire"],
+								[10, 30, "Serpent's Ire"],
+								[11, 0, "Forged with Fire"],
+								[12, 0, "Forged with Fire"],
+								[12, 30, "Serpent's Ire"],
+								[13, 0, "Forged with Fire"],
+								[14, 0, "Forged with Fire"],
+								[14, 30, "Serpent's Ire"],
+								[15, 0, "Forged with Fire"],
+								[16, 0, "Forged with Fire"],
+								[16, 30, "Serpent's Ire"],
+								[17, 0, "Forged with Fire"],
+								[18, 0, "Forged with Fire"],
+								[18, 30, "Serpent's Ire"],
+								[19, 0, "Forged with Fire"],
+								[20, 0, "Forged with Fire"],
+								[20, 30, "Serpent's Ire"],
+								[21, 0, "Forged with Fire"],
+								[22, 0, "Forged with Fire"],
+								[22, 30, "Serpent's Ire"],
+								[23, 0, "Forged with Fire"],
+								[24, 0, "Forged with Fire"],
+								[24, 30, "Serpent's Ire"]
+							]
+						}
+					},
+					{
+						"id": "palawadan",
+						"name": "Palawadan",
+						"icon": "https://render.guildwars2.com/file/380A7E3B250B050C2C39B1106CA39AED65C8396B/1894933.png",
+						"location": "Domain of Istan",
+						"link": "https://wiki.guildwars2.com/wiki/Palawadan,_Jewel_of_Istan_(meta_event)",
+						"timer": {
+							"duration": [0, 15],
+							"times": [
+								[1, 45],
+								[3, 45],
+								[5, 45],
+								[7, 45],
+								[9, 45],
+								[11, 45],
+								[13, 45],
+								[15, 45],
+								[17, 45],
+								[19, 45],
+								[21, 45],
+								[23, 45],
+								[25, 45]
+							]
+						}
+					},
+					{
+						"id": "death-branded-shatterer",
+						"name": "Death-Branded Shatterer",
+						"icon": "https://render.guildwars2.com/file/A23305DCB835FFA4A42FB3963CE9C6D37D02419E/2038602.png",
+						"location": "Jahai Bluffs",
+						"link": "https://wiki.guildwars2.com/wiki/Destroy_the_Death-Branded_Shatterer",
+						"timer": {
+							"duration": [0, 30],
+							"times": [
+								[1, 0],
+								[3, 0],
+								[5, 0],
+								[7, 0],
+								[9, 0],
+								[11, 0],
+								[13, 0],
+								[15, 0],
+								[17, 0],
+								[19, 0],
+								[21, 0],
+								[23, 0],
+								[25, 0]
+							]
+						}
+					},
+					{
+						"id": "thunderhead-keep",
+						"name": "Thunderhead Keep",
+						"icon": "https://render.guildwars2.com/file/A602F1FD0EAAAA964371C6E205B00C7F9B1DD9B1/2083069.png",
+						"location": "Thunderhead Peaks",
+						"link": "https://wiki.guildwars2.com/wiki/Thunderhead_Keep_(meta_event)",
+						"timer": {
+							"duration": [0, 15],
+							"times": [
+								[0, 45, "The Oil Floes"],
+								[1, 45, "Thunderhead Keep"],
+								[2, 45, "The Oil Floes"],
+								[3, 45, "Thunderhead Keep"],
+								[4, 45, "The Oil Floes"],
+								[5, 45, "Thunderhead Keep"],
+								[6, 45, "The Oil Floes"],
+								[7, 45, "Thunderhead Keep"],
+								[8, 45, "The Oil Floes"],
+								[9, 45, "Thunderhead Keep"],
+								[10, 45, "The Oil Floes"],
+								[11, 45, "Thunderhead Keep"],
+								[12, 45, "The Oil Floes"],
+								[13, 45, "Thunderhead Keep"],
+								[14, 45, "The Oil Floes"],
+								[15, 45, "Thunderhead Keep"],
+								[16, 45, "The Oil Floes"],
+								[17, 45, "Thunderhead Keep"],
+								[18, 45, "The Oil Floes"],
+								[19, 45, "Thunderhead Keep"],
+								[20, 45, "The Oil Floes"],
+								[21, 45, "Thunderhead Keep"],
+								[22, 45, "The Oil Floes"],
+								[23, 45, "Thunderhead Keep"],
+								[24, 45, "The Oil Floes"]
+							]
+						}
+					},
+					{
+						"id": "the-battle-of-dragonfall",
+						"name": "The Battle of Dragonfall",
+						"icon": "https://render.guildwars2.com/file/B0792659BC28020A0E23C959E759B2C8956AB295/2140410.png",
+						"location": "Dragonfall",
+						"link": "https://wiki.guildwars2.com/wiki/The_Battle_of_Dragonfall"
+					}
+				]
+			},
+			{
+				"id": "events-heart-of-thorns",
+				"name": "Events: Heart of Thorns",
+				"tasks": [
+					{
+						"id": "night-bosses",
+						"name": "Night Bosses",
+						"icon": "https://render.guildwars2.com/file/08DC26975002D02B68BEF2A46EF2A89E7243FD63/1424065.png",
+						"location": "Verdant Brink",
+						"link": "https://wiki.guildwars2.com/wiki/Verdant_Brink:_Hero%27s_Choice_Chest",
+						"timer": {
+							"duration": [0, 20],
+							"times": [
+								[0, 10],
+								[2, 10],
+								[4, 10],
+								[6, 10],
+								[8, 10],
+								[10, 10],
+								[12, 10],
+								[14, 10],
+								[16, 10],
+								[18, 10],
+								[20, 10],
+								[22, 10],
+								[24, 10]
+							]
+						}
+					},
+					{
+						"id": "battle-in-tarir",
+						"name": "Battle in Tarir",
+						"icon": "https://render.guildwars2.com/file/6FD4060277D5E7CF024DF43872B7D1095C10F8D8/1424066.png",
+						"location": "Auric Basin",
+						"link": "https://wiki.guildwars2.com/wiki/Auric_Basin:_Hero%27s_Choice_Chest",
+						"timer": {
+							"duration": [0, 20],
+							"times": [
+								[1, 0],
+								[3, 0],
+								[5, 0],
+								[7, 0],
+								[9, 0],
+								[11, 0],
+								[13, 0],
+								[15, 0],
+								[17, 0],
+								[19, 0],
+								[21, 0],
+								[23, 0],
+								[25, 0]
+							]
+						}
+					},
+					{
+						"id": "against-the-chak-gerent",
+						"name": "Against the Chak Gerent",
+						"icon": "https://render.guildwars2.com/file/2127D47C74BCCC26AA2DB5DFA75DBF7B4D42D43F/1424067.png",
+						"location": "Tangled Depths",
+						"link": "https://wiki.guildwars2.com/wiki/Tangled_Depths:_Hero%27s_Choice_Chest",
+						"timer": {
+							"duration": [0, 20],
+							"times": [
+								[0, 30],
+								[2, 30],
+								[4, 30],
+								[6, 30],
+								[8, 30],
+								[10, 30],
+								[12, 30],
+								[14, 30],
+								[16, 30],
+								[18, 30],
+								[20, 30],
+								[22, 30],
+								[24, 30]
+							]
+						}
+					},
+					{
+						"id": "dragons-stand",
+						"name": "Dragon's Stand",
+						"icon": "https://render.guildwars2.com/file/E0ED00A7EF9EE56AD09EF2CE00B25CD2D26B024B/1424064.png",
+						"location": "Dragon's Stand",
+						"link": "https://wiki.guildwars2.com/wiki/Dragon%27s_Stand:_Hero%27s_Choice_Chest",
+						"timer": {
+							"duration": [2, 0],
+							"times": [
+								[1, 30],
+								[3, 30],
+								[5, 30],
+								[7, 30],
+								[9, 30],
+								[11, 30],
+								[13, 30],
+								[15, 30],
+								[17, 30],
+								[19, 30],
+								[21, 30],
+								[23, 30],
+								[25, 30]
+							]
+						}
+					}
+				]
+			},
+			{
+				"id": "events-tyria",
+				"name": "Events: Tyria",
+				"tasks": [
+					{
+						"id": "svanir-shaman-chief",
+						"name": "Svanir Shaman Chief",
+						"icon": "https://render.guildwars2.com/file/C5055A6A3025B6B52008C0E408F2F94F054F21C8/1205055.png",
+						"location": "Wayfarer Foothills",
+						"link": "https://wiki.guildwars2.com/wiki/Slay_the_Shatterer",
+						"timer": {
+							"duration": [0, 15],
+							"times": [
+								[0, 15],
+								[2, 15],
+								[4, 15],
+								[6, 15],
+								[8, 15],
+								[10, 15],
+								[12, 15],
+								[14, 15],
+								[16, 15],
+								[18, 15],
+								[20, 15],
+								[22, 15],
+								[24, 15]
+							]
+						}
+					},
+					{
+						"id": "fire-elemental",
+						"name": "Fire Elemental",
+						"icon": "https://render.guildwars2.com/file/227C1D183A1D41B869A3D11CE70393450ABB0598/1205570.png",
+						"location": "Metrica Province",
+						"link": "https://wiki.guildwars2.com/wiki/Destroy_the_fire_elemental_created_from_chaotic_energy_fusing_with_the_C.L.E.A.N._5000%27s_energy_core",
+						"timer": {
+							"duration": [0, 15],
+							"times": [
+								[0, 45],
+								[2, 45],
+								[4, 45],
+								[6, 45],
+								[8, 45],
+								[10, 45],
+								[12, 45],
+								[14, 45],
+								[16, 45],
+								[18, 45],
+								[20, 45],
+								[22, 45],
+								[24, 45]
+							]
+						}
+					},
+					{
+						"id": "shadow-behemoth",
+						"name": "Shadow Behemoth",
+						"icon": "https://render.guildwars2.com/file/A4140526595AAA09763ECF06FD51FF5A49339098/1205025.png",
+						"location": "Queensdale",
+						"link": "https://wiki.guildwars2.com/wiki/Defeat_the_shadow_behemoth",
+						"timer": {
+							"duration": [0, 15],
+							"times": [
+								[1, 45],
+								[3, 45],
+								[5, 45],
+								[7, 45],
+								[9, 45],
+								[11, 45],
+								[13, 45],
+								[15, 45],
+								[17, 45],
+								[19, 45],
+								[21, 45],
+								[23, 45],
+								[25, 45]
+							]
+						}
+					},
+					{
+						"id": "great-jungle-wurm",
+						"name": "Great Jungle Wurm",
+						"icon": "https://render.guildwars2.com/file/7E46354A4753BFAE5D71427C35BB56D1DA6A2B5B/1302099.png",
+						"location": "Caledon Forest",
+						"link": "https://wiki.guildwars2.com/wiki/Defeat_the_great_jungle_wurm",
+						"timer": {
+							"duration": [0, 15],
+							"times": [
+								[1, 15],
+								[3, 15],
+								[5, 15],
+								[7, 15],
+								[9, 15],
+								[11, 15],
+								[13, 15],
+								[15, 15],
+								[17, 15],
+								[19, 15],
+								[21, 15],
+								[23, 15],
+								[25, 15]
+							]
+						}
+					},
+					{
+						"id": "modniir-ulgoth",
+						"name": "Modniir Ulgoth",
+						"icon": "https://render.guildwars2.com/file/F2B2A7B638C8789C01EAB5C1A657D42D3DB77BCF/66896.png",
+						"location": "Harathi Hinterlands",
+						"link": "https://wiki.guildwars2.com/wiki/Defeat_Ulgoth_the_Modniir_and_his_minions",
+						"timer": {
+							"duration": [0, 15],
+							"times": [
+								[1, 30],
+								[4, 30],
+								[7, 30],
+								[10, 30],
+								[13, 30],
+								[16, 30],
+								[19, 30],
+								[22, 30],
+								[25, 30]
+							]
+						}
+					},
+					{
+						"id": "admiral-taidha-covington",
+						"name": "Admiral Taidha Covington",
+						"icon": "https://render.guildwars2.com/file/413AB50DDC3B340944BB38CABCD517CEDD7A2BBF/1205694.png",
+						"location": "Bloodtide Coast",
+						"link": "https://wiki.guildwars2.com/wiki/Kill_Admiral_Taidha_Covington",
+						"timer": {
+							"duration": [0, 15],
+							"times": [
+								[0, 0],
+								[3, 0],
+								[6, 0],
+								[9, 0],
+								[12, 0],
+								[15, 0],
+								[18, 0],
+								[21, 0],
+								[24, 0]
+							]
+						}
+					},
+					{
+						"id": "the-shatterer",
+						"name": "The Shatterer",
+						"icon": "https://render.guildwars2.com/file/071410D26DC8480BA014C84A05EC7BE4DA0FDA5A/219373.png",
+						"location": "Blazeridge Steppes",
+						"link": "https://wiki.guildwars2.com/wiki/Slay_the_Shatterer",
+						"timer": {
+							"duration": [0, 15],
+							"times": [
+								[1, 0],
+								[4, 0],
+								[7, 0],
+								[10, 0],
+								[13, 0],
+								[16, 0],
+								[19, 0],
+								[22, 0],
+								[25, 0]
+							]
+						}
+					},
+					{
+						"id": "megadestroyer",
+						"name": "Megadestroyer",
+						"icon": "https://render.guildwars2.com/file/256B2C7A7DE90FBC1C01E851CD47C436DA5C9DD9/1205574.png",
+						"location": "Mount Maelstrom",
+						"link": "https://wiki.guildwars2.com/wiki/Kill_the_megadestroyer_before_it_blows_everyone_up",
+						"timer": {
+							"duration": [0, 15],
+							"times": [
+								[0, 30],
+								[3, 30],
+								[6, 30],
+								[9, 30],
+								[12, 30],
+								[15, 30],
+								[18, 30],
+								[21, 30],
+								[24, 30]
+							]
+						}
+					},
+					{
+						"id": "inquest-golem-mark-ii",
+						"name": "Inquest Golem Mark II",
+						"icon": "https://render.guildwars2.com/file/0CF21678B07362BA78CB40B24804CBF8702AB42C/223705.png",
+						"location": "Mount Maelstrom",
+						"link": "https://wiki.guildwars2.com/wiki/Defeat_the_Inquest%27s_golem_Mark_II",
+						"timer": {
+							"duration": [0, 15],
+							"times": [
+								[2, 0],
+								[5, 0],
+								[8, 0],
+								[11, 0],
+								[14, 0],
+								[17, 0],
+								[20, 0],
+								[23, 0],
+								[26, 0]
+							]
+						}
+					},
+					{
+						"id": "claw-of-jormag",
+						"name": "Claw of Jormag",
+						"icon": "https://render.guildwars2.com/file/EB2AF7C99C3CFF4B28536162CEB334C528FC4CA0/455945.png",
+						"location": "Frostgorge Sound",
+						"link": "https://wiki.guildwars2.com/wiki/Defeat_the_Claw_of_Jormag",
+						"timer": {
+							"duration": [0, 15],
+							"times": [
+								[2, 30],
+								[5, 30],
+								[8, 30],
+								[11, 30],
+								[14, 30],
+								[17, 30],
+								[20, 30],
+								[23, 30],
+								[26, 30]
+							]
+						}
+					},
+					{
+						"id": "triple-trouble",
+						"name": "Triple Trouble",
+						"icon": "https://render.guildwars2.com/file/750804D2EFE9B3370441DDA6B79A39520DA0A4BA/711881.png",
+						"location": "Bloodtide Coast",
+						"link": "https://wiki.guildwars2.com/wiki/Triple_Trouble",
+						"timer": {
+							"duration": [0, 30],
+							"times": [
+								[1, 0],
+								[5, 0],
+								[8, 0],
+								[12, 30],
+								[17, 0],
+								[20, 0],
+								[25, 0]
+							]
+						}
+					},
+					{
+						"id": "tequatl",
+						"name": "Tequatl",
+						"icon": "https://render.guildwars2.com/file/EC27BAEDA6062EC26CB8C145B60B725A5F5AB60C/638238.png",
+						"location": "Sparkfly Fen",
+						"link": "https://wiki.guildwars2.com/wiki/Defeat_Tequatl_the_Sunless",
+						"timer": {
+							"duration": [0, 30],
+							"times": [
+								[0, 0],
+								[3, 0],
+								[7, 0],
+								[11, 30],
+								[16, 0],
+								[19, 0],
+								[24, 0]
+							]
+						}
+					},
+					{
+						"id": "karka-queen",
+						"name": "Karka Queen",
+						"icon": "https://render.guildwars2.com/file/A874FC9AEADE75194E39DBC12FC43F00D7B8F6DB/1204812.png",
+						"location": "Southsun Cove",
+						"link": "https://wiki.guildwars2.com/wiki/Defeat_the_Karka_Queen_threatening_the_settlements",
+						"timer": {
+							"duration": [0, 30],
+							"times": [
+								[2, 0],
+								[6, 0],
+								[10, 30],
+								[15, 0],
+								[18, 0],
+								[23, 0],
+								[26, 0]
+							]
+						}
+					},
+					{
+						"id": "ley-line-anomaly",
+						"name": "Ley-Line Anomaly",
+						"icon": "https://render.guildwars2.com/file/2F030A07047DF63DE8F5DD3E5B7F0106FF4EB1ED/1769803.png",
+						"description": "Rewards Mystic Coin",
+						"link": "https://wiki.guildwars2.com/wiki/Legendary_Ley-Line_Anomaly",
+						"display": true,
+						"timer": {
+							"duration": [0, 20],
+							"times": [
+								[0, 20, "Timberline Falls"],
+								[2, 20, "Iron Marches"],
+								[4, 20, "Gendarran Fields"],
+								[6, 20, "Timberline Falls"],
+								[8, 20, "Iron Marches"],
+								[10, 20, "Gendarran Fields"],
+								[12, 20, "Timberline Falls"],
+								[14, 20, "Iron Marches"],
+								[16, 20, "Gendarran Fields"],
+								[18, 20, "Timberline Falls"],
+								[20, 20, "Iron Marches"],
+								[22, 20, "Gendarran Fields"],
+								[24, 20, "Timberline Falls"]
+							]
+						}
+					}
+				]
+			}
+		]
+	}
+]

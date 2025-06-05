@@ -10,22 +10,27 @@ on:
 jobs:
   Docker:
     runs-on: ubuntu-latest
+      --health-retries 5
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: latest
 
       - name: setup git config
         run: |
           git config user.name "GitHub Actions Bot"
           git config user.email "${{ secrets.EMAIL }}"
 
-      - name: Dependecies
+      - name: Install Dependencies
         run: npm ci
 
       - name: Build
-        run: npm run build
+        run: |
+          npm run build
+          mkdir -p docker-build
+          cp -r build/ docker-build/
+          cp package*.json docker-build/
 
       - name: Save version
         id: version

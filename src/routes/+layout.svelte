@@ -1,58 +1,40 @@
 <script lang="ts">
-	import { onNavigate } from '$app/navigation';
-	import './styles.css';
-	import NavItems from '$lib/components/NavItems.svelte';
-
-	onNavigate((navigation) => {
-		// @ts-ignore
-		if (!document.startViewTransition) return;
-
-		return new Promise((resolve) => {
-			// @ts-ignore
-			document.startViewTransition(async () => {
-				resolve();
-				await navigation.complete;
-			});
-		});
-	});
+	import '../app.css';
+	let { children } = $props();
 </script>
 
-<div class="app flex min-h-dvh flex-col">
-	<div class="bg-base-200 flex flex-row justify-center">
-		<div class="navbar max-w-screen-2xl">
-			<div class="navbar-start">
-				<div class="dropdown">
-					<div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
-						<i class="fa-solid fa-bars"></i>
-					</div>
-					<ul
-						class="menu menu-sm dropdown-content bg-base-100 rounded-box top-10 z-[2] mt-3 w-40 gap-y-2 p-2 shadow"
-					>
-						<NavItems />
-					</ul>
-				</div>
-				<a class="btn btn-ghost text-xl" href="/">GW2Tools</a>
-			</div>
-			<div class="navbar-center hidden lg:flex">
-				<ul class="menu menu-horizontal px-1">
-					<NavItems />
-				</ul>
-			</div>
-			<div class="navbar-end"></div>
-		</div>
-	</div>
-
-	<main class="bg-base-300 mx-auto w-full grow pb-4">
-		<slot />
-	</main>
-
-	<footer class="footer bg-base-200 flex items-center p-2 text-xs">
-		<div class="grow"></div>
-		<div class="w-fit">© henahax.de 2025</div>
-		<div class="flex grow justify-end">
-			<a class="btn btn-ghost btn-xs" href="https://github.com/Henahax/GW2Tools">
-				<i class="fa-brands fa-github"></i>Sourcecode
+<app class="flex h-dvh min-h-dvh flex-col">
+	<header class="flex items-center justify-between px-4 py-2">
+		<a class="btn btn-ghost text-xl font-bold" href="/">GW2Tools</a>
+		<nav class="flex">
+			<a class="btn btn-ghost" href="/reset">
+				<i class="fa-solid fa-arrows-rotate"></i>
+				<span class="max-sm:hidden">reset</span>
 			</a>
+			<a class="btn btn-ghost" href="/magicfind">
+				<i class="fa-solid fa-clover"></i>
+				<span class="max-sm:hidden">magic find</span>
+			</a>
+		</nav>
+		<div></div>
+	</header>
+	<main class="flex w-full max-w-screen-2xl grow flex-col self-center">
+		<div class="flex h-full w-full flex-col self-center">
+			{@render children()}
 		</div>
+	</main>
+	<footer class="flex items-center justify-center gap-8 p-2 text-sm text-neutral-400">
+		<div class="grow text-center">© henahax.de 2025</div>
+		<a
+			class="btn btn-ghost btn-square text-xs"
+			href="https://github.com/Henahax/GW2Tools"
+			aria-label="GitHub"
+		>
+			<i class="fa-brands fa-github"></i>
+			<span class="max-sm:hidden">Sourcecode</span>
+		</a>
 	</footer>
-</div>
+</app>
+
+<style>
+</style>

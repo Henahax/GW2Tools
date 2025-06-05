@@ -1,175 +1,155 @@
 <script lang="ts">
-	import Title from '$lib/components/Title.svelte';
-	import categories from '$lib/data/magicfind/categories.json';
-	import itemList from '$lib/data/magicfind/items.json';
-	import type { Item } from '$lib/types/magicfind/types';
+	import data from './magicfind.json';
+	import {
+		MagicFind,
+		MagicFindItemSelect,
+		MagicFindItemNumber,
+		MagicFindItemBool,
+		MagicFindItemRadio
+	} from './MagicFind.svelte';
 
-	let items: Item[] = $state(itemList as Item[]);
-	let sum: number = $derived(getSum(items));
-
-	function getSum(myItems: Item[]) {
-		let mySum: number = 0;
-		myItems.forEach((item) => {
-			if (item.type === 'number' || (item.type === 'checkbox' && item.checked)) {
-				mySum += Number(item.value);
-			} else if (item.type === 'select' && item.options) {
-				const selectedOption = item.options.find((option) => option.value == item.value);
-				if (selectedOption) {
-					mySum += Number(selectedOption.value);
-				}
-			}
-		});
-		return mySum;
-	}
+	let magicfind: MagicFind = $state(new MagicFind(data));
+	let totalValue: number = $derived(magicfind.total);
 </script>
 
-<svelte:head>
-	<title>GW2Tools: Magic Find</title>
-</svelte:head>
-
-<Title
-	title="Magic Find Calculator"
-	subtitle="Plan your magic find buffs to reach the maximum cap without wasting limited boosters"
+<div
+	class="magicfind grid w-fit grid-cols-[auto_auto_1fr_4fr] gap-x-4 self-center rounded-lg text-xs"
 >
-	<button class="btn btn-primary max-md:btn-square" onclick={infoModalMagicfind.showModal()}>
-		<i class="fa-solid fa-question"></i>
-		<div class="max-md:hidden">Info</div>
-	</button>
-</Title>
-
-<div class="mx-auto flex w-full max-w-screen-2xl text-sm px-4 py-2 gap-1.5">
-	<p>Based on</p>
-	<a
-		class="link link-primary font-semibold"
-		href="https://wiki.guildwars2.com/wiki/Magic_Find#Maximizing_magic_find"
+	<div
+		class="magicfind-head sticky top-0 z-50 col-span-full grid grid-cols-subgrid items-center p-2 text-base"
 	>
-		 maximizing magic find
-	</a>
-</div>
-
-<dialog id="infoModalMagicfind" class="modal modal-bottom sm:modal-middle">
-	<div class="modal-box">
-		<form method="dialog">
-			<button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
-		</form>
-		<h3 class="text-lg font-bold">Instructions</h3>
-		
-		<div class="info-grid grid items-center gap-4 p-4">
-			<div class="flex items-center justify-center text-2xl">
-				<i class="fa-solid fa-square-check"></i>
-			</div>
-			<div class="flex flex-col">
-				<p>choose items</p>
-				<p class="text-xs opacity-50">check boxes or fill in values</p>
-			</div>
-
-			<div class="flex items-center justify-center text-2xl">
-				<i class="fa-solid fa-percent"></i>
-			</div>
-			<div class="flex flex-col">
-				<p>use the calculator</p>
-				<p class="text-xs opacity-50">reach maximum magic find of 750%</p>
-			</div>
-
-			<div class="flex items-center justify-center text-2xl">
-				<i class="fa-solid fa-piggy-bank"></i>
-			</div>
-			<div class="flex flex-col">
-				<p>save boosters</p>
-				<p class="text-xs opacity-50">let them collect even more dust</p>
-			</div>
-		</div>
+		<div class="col-span-2 text-right">value</div>
+		<div></div>
+		<div>description</div>
 	</div>
-	<form method="dialog" class="modal-backdrop">
-		<button>close</button>
-	</form>
-</dialog>
-
-<table class="table-zebra table-xs table-pin-rows mx-auto table w-fit">
-	<thead class="text-sm">
-		<tr class="bg-base-100 shadow">
-			<th>
-				<input class="checkbox" type="checkbox" disabled checked />
-			</th>
-			<th class="text-right">value</th>
-			<th></th>
-			<th>info</th>
-		</tr>
-	</thead>
-	<tbody>
-		{#each categories as category}
-			<tr>
-				<th colspan="4">{category.name}</th>
-			</tr>
-			{#each items.filter((item) => item.category === category.id) as item}
-				<tr>
-					{#if item.type === 'checkbox'}
-						<td>
-							<input
-								id={item.id}
-								class="checkbox checkbox-lg"
-								type="checkbox"
-								bind:checked={item.checked}
-							/>
-						</td>
-						<td>
-							<label class="flex h-full w-full justify-end" for={item.id}>{item.value}</label>
-						</td>
-					{:else if item.type === 'number'}
-						<td colspan="2">
-							<input
-								id={item.id}
-								class="input input-bordered input-sm w-24 text-right"
-								bind:value={item.value}
-							/>
-						</td>
-					{:else if item.type === 'select' && item.options}
-						<td colspan="2">
+	{#each magicfind.categories as category: MagicFindCategory}
+		<div class="collapsible col-span-full grid grid-cols-subgrid divide-y divide-slate-700">
+			<button
+				class="collapsible-header col-span-full flex gap-4 px-3.5 py-1 text-left font-bold max-sm:py-2"
+				onclick={() => category.toggleOpen()}
+				title="click to collapse/expand"
+			>
+				<div>
+					{#if category.open}
+						<i class="fa-solid fa-minus"></i>
+					{:else}
+						<i class="fa-solid fa-plus"></i>
+					{/if}
+				</div>
+				<div class="col-span-3">
+					{category.name}
+				</div>
+			</button>
+			<div
+				class="collapsible-content col-span-full grid grid-cols-subgrid items-center divide-y divide-slate-700"
+				class:closed={!category.open}
+			>
+				{#each category.items as item: MagicFindItem}
+					<label class="col-span-full grid grid-cols-subgrid items-center p-2">
+						{#if item instanceof MagicFindItemSelect}
 							<select
 								id={item.id}
-								class="select select-bordered select-sm w-24"
-								bind:value={item.value}
+								class="col-span-2 text-xs"
+								onchange={(e) => {
+									const target = e.target as HTMLSelectElement;
+									item.setSelected(parseInt(target.value));
+								}}
 							>
 								{#each item.options as option}
-									<option value={option.value}>{option.description}</option>
+									<option class="text-right" value={option.value}>
+										{option.description}
+									</option>
 								{/each}
 							</select>
-						</td>
-					{/if}
-					<td>
-						<label class="flex flex-row flex-wrap items-center" for={item.id}>
+						{:else if item instanceof MagicFindItemNumber}
+							<input
+								id={item.id}
+								type="number"
+								class="col-span-2 text-right text-xs"
+								value={item.value}
+								min="0"
+								max="350"
+								step="1"
+								onchange={(e) => {
+									const target = e.target as HTMLInputElement;
+									item.setValue(parseInt(target.value));
+								}}
+							/>
+						{:else if item instanceof MagicFindItemBool}
+							<input
+								id={item.id}
+								type="checkbox"
+								checked={item.checked}
+								onchange={(e) => {
+									const target = e.target as HTMLInputElement;
+									item.setChecked(target.checked);
+								}}
+							/>
+							<div class="text-right">{item.value}</div>
+						{:else if item instanceof MagicFindItemRadio}
+							<input
+								id={item.id}
+								type="radio"
+								name={category.id}
+								checked={item.checked}
+								onchange={(e) => {
+									const target = e.target as HTMLInputElement;
+									item.setChecked(target.checked, category);
+								}}
+							/>
+							<div class="text-right">{item.value}</div>
+						{/if}
+						<div class="flex flex-wrap">
 							{#each item.icons as icon}
-								<img class="size-8 min-w-8" src={icon} alt="" />
+								<img class="size-8" src={icon} alt="icon" />
 							{/each}
-						</label>
-					</td>
-					<td>
-						<label for={item.id}>
-							<div class="flex gap-1.5">
+						</div>
+						<div class="flex flex-col">
+							<div class="flex flex-wrap gap-x-2 font-bold">
 								{#each item.names as name}
-									<a class="link link-primary font-semibold" href={name.link}>{name.name}</a>
+									<a href={name.link} target="_blank" rel="noopener noreferrer">{name.name}</a>
 								{/each}
 							</div>
-							<div>
-								{item.description}
-							</div>
-						</label>
-					</td>
-				</tr>
-			{/each}
-		{/each}
-	</tbody>
-	<tfoot>
-		<tr class="bg-base-100 text-lg shadow">
-			<th></th>
-			<th class="text-right {sum < 750 ? 'text-red-500' : 'text-green-500'}">{sum}</th>
-			<th colspan="2" class="normal-case">% (of max 750%)</th>
-		</tr>
-	</tfoot>
-</table>
+							<div>{item.description}</div>
+						</div>
+					</label>
+				{/each}
+			</div>
+		</div>
+	{/each}
+	<div
+		class="magicfind-foot sticky bottom-0 z-50 col-span-full grid grid-cols-subgrid items-center p-2 text-base"
+	>
+		<div
+			class="col-span-2 text-right font-bold {totalValue < 750 ? 'text-red-500' : 'text-green-500'}"
+		>
+			{totalValue}
+		</div>
+		<div class="col-span-2">% (of max 750%)</div>
+	</div>
+</div>
 
 <style>
-	.info-grid {
-		grid-template-columns: fit-content(0) 1fr;
+	.magicfind {
+	}
+
+	.magicfind-head,
+	.magicfind-foot {
+		background-color: var(--background);
+	}
+
+	.magicfind a {
+		text-decoration: none;
+		color: var(--primary);
+	}
+
+	.magicfind a:hover {
+		text-decoration: underline;
+		color: var(--foreground);
+	}
+
+	.magicfind,
+	.magicfind-head,
+	.magicfind-foot {
 	}
 </style>

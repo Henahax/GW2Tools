@@ -1,12 +1,15 @@
-version: '2.1'
+version: '3.8'
 services:
-  nginx:
+  gw2-tools:
     image: henahax/gw2tools:latest
-    container_name: henahax-gw2tools
+    container_name: gw2tools
     environment:
       - PUID=1000
       - PGID=1000
       - TZ=Europe/Berlin
+      - PORT=3000
     ports:
       - 8080:3000
+    depends_on:
+      - gw2tools-db
     restart: unless-stopped

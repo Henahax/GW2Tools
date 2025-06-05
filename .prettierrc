@@ -13,6 +13,16 @@
 			"options": {
 				"parser": "svelte"
 			}
+		},
+		{
+			"files": "*.json",
+			"options": {
+				"parser": "json",
+				"bracketSpacing": true,
+				"bracketSameLine": true,
+				"singleQuote": false,
+				"arrayBracketNewline": "consistent"
+			}
 		}
 	]
 }

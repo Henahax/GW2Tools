@@ -1,204 +1,184 @@
 <script lang="ts">
-	import Title from '$lib/components/Title.svelte';
+	import resetData from './reset.json';
+	import { Reset, ResetInterval } from './Reset.svelte';
+	import {
+		getUTCTimeForStartOfNextDay,
+		getUTCTimeForStartOfNextWeek
+	} from '$lib/helpers/ResetFunctions';
+	import Interval from '$lib/components/reset/Interval.svelte';
 
-	import type { Interval, Category, Task } from '$lib/types/reset/types';
-	import IntervalTimer from '$lib/components/reset/IntervalTimer.svelte';
-	import ListInterval from '$lib/components/reset/ListInterval.svelte';
-	import SettingsInterval from '$lib/components/reset/SettingsInterval.svelte';
-	import intervalsData from '$lib/data/reset/intervals.json';
-	import categoriesData from '$lib/data/reset/categories.json';
-	import tasksData from '$lib/data/reset/tasks.json';
+	import Timer from '$lib/components/reset/Timer.svelte';
 
-	const intervals: Interval[] = intervalsData as Interval[];
-	const categories: Category[] = categoriesData as Category[];
-	const tasks: Task[] = tasksData as Task[];
-
+	let reset = $state(new Reset(resetData));
+	let overlayOpen = $state(false);
 	let filter = $state('');
-	let data = $state([] as Interval[]);
-
-	function init() {
-		let initData = [] as Interval[];
-
-		// Parse cookies
-		const cookies = document.cookie.split('; ').map((cookie) => {
-			const [name, value] = cookie.split('=');
-			const [namespace, subname] = name.split('.');
-			return { namespace, subname, value };
-		});
-
-		intervals.forEach((interval: Interval) => {
-			// Clone the interval object to avoid mutating the original
-			let newInterval = { ...(interval as Interval) };
-			let myCategories = [] as Category[];
-
-			categories.forEach((category: Category) => {
-				// Clone the category object to avoid mutating the original
-				let newCategory = { ...(category as Category) };
-				let myTasks = [] as Task[];
-
-				tasks.forEach((task: Task) => {
-					if (task.interval === interval.id && task.category === category.id) {
-						cookies.forEach(({ namespace, subname, value }) => {
-							if (namespace === task.id) {
-								if (subname === 'display') {
-									task.display = value === 'true';
-								} else if (subname === 'checked') {
-									task.checked = value === 'true';
-								}
-							}
-						});
-						myTasks.push(task);
-					}
-				});
-
-				if (myTasks.length > 0) {
-					newCategory.tasks = myTasks; // Assign tasks to the cloned category
-					myCategories.push(newCategory);
-				}
-			});
-
-			if (myCategories.length > 0) {
-				newInterval.categories = myCategories;
-				initData.push(newInterval);
-			}
-		});
-
-		// Assign the processed data to the global `data` variable
-		data = initData;
-	}
+	let currentTime = $state(new Date().getTime());
 
 	$effect(() => {
-		init();
+		const interval = setInterval(() => {
+			currentTime = new Date().getTime();
+		}, 1000);
+
+		return () => {
+			clearInterval(interval);
+		};
 	});
+
+	function toggleOverlay() {
+		overlayOpen = !overlayOpen;
+	}
 </script>
 
-<svelte:head>
-	<title>GW2Tools: Reset</title>
-</svelte:head>
-
-<div class="drawer">
-	<input id="my-drawer" type="checkbox" class="drawer-toggle" />
-	<div class="drawer-content">
-		<Title
-			title="Reset Checklist"
-			subtitle="Choose displayed time-gated tasks in the options menu and track progress"
-		>
-			<div class="flex flex-row items-center gap-4">
-				<div class="flex flex-col gap-4 sm:flex-row">
-					{#each intervals as interval}
-						<div class="flex flex-col text-right">
-							<div>{interval.timer}:</div>
-							<IntervalTimer interval={interval.id} />
-						</div>
-					{/each}
-				</div>
-				<div class="flex flex-col gap-2 sm:flex-row">
-					<label for="my-drawer" class="btn btn-outline max-lg:btn-square">
-						<i class="fa-solid fa-gear"></i>
-						<div class="max-lg:hidden">Settings</div>
-					</label>
-					<button class="btn btn-primary max-lg:btn-square" onclick={infoModalReset.showModal()}>
-						<i class="fa-solid fa-question"></i>
-						<div class="max-lg:hidden">Info</div>
-					</button>
-				</div>
-			</div>
-		</Title>
-
-		<dialog id="infoModalReset" class="modal modal-bottom sm:modal-middle">
-			<div class="modal-box">
-				<form method="dialog">
-					<button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
-				</form>
-				<h3 class="text-lg font-bold">Instructions</h3>
-				<div class="info-grid grid items-center gap-4 p-4">
-					<div class="flex items-center justify-center text-2xl">
-						<i class="fa-solid fa-gear"></i>
-					</div>
-
-					<div class="flex flex-col">
-						<p>select displayed tasks</p>
-						<p class="text-xs opacity-50">items, vendors, actions, events</p>
-					</div>
-
-					<div class="flex items-center justify-center text-2xl">
-						<i class="fa-solid fa-square-check"></i>
-					</div>
-					<div class="flex flex-col">
-						<p>check completed tasks</p>
-						<p class="text-xs opacity-50">tasks will reset on daily/weeky reset</p>
-					</div>
-
-					<div class="flex items-center justify-center text-2xl">
-						<i class="fa-regular fa-circle-question"></i>
-					</div>
-					<div class="flex flex-col">
-						<p>link to relevant information</p>
-						<p class="text-xs opacity-50">wiki, calculators</p>
-					</div>
-					<div class="flex items-center justify-center">
-						<span class="countdown font-mono">00:13:37</span>
-					</div>
-					<div class="flex flex-col">
-						<p>countdown to next event</p>
-						<div class="flex flex-row gap-4 text-xs opacity-50">
-							<div class="flex items-center gap-2">
-								<i class="fa-solid fa-play"></i><span>active</span>
-							</div>
-							<div class="flex items-center gap-2">
-								<i class="fa-solid fa-stopwatch"></i><span>soon</span>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<form method="dialog" class="modal-backdrop">
-				<button>close</button>
-			</form>
-		</dialog>
-
-		<div class="mx-auto flex w-full flex-col justify-center gap-4 px-2 pb-2 sm:flex-row">
-			{#each data as interval}
-				<ListInterval {interval} />
-			{/each}
-		</div>
+<div class="flex w-full flex-wrap items-center gap-8 self-center p-4 max-sm:flex-col">
+	<div class="flex flex-col self-start">
+		<div class="text-2xl">Reset Checklist</div>
+		<div>chose displayed time-gated tasks</div>
 	</div>
 
-	<div class="drawer-side z-50">
-		<label for="my-drawer" aria-label="close sidebar" class="drawer-overlay"></label>
-
-		<div class="bg-base-300 text-base-content flex h-full flex-col">
-			<div class="flex w-full flex-col gap-2 p-4">
-				<div class="flex flex-row items-center justify-between gap-4">
-					<h2 class="text-xl">Displayed Tasks</h2>
-					<label for="my-drawer" aria-label="close sidebar" class="btn btn-ghost btn-xs btn-square">
-						✕
-					</label>
-				</div>
-
-				<label class="input input-bordered flex w-full items-center gap-2">
-					<i class="fa-solid fa-magnifying-glass"></i>
-					<input type="text" class="grow" placeholder="Search" bind:value={filter} />
-				</label>
+	<div class="grid grow grid-flow-col gap-4 self-end">
+		<div class="flex grow justify-end gap-4">
+			<div class="flex flex-col text-end">
+				<div class="text-sm">{reset.intervals[0].timer}</div>
+				<Timer
+					targetTime={getUTCTimeForStartOfNextWeek().getTime()}
+					soonTime={86400000}
+					numbersShown={4}
+					triggerReload={true}
+				/>
 			</div>
-
-			<div class="flex w-full flex-col gap-8 overflow-y-auto p-4">
-				{#each data.filter( (interval:Interval) => interval.categories.some( (category) => category.tasks.some((task) => task.name
-											.toLowerCase()
-											.includes(filter.toLowerCase()) || (task.location && task.location
-												.toLowerCase()
-												.includes(filter.toLowerCase())) || (task.description && task.description
-												.toLowerCase()
-												.includes(filter.toLowerCase()))) ) ) as interval}
-					<SettingsInterval {interval} {filter} />
-				{/each}
+			<div class="flex flex-col text-end">
+				<div class="text-sm">{reset.intervals[1].timer}</div>
+				<Timer
+					targetTime={getUTCTimeForStartOfNextDay().getTime()}
+					soonTime={10800000}
+					numbersShown={3}
+					triggerReload={true}
+				/>
+			</div>
+			<div class="flex gap-2">
+				<button class="btn btn-outline" onclick={toggleOverlay}>
+					<i class="fa-solid fa-gear"></i>
+					<span class="max-sm:hidden">Settings</span>
+				</button>
 			</div>
 		</div>
 	</div>
 </div>
 
+<div class="flex grow flex-col items-center self-center p-2">
+	<div class="grid grid-cols-1 gap-4 sm:grid-cols-[auto_1fr]">
+		{#each reset.intervals as interval}
+			<Interval {interval} {currentTime} />
+		{/each}
+	</div>
+</div>
+
+<label
+	class="overlay backdrop-blur-xs absolute bottom-0 right-0 top-0 flex h-dvh w-dvw grow justify-end {overlayOpen
+		? ''
+		: 'hidden'}"
+	for="closeResetMenu"
+>
+</label>
+<div
+	class="menu absolute bottom-0 right-0 top-0 flex h-dvh flex-col border-l shadow-lg"
+	class:open={overlayOpen}
+>
+	<div class="flex flex-col gap-2 p-4">
+		<div class="flex w-full items-center justify-between gap-4">
+			<div class="text-xl">Displayed Tasks:</div>
+			<button
+				id="closeResetMenu"
+				class="btn btn-ghost btn-square"
+				aria-label="close"
+				onclick={toggleOverlay}
+			>
+				<i class="fa-solid fa-xmark"></i>
+			</button>
+		</div>
+		<input class="w-full" type="search" placeholder="Search" bind:value={filter} />
+	</div>
+	<div class="overflow-y-auto">
+		<div class="flex flex-col gap-4 p-4">
+			{#each reset.intervals.filter( (interval: ResetInterval) => interval.categories.some( (category) => category.tasks.some((task) => task.name
+										.toLowerCase()
+										.includes(filter.toLowerCase()) || (task.location && task.location
+											.toLowerCase()
+											.includes(filter.toLowerCase())) || (task.description && task.description
+											.toLowerCase()
+											.includes(filter.toLowerCase()))) ) ) as interval}
+				<div>
+					<div class="text-lg font-bold">{interval.timer}</div>
+					<div class="flex flex-col gap-2">
+						{#each interval.categories.filter((category) => category.tasks.some((task) => task.name
+										.toLowerCase()
+										.includes(filter.toLowerCase()) || (task.location && task.location
+											.toLowerCase()
+											.includes(filter.toLowerCase())) || (task.description && task.description
+											.toLowerCase()
+											.includes(filter.toLowerCase())))) as category: ResetCategory}
+							<div>
+								<div class="font-semibold">{category.name}</div>
+								<div class="flex flex-col gap-2">
+									{#each category.tasks.filter((task) => task.name
+												.toLowerCase()
+												.includes(filter.toLowerCase()) || (task.location && task.location
+													.toLowerCase()
+													.includes(filter.toLowerCase())) || (task.description && task.description
+													.toLowerCase()
+													.includes(filter.toLowerCase()))) as task: ResetTask}
+										<label
+											class="grid grid-cols-[auto_auto_1fr] items-center gap-2 hover:brightness-125"
+										>
+											<input
+												type="checkbox"
+												bind:checked={task.display}
+												onchange={(e) => task.setDisplay(e.currentTarget.checked)}
+											/>
+											<img class="size-6 rounded" src={task.icon} alt={task.name} />
+											<div class="flex flex-col text-xs">
+												<div class="font-semibold">{task.name}</div>
+												{#if task.description}
+													<div class="text-neutral-400">{task.description}</div>
+												{:else if task.location}
+													<div class="flex items-center gap-1.5 text-xs text-neutral-400">
+														<i class="fa-solid fa-location-dot"></i>{task.location}
+													</div>
+												{/if}
+											</div>
+										</label>
+									{/each}
+								</div>
+							</div>
+						{/each}
+					</div>
+				</div>
+			{/each}
+		</div>
+	</div>
+</div>
+
 <style>
-	.info-grid {
-		grid-template-columns: fit-content(0) 1fr;
+	label {
+		cursor: pointer;
+	}
+
+	.overlay {
+		position: fixed;
+		z-index: 10;
+	}
+
+	.menu {
+		position: fixed;
+		z-index: 50;
+		height: 100vh;
+		transition: transform 0.5s ease-in-out;
+		transform: translateX(100%);
+		border-color: var(--card-border-color);
+		background-color: var(--background-muted);
+	}
+
+	.menu.open {
+		transform: translateX(0);
 	}
 </style>
