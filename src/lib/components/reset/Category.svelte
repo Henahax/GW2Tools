@@ -20,6 +20,7 @@
 <div
 	class="collapsible col-span-full grid break-inside-avoid grid-cols-subgrid divide-y divide-slate-700 rounded-lg shadow-md"
 	class:hidden={displayedTasks.length === 0}
+	class:opacity-75={allDisplayedTasksChecked}
 >
 	<button
 		class="collapsible-header col-span-full flex items-center gap-2 rounded-t-lg py-1 pl-3.5 pr-2.5 text-xs backdrop-blur-md"
