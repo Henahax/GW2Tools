@@ -56,10 +56,6 @@
 				/>
 			</div>
 			<div class="flex gap-2">
-				<button class="btn btn-primary">
-					<i class="fa-solid fa-question"></i>
-					<span class="max-sm:hidden">Info</span>
-				</button>
 				<button class="btn btn-outline" onclick={toggleOverlay}>
 					<i class="fa-solid fa-gear"></i>
 					<span class="max-sm:hidden">Settings</span>
