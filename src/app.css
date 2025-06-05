@@ -6,20 +6,17 @@
 
 :root {
 	color-scheme: dark;
-	--background: var(--color-neutral-950);
-	--foreground: var(--color-neutral-50);
+	--background: var(--color-slate-950);
+	--foreground: var(--color-slate-100);
+	--foreground-muted: var(--color-slate-400);
+	--background-muted: var(--color-slate-900);
 
-	--background-muted: var(--color-neutral-600);
-	--foreground-muted: var(--color-neutral-400);
+	--primary: var(--color-slate-400);
+	--primary-highlight: var(--color-slate-300);
 
-	--primary: var(--color-indigo-600);
-	--primary-muted: var(--color-indigo-700);
-	--primary-highlight: var(--color-indigo-500);
-
-	--card-background: var(--color-neutral-900);
-	--card-background-light: var(--color-neutral-800);
-
-	--border: var(--color-neutral-800);
+	--card-button-background: var(--color-slate-950);
+	--card-background: var(--color-slate-900);
+	--card-border-color: var(--color-slate-700);
 
 	font-size: 1rem;
 }
@@ -29,18 +26,22 @@ html {
 	color: var(--foreground);
 }
 
+header {
+	background-color: var(--background-muted);
+}
+
 input,
 select,
 textarea {
 	border-radius: 0.25rem;
-	background-color: var(--color-neutral-900);
-	border-color: var(--color-neutral-500);
+	background-color: var(--background);
+	border-color: var(--foreground-muted);
 }
 
 input:hover,
 select:hover,
 textarea:hover {
-	background-color: var(--color-neutral-800);
+	border-color: var(--foreground);
 }
 
 input[type='checkbox'],
@@ -78,7 +79,7 @@ button {
 
 .btn-primary {
 	background-color: var(--primary);
-	color: var(--foreground);
+	color: var(--background);
 }
 
 .btn-primary:hover {
@@ -110,9 +111,23 @@ button {
 	font-family: monospace;
 }
 
+.collapsible {
+	background-color: var(--card-background);
+	border: 1px solid var(--card-border-color);
+}
+
+.collapsible-header {
+	color: var(--foreground-muted);
+	background-color: var(--card-button-background);
+}
+
+.collapsible-header:hover {
+	color: var(--foreground);
+}
+
 .collapsible-header:hover,
 .collapsible:has(.collapsible-header:hover) {
-	border: 1px solid var(--color-neutral-500);
+	border-color: var(--primary);
 }
 
 .collapsible-content {

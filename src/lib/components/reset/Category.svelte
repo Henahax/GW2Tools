@@ -18,12 +18,13 @@
 </script>
 
 <div
-	class="collapsible col-span-full grid break-inside-avoid grid-cols-subgrid rounded-sm border border-neutral-800 shadow-md"
+	class="collapsible col-span-full grid break-inside-avoid grid-cols-subgrid divide-y divide-slate-700 rounded-lg shadow-md"
 	class:hidden={displayedTasks.length === 0}
 >
 	<button
-		class="collapsible-header col-span-full flex items-center gap-2 rounded border border-neutral-700 py-1 pl-3.5 pr-2.5 text-xs backdrop-blur-md"
+		class="collapsible-header col-span-full flex items-center gap-2 rounded-t-lg py-1 pl-3.5 pr-2.5 text-xs backdrop-blur-md"
 		onclick={() => category.toggleOpen()}
+		title="click to collapse/expand"
 	>
 		{#if allDisplayedTasksChecked}
 			<i class="fa-solid fa-check"></i>
@@ -39,7 +40,7 @@
 		{/if}
 	</button>
 	<div
-		class="collapsible-content col-span-full grid grid-cols-subgrid divide-y divide-neutral-800"
+		class="collapsible-content col-span-full grid grid-cols-subgrid divide-y divide-slate-800"
 		class:closed={!category.open}
 	>
 		{#each category.tasks.filter((task: ResetTask) => task.display === true) as task: ResetTask}

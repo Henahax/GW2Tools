@@ -15,7 +15,6 @@
 
 <label
 	class="col-span-full flex items-center gap-4 px-2 py-1.5 hover:brightness-125"
-	class:text-neutral-400={task.checked}
 	class:line-through={task.checked}
 >
 	<input
@@ -32,7 +31,7 @@
 	/>
 	<div class="flex grow flex-col gap-0.5">
 		<div class="text-xs">{task.name}</div>
-		<div class="flex flex-col text-xs text-neutral-400">
+		<div class="subtitle flex flex-col text-xs">
 			{#if task.location}
 				<div class="flex items-center gap-1.5">
 					<i class="fa-solid fa-location-dot"></i>{task.location}
@@ -51,10 +50,10 @@
 			{/if}
 		{/if}
 
-		<div class="flex flex-col items-center">
+		<div class="flex flex-col items-center gap-0.5">
 			{#if task.link}
 				<a
-					class="text-xs text-neutral-500 transition ease-in-out hover:text-neutral-200"
+					class="text-xs transition ease-in-out"
 					href={task.link}
 					target="_blank"
 					title="open info link"
@@ -66,7 +65,7 @@
 			{/if}
 			{#if task.chatcode}
 				<button
-					class="text-xs text-neutral-500 transition ease-in-out hover:text-neutral-200"
+					class="text-xs transition ease-in-out"
 					aria-label="copy waypoint"
 					title="copy waypoint"
 					onclick={() => copyToClipBoard(task.chatcode)}
@@ -81,5 +80,19 @@
 <style>
 	label {
 		cursor: pointer;
+	}
+
+	.subtitle {
+		color: var(--foreground-muted);
+	}
+
+	a,
+	button {
+		color: var(--foreground-muted);
+	}
+
+	a:hover,
+	button:hover {
+		color: var(--foreground);
 	}
 </style>

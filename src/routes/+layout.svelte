@@ -4,7 +4,7 @@
 </script>
 
 <app class="flex h-dvh min-h-dvh flex-col">
-	<header class="flex items-center justify-between bg-neutral-800 px-4 py-2">
+	<header class="flex items-center justify-between px-4 py-2">
 		<a class="btn btn-ghost text-xl font-bold" href="/">GW2Tools</a>
 		<nav class="flex">
 			<a class="btn btn-ghost" href="/reset">

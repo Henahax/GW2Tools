@@ -85,9 +85,8 @@
 >
 </label>
 <div
-	class="menu absolute bottom-0 right-0 top-0 flex h-dvh flex-col border-l border-neutral-700 bg-neutral-900 shadow-lg {overlayOpen
-		? 'open'
-		: ''}"
+	class="menu absolute bottom-0 right-0 top-0 flex h-dvh flex-col border-l shadow-lg"
+	class:open={overlayOpen}
 >
 	<div class="flex flex-col gap-2 p-4">
 		<div class="flex w-full items-center justify-between gap-4">
@@ -179,6 +178,8 @@
 		height: 100vh;
 		transition: transform 0.5s ease-in-out;
 		transform: translateX(100%);
+		border-color: var(--card-border-color);
+		background-color: var(--background-muted);
 	}
 
 	.menu.open {

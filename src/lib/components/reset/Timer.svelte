@@ -91,7 +91,7 @@
 	class="flex flex-col items-end"
 	class:text-green-500={isActive}
 	class:text-yellow-500={isSoon}
-	class:text-neutral-400={!isActive && !isSoon && !triggerReload}
+	class:muted={!isActive && !isSoon && !triggerReload}
 >
 	<div class="timer flex items-center gap-1.5">
 		{#if isActive && !triggerReload}
@@ -134,4 +134,7 @@
 </div>
 
 <style>
+	.muted {
+		color: var(--foreground-muted);
+	}
 </style>

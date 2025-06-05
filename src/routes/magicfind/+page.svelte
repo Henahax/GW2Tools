@@ -16,17 +16,18 @@
 	class="magicfind grid w-fit grid-cols-[auto_auto_1fr_4fr] gap-x-4 self-center rounded-lg text-xs"
 >
 	<div
-		class="magicfind-head sticky top-0 col-span-full grid grid-cols-subgrid items-center border border-neutral-800 p-2 text-base"
+		class="magicfind-head sticky top-0 z-50 col-span-full grid grid-cols-subgrid items-center p-2 text-base"
 	>
 		<div class="col-span-2 text-right">value</div>
 		<div></div>
 		<div>description</div>
 	</div>
 	{#each magicfind.categories as category: MagicFindCategory}
-		<div class="collapsible col-span-full grid grid-cols-subgrid border border-neutral-800">
+		<div class="collapsible col-span-full grid grid-cols-subgrid divide-y divide-slate-700">
 			<button
-				class="collapsible-header col-span-full flex gap-4 border border-neutral-800 px-3.5 py-1 text-left font-bold max-sm:py-2"
+				class="collapsible-header col-span-full flex gap-4 px-3.5 py-1 text-left font-bold max-sm:py-2"
 				onclick={() => category.toggleOpen()}
+				title="click to collapse/expand"
 			>
 				<div>
 					{#if category.open}
@@ -40,7 +41,7 @@
 				</div>
 			</button>
 			<div
-				class="collapsible-content col-span-full grid grid-cols-subgrid items-center divide-y divide-neutral-800"
+				class="collapsible-content col-span-full grid grid-cols-subgrid items-center divide-y divide-slate-700"
 				class:closed={!category.open}
 			>
 				{#each category.items as item: MagicFindItem}
@@ -104,7 +105,7 @@
 							{/each}
 						</div>
 						<div class="flex flex-col">
-							<div class="flex flex-wrap gap-x-2">
+							<div class="flex flex-wrap gap-x-2 font-bold">
 								{#each item.names as name}
 									<a href={name.link} target="_blank" rel="noopener noreferrer">{name.name}</a>
 								{/each}
@@ -117,7 +118,7 @@
 		</div>
 	{/each}
 	<div
-		class="magicfind-foot sticky bottom-0 col-span-full grid grid-cols-subgrid items-center border p-2 text-base"
+		class="magicfind-foot sticky bottom-0 z-50 col-span-full grid grid-cols-subgrid items-center p-2 text-base"
 	>
 		<div
 			class="col-span-2 text-right font-bold {totalValue < 750 ? 'text-red-500' : 'text-green-500'}"
@@ -130,26 +131,25 @@
 
 <style>
 	.magicfind {
-		background-color: var(--card-background);
 	}
 
 	.magicfind-head,
 	.magicfind-foot {
-		background-color: var(--card-background);
+		background-color: var(--background);
 	}
 
 	.magicfind a {
 		text-decoration: none;
-		color: var(--primary-highlight);
+		color: var(--primary);
 	}
 
 	.magicfind a:hover {
 		text-decoration: underline;
+		color: var(--foreground);
 	}
 
 	.magicfind,
 	.magicfind-head,
 	.magicfind-foot {
-		border-color: var(--border);
 	}
 </style>
