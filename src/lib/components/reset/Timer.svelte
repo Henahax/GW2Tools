@@ -24,8 +24,9 @@
 	let formattedTime = $derived(formatTime(difference, numbersShown));
 
 	$effect(() => {
-		if (!triggerReload && !isActive) {
-			numbersShown = 3;
+		if (!triggerReload) {
+			// 3 for inactive or longer than 1 hour, else 2
+			numbersShown = !isActive || duration[0] > 0 ? 3 : 2;
 		}
 	});
 
