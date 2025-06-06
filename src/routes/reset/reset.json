@@ -279,7 +279,8 @@
 						"id": "writ-of-dragons-end",
 						"name": "Writ of Dragon's End",
 						"icon": "https://render.guildwars2.com/file/073408A1070EF6EC7DD6C297DCCDB04D600B3BCF/2594269.png",
-						"link": "https://wiki.guildwars2.com/wiki/Writ_of_Dragon%27s_End"
+						"link": "https://wiki.guildwars2.com/wiki/Writ_of_Dragon%27s_End",
+						"location": "Dragon's End"
 					},
 					{
 						"id": "wizards-tower-exchange",
