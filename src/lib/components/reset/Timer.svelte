@@ -23,9 +23,11 @@
 	let isActive = $derived(difference < 0);
 	let formattedTime = $derived(formatTime(difference, numbersShown));
 
-	if (!triggerReload && !isActive) {
-		numbersShown = 3;
-	}
+	$effect(() => {
+		if (!triggerReload && !isActive) {
+			numbersShown = 3;
+		}
+	});
 
 	$effect(() => {
 		const interval = setInterval(() => {
