@@ -44,7 +44,6 @@ export class Reset {
 
     constructor(data?: ResetIntervalData[]) {
         if (data) {
-            const cookies = getCookies();
             this.intervals = data.map(interval => {
                 const resetInterval = new ResetInterval({
                     id: interval.id,
@@ -67,40 +66,38 @@ export class Reset {
                             link: task.link,
                             description: task.description,
                             location: task.location,
-                            chatcode: task.chatcode
+                            chatcode: task.chatcode,
+                            display: task.display ?? false  // Set initial display value from JSON
                         });
-
-                        // Set initial display value from JSON if present
-                        if (typeof task.display === 'boolean') {
-                            resetTask.display = task.display;
-                        }
-
-                        // Apply cookie states (these will override initial values)
-                        cookies.filter(cookie => cookie.namespace === resetTask.id).forEach(cookie => {
-                            if (cookie.subname === "display") {
-                                resetTask.setDisplay(cookie.value === "true");
-                            } else if (cookie.subname === "weekly" && interval.interval === "weekly") {
-                                resetTask.setChecked(cookie.value === "true", resetInterval, resetCategory);
-                            } else if (cookie.subname === "daily" && interval.interval === "daily") {
-                                resetTask.setChecked(cookie.value === "true", resetInterval, resetCategory);
-                            }
-                        });
-
-                        if (task.timer) {
-                            resetTask.timer = new ResetTimer(task.timer.duration, task.timer.times);
-                        }
                         return resetTask;
                     });
-
-                    // Update category open state based on initial task states
-                    const displayedTasks = resetCategory.tasks.filter((task: ResetTask) => task.display);
-                    const allDisplayedTasksChecked = displayedTasks.length > 0 && displayedTasks.every((task: ResetTask) => task.checked);
-                    resetCategory.open = !allDisplayedTasksChecked;
-
                     return resetCategory;
                 });
                 return resetInterval;
             });
+
+            // Defer cookie application until after hydration
+            if (typeof window !== 'undefined') {
+                queueMicrotask(() => {
+                    const cookies = getCookies();
+                    this.intervals.forEach(interval => {
+                        interval.categories.forEach(category => {
+                            category.tasks.forEach(task => {
+                                // Apply cookie states
+                                cookies.filter(cookie => cookie.namespace === task.id).forEach(cookie => {
+                                    if (cookie.subname === "display") {
+                                        task.setDisplay(cookie.value === "true");
+                                    } else if (cookie.subname === "weekly" && interval.interval === "weekly") {
+                                        task.setChecked(cookie.value === "true", interval, category);
+                                    } else if (cookie.subname === "daily" && interval.interval === "daily") {
+                                        task.setChecked(cookie.value === "true", interval, category);
+                                    }
+                                });
+                            });
+                        });
+                    });
+                });
+            }
         }
     }
 }
@@ -168,6 +165,7 @@ export class ResetTask {
         description?: string;
         location?: string;
         chatcode?: string;
+        display?: boolean;
     } = {}) {
         this.id = params.id ?? "";
         this.name = params.name ?? "";
@@ -176,6 +174,7 @@ export class ResetTask {
         this.description = params.description;
         this.location = params.location;
         this.chatcode = params.chatcode;
+        this.display = params.display ?? false;  // Initialize display from params
     }
 
     setDisplay(value: boolean) {

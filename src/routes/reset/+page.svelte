@@ -9,7 +9,7 @@
 
 	import Timer from '$lib/components/reset/Timer.svelte';
 
-	let reset = $state(new Reset(resetData));
+	let reset = $state(new Reset(resetData as ResetInterval[]));
 	let overlayOpen = $state(false);
 	let filter = $state('');
 	let currentTime = $state(new Date().getTime());
