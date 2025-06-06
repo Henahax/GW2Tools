@@ -1,5 +1,4 @@
 import { getUTCTimeForStartOfNextWeek, getUTCTimeForStartOfNextDay } from "$lib/helpers/ResetFunctions";
-import { int } from "drizzle-orm/mysql-core";
 
 export class Reset {
     intervals = $state<ResetInterval[]>([]);
@@ -8,12 +7,33 @@ export class Reset {
         if (data) {
             const cookies = getCookies();
             this.intervals = data.map(interval => {
-                let resetInterval = Object.assign(new ResetInterval(), interval);
+                const resetInterval = new ResetInterval();
+                resetInterval.id = interval.id;
                 resetInterval.interval = interval.interval === "weekly" ? Interval.weekly : Interval.daily;
+                resetInterval.timer = interval.timer;
+                resetInterval.tasks = interval.tasks;
+                resetInterval.reset = interval.reset;
+                resetInterval.icon = interval.icon;
+
                 resetInterval.categories = interval.categories.map((category: any) => {
-                    let resetCategory = Object.assign(new ResetCategory(), category);
-                    resetCategory.tasks = category.tasks.map((task: any) => {
-                        let resetTask = Object.assign(new ResetTask(), task);
+                    const resetCategory = new ResetCategory();
+                    resetCategory.id = category.id;
+                    resetCategory.name = category.name;                    resetCategory.tasks = category.tasks.map((task: any) => {
+                        const resetTask = new ResetTask();
+                        resetTask.id = task.id;
+                        resetTask.name = task.name;
+                        resetTask.icon = task.icon;
+                        resetTask.link = task.link;
+                        if (task.description) resetTask.description = task.description;
+                        if (task.location) resetTask.location = task.location;
+                        if (task.chatcode) resetTask.chatcode = task.chatcode;
+                        
+                        // Set initial display value from JSON if present
+                        if (typeof task.display === 'boolean') {
+                            resetTask.display = task.display;
+                        }
+
+                        // Apply cookie states (these will override initial values)
                         cookies.filter(cookie => cookie.namespace === resetTask.id).forEach(cookie => {
                             if (cookie.subname === "display") {
                                 resetTask.setDisplay(cookie.value === "true");
@@ -25,7 +45,7 @@ export class Reset {
                         });
 
                         if (task.timer) {
-                            resetTask.timer = Object.assign(new ResetTimer(), task.timer);
+                            resetTask.timer = new ResetTimer();
                             resetTask.timer.duration = task.timer.duration;
                             resetTask.timer.times = task.timer.times;
                         }
