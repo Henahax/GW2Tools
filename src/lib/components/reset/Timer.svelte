@@ -114,7 +114,7 @@
 			</div>
 			{#if (duration[0] > 0 || duration[1] > 0) && isActive}
 				<div>/</div>
-				<div class="inline-flex items-center">
+				<div class="flex items-center">
 					{#if duration[0] > 0}
 						<div>
 							{duration[0].toString().padStart(2, '0')}

@@ -298,7 +298,7 @@
 					},
 					{
 						"id": "daily-catch-arborstone",
-						"name": "Daily Catch: Fishmonger Arborstone",
+						"name": "Daily Catch: Taro Everclaw",
 						"icon": "https://render.guildwars2.com/file/C113C406281D94BB560701DF350BCA9AF592AFE9/2597025.png",
 						"link": "https://wiki.guildwars2.com/wiki/Daily_Catch#Arborstone_Fishmonger_Taro_Everclaw",
 						"location": "Arborstone",
@@ -306,7 +306,7 @@
 					},
 					{
 						"id": "daily-catch-lowland-shore",
-						"name": "Daily Catch: Fishmonger Lowland Shore",
+						"name": "Daily Catch: Bending Reed",
 						"icon": "https://render.guildwars2.com/file/C113C406281D94BB560701DF350BCA9AF592AFE9/2597025.png",
 						"link": "https://wiki.guildwars2.com/wiki/Daily_Catch#Lowland_Shore_Fishmongers_Humbled_Den_and_Bending_Reed",
 						"location": "Lowland Shore",
@@ -314,7 +314,7 @@
 					},
 					{
 						"id": "daily-catch-janthir-syntri",
-						"name": "Daily Catch: Fishmonger Janthir Syntri",
+						"name": "Daily Catch: Lupine in the Wind",
 						"icon": "https://render.guildwars2.com/file/C113C406281D94BB560701DF350BCA9AF592AFE9/2597025.png",
 						"link": "https://wiki.guildwars2.com/wiki/Daily_Catch#Janthir_Syntri_Fishmonger_Lupine_in_the_Wind",
 						"location": "Janthir Syntri",
@@ -322,7 +322,7 @@
 					},
 					{
 						"id": "daily-catch-mistburned-barrens",
-						"name": "Daily Catch: Fishmonger Mistburned Barrens",
+						"name": "Daily Catch: Humbled Den",
 						"icon": "https://render.guildwars2.com/file/C113C406281D94BB560701DF350BCA9AF592AFE9/2597025.png",
 						"link": "https://wiki.guildwars2.com/wiki/Daily_Catch#Mistburned_Barrens_Fishmonger_Humbled_Den",
 						"location": "Mistburned Barrens",

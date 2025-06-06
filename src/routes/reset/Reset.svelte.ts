@@ -55,9 +55,7 @@ export class Reset {
                 });
 
                 resetInterval.categories = interval.categories.map((category: any) => {
-                    const resetCategory = new ResetCategory(category.id, category.name);
-
-                    // Create tasks with clean state to avoid any state sharing
+                    const resetCategory = new ResetCategory(category.id, category.name);                    // Create tasks with clean state to avoid any state sharing
                     resetCategory.tasks = category.tasks.map((task: any) => {
                         const resetTask = new ResetTask({
                             id: task.id,
@@ -69,6 +67,11 @@ export class Reset {
                             chatcode: task.chatcode,
                             display: task.display ?? false  // Set initial display value from JSON
                         });
+
+                        // Initialize timer if present in task data
+                        if (task.timer) {
+                            resetTask.timer = new ResetTimer(task.timer.duration, task.timer.times);
+                        }
                         return resetTask;
                     });
                     return resetCategory;
