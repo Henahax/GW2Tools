@@ -22,11 +22,24 @@
 	let isSoon = $derived(difference < soonTime && difference > 0);
 	let isActive = $derived(difference < 0);
 	let formattedTime = $derived(formatTime(difference, numbersShown));
+	let numbersShownDynamic = $state(numbersShown);
 
 	$effect(() => {
 		if (!triggerReload) {
 			// 3 for inactive or longer than 1 hour, else 2
 			numbersShown = !isActive || duration[0] > 0 ? 3 : 2;
+		}
+
+		if (!triggerReload) {
+			if (!isSoon && !isActive) {
+				numbersShownDynamic = 3;
+			} else if (isSoon || isActive) {
+				if (duration[0] > 0) {
+					numbersShownDynamic = 3;
+				} else {
+					numbersShownDynamic = 2;
+				}
+			}
 		}
 	});
 
@@ -104,11 +117,11 @@
 		{/if}
 		<div class="flex items-center gap-0.5">
 			<div class="flex items-center">
-				{#each getTimeUnitsToShow(numbersShown, formattedTime) as unit, index}
+				{#each getTimeUnitsToShow(numbersShownDynamic, formattedTime) as unit, index}
 					{#each unit.value.split('') as digit}
 						<div>{digit}</div>
 					{/each}
-					{#if index < getTimeUnitsToShow(numbersShown, formattedTime).length - 1}
+					{#if index < getTimeUnitsToShow(numbersShownDynamic, formattedTime).length - 1}
 						<div>:</div>
 					{/if}
 				{/each}
