@@ -20,7 +20,9 @@
 	let currentTime = $state(Math.abs(Date.now()));
 	let difference = $derived(targetTime - currentTime);
 	let isSoon = $derived(difference < soonTime && difference > 0);
-	let isActive = $derived(difference < 0);
+	let isActive = $derived(
+		difference < 0 && Math.abs(difference) < duration[0] * 3600000 + duration[1] * 60000
+	);
 	let formattedTime = $derived(formatTime(difference, numbersShown));
 	let numbersShownDynamic = $state(numbersShown);
 
