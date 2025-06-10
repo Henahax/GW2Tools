@@ -85,18 +85,30 @@ export class Reset {
                     const cookies = getCookies();
                     this.intervals.forEach(interval => {
                         interval.categories.forEach(category => {
+                            // First apply all display states
                             category.tasks.forEach(task => {
-                                // Apply cookie states
                                 cookies.filter(cookie => cookie.namespace === task.id).forEach(cookie => {
                                     if (cookie.subname === "display") {
                                         task.setDisplay(cookie.value === "true");
-                                    } else if (cookie.subname === "weekly" && interval.interval === "weekly") {
-                                        task.setChecked(cookie.value === "true", interval, category);
-                                    } else if (cookie.subname === "daily" && interval.interval === "daily") {
-                                        task.setChecked(cookie.value === "true", interval, category);
                                     }
                                 });
                             });
+
+                            // Then apply all checked states without updating category
+                            category.tasks.forEach(task => {
+                                cookies.filter(cookie => cookie.namespace === task.id).forEach(cookie => {
+                                    if (cookie.subname === "weekly" && interval.interval === "weekly") {
+                                        task.setChecked(cookie.value === "true", interval, category, true);
+                                    } else if (cookie.subname === "daily" && interval.interval === "daily") {
+                                        task.setChecked(cookie.value === "true", interval, category, true);
+                                    }
+                                });
+                            });
+
+                            // Finally update category state once
+                            const displayedTasks = category.tasks.filter(task => task.display);
+                            const allDisplayedTasksChecked = displayedTasks.length > 0 && displayedTasks.every(task => task.checked);
+                            category.open = !allDisplayedTasksChecked;
                         });
                     });
                 });
@@ -185,12 +197,14 @@ export class ResetTask {
         setCookie(value, this.id, CookieType.display);
     }
 
-    setChecked(value: boolean, interval: ResetInterval, category: ResetCategory) {
+    setChecked(value: boolean, interval: ResetInterval, category: ResetCategory, skipCategoryUpdate: boolean = false) {
         this.checked = value;
 
-        const displayedTasks = category.tasks.filter(task => task.display);
-        const allDisplayedTasksChecked = displayedTasks.length > 0 && displayedTasks.every(task => task.checked);
-        category.open = !allDisplayedTasksChecked;
+        if (!skipCategoryUpdate) {
+            const displayedTasks = category.tasks.filter(task => task.display);
+            const allDisplayedTasksChecked = displayedTasks.length > 0 && displayedTasks.every(task => task.checked);
+            category.open = !allDisplayedTasksChecked;
+        }
 
         setCookie(value, this.id, CookieType.checked, interval.interval);
     }
