@@ -13,10 +13,7 @@
 	}
 </script>
 
-<label
-	class="col-span-full flex items-center gap-4 px-2 py-1.5 hover:brightness-125"
-	class:line-through={task.checked}
->
+<label class="col-span-full flex items-center gap-4 px-2 py-1.5 hover:brightness-125">
 	<input
 		class:opacity-50={task.checked}
 		type="checkbox"
@@ -31,7 +28,9 @@
 		alt={task.description}
 	/>
 	<div class="flex grow flex-col gap-0.5">
-		<div class="text-xs" class:opacity-50={task.checked}>{task.name}</div>
+		<div class="text-xs" class:line-through={task.checked} class:opacity-50={task.checked}>
+			{task.name}
+		</div>
 		<div class="subtitle flex flex-col text-xs" class:opacity-50={task.checked}>
 			{#if task.location}
 				<div class="flex items-center gap-1.5">
