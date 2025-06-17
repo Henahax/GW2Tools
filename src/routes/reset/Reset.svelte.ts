@@ -66,11 +66,11 @@ export class Reset {
                             location: task.location,
                             chatcode: task.chatcode,
                             display: task.display ?? false  // Set initial display value from JSON
-                        });
-
-                        // Initialize timer if present in task data
+                        });                        // Initialize timer if present in task data
                         if (task.timer) {
-                            resetTask.timer = new ResetTimer(task.timer.duration, task.timer.times);
+                            resetTask.timer = new ResetTimer();
+                            resetTask.timer.duration = task.timer.duration;
+                            resetTask.timer.times = task.timer.times;
                         }
                         return resetTask;
                     });
