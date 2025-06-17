@@ -2,12 +2,20 @@
 	import Timer from './Timer.svelte';
 	import { ResetTimer } from '../../../routes/reset/Reset.svelte';
 	import { getUTCTimeForStartOfNextDay } from '$lib/helpers/ResetFunctions';
-	let { timer } = $props<{ timer: ResetTimer }>();
 
+	let { timer } = $props<{ timer: ResetTimer }>();
 	let nextEventTime = $state(getNextEventTime(timer)[0].getTime());
 	let duration = $state(getNextEventTime(timer)[1]);
 	let add = $state(getNextEventTime(timer)[2]);
 	let numbersShown = $derived(duration[0] > 0 ? 3 : 2);
+
+	// Update timer state whenever the timer prop changes
+	$effect(() => {
+		const [newTime, newDuration, newAdd] = getNextEventTime(timer);
+		nextEventTime = newTime.getTime();
+		duration = newDuration;
+		add = newAdd;
+	});
 
 	// Update event time every second and when event is finished
 	$effect(() => {
