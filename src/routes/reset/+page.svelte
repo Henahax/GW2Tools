@@ -32,7 +32,7 @@
 <div class="flex w-full flex-wrap items-center gap-8 self-center p-4 max-sm:flex-col">
 	<div class="flex flex-col self-start">
 		<div class="text-2xl">Reset Checklist</div>
-		<div>chose displayed time-gated tasks</div>
+		<div>choose displayed time-gated tasks</div>
 	</div>
 
 	<div class="grid grow grid-flow-col gap-4 self-end">

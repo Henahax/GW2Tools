@@ -89,32 +89,6 @@
 						"chatcode": "[&BCwDAAA=]",
 						"description": "Lunar New Year",
 						"link": "https://wiki.guildwars2.com/wiki/Divine_Lucky_Envelope"
-					},
-					{
-						"id": "four-winds-treasure-hunt",
-						"name": "Treasure Hunt",
-						"icon": "https://render.guildwars2.com/file/9BED5B1BC4DC043E72CA9A6F07704D4EF875655E/2015706.png",
-						"location": "Labyrinthine Cliffs",
-						"description": "Festival of the Four Winds",
-						"link": "https://wiki.guildwars2.com/wiki/Participate_in_the_treasure_hunt!",
-						"timer": {
-							"duration": [0, 30],
-							"times": [
-								[0, 30],
-								[2, 30],
-								[4, 30],
-								[6, 30],
-								[8, 30],
-								[10, 30],
-								[12, 30],
-								[14, 30],
-								[16, 30],
-								[18, 30],
-								[20, 30],
-								[22, 30],
-								[24, 30]
-							]
-						}
 					}
 				]
 			}
@@ -1552,6 +1526,38 @@
 								[20, 20, "Iron Marches"],
 								[22, 20, "Gendarran Fields"],
 								[24, 20, "Timberline Falls"]
+							]
+						}
+					}
+				]
+			},
+			{
+				"id": "festivals",
+				"name": "Festivals",
+				"tasks": [
+					{
+						"id": "four-winds-treasure-hunt",
+						"name": "Treasure Hunt",
+						"icon": "https://render.guildwars2.com/file/9BED5B1BC4DC043E72CA9A6F07704D4EF875655E/2015706.png",
+						"location": "Labyrinthine Cliffs",
+						"description": "Festival of the Four Winds",
+						"link": "https://wiki.guildwars2.com/wiki/Participate_in_the_treasure_hunt!",
+						"timer": {
+							"duration": [0, 30],
+							"times": [
+								[0, 30],
+								[2, 30],
+								[4, 30],
+								[6, 30],
+								[8, 30],
+								[10, 30],
+								[12, 30],
+								[14, 30],
+								[16, 30],
+								[18, 30],
+								[20, 30],
+								[22, 30],
+								[24, 30]
 							]
 						}
 					}
