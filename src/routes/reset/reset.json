@@ -71,6 +71,27 @@
 				]
 			},
 			{
+				"id": "misc",
+				"name": "Miscellaneous",
+				"tasks": [
+					{
+						"id": "black-lion-chest-key",
+						"name": "Black Lion Chest Key",
+						"icon": "https://render.guildwars2.com/file/207BDD31BC494A07A0A1691705079100066D3F2F/414998.png",
+						"description": "Level 10 Human Story",
+						"link": "https://www.youtube.com/watch?v=1KdasTB2rNM"
+					},
+					{
+						"id": "vigil-emissary-chest",
+						"name": "Vigil Emissary Chest",
+						"icon": "https://render.guildwars2.com/file/489AD63A6803782E5CBE6B7244ED7F7C0FA0BB41/2149902.png",
+						"location": "Eye of the North",
+						"chatcode": "[&BAkMAAA=]",
+						"link": "https://wiki.guildwars2.com/wiki/Vigil_Emissary_Chest"
+					}
+				]
+			},
+			{
 				"id": "festivals",
 				"name": "Festivals",
 				"tasks": [
@@ -305,34 +326,6 @@
 				]
 			},
 			{
-				"id": "misc",
-				"name": "Miscellaneous",
-				"tasks": [
-					{
-						"id": "alt-parking",
-						"name": "Alt-Parking",
-						"icon": "https://render.guildwars2.com/file/C37541040CA3E1D50CC84ECF2DBB016CAA612AA9/498982.png",
-						"description": "Open Chests with Alt-Charactes",
-						"link": "https://fast.farming-community.eu/open-world/alt-parking"
-					},
-					{
-						"id": "black-lion-chest-key",
-						"name": "Black Lion Chest Key",
-						"icon": "https://render.guildwars2.com/file/207BDD31BC494A07A0A1691705079100066D3F2F/414998.png",
-						"description": "Level 10 Human Story",
-						"link": "https://www.youtube.com/watch?v=1KdasTB2rNM"
-					},
-					{
-						"id": "vigil-emissary-chest",
-						"name": "Vigil Emissary Chest",
-						"icon": "https://render.guildwars2.com/file/489AD63A6803782E5CBE6B7244ED7F7C0FA0BB41/2149902.png",
-						"location": "Eye of the North",
-						"chatcode": "[&BAkMAAA=]",
-						"link": "https://wiki.guildwars2.com/wiki/Vigil_Emissary_Chest"
-					}
-				]
-			},
-			{
 				"id": "harvesting",
 				"name": "Harvesting",
 				"tasks": [
@@ -393,6 +386,19 @@
 						"icon": "https://render.guildwars2.com/file/7102024A5FA50AD002FBE915F7FE69D7CDD919B3/849443.png",
 						"description": "Chef",
 						"link": "https://wiki.guildwars2.com/wiki/Plate_of_Piquant_Plant_Food"
+					}
+				]
+			},
+			{
+				"id": "misc",
+				"name": "Miscellaneous",
+				"tasks": [
+					{
+						"id": "alt-parking",
+						"name": "Alt-Parking",
+						"icon": "https://render.guildwars2.com/file/C37541040CA3E1D50CC84ECF2DBB016CAA612AA9/498982.png",
+						"description": "Open Chests with Alt-Charactes",
+						"link": "https://fast.farming-community.eu/open-world/alt-parking"
 					}
 				]
 			},
