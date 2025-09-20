@@ -1566,6 +1566,43 @@
 								[24, 30]
 							]
 						}
+					},
+					{
+						"id": "open-world-incursions",
+						"name": "Open-World Incursions",
+						"description": "Fractal Incursion",
+						"icon": "https://wiki.guildwars2.com/images/d/d4/Fractalline_Dust.png",
+						"link": "https://wiki.guildwars2.com/wiki/Defeat_the_enemy_spawned_by_the_fractal_incursion",
+						"timer": {
+							"duration": [0, 15],
+							"times": [
+								[0, 0, "Kessex Hills"],
+								[1, 0, "Diessa Plateau"],
+								[2, 0, "Brisban Wildlands"],
+								[3, 0, "Snowden Drifts"],
+								[4, 0, "Kessex Hills"],
+								[5, 0, "Diessa Plateau"],
+								[6, 0, "Brisban Wildlands"],
+								[7, 0, "Snowden Drifts"],
+								[8, 0, "Kessex Hills"],
+								[9, 0, "Diessa Plateau"],
+								[10, 0, "Brisban Wildlands"],
+								[11, 0, "Snowden Drifts"],
+								[12, 0, "Kessex Hills"],
+								[13, 0, "Diessa Plateau"],
+								[14, 0, "Brisban Wildlands"],
+								[15, 0, "Snowden Drifts"],
+								[16, 0, "Kessex Hills"],
+								[17, 0, "Diessa Plateau"],
+								[18, 0, "Brisban Wildlands"],
+								[19, 0, "Snowden Drifts"],
+								[20, 0, "Kessex Hills"],
+								[21, 0, "Diessa Plateau"],
+								[22, 0, "Brisban Wildlands"],
+								[23, 0, "Snowden Drifts"],
+								[24, 0, "Kessex Hills"]
+							]
+						}
 					}
 				]
 			}
