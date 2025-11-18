@@ -10,7 +10,8 @@
 					"https://wiki.guildwars2.com/images/thumb/3/31/Magic_Find.png/20px-Magic_Find.png"
 				],
 				"type": "number",
-				"value": 0
+				"value": 0,
+				"multiplier": 1
 			},
 			{
 				"id": "enrichtment",
@@ -92,6 +93,20 @@
 					{
 						"name": "Greater Call of the Mists",
 						"link": "https://wiki.guildwars2.com/wiki/Greater_Call_of_the_Mists"
+					}
+				]
+			},
+			{
+				"id": "extra-life-bonus",
+				"description": "+5% per stack during Extra Life charity event",
+				"icons": ["https://wiki.guildwars2.com/images/5/5d/Ace_Racer.png"],
+				"type": "number",
+				"value": 0,
+				"multiplier": 5,
+				"names": [
+					{
+						"name": "Extra Life Bonus",
+						"link": "https://wiki.guildwars2.com/images/5/5d/Ace_Racer.png"
 					}
 				]
 			}

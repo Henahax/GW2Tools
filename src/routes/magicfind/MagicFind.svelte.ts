@@ -1,7 +1,7 @@
 export class MagicFind {
     categories = $state<MagicFindCategory[]>([]);
 
-    constructor(data?: any[]) {
+    constructor(data?: MagicFindCategory[]) {
         if (data) {
             this.categories = data.map(seedCategory => {
                 const category = Object.assign(new MagicFindCategory(), {
@@ -9,7 +9,7 @@ export class MagicFind {
                     name: seedCategory.name
                 });
 
-                category.items = seedCategory.items.map((seedItem: any) => {
+                category.items = seedCategory.items.map((seedItem: MagicFindItem | MagicFindItemNumber | MagicFindItemBool | MagicFindItemRadio | MagicFindItemSelect) => {
                     let item: MagicFindItem;
 
                     switch (seedItem.type) {
@@ -39,7 +39,7 @@ export class MagicFind {
         return this.categories.reduce((total, category) => {
             return total + category.items.reduce((categoryTotal, item) => {
                 if (item instanceof MagicFindItemNumber) {
-                    return categoryTotal + item.value;
+                    return categoryTotal + (item.value * (item.multiplier ?? 1));
                 } else if (item instanceof MagicFindItemBool && item.checked) {
                     return categoryTotal + item.value;
                 } else if (item instanceof MagicFindItemRadio && item.checked) {
@@ -76,11 +76,13 @@ export class MagicFindItem {
     id = "";
     value = $state(0);
     description = "";
+    type = "bool";
     icons: string[] = [];
     names: [{ name: string, link: string }] = [{ name: "", link: "" }];
 }
 
 export class MagicFindItemNumber extends MagicFindItem {
+    multiplier = 1;
     setValue(newValue: number): void {
         this.value = newValue;
     }
