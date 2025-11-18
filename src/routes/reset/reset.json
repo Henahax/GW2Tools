@@ -403,6 +403,62 @@
 				]
 			},
 			{
+				"id": "events-visions-of-eternity",
+				"name": "Events: Visions of Eternity",
+				"tasks": [
+					{
+						"id": "hammerhart-rumble",
+						"name": "Hammerhart Rumble!",
+						"icon": "https://render.guildwars2.com/file/2098DC55D139B2A209D3E50FA14BA09BC20DB6EB/3708799.png",
+						"location": "Shipwreck Strand",
+						"link": "https://wiki.guildwars2.com/wiki/Hammerhart_Rumble!",
+						"timer": {
+							"duration": [0, 20],
+							"times": [
+								[0, 40],
+								[2, 40],
+								[4, 40],
+								[6, 40],
+								[8, 40],
+								[10, 40],
+								[12, 40],
+								[14, 40],
+								[16, 40],
+								[18, 40],
+								[20, 40],
+								[22, 40],
+								[24, 40]
+							]
+						}
+					},
+					{
+						"id": "secrets-of-the-weald",
+						"name": "Secrets of the Weald",
+						"icon": "https://render.guildwars2.com/file/2098DC55D139B2A209D3E50FA14BA09BC20DB6EB/3708799.png",
+						"location": "Starlit Weald",
+						"link": "https://wiki.guildwars2.com/wiki/Secrets_of_the_Weald",
+						"timer": {
+							"duration": [0, 35],
+							"times": [
+								[1, 40],
+								[3, 40],
+								[5, 40],
+								[7, 40],
+								[9, 40],
+								[11, 40],
+								[13, 40],
+								[15, 40],
+								[17, 40],
+								[19, 40],
+								[21, 40],
+								[23, 40],
+								[25, 40]
+							]
+						}
+					}
+				]
+			},
+			{
 				"id": "events-janthir-wilds",
 				"name": "Events: Janthir Wilds",
 				"tasks": [
