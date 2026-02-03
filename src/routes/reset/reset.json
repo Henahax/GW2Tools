@@ -101,15 +101,6 @@
 						"icon": "https://render.guildwars2.com/file/02BEB919E40F2A4E61AF3AD8AA3701A7D99A62EA/1493226.png",
 						"description": "Weekly Sales",
 						"link": "https://wiki.guildwars2.com/wiki/Festival_Rewards_Vendor"
-					},
-					{
-						"id": "divine-lucky-envelopes",
-						"name": "Divine Lucky Envelopes",
-						"icon": "https://render.guildwars2.com/file/9D94B96446F269662F6ACC2531394A06C0E03951/947657.png",
-						"location": "Divinity's Reach & Guild Hall",
-						"chatcode": "[&BCwDAAA=]",
-						"description": "Lunar New Year",
-						"link": "https://wiki.guildwars2.com/wiki/Divine_Lucky_Envelope"
 					}
 				]
 			}
@@ -1597,6 +1588,15 @@
 				"id": "festivals",
 				"name": "Festivals",
 				"tasks": [
+					{
+						"id": "divine-lucky-envelopes",
+						"name": "Divine Lucky Envelopes",
+						"icon": "https://render.guildwars2.com/file/9D94B96446F269662F6ACC2531394A06C0E03951/947657.png",
+						"location": "Divinity's Reach & Guild Hall",
+						"chatcode": "[&BCwDAAA=]",
+						"description": "Lunar New Year",
+						"link": "https://wiki.guildwars2.com/wiki/Divine_Lucky_Envelope"
+					},
 					{
 						"id": "four-winds-treasure-hunt",
 						"name": "Treasure Hunt",
