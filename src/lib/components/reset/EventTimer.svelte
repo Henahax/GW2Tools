@@ -4,12 +4,12 @@
 	import { getUTCTimeForStartOfNextDay } from '$lib/helpers/ResetFunctions';
 
 	let { timer } = $props<{ timer: ResetTimer }>();
-	let nextEventTime = $state(getNextEventTime(timer)[0].getTime());
-	let duration = $state(getNextEventTime(timer)[1]);
-	let add = $state(getNextEventTime(timer)[2]);
+	let nextEventTime = $state(0);
+	let duration = $state<[number, number]>([0, 0]);
+	let add = $state('');
 	let numbersShown = $derived(duration[0] > 0 ? 3 : 2);
 
-	// Update timer state whenever the timer prop changes
+	// Keep timer state in sync with the current prop value
 	$effect(() => {
 		const [newTime, newDuration, newAdd] = getNextEventTime(timer);
 		nextEventTime = newTime.getTime();
@@ -33,7 +33,7 @@
 		return () => clearInterval(interval);
 	});
 
-	function getNextEventTime(timer: any): [Date, [number, number], string] {
+	function getNextEventTime(timer: ResetTimer): [Date, [number, number], string] {
 		let now = new Date().getTime();
 		let startOfNextDay = getUTCTimeForStartOfNextDay();
 		let startOfThisDay = startOfNextDay.getTime() - 24 * 60 * 60 * 1000;
@@ -53,8 +53,9 @@
 			) {
 				nextEventTime =
 					startOfThisDay + timer.times[i][0] * 60 * 60 * 1000 + timer.times[i][1] * 60 * 1000;
-				if (timer.times[i][2]) {
-					add = timer.times[i][2];
+				const eventAdd = timer.times[i][2];
+				if (eventAdd) {
+					add = eventAdd;
 				}
 				duration = timer.duration;
 				break;
