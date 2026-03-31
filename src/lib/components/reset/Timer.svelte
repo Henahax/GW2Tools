@@ -23,27 +23,12 @@
 	let isActive = $derived(
 		difference < 0 && Math.abs(difference) < duration[0] * 3600000 + duration[1] * 60000
 	);
-	let formattedTime = $derived(formatTime(difference, numbersShown));
-	let numbersShownDynamic = $state(numbersShown);
-
-	$effect(() => {
-		if (!triggerReload) {
-			// 3 for inactive or longer than 1 hour, else 2
-			numbersShown = !isActive || duration[0] > 0 ? 3 : 2;
-		}
-
-		if (!triggerReload) {
-			if (!isSoon && !isActive) {
-				numbersShownDynamic = 3;
-			} else if (isSoon || isActive) {
-				if (duration[0] > 0) {
-					numbersShownDynamic = 3;
-				} else {
-					numbersShownDynamic = 2;
-				}
-			}
-		}
+	let numbersShownDynamic = $derived.by(() => {
+		if (triggerReload) return numbersShown;
+		if (!isSoon && !isActive) return 3;
+		return duration[0] > 0 ? 3 : 2;
 	});
+	let formattedTime = $derived(formatTime(difference, numbersShownDynamic));
 
 	$effect(() => {
 		const interval = setInterval(() => {
