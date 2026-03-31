@@ -1,6 +1,4 @@
 <script lang="ts">
-	import { goto } from '$app/navigation';
-
 	let {
 		targetTime,
 		soonTime = 300000,
@@ -36,7 +34,7 @@
 
 			// reload page on date change
 			if (triggerReload && difference < 0) {
-				goto(window.location.pathname);
+				window.location.href = window.location.pathname;
 			}
 		}, 1000);
 
@@ -104,8 +102,8 @@
 		{/if}
 		<div class="flex items-center gap-0.5">
 			<div class="flex items-center">
-				{#each getTimeUnitsToShow(numbersShownDynamic, formattedTime) as unit, index}
-					{#each unit.value.split('') as digit}
+				{#each getTimeUnitsToShow(numbersShownDynamic, formattedTime) as unit, index (index)}
+					{#each unit.value.split('') as digit, i (i)}
 						<div>{digit}</div>
 					{/each}
 					{#if index < getTimeUnitsToShow(numbersShownDynamic, formattedTime).length - 1}
