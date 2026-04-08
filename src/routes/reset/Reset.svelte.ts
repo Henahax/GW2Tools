@@ -57,9 +57,9 @@ export class Reset {
 					icon: interval.icon
 				});
 
-				resetInterval.categories = interval.categories.map((category: any) => {
+				resetInterval.categories = interval.categories.map((category: ResetCategoryData) => {
 					const resetCategory = new ResetCategory(category.id, category.name); // Create tasks with clean state to avoid any state sharing
-					resetCategory.tasks = category.tasks.map((task: any) => {
+					resetCategory.tasks = category.tasks.map((task: ResetTaskData) => {
 						const resetTask = new ResetTask({
 							id: task.id,
 							name: task.name,
