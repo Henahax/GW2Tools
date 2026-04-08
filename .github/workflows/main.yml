@@ -3,6 +3,9 @@ name: Create & Publish Docker Image
 on:
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   Docker:
     runs-on: ubuntu-latest
