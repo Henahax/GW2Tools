@@ -22,7 +22,7 @@
 			: 'columns-1 gap-2 lg:columns-2 xl:columns-3 2xl:columns-4'}
 	>
 		<div class="grid grid-cols-[auto_auto_1fr_auto]">
-			{#each interval.categories as category: ResetCategory}
+			{#each interval.categories as category (category.id)}
 				<Category {category} {interval} {currentTime} />
 			{/each}
 		</div>
