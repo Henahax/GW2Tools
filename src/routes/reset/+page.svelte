@@ -74,14 +74,14 @@
 </div>
 
 <label
-	class="overlay backdrop-blur-xs absolute bottom-0 right-0 top-0 flex h-dvh w-dvw grow justify-end {overlayOpen
+	class="overlay absolute top-0 right-0 bottom-0 flex h-dvh w-dvw grow justify-end backdrop-blur-xs {overlayOpen
 		? ''
 		: 'hidden'}"
 	for="closeResetMenu"
 >
 </label>
 <div
-	class="menu absolute bottom-0 right-0 top-0 flex h-dvh flex-col border-l shadow-lg"
+	class="menu absolute top-0 right-0 bottom-0 flex h-dvh flex-col border-l shadow-lg"
 	class:open={overlayOpen}
 >
 	<div class="flex flex-col gap-2 p-4">

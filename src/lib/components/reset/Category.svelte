@@ -23,7 +23,7 @@
 	class:opacity-75={allDisplayedTasksChecked}
 >
 	<button
-		class="collapsible-header col-span-full flex items-center gap-2 rounded-t-lg py-1 pl-3.5 pr-2.5 text-xs backdrop-blur-md"
+		class="collapsible-header col-span-full flex items-center gap-2 rounded-t-lg py-1 pr-2.5 pl-3.5 text-xs backdrop-blur-md"
 		onclick={() => category.toggleOpen()}
 		title="click to collapse/expand"
 	>
@@ -44,7 +44,7 @@
 		class="collapsible-content col-span-full grid grid-cols-subgrid divide-y divide-slate-800"
 		class:closed={!category.open}
 	>
-		{#each category.tasks.filter((task: ResetTask) => task.display === true) as task: ResetTask}
+		{#each category.tasks.filter((task: ResetTask) => task.display === true) as task (task.id)}
 			<Task {task} {interval} {category} />
 		{/each}
 	</div>
