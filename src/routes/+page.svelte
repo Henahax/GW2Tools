@@ -41,8 +41,8 @@
 	<h1 class="self-center text-3xl">GW2Tools</h1>
 	<section class="flex flex-col">
 		<div class="grid w-fit grid-cols-2 gap-4 self-center max-sm:grid-cols-1">
-			{#each internal as item}
-				<a class="flex flex-col gap-2 rounded-2xl border p-4 text-center" href={item.link}>
+			{#each internal as item (item.title)}
+				<a class="flex flex-col gap-2 rounded-2xl border p-4 text-center items-center" href={item.link}>
 					<i class="text-4xl {item.icon}"></i>
 					<div>
 						<div class="text-2xl">{item.title}</div>
@@ -50,7 +50,7 @@
 					</div>
 					{#if item.subitems.length > 0}
 						<ul class="w-fit list-disc self-center px-4 text-xs">
-							{#each item.subitems as subitem}
+							{#each item.subitems as subitem (subitem)}
 								<li class="w-fit">{subitem}</li>
 							{/each}
 						</ul>
@@ -63,11 +63,18 @@
 		<h1 class="self-center text-xl">external tools:</h1>
 
 		<div class="flex flex-wrap justify-center gap-2 self-center">
-			{#each external as item}
-				<a class="flex flex-col rounded-2xl border p-4 text-center" href={item.link}>
-					<div>{item.title}</div>
-					<div class="text-xs">{item.subtitle}</div>
-				</a>
+			{#each external as item (item.title)}
+				{#if item.link}
+					<a class="flex flex-col rounded-2xl border p-4 text-center" href={item.link}>
+						<div>{item.title}</div>
+						<div class="text-xs">{item.subtitle}</div>
+					</a>
+				{:else}
+					<div class="flex flex-col rounded-2xl border p-4 text-center">
+						<div>{item.title}</div>
+						<div class="text-xs">{item.subtitle}</div>
+					</div>
+				{/if}
 			{/each}
 		</div>
 	</section>
