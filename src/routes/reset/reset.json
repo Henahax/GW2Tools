@@ -446,6 +446,31 @@
 								[25, 40]
 							]
 						}
+					},
+					{
+						"id": "shackles-of-the-ancients",
+						"name": "Shackles of the Ancients",
+						"icon": "https://render.guildwars2.com/file/2098DC55D139B2A209D3E50FA14BA09BC20DB6EB/3708799.png",
+						"location": "Starlit Weald",
+						"link": "https://wiki.guildwars2.com/wiki/Shackles_of_the_Ancients",
+						"timer": {
+							"duration": [0, 25],
+							"times": [
+								[1, 10],
+								[3, 10],
+								[5, 10],
+								[7, 10],
+								[9, 10],
+								[11, 10],
+								[13, 10],
+								[15, 10],
+								[17, 10],
+								[19, 10],
+								[21, 10],
+								[23, 10],
+								[25, 10]
+							]
+						}
 					}
 				]
 			},
