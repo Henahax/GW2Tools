@@ -24,7 +24,7 @@
 		</div>
 	</main>
 	<footer class="flex items-center justify-center gap-8 p-2 text-sm text-neutral-400">
-		<div class="grow text-center">© henahax.de 2025</div>
+		<div class="grow text-center">© henahax.de 2026</div>
 		<a
 			class="btn btn-ghost btn-square text-xs"
 			href="https://github.com/Henahax/GW2Tools"
