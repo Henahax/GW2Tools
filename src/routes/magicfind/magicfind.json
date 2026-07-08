@@ -38,75 +38,20 @@
 		"type": "radio",
 		"items": [
 			{
-				"id": "no-event",
-				"type": "radio",
-				"value": "0",
-				"description": "no event",
-				"checked": true
-			},
-			{
-				"id": "lunar-new-year",
-				"type": "radio",
-				"value": "15",
-				"description": "Lunar New Year",
-				"icons": ["https://wiki.guildwars2.com/images/f/f1/Memories_of_Home.png"],
-				"names": [
-					{
-						"name": "Memories of Home",
-						"link": "https://wiki.guildwars2.com/wiki/Memories_of_Home"
-					}
-				]
-			},
-			{
-				"id": "new-hero",
-				"type": "radio",
-				"value": "50",
-				"description": "New Hero Jump Start",
-				"icons": ["https://wiki.guildwars2.com/images/5/5d/Ace_Racer.png"],
-				"names": [
-					{
-						"name": "New Hero Jump Start Boost",
-						"link": "https://wiki.guildwars2.com/wiki/New_Hero_Jump_Start_Boost"
-					}
-				]
-			},
-			{
-				"id": "wvw-rush",
-				"type": "radio",
-				"value": "50",
-				"description": "World vs. World Rush",
-				"icons": ["https://wiki.guildwars2.com/images/7/76/Glorious_Fervor.png"],
-				"names": [
-					{
-						"name": "Greater Call of the Mists (WvW)",
-						"link": "https://wiki.guildwars2.com/wiki/Greater_Call_of_the_Mists_(WvW)"
-					}
-				]
-			},
-			{
-				"id": "pvp-rush",
-				"type": "radio",
-				"value": "200",
-				"description": "Player vs. Player Rush",
-				"icons": ["https://wiki.guildwars2.com/images/7/76/Glorious_Fervor.png"],
-				"names": [
-					{
-						"name": "Greater Call of the Mists",
-						"link": "https://wiki.guildwars2.com/wiki/Greater_Call_of_the_Mists"
-					}
-				]
-			},
-			{
-				"id": "extra-life-bonus",
-				"description": "+5% per stack during Extra Life charity event",
-				"icons": ["https://wiki.guildwars2.com/images/5/5d/Ace_Racer.png"],
+				"id": "seasonal-event-bonus",
 				"type": "number",
 				"value": 0,
-				"multiplier": 5,
+				"multiplier": 1,
+				"description": "Lunar New Year / Extra Life / PvP Rush / WvW Rush",
+				"icons": [
+					"https://wiki.guildwars2.com/images/f/f1/Memories_of_Home.png",
+					"https://wiki.guildwars2.com/images/5/5d/Ace_Racer.png",
+					"https://wiki.guildwars2.com/images/7/76/Glorious_Fervor.png"
+				],
 				"names": [
 					{
-						"name": "Extra Life Bonus",
-						"link": "https://wiki.guildwars2.com/wiki/Extra_Life_Bonus"
+						"name": "Seasonal event bonus",
+						"link": "https://wiki.guildwars2.com/wiki/Magic_Find#Seasonal_events"
 					}
 				]
 			}
