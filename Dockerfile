@@ -1,8 +1,19 @@
-FROM node:latest
+FROM node:22-alpine AS build
 WORKDIR /app
-COPY . .
+
+COPY package*.json ./
 RUN npm ci
+
+COPY . .
 RUN npm run build
-RUN rm -rf src/ static/ emailTemplates/ docker-compose.yml
-USER node:node
-CMD ["node","build/index.js"]
+
+FROM node:22-alpine AS runtime
+WORKDIR /app
+ENV NODE_ENV=production
+
+COPY package*.json ./
+RUN npm ci --omit=dev --ignore-scripts && npm cache clean --force
+COPY --from=build /app/build ./build
+
+USER node
+CMD ["node", "build/index.js"]
