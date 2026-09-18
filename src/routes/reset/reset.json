@@ -451,24 +451,65 @@
 						"id": "shackles-of-the-ancients",
 						"name": "Shackles of the Ancients",
 						"icon": "https://render.guildwars2.com/file/2098DC55D139B2A209D3E50FA14BA09BC20DB6EB/3708799.png",
-						"location": "Starlit Weald",
+						"location": "Eternity's Garden",
 						"link": "https://wiki.guildwars2.com/wiki/Shackles_of_the_Ancients",
 						"timer": {
 							"duration": [0, 25],
 							"times": [
-								[1, 10],
-								[3, 10],
-								[5, 10],
-								[7, 10],
-								[9, 10],
-								[11, 10],
-								[13, 10],
-								[15, 10],
-								[17, 10],
-								[19, 10],
-								[21, 10],
-								[23, 10],
-								[25, 10]
+								[1, 5],
+								[3, 5],
+								[5, 5],
+								[7, 5],
+								[9, 5],
+								[11, 5],
+								[13, 5],
+								[15, 5],
+								[17, 5],
+								[19, 5],
+								[21, 5],
+								[23, 5],
+								[25, 5]
+							]
+						}
+					},
+					{
+						"id": "depths-of-cruelty",
+						"name": "Depths of Cruelty",
+						"icon": "https://render.guildwars2.com/file/2098DC55D139B2A209D3E50FA14BA09BC20DB6EB/3708799.png",
+						"location": "Leyspring Hollows",
+						"link": "https://wiki.guildwars2.com/wiki/Depths_of_Cruelty",
+						"timer": {
+							"duration": [0, 30],
+							"times": [
+								[2, 0],
+								[5, 0],
+								[8, 0],
+								[11, 0],
+								[14, 0],
+								[17, 0],
+								[20, 0],
+								[23, 0]
+							]
+						}
+					},
+					{
+						"id": "convergence-nexus-of-eternity",
+						"name": "Convergence: Nexus of Eternity",
+						"icon": "https://render.guildwars2.com/file/2098DC55D139B2A209D3E50FA14BA09BC20DB6EB/3708799.png",
+						"location": "Leyspring Hollows",
+						"link": "https://wiki.guildwars2.com/wiki/Convergence:_Nexus_of_Eternity",
+						"timer": {
+							"duration": [0, 10],
+							"times": [
+								[1, 0],
+								[4, 0],
+								[7, 0],
+								[10, 0],
+								[13, 0],
+								[16, 0],
+								[19, 0],
+								[22, 0],
+								[25, 0]
 							]
 						}
 					}
