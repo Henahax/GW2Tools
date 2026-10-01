@@ -1,7 +1,7 @@
 import {
 	getUTCTimeForStartOfNextWeek,
 	getUTCTimeForStartOfNextDay
-} from '$lib/helpers/ResetFunctions';
+} from '#lib/helpers/ResetFunctions.js';
 
 interface ResetTimerData {
 	duration: [number, number];

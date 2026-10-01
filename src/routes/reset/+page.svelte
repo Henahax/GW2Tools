@@ -4,10 +4,10 @@
 	import {
 		getUTCTimeForStartOfNextDay,
 		getUTCTimeForStartOfNextWeek
-	} from '$lib/helpers/ResetFunctions';
-	import Interval from '$lib/components/reset/Interval.svelte';
+	} from '#lib/helpers/ResetFunctions.js';
+	import Interval from '#lib/components/reset/Interval.svelte';
 
-	import Timer from '$lib/components/reset/Timer.svelte';
+	import Timer from '#lib/components/reset/Timer.svelte';
 
 	let reset = $state(new Reset(resetData as ResetInterval[]));
 	let overlayOpen = $state(false);
@@ -78,8 +78,7 @@
 		? ''
 		: 'hidden'}"
 	for="closeResetMenu"
->
-</label>
+></label>
 <div
 	class="menu absolute top-0 right-0 bottom-0 flex h-dvh flex-col border-l shadow-lg"
 	class:open={overlayOpen}
@@ -142,7 +141,8 @@
 													<div class="text-neutral-400">{task.description}</div>
 												{:else if task.location}
 													<div class="flex items-center gap-1.5 text-xs text-neutral-400">
-														<i class="fa-solid fa-location-dot"></i>{task.location}
+														<i class="fa-solid fa-location-dot"></i>
+														{task.location}
 													</div>
 												{/if}
 											</div>
