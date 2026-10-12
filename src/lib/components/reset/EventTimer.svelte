@@ -184,9 +184,9 @@
 	<Timer targetTime={nextEventTime} {add} {duration} {numbersShown} soonTime={SOON_TIME_MS} />
 	<button
 		type="button"
-		class="text-muted hover:brightness-125"
+		class="hover:brightness-125"
 		class:text-yellow-500={alertEnabled}
-		class:opacity-50={!alertEnabled}
+		style:color={!alertEnabled ? 'var(--foreground-muted)' : undefined}
 		aria-label={alertEnabled ? 'Disable timer alert' : 'Enable timer alert'}
 		aria-pressed={alertEnabled}
 		title={alertEnabled ? 'Disable timer alert' : 'Enable timer alert'}

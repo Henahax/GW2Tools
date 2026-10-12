@@ -51,7 +51,7 @@
 			{/if}
 		{/if}
 
-		<div class="flex flex-col items-center gap-0.5" class:opacity-50={task.checked}>
+		<div class="flex items-center gap-0.5" class:opacity-50={task.checked}>
 			{#if task.link}
 				<a
 					class="text-xs transition ease-in-out"
