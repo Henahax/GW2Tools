@@ -403,6 +403,7 @@
 						"icon": "https://render.guildwars2.com/file/2098DC55D139B2A209D3E50FA14BA09BC20DB6EB/3708799.png",
 						"location": "Shipwreck Strand",
 						"link": "https://wiki.guildwars2.com/wiki/Hammerhart_Rumble!",
+						"chatcode": "[&BJEPAAA=]",
 						"timer": {
 							"duration": [0, 20],
 							"times": [
@@ -428,6 +429,7 @@
 						"icon": "https://render.guildwars2.com/file/2098DC55D139B2A209D3E50FA14BA09BC20DB6EB/3708799.png",
 						"location": "Starlit Weald",
 						"link": "https://wiki.guildwars2.com/wiki/Secrets_of_the_Weald",
+						"chatcode": "[&BJ4PAAA=]",
 						"timer": {
 							"duration": [0, 35],
 							"times": [
@@ -453,6 +455,7 @@
 						"icon": "https://render.guildwars2.com/file/2098DC55D139B2A209D3E50FA14BA09BC20DB6EB/3708799.png",
 						"location": "Eternity's Garden",
 						"link": "https://wiki.guildwars2.com/wiki/Shackles_of_the_Ancients",
+						"chatcode": "[&BPwPAAA=]",
 						"timer": {
 							"duration": [0, 25],
 							"times": [
@@ -478,6 +481,7 @@
 						"icon": "https://render.guildwars2.com/file/2098DC55D139B2A209D3E50FA14BA09BC20DB6EB/3708799.png",
 						"location": "Leyspring Hollows",
 						"link": "https://wiki.guildwars2.com/wiki/Depths_of_Cruelty",
+						"chatcode": "[&BDYQAAA=]",
 						"timer": {
 							"duration": [0, 30],
 							"times": [
@@ -498,6 +502,7 @@
 						"icon": "https://render.guildwars2.com/file/2098DC55D139B2A209D3E50FA14BA09BC20DB6EB/3708799.png",
 						"location": "Leyspring Hollows",
 						"link": "https://wiki.guildwars2.com/wiki/Convergence:_Nexus_of_Eternity",
+						"chatcode": "[&BDYQAAA=]",
 						"timer": {
 							"duration": [0, 10],
 							"times": [
@@ -525,6 +530,7 @@
 						"icon": "https://render.guildwars2.com/file/00AABCE916B695E81295E92D2A42ECC37E9039D5/3374827.png",
 						"location": "Janthir Syntri",
 						"link": "https://wiki.guildwars2.com/wiki/Of_Mists_and_Monsters",
+						"chatcode": "[&BCoPAAA=]",
 						"timer": {
 							"duration": [0, 15],
 							"times": [
@@ -550,6 +556,7 @@
 						"icon": "https://render.guildwars2.com/file/00AABCE916B695E81295E92D2A42ECC37E9039D5/3374827.png",
 						"location": "Bava Nisos",
 						"link": "https://wiki.guildwars2.com/wiki/A_Titanic_Voyage",
+						"chatcode": "[&BGEPAAA=]",
 						"timer": {
 							"duration": [0, 25],
 							"times": [
@@ -575,6 +582,7 @@
 						"icon": "https://render.guildwars2.com/file/00AABCE916B695E81295E92D2A42ECC37E9039D5/3374827.png",
 						"location": "Lowland Shore",
 						"link": "https://wiki.guildwars2.com/wiki/Convergence:_Mount_Balrior",
+						"chatcode": "[&BK4OAAA=]",
 						"timer": {
 							"duration": [0, 10],
 							"times": [
@@ -602,6 +610,7 @@
 						"icon": "https://render.guildwars2.com/file/DE1D62A95F57470D61E15D47D20159D8E2BB18FB/3122157.png",
 						"location": "Skywatch Archipelago",
 						"link": "https://wiki.guildwars2.com/wiki/Skywatch_Archipelago:_Hero%27s_Choice_Chest",
+						"chatcode": "[&BL4NAAA=]",
 						"timer": {
 							"duration": [0, 25],
 							"times": [
@@ -627,6 +636,7 @@
 						"icon": "https://render.guildwars2.com/file/F1100DBF0DF2BE50F609EE0F92E0043BE8C35F9D/3122155.png",
 						"location": "Amnytas",
 						"link": "https://wiki.guildwars2.com/wiki/Amnytas:_Hero%27s_Choice_Chest",
+						"chatcode": "[&BDQOAAA=]",
 						"timer": {
 							"duration": [0, 25],
 							"times": [
@@ -666,6 +676,7 @@
 						"icon": "https://render.guildwars2.com/file/46EC231103323FB5EEBBC1AEF74AE015050F013E/3122156.png",
 						"location": "Wizard's Tower",
 						"link": "https://wiki.guildwars2.com/wiki/Convergences",
+						"chatcode": "[&BB8OAAA=]",
 						"timer": {
 							"duration": [0, 10],
 							"times": [
@@ -693,6 +704,7 @@
 						"icon": "https://render.guildwars2.com/file/FDF5B9F3AE45086BE55CF4CF7C79F313D6A01E61/2594264.png",
 						"location": "Seitung Province",
 						"link": "https://wiki.guildwars2.com/wiki/Seitung_Province:_Hero%27s_Choice_Chest",
+						"chatcode": "[&BGUNAAA=]",
 						"timer": {
 							"duration": [0, 30],
 							"times": [
@@ -718,6 +730,7 @@
 						"icon": "https://render.guildwars2.com/file/FDF5B9F3AE45086BE55CF4CF7C79F313D6A01E61/2594264.png",
 						"location": "New Kaineng City",
 						"link": "https://wiki.guildwars2.com/wiki/New_Kaineng_City:_Hero%27s_Choice_Chest",
+						"chatcode": "[&BBkNAAA=]",
 						"timer": {
 							"duration": [0, 40],
 							"times": [
@@ -781,6 +794,7 @@
 						"icon": "https://render.guildwars2.com/file/FDF5B9F3AE45086BE55CF4CF7C79F313D6A01E61/2594264.png",
 						"location": "Dragon's End",
 						"link": "https://wiki.guildwars2.com/wiki/Dragon%27s_End:_Hero%27s_Choice_Chest",
+						"chatcode": "[&BKIMAAA=]",
 						"timer": {
 							"duration": [1, 0],
 							"times": [
@@ -857,6 +871,7 @@
 						"icon": "https://render.guildwars2.com/file/0D2FACB7EBAA534CA1090F57B6CC4971597119F1/674810.png",
 						"location": "Eye of the North",
 						"link": "https://wiki.guildwars2.com/wiki/The_Tower_of_Nightmares",
+						"chatcode": "[&BAkMAAA=]",
 						"timer": {
 							"duration": [0, 15],
 							"times": [
@@ -882,6 +897,7 @@
 						"icon": "https://render.guildwars2.com/file/EC12BE596939FA100394651B5715F33A0046EB36/711847.png",
 						"location": "Eye of the North",
 						"link": "https://wiki.guildwars2.com/wiki/The_Twisted_Marionette",
+						"chatcode": "[&BAkMAAA=]",
 						"timer": {
 							"duration": [0, 20],
 							"times": [
@@ -907,6 +923,7 @@
 						"icon": "https://render.guildwars2.com/file/B5A8994BD8E654A00C1B395CBA4EB7085A17D053/924578.png",
 						"location": "Eye of the North",
 						"link": "https://wiki.guildwars2.com/wiki/The_Battle_For_Lion's_Arch",
+						"chatcode": "[&BAkMAAA=]",
 						"timer": {
 							"duration": [0, 15],
 							"times": [
@@ -932,6 +949,7 @@
 						"icon": "https://render.guildwars2.com/file/B0792659BC28020A0E23C959E759B2C8956AB295/2140410.png",
 						"location": "Eye of the North",
 						"link": "https://wiki.guildwars2.com/wiki/Dragonstorm",
+						"chatcode": "[&BAkMAAA=]",
 						"timer": {
 							"duration": [0, 20],
 							"times": [
@@ -963,6 +981,7 @@
 						"icon": "https://render.guildwars2.com/file/C8246DDA51367909C74D2F68FFE6502B587607C8/1748126.png",
 						"location": "Crystal Oasis",
 						"link": "https://wiki.guildwars2.com/wiki/Crystal_Oasis:_Hero%27s_Choice_Chest",
+						"chatcode": "[&BLsKAAA=]",
 						"timer": {
 							"duration": [0, 25],
 							"times": [
@@ -988,6 +1007,7 @@
 						"icon": "https://render.guildwars2.com/file/657E455192B49F07FC437E42504C3C70D3565D61/1766454.png",
 						"location": "Desert Highlands",
 						"link": "https://wiki.guildwars2.com/wiki/The_Search_for_Buried_Treasure",
+						"chatcode": "[&BGsKAAA=]",
 						"timer": {
 							"duration": [0, 20],
 							"times": [
@@ -1013,6 +1033,7 @@
 						"icon": "https://render.guildwars2.com/file/0B1BA898B3242C5CA5FA7A6F214521AADE01A125/1766453.png",
 						"location": "Elon Riverlands",
 						"link": "https://wiki.guildwars2.com/wiki/Elon_Riverlands:_Hero%27s_Choice_Chest",
+						"chatcode": "[&BFMKAAA=]",
 						"timer": {
 							"duration": [0, 20],
 							"times": [
@@ -1139,6 +1160,7 @@
 						"icon": "https://render.guildwars2.com/file/380A7E3B250B050C2C39B1106CA39AED65C8396B/1894933.png",
 						"location": "Domain of Istan",
 						"link": "https://wiki.guildwars2.com/wiki/Palawadan,_Jewel_of_Istan_(meta_event)",
+						"chatcode": "[&BAkLAAA=]",
 						"timer": {
 							"duration": [0, 15],
 							"times": [
@@ -1164,6 +1186,7 @@
 						"icon": "https://render.guildwars2.com/file/A23305DCB835FFA4A42FB3963CE9C6D37D02419E/2038602.png",
 						"location": "Jahai Bluffs",
 						"link": "https://wiki.guildwars2.com/wiki/Destroy_the_Death-Branded_Shatterer",
+						"chatcode": "[&BJMLAAA=]",
 						"timer": {
 							"duration": [0, 30],
 							"times": [
@@ -1239,6 +1262,7 @@
 						"icon": "https://render.guildwars2.com/file/08DC26975002D02B68BEF2A46EF2A89E7243FD63/1424065.png",
 						"location": "Verdant Brink",
 						"link": "https://wiki.guildwars2.com/wiki/Verdant_Brink:_Hero%27s_Choice_Chest",
+						"chatcode": "[&BAgIAAA=]",
 						"timer": {
 							"duration": [0, 20],
 							"times": [
@@ -1264,6 +1288,7 @@
 						"icon": "https://render.guildwars2.com/file/6FD4060277D5E7CF024DF43872B7D1095C10F8D8/1424066.png",
 						"location": "Auric Basin",
 						"link": "https://wiki.guildwars2.com/wiki/Auric_Basin:_Hero%27s_Choice_Chest",
+						"chatcode": "[&BAIIAAA=]",
 						"timer": {
 							"duration": [0, 20],
 							"times": [
@@ -1289,6 +1314,7 @@
 						"icon": "https://render.guildwars2.com/file/2127D47C74BCCC26AA2DB5DFA75DBF7B4D42D43F/1424067.png",
 						"location": "Tangled Depths",
 						"link": "https://wiki.guildwars2.com/wiki/Tangled_Depths:_Hero%27s_Choice_Chest",
+						"chatcode": "[&BPUHAAA=]",
 						"timer": {
 							"duration": [0, 20],
 							"times": [
@@ -1314,6 +1340,7 @@
 						"icon": "https://render.guildwars2.com/file/E0ED00A7EF9EE56AD09EF2CE00B25CD2D26B024B/1424064.png",
 						"location": "Dragon's Stand",
 						"link": "https://wiki.guildwars2.com/wiki/Dragon%27s_Stand:_Hero%27s_Choice_Chest",
+						"chatcode": "[&BBAIAAA=]",
 						"timer": {
 							"duration": [2, 0],
 							"times": [
@@ -1345,6 +1372,7 @@
 						"icon": "https://render.guildwars2.com/file/C5055A6A3025B6B52008C0E408F2F94F054F21C8/1205055.png",
 						"location": "Wayfarer Foothills",
 						"link": "https://wiki.guildwars2.com/wiki/Slay_the_Shatterer",
+						"chatcode": "[&BMIDAAA=]",
 						"timer": {
 							"duration": [0, 15],
 							"times": [
@@ -1370,6 +1398,7 @@
 						"icon": "https://render.guildwars2.com/file/227C1D183A1D41B869A3D11CE70393450ABB0598/1205570.png",
 						"location": "Metrica Province",
 						"link": "https://wiki.guildwars2.com/wiki/Destroy_the_fire_elemental_created_from_chaotic_energy_fusing_with_the_C.L.E.A.N._5000%27s_energy_core",
+						"chatcode": "[&BEcAAAA=]",
 						"timer": {
 							"duration": [0, 15],
 							"times": [
@@ -1395,6 +1424,7 @@
 						"icon": "https://render.guildwars2.com/file/A4140526595AAA09763ECF06FD51FF5A49339098/1205025.png",
 						"location": "Queensdale",
 						"link": "https://wiki.guildwars2.com/wiki/Defeat_the_shadow_behemoth",
+						"chatcode": "[&BPcAAAA=]",
 						"timer": {
 							"duration": [0, 15],
 							"times": [
@@ -1420,6 +1450,7 @@
 						"icon": "https://render.guildwars2.com/file/7E46354A4753BFAE5D71427C35BB56D1DA6A2B5B/1302099.png",
 						"location": "Caledon Forest",
 						"link": "https://wiki.guildwars2.com/wiki/Defeat_the_great_jungle_wurm",
+						"chatcode": "[&BEEFAAA=]",
 						"timer": {
 							"duration": [0, 15],
 							"times": [
@@ -1445,6 +1476,7 @@
 						"icon": "https://render.guildwars2.com/file/F2B2A7B638C8789C01EAB5C1A657D42D3DB77BCF/66896.png",
 						"location": "Harathi Hinterlands",
 						"link": "https://wiki.guildwars2.com/wiki/Defeat_Ulgoth_the_Modniir_and_his_minions",
+						"chatcode": "[&BLAAAAA=]",
 						"timer": {
 							"duration": [0, 15],
 							"times": [
@@ -1466,6 +1498,7 @@
 						"icon": "https://render.guildwars2.com/file/413AB50DDC3B340944BB38CABCD517CEDD7A2BBF/1205694.png",
 						"location": "Bloodtide Coast",
 						"link": "https://wiki.guildwars2.com/wiki/Kill_Admiral_Taidha_Covington",
+						"chatcode": "[&BKgBAAA=]",
 						"timer": {
 							"duration": [0, 15],
 							"times": [
@@ -1487,6 +1520,7 @@
 						"icon": "https://render.guildwars2.com/file/071410D26DC8480BA014C84A05EC7BE4DA0FDA5A/219373.png",
 						"location": "Blazeridge Steppes",
 						"link": "https://wiki.guildwars2.com/wiki/Slay_the_Shatterer",
+						"chatcode": "[&BE4DAAA=]",
 						"timer": {
 							"duration": [0, 15],
 							"times": [
@@ -1508,6 +1542,7 @@
 						"icon": "https://render.guildwars2.com/file/256B2C7A7DE90FBC1C01E851CD47C436DA5C9DD9/1205574.png",
 						"location": "Mount Maelstrom",
 						"link": "https://wiki.guildwars2.com/wiki/Kill_the_megadestroyer_before_it_blows_everyone_up",
+						"chatcode": "[&BM0CAAA=]",
 						"timer": {
 							"duration": [0, 15],
 							"times": [
@@ -1529,6 +1564,7 @@
 						"icon": "https://render.guildwars2.com/file/0CF21678B07362BA78CB40B24804CBF8702AB42C/223705.png",
 						"location": "Mount Maelstrom",
 						"link": "https://wiki.guildwars2.com/wiki/Defeat_the_Inquest%27s_golem_Mark_II",
+						"chatcode": "[&BNQCAAA=]",
 						"timer": {
 							"duration": [0, 15],
 							"times": [
@@ -1550,6 +1586,7 @@
 						"icon": "https://render.guildwars2.com/file/EB2AF7C99C3CFF4B28536162CEB334C528FC4CA0/455945.png",
 						"location": "Frostgorge Sound",
 						"link": "https://wiki.guildwars2.com/wiki/Defeat_the_Claw_of_Jormag",
+						"chatcode": "[&BHoCAAA=]",
 						"timer": {
 							"duration": [0, 15],
 							"times": [
@@ -1571,6 +1608,7 @@
 						"icon": "https://render.guildwars2.com/file/750804D2EFE9B3370441DDA6B79A39520DA0A4BA/711881.png",
 						"location": "Bloodtide Coast",
 						"link": "https://wiki.guildwars2.com/wiki/Triple_Trouble",
+						"chatcode": "[&BKoBAAA=]",
 						"timer": {
 							"duration": [0, 30],
 							"times": [
@@ -1590,6 +1628,7 @@
 						"icon": "https://render.guildwars2.com/file/EC27BAEDA6062EC26CB8C145B60B725A5F5AB60C/638238.png",
 						"location": "Sparkfly Fen",
 						"link": "https://wiki.guildwars2.com/wiki/Defeat_Tequatl_the_Sunless",
+						"chatcode": "[&BNABAAA=]",
 						"timer": {
 							"duration": [0, 30],
 							"times": [
@@ -1609,6 +1648,7 @@
 						"icon": "https://render.guildwars2.com/file/A874FC9AEADE75194E39DBC12FC43F00D7B8F6DB/1204812.png",
 						"location": "Southsun Cove",
 						"link": "https://wiki.guildwars2.com/wiki/Defeat_the_Karka_Queen_threatening_the_settlements",
+						"chatcode": "[&BNUGAAA=]",
 						"timer": {
 							"duration": [0, 30],
 							"times": [
@@ -1670,6 +1710,7 @@
 						"location": "Labyrinthine Cliffs",
 						"description": "Festival of the Four Winds",
 						"link": "https://wiki.guildwars2.com/wiki/Participate_in_the_treasure_hunt!",
+						"chatcode": "[&BBwHAAA=]",
 						"timer": {
 							"duration": [0, 30],
 							"times": [

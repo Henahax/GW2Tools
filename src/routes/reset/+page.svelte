@@ -1,22 +1,26 @@
 <script lang="ts">
+	import type { PageProps } from './$types';
 	import resetData from './reset.json';
-	import { Reset, ResetInterval } from './Reset.svelte';
+	import { Reset, type ResetInterval, type ResetIntervalData } from './Reset.svelte';
 	import {
 		getUTCTimeForStartOfNextDay,
 		getUTCTimeForStartOfNextWeek
 	} from '#lib/helpers/ResetFunctions.js';
 	import Interval from '#lib/components/reset/Interval.svelte';
+	import { setResetClock } from '#lib/components/reset/ResetClock.js';
 
 	import Timer from '#lib/components/reset/Timer.svelte';
 
-	let reset = $state(new Reset(resetData as ResetInterval[]));
+	let { data }: PageProps = $props();
+	let reset = $derived(new Reset(resetData satisfies ResetIntervalData[], data.resetCookies));
+	let clock = $state({ now: Date.now(), reloading: false });
+	setResetClock(clock);
 	let overlayOpen = $state(false);
 	let filter = $state('');
-	let currentTime = $state(new Date().getTime());
 
 	$effect(() => {
 		const interval = setInterval(() => {
-			currentTime = new Date().getTime();
+			clock.now = Date.now();
 		}, 1000);
 
 		return () => {
@@ -67,8 +71,8 @@
 
 <div class="flex grow flex-col items-center self-center p-2">
 	<div class="grid grid-cols-1 gap-4 sm:grid-cols-[auto_1fr]">
-		{#each reset.intervals as interval}
-			<Interval {interval} {currentTime} />
+		{#each reset.intervals as interval (interval.id)}
+			<Interval {interval} />
 		{/each}
 	</div>
 </div>
@@ -83,6 +87,7 @@
 	class="menu absolute top-0 right-0 bottom-0 flex h-dvh flex-col border-l shadow-lg"
 	class:open={overlayOpen}
 >
+	{#if overlayOpen}
 	<div class="flex flex-col gap-2 p-4">
 		<div class="flex w-full items-center justify-between gap-4">
 			<div class="text-xl">Displayed Tasks:</div>
@@ -105,7 +110,7 @@
 											.toLowerCase()
 											.includes(filter.toLowerCase())) || (task.description && task.description
 											.toLowerCase()
-											.includes(filter.toLowerCase()))) ) ) as interval}
+											.includes(filter.toLowerCase()))) ) ) as interval (interval.id)}
 				<div>
 					<div class="text-lg font-bold">{interval.timer}</div>
 					<div class="flex flex-col gap-2">
@@ -115,7 +120,7 @@
 											.toLowerCase()
 											.includes(filter.toLowerCase())) || (task.description && task.description
 											.toLowerCase()
-											.includes(filter.toLowerCase())))) as category: ResetCategory}
+											.includes(filter.toLowerCase())))) as category: ResetCategory (category.id)}
 							<div>
 								<div class="font-semibold">{category.name}</div>
 								<div class="flex flex-col gap-2">
@@ -125,7 +130,7 @@
 													.toLowerCase()
 													.includes(filter.toLowerCase())) || (task.description && task.description
 													.toLowerCase()
-													.includes(filter.toLowerCase()))) as task: ResetTask}
+													.includes(filter.toLowerCase()))) as task: ResetTask (task.id)}
 										<label
 											class="grid grid-cols-[auto_auto_1fr] items-center gap-2 hover:brightness-125"
 										>
@@ -134,7 +139,13 @@
 												bind:checked={task.display}
 												onchange={(e) => task.setDisplay(e.currentTarget.checked)}
 											/>
-											<img class="size-6 rounded" src={task.icon} alt={task.name} />
+											<img
+												class="size-6 rounded"
+												src={task.icon}
+												alt={task.name}
+												loading="lazy"
+												decoding="async"
+											/>
 											<div class="flex flex-col text-xs">
 												<div class="font-semibold">{task.name}</div>
 												{#if task.description}
@@ -156,6 +167,7 @@
 			{/each}
 		</div>
 	</div>
+	{/if}
 </div>
 
 <style>

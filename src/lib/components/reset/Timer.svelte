@@ -1,4 +1,7 @@
 <script lang="ts">
+	import { getResetClock } from './ResetClock.js';
+
+	const clock = getResetClock();
 	let {
 		targetTime,
 		soonTime = 300000,
@@ -15,8 +18,7 @@
 		duration?: [number, number];
 	}>();
 
-	let currentTime = $state(Math.abs(Date.now()));
-	let difference = $derived(targetTime - currentTime);
+	let difference = $derived(targetTime - clock.now);
 	let isSoon = $derived(difference < soonTime && difference > 0);
 	let isActive = $derived(
 		difference < 0 && Math.abs(difference) < duration[0] * 3600000 + duration[1] * 60000
@@ -29,16 +31,10 @@
 	let formattedTime = $derived(formatTime(difference, numbersShownDynamic));
 
 	$effect(() => {
-		const interval = setInterval(() => {
-			currentTime = Date.now();
-
-			// reload page on date change
-			if (triggerReload && difference < 0) {
-				window.location.href = window.location.pathname;
-			}
-		}, 1000);
-
-		return () => clearInterval(interval);
+		if (triggerReload && difference < 0 && !clock.reloading) {
+			clock.reloading = true;
+			window.location.href = window.location.pathname;
+		}
 	});
 
 	function getTimeUnitsToShow(mode: number, time: ReturnType<typeof formatTime>) {
