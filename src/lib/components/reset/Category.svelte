@@ -5,7 +5,6 @@
 	let { interval, category } = $props<{
 		category: ResetCategory;
 		interval: ResetInterval;
-		currentTime: number;
 	}>();
 
 	let displayedTasks = $derived(category.tasks.filter((task: ResetTask) => task.display === true));

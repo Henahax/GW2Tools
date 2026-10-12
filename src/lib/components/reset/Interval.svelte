@@ -2,9 +2,8 @@
 	import { ResetTask, ResetCategory, ResetInterval } from '../../../routes/reset/Reset.svelte';
 	import Category from './Category.svelte';
 
-	let { interval, currentTime } = $props<{
+	let { interval } = $props<{
 		interval: ResetInterval;
-		currentTime: number;
 	}>();
 </script>
 
@@ -23,7 +22,7 @@
 	>
 		<div class="grid grid-cols-[auto_auto_1fr_auto]">
 			{#each interval.categories as category (category.id)}
-				<Category {category} {interval} {currentTime} />
+				<Category {category} {interval} />
 			{/each}
 		</div>
 	</div>

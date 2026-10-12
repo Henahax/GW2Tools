@@ -42,7 +42,10 @@
 	<section class="flex flex-col">
 		<div class="grid w-fit grid-cols-2 gap-4 self-center max-sm:grid-cols-1">
 			{#each internal as item (item.title)}
-				<a class="flex flex-col gap-2 rounded-2xl border p-4 text-center items-center" href={item.link}>
+				<a
+					class="flex flex-col items-center gap-2 rounded-2xl border p-4 text-center"
+					href={item.link}
+				>
 					<i class="text-4xl {item.icon}"></i>
 					<div>
 						<div class="text-2xl">{item.title}</div>

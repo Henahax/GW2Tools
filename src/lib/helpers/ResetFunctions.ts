@@ -1,6 +1,6 @@
 export function getUTCTimeForStartOfNextDay() {
-	let now = new Date();
-	let tomorrow = new Date(now);
+	const now = new Date();
+	const tomorrow = new Date(now);
 
 	tomorrow.setUTCDate(tomorrow.getUTCDate() + 1);
 	tomorrow.setUTCHours(0, 0, 0, 0);
@@ -9,8 +9,8 @@ export function getUTCTimeForStartOfNextDay() {
 }
 
 export function getUTCTimeForStartOfNextWeek() {
-	let now = new Date();
-	let nextMonday = new Date();
+	const now = new Date();
+	const nextMonday = new Date();
 
 	while (nextMonday.getUTCDay() !== 1) {
 		nextMonday.setUTCDate(nextMonday.getUTCDate() + 1);

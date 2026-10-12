@@ -1,11 +1,11 @@
 import {
 	getUTCTimeForStartOfNextWeek,
 	getUTCTimeForStartOfNextDay
-} from '$lib/helpers/ResetFunctions';
+} from '#lib/helpers/ResetFunctions.js';
 
 interface ResetTimerData {
-	duration: [number, number];
-	times: [number, number, string?][];
+	duration: number[];
+	times: (number | string)[][];
 }
 
 interface ResetTaskData {
@@ -26,9 +26,9 @@ interface ResetCategoryData {
 	tasks: ResetTaskData[];
 }
 
-interface ResetIntervalData {
+export interface ResetIntervalData {
 	id: string;
-	interval: 'weekly' | 'daily';
+	interval: string;
 	timer: string;
 	tasks: string;
 	reset: string;
@@ -45,12 +45,16 @@ interface Cookie {
 export class Reset {
 	intervals = $state<ResetInterval[]>([]);
 
-	constructor(data?: ResetIntervalData[]) {
+	constructor(data?: ResetIntervalData[], cookies: Cookie[] = []) {
 		if (data) {
+			const cookieValues: Record<string, string> = Object.fromEntries(
+				cookies.map(({ namespace, subname, value }) => [`${namespace}.${subname}`, value])
+			);
+
 			this.intervals = data.map((interval) => {
 				const resetInterval = new ResetInterval({
 					id: interval.id,
-					interval: interval.interval === 'weekly' ? Interval.weekly : Interval.daily,
+					interval: parseInterval(interval.interval),
 					timer: interval.timer,
 					tasks: interval.tasks,
 					reset: interval.reset,
@@ -68,13 +72,9 @@ export class Reset {
 							description: task.description,
 							location: task.location,
 							chatcode: task.chatcode,
-							display: task.display ?? false // Set initial display value from JSON
-						}); // Initialize timer if present in task data
-						if (task.timer) {
-							resetTask.timer = new ResetTimer();
-							resetTask.timer.duration = task.timer.duration;
-							resetTask.timer.times = task.timer.times;
-						}
+							display: task.display ?? false,
+							timer: task.timer ? createResetTimer(task.timer) : undefined
+						});
 						return resetTask;
 					});
 					return resetCategory;
@@ -82,45 +82,26 @@ export class Reset {
 				return resetInterval;
 			});
 
-			// Defer cookie application until after hydration
-			if (typeof window !== 'undefined') {
-				queueMicrotask(() => {
-					const cookies = getCookies();
-					this.intervals.forEach((interval) => {
-						interval.categories.forEach((category) => {
-							// First apply all display states
-							category.tasks.forEach((task) => {
-								cookies
-									.filter((cookie) => cookie.namespace === task.id)
-									.forEach((cookie) => {
-										if (cookie.subname === 'display') {
-											task.setDisplay(cookie.value === 'true');
-										}
-									});
-							});
+			this.intervals.forEach((interval) => {
+				interval.categories.forEach((category) => {
+					category.tasks.forEach((task) => {
+						const displayValue = cookieValues[`${task.id}.display`];
+						if (displayValue !== undefined) {
+							task.display = displayValue === 'true';
+						}
 
-							// Then apply all checked states without updating category
-							category.tasks.forEach((task) => {
-								cookies
-									.filter((cookie) => cookie.namespace === task.id)
-									.forEach((cookie) => {
-										if (cookie.subname === 'weekly' && interval.interval === 'weekly') {
-											task.setChecked(cookie.value === 'true', interval, category, true);
-										} else if (cookie.subname === 'daily' && interval.interval === 'daily') {
-											task.setChecked(cookie.value === 'true', interval, category, true);
-										}
-									});
-							});
-
-							// Finally update category state once
-							const displayedTasks = category.tasks.filter((task) => task.display);
-							const allDisplayedTasksChecked =
-								displayedTasks.length > 0 && displayedTasks.every((task) => task.checked);
-							category.open = !allDisplayedTasksChecked;
-						});
+						const checkedValue = cookieValues[`${task.id}.${interval.interval}`];
+						if (checkedValue !== undefined) {
+							task.checked = checkedValue === 'true';
+						}
 					});
+
+					const displayedTasks = category.tasks.filter((task) => task.display);
+					const allDisplayedTasksChecked =
+						displayedTasks.length > 0 && displayedTasks.every((task) => task.checked);
+					category.open = !allDisplayedTasksChecked;
 				});
-			}
+			});
 		}
 	}
 }
@@ -133,7 +114,6 @@ export class ResetInterval {
 	readonly reset: string;
 	readonly icon: string;
 	categories = $state<ResetCategory[]>([]);
-	time = $state(0);
 
 	constructor(
 		params: {
@@ -180,7 +160,7 @@ export class ResetTask {
 	readonly description?: string;
 	readonly location?: string;
 	readonly chatcode?: string;
-	timer? = $state<ResetTimer>();
+	readonly timer?: ResetTimer;
 
 	constructor(
 		params: {
@@ -192,6 +172,7 @@ export class ResetTask {
 			location?: string;
 			chatcode?: string;
 			display?: boolean;
+			timer?: ResetTimer;
 		} = {}
 	) {
 		this.id = params.id ?? '';
@@ -201,7 +182,8 @@ export class ResetTask {
 		this.description = params.description;
 		this.location = params.location;
 		this.chatcode = params.chatcode;
-		this.display = params.display ?? false; // Initialize display from params
+		this.display = params.display ?? false;
+		this.timer = params.timer;
 	}
 
 	setDisplay(value: boolean) {
@@ -229,8 +211,8 @@ export class ResetTask {
 }
 
 export class ResetTimer {
-	duration = $state<[number, number]>([0, 0]);
-	times = $state<[number, number, string?][]>([[0, 0]]);
+	readonly duration: [number, number];
+	readonly times: [number, number, string?][];
 
 	constructor(duration: [number, number] = [0, 0], times: [number, number, string?][] = [[0, 0]]) {
 		this.duration = duration;
@@ -238,9 +220,52 @@ export class ResetTimer {
 	}
 }
 
+function createResetTimer(data: ResetTimerData): ResetTimer {
+	const [durationHours, durationMinutes] = data.duration;
+	if (
+		data.duration.length !== 2 ||
+		typeof durationHours !== 'number' ||
+		typeof durationMinutes !== 'number' ||
+		!Number.isFinite(durationHours) ||
+		!Number.isFinite(durationMinutes)
+	) {
+		throw new Error('Invalid reset timer duration');
+	}
+
+	const times = data.times.map((time): [number, number, string?] => {
+		const [hours, minutes, label] = time;
+		if (
+			typeof hours !== 'number' ||
+			typeof minutes !== 'number' ||
+			!Number.isFinite(hours) ||
+			!Number.isFinite(minutes)
+		) {
+			throw new Error('Invalid reset timer time');
+		}
+
+		if (label === undefined) {
+			return [hours, minutes];
+		}
+		if (typeof label !== 'string') {
+			throw new Error('Invalid reset timer label');
+		}
+		return [hours, minutes, label];
+	});
+
+	return new ResetTimer([durationHours, durationMinutes], times);
+}
+
 export enum Interval {
 	daily = 'daily',
 	weekly = 'weekly'
+}
+
+function parseInterval(value: string): Interval {
+	if (value === Interval.daily || value === Interval.weekly) {
+		return value;
+	}
+
+	throw new Error(`Unsupported reset interval: ${value}`);
 }
 
 enum CookieType {
@@ -248,17 +273,11 @@ enum CookieType {
 	display
 }
 
-function getCookies(): Cookie[] {
-	return typeof document !== 'undefined'
-		? document.cookie.split(';').map((cookie) => {
-				const [name, value] = cookie.trim().split('=');
-				const [namespace, subname] = name.split('.');
-				return { namespace, subname, value };
-			})
-		: [];
-}
-
 function setCookie(value: boolean, taskId: string, type: CookieType, interval?: Interval) {
+	if (typeof document === 'undefined') {
+		return;
+	}
+
 	let time = new Date().getTime();
 	let suffix: string = '';
 	if (type === CookieType.display) {
@@ -281,6 +300,6 @@ function setCookie(value: boolean, taskId: string, type: CookieType, interval?: 
 			}
 		}
 	}
-	document.cookie =
-		taskId + suffix + '=' + value + ';expires=' + new Date(time).toUTCString() + ';path=/';
+	const secure = typeof location !== 'undefined' && location.protocol === 'https:' ? ';Secure' : '';
+	document.cookie = `${taskId}${suffix}=${value};expires=${new Date(time).toUTCString()};path=/;SameSite=Lax${secure}`;
 }
