@@ -1731,6 +1731,33 @@
 						}
 					},
 					{
+						"id": "mad-king-says",
+						"name": "Mad King Says",
+						"icon": "https://wiki.guildwars2.com/images/5/51/Shadow_of_the_Mad_King.png",
+						"location": "Lion's Arch",
+						"description": "Halloween",
+						"link": "https://wiki.guildwars2.com/wiki/Your_Mad_King_says...",
+						"chatcode": "[&BBAEAAA=]",
+						"timer": {
+							"duration": [0, 10],
+							"times": [
+								[0, 0],
+								[2, 0],
+								[4, 0],
+								[6, 0],
+								[8, 0],
+								[10, 0],
+								[12, 0],
+								[14, 0],
+								[16, 0],
+								[18, 0],
+								[20, 0],
+								[22, 0],
+								[24, 0]
+							]
+						}
+					},
+					{
 						"id": "open-world-incursions",
 						"name": "Open-World Incursions",
 						"description": "Fractal Incursion",

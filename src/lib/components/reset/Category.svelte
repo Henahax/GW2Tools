@@ -17,7 +17,7 @@
 </script>
 
 <div
-	class="collapsible col-span-full grid break-inside-avoid grid-cols-subgrid divide-y divide-slate-700 rounded-lg shadow-md"
+	class="collapsible grid break-inside-avoid grid-cols-1 divide-y divide-slate-700 rounded-lg shadow-md"
 	class:hidden={displayedTasks.length === 0}
 	class:opacity-75={allDisplayedTasksChecked}
 >
@@ -40,7 +40,7 @@
 		{/if}
 	</button>
 	<div
-		class="collapsible-content col-span-full grid grid-cols-subgrid divide-y divide-slate-800"
+		class="collapsible-content col-span-full grid grid-cols-1 divide-y divide-slate-800"
 		class:closed={!category.open}
 	>
 		{#each category.tasks.filter((task: ResetTask) => task.display === true) as task (task.id)}
@@ -48,6 +48,3 @@
 		{/each}
 	</div>
 </div>
-
-<style>
-</style>

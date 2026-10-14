@@ -88,85 +88,85 @@
 	class:open={overlayOpen}
 >
 	{#if overlayOpen}
-	<div class="flex flex-col gap-2 p-4">
-		<div class="flex w-full items-center justify-between gap-4">
-			<div class="text-xl">Displayed Tasks:</div>
-			<button
-				id="closeResetMenu"
-				class="btn btn-ghost btn-square"
-				aria-label="close"
-				onclick={toggleOverlay}
-			>
-				<i class="fa-solid fa-xmark"></i>
-			</button>
+		<div class="flex flex-col gap-2 p-4">
+			<div class="flex w-full items-center justify-between gap-4">
+				<div class="text-xl">Displayed Tasks:</div>
+				<button
+					id="closeResetMenu"
+					class="btn btn-ghost btn-square"
+					aria-label="close"
+					onclick={toggleOverlay}
+				>
+					<i class="fa-solid fa-xmark"></i>
+				</button>
+			</div>
+			<input class="w-full" type="search" placeholder="Search" bind:value={filter} />
 		</div>
-		<input class="w-full" type="search" placeholder="Search" bind:value={filter} />
-	</div>
-	<div class="overflow-y-auto">
-		<div class="flex flex-col gap-4 p-4">
-			{#each reset.intervals.filter( (interval: ResetInterval) => interval.categories.some( (category) => category.tasks.some((task) => task.name
-										.toLowerCase()
-										.includes(filter.toLowerCase()) || (task.location && task.location
+		<div class="overflow-y-auto">
+			<div class="flex flex-col gap-4 p-4">
+				{#each reset.intervals.filter( (interval: ResetInterval) => interval.categories.some( (category) => category.tasks.some((task) => task.name
 											.toLowerCase()
-											.includes(filter.toLowerCase())) || (task.description && task.description
-											.toLowerCase()
-											.includes(filter.toLowerCase()))) ) ) as interval (interval.id)}
-				<div>
-					<div class="text-lg font-bold">{interval.timer}</div>
-					<div class="flex flex-col gap-2">
-						{#each interval.categories.filter((category) => category.tasks.some((task) => task.name
-										.toLowerCase()
-										.includes(filter.toLowerCase()) || (task.location && task.location
-											.toLowerCase()
-											.includes(filter.toLowerCase())) || (task.description && task.description
-											.toLowerCase()
-											.includes(filter.toLowerCase())))) as category: ResetCategory (category.id)}
-							<div>
-								<div class="font-semibold">{category.name}</div>
-								<div class="flex flex-col gap-2">
-									{#each category.tasks.filter((task) => task.name
+											.includes(filter.toLowerCase()) || (task.location && task.location
+												.toLowerCase()
+												.includes(filter.toLowerCase())) || (task.description && task.description
+												.toLowerCase()
+												.includes(filter.toLowerCase()))) ) ) as interval (interval.id)}
+					<div>
+						<div class="text-lg font-bold">{interval.timer}</div>
+						<div class="flex flex-col gap-2">
+							{#each interval.categories.filter( (category) => category.tasks.some((task) => task.name
 												.toLowerCase()
 												.includes(filter.toLowerCase()) || (task.location && task.location
 													.toLowerCase()
 													.includes(filter.toLowerCase())) || (task.description && task.description
 													.toLowerCase()
-													.includes(filter.toLowerCase()))) as task: ResetTask (task.id)}
-										<label
-											class="grid grid-cols-[auto_auto_1fr] items-center gap-2 hover:brightness-125"
-										>
-											<input
-												type="checkbox"
-												bind:checked={task.display}
-												onchange={(e) => task.setDisplay(e.currentTarget.checked)}
-											/>
-											<img
-												class="size-6 rounded"
-												src={task.icon}
-												alt={task.name}
-												loading="lazy"
-												decoding="async"
-											/>
-											<div class="flex flex-col text-xs">
-												<div class="font-semibold">{task.name}</div>
-												{#if task.description}
-													<div class="text-neutral-400">{task.description}</div>
-												{:else if task.location}
-													<div class="flex items-center gap-1.5 text-xs text-neutral-400">
-														<i class="fa-solid fa-location-dot"></i>
-														{task.location}
-													</div>
-												{/if}
-											</div>
-										</label>
-									{/each}
+													.includes(filter.toLowerCase()))) ) as category: ResetCategory (category.id)}
+								<div>
+									<div class="font-semibold">{category.name}</div>
+									<div class="flex flex-col gap-2">
+										{#each category.tasks.filter((task) => task.name
+													.toLowerCase()
+													.includes(filter.toLowerCase()) || (task.location && task.location
+														.toLowerCase()
+														.includes(filter.toLowerCase())) || (task.description && task.description
+														.toLowerCase()
+														.includes(filter.toLowerCase()))) as task: ResetTask (task.id)}
+											<label
+												class="grid grid-cols-[auto_auto_1fr] items-center gap-2 hover:brightness-125"
+											>
+												<input
+													type="checkbox"
+													bind:checked={task.display}
+													onchange={(e) => task.setDisplay(e.currentTarget.checked)}
+												/>
+												<img
+													class="size-6 rounded"
+													src={task.icon}
+													alt={task.name}
+													loading="lazy"
+													decoding="async"
+												/>
+												<div class="flex flex-col text-xs">
+													<div class="font-semibold">{task.name}</div>
+													{#if task.description}
+														<div class="text-neutral-400">{task.description}</div>
+													{:else if task.location}
+														<div class="flex items-center gap-1.5 text-xs text-neutral-400">
+															<i class="fa-solid fa-location-dot"></i>
+															{task.location}
+														</div>
+													{/if}
+												</div>
+											</label>
+										{/each}
+									</div>
 								</div>
-							</div>
-						{/each}
+							{/each}
+						</div>
 					</div>
-				</div>
-			{/each}
+				{/each}
+			</div>
 		</div>
-	</div>
 	{/if}
 </div>
 
