@@ -16,16 +16,10 @@
 			.filter((task: ResetTask) => task.display).length})
 	</div>
 	<div
-		class={interval.id === 'weekly'
-			? 'columns-1'
-			: 'columns-1 gap-2 lg:columns-2 xl:columns-3 2xl:columns-4'}
+		class={interval.id === 'weekly' ? 'columns-1' : 'columns-1 gap-2 lg:columns-2 2xl:columns-3'}
 	>
-		<div class="grid grid-cols-[auto_auto_1fr_auto]">
-			{#each interval.categories as category (category.id)}
-				<Category {category} {interval} />
-			{/each}
-		</div>
+		{#each interval.categories as category (category.id)}
+			<Category {category} {interval} />
+		{/each}
 	</div>
 </div>
-
-<style></style>

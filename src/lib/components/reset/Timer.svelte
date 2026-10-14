@@ -7,7 +7,6 @@
 		soonTime = 300000,
 		numbersShown = 3,
 		triggerReload = false,
-		add = '',
 		duration = [0, 0]
 	} = $props<{
 		targetTime: number;
@@ -90,43 +89,37 @@
 	class:text-yellow-500={isSoon}
 	class:muted={!isActive && !isSoon && !triggerReload}
 >
-	<div class="timer flex items-center gap-1.5">
-		{#if isActive && !triggerReload}
-			<i class="fa-solid fa-play"></i>
-		{:else if isSoon && !triggerReload}
-			<i class="fa-solid fa-hourglass-half"></i>
-		{/if}
-		<div class="flex items-center gap-0.5">
-			<div class="flex items-center">
-				{#each getTimeUnitsToShow(numbersShownDynamic, formattedTime) as unit, index (index)}
-					{#each unit.value.split('') as digit, i (i)}
-						<div>{digit}</div>
-					{/each}
-					{#if index < getTimeUnitsToShow(numbersShownDynamic, formattedTime).length - 1}
-						<div>:</div>
-					{/if}
-				{/each}
-			</div>
-			{#if (duration[0] > 0 || duration[1] > 0) && isActive}
-				<div>/</div>
+	{#if targetTime > 0}
+		<div class="timer flex items-center gap-1.5">
+			<div class="flex items-center gap-0.5">
 				<div class="flex items-center">
-					{#if duration[0] > 0}
+					{#each getTimeUnitsToShow(numbersShownDynamic, formattedTime) as unit, index (index)}
+						{#each unit.value.split('') as digit, i (i)}
+							<div>{digit}</div>
+						{/each}
+						{#if index < getTimeUnitsToShow(numbersShownDynamic, formattedTime).length - 1}
+							<div>:</div>
+						{/if}
+					{/each}
+				</div>
+				{#if (duration[0] > 0 || duration[1] > 0) && isActive}
+					<div>/</div>
+					<div class="flex items-center">
+						{#if duration[0] > 0}
+							<div>
+								{duration[0].toString().padStart(2, '0')}
+							</div>
+							<div>:</div>
+						{/if}
 						<div>
-							{duration[0].toString().padStart(2, '0')}
+							{duration[1].toString().padStart(2, '0')}
 						</div>
 						<div>:</div>
-					{/if}
-					<div>
-						{duration[1].toString().padStart(2, '0')}
+						<div>00</div>
 					</div>
-					<div>:</div>
-					<div>00</div>
-				</div>
-			{/if}
+				{/if}
+			</div>
 		</div>
-	</div>
-	{#if add.length > 0}
-		<div>{add}</div>
 	{/if}
 </div>
 
