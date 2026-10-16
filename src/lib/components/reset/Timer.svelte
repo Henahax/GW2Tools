@@ -7,6 +7,7 @@
 		soonTime = 300000,
 		numbersShown = 3,
 		triggerReload = false,
+		add,
 		duration = [0, 0]
 	} = $props<{
 		targetTime: number;
@@ -120,6 +121,9 @@
 				{/if}
 			</div>
 		</div>
+		{#if add}
+			<span>{add}</span>
+		{/if}
 	{/if}
 </div>
 
