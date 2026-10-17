@@ -146,6 +146,7 @@ export class ResetCategory {
 	}
 
 	toggleOpen() {
+		// Toggle this category's expanded state.
 		this.open = !this.open;
 	}
 }
@@ -187,6 +188,7 @@ export class ResetTask {
 	}
 
 	setDisplay(value: boolean) {
+		// Save whether this task is shown.
 		this.display = value;
 		setCookie(value, this.id, CookieType.display);
 	}
@@ -197,6 +199,7 @@ export class ResetTask {
 		category: ResetCategory,
 		skipCategoryUpdate: boolean = false
 	) {
+		// Update the check state and persist it until its reset.
 		this.checked = value;
 
 		if (!skipCategoryUpdate) {
@@ -221,6 +224,7 @@ export class ResetTimer {
 }
 
 function createResetTimer(data: ResetTimerData): ResetTimer {
+	// Validate timer data and create its typed model.
 	const [durationHours, durationMinutes] = data.duration;
 	if (
 		data.duration.length !== 2 ||
@@ -261,6 +265,7 @@ export enum Interval {
 }
 
 function parseInterval(value: string): Interval {
+	// Convert a reset interval string to its supported enum value.
 	if (value === Interval.daily || value === Interval.weekly) {
 		return value;
 	}
@@ -274,6 +279,7 @@ enum CookieType {
 }
 
 function setCookie(value: boolean, taskId: string, type: CookieType, interval?: Interval) {
+	// Persist task preferences with the appropriate expiration time.
 	if (typeof document === 'undefined') {
 		return;
 	}

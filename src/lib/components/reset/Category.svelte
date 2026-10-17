@@ -2,10 +2,10 @@
 	import { ResetTask, ResetCategory, ResetInterval } from '../../../routes/reset/Reset.svelte';
 	import Task from './Task.svelte';
 
-	let { interval, category } = $props<{
+	let { interval, category }: {
 		category: ResetCategory;
 		interval: ResetInterval;
-	}>();
+	} = $props();
 
 	let displayedTasks = $derived(category.tasks.filter((task: ResetTask) => task.display === true));
 	let checkedDisplayedTasks = $derived(
