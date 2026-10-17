@@ -9,14 +9,14 @@
 		triggerReload = false,
 		add,
 		duration = [0, 0]
-	} = $props<{
+	}: {
 		targetTime: number;
 		soonTime?: number;
 		numbersShown?: number;
 		triggerReload?: boolean;
 		add?: string;
 		duration?: [number, number];
-	}>();
+	} = $props();
 
 	let difference = $derived(targetTime - clock.now);
 	let isSoon = $derived(difference < soonTime && difference > 0);
@@ -38,6 +38,7 @@
 	});
 
 	function getTimeUnitsToShow(mode: number, time: ReturnType<typeof formatTime>) {
+		// Return the time units enabled for this timer mode.
 		const units = [];
 		if (mode >= 4) units.push({ value: time.days });
 		if (mode >= 3) units.push({ value: time.hours });
@@ -47,6 +48,7 @@
 	}
 
 	function formatTime(milliseconds: number, mode: number) {
+		// Format a time difference into padded display units.
 		const totalSeconds = Math.floor(Math.abs(milliseconds) / 1000);
 		let days = 0,
 			hours = 0,

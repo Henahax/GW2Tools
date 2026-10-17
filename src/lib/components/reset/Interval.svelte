@@ -2,9 +2,9 @@
 	import { ResetTask, ResetCategory, ResetInterval } from '../../../routes/reset/Reset.svelte';
 	import Category from './Category.svelte';
 
-	let { interval } = $props<{
+	let { interval }: {
 		interval: ResetInterval;
-	}>();
+	} = $props();
 </script>
 
 <div class="flex w-full flex-col gap-2">

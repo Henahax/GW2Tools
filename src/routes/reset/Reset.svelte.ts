@@ -96,10 +96,7 @@ export class Reset {
 						}
 					});
 
-					const displayedTasks = category.tasks.filter((task) => task.display);
-					const allDisplayedTasksChecked =
-						displayedTasks.length > 0 && displayedTasks.every((task) => task.checked);
-					category.open = !allDisplayedTasksChecked;
+					category.syncOpenState();
 				});
 			});
 		}
@@ -146,7 +143,21 @@ export class ResetCategory {
 	}
 
 	toggleOpen() {
+		// Toggle this category's expanded state.
 		this.open = !this.open;
+	}
+
+	syncOpenState(openIncomplete = true) {
+		// Collapse completed categories and optionally open incomplete ones.
+		const displayedTasks = this.tasks.filter((task) => task.display);
+		const allDisplayedTasksChecked =
+			displayedTasks.length > 0 && displayedTasks.every((task) => task.checked);
+
+		if (allDisplayedTasksChecked) {
+			this.open = false;
+		} else if (openIncomplete) {
+			this.open = true;
+		}
 	}
 }
 
@@ -187,6 +198,7 @@ export class ResetTask {
 	}
 
 	setDisplay(value: boolean) {
+		// Save whether this task is shown.
 		this.display = value;
 		setCookie(value, this.id, CookieType.display);
 	}
@@ -197,14 +209,10 @@ export class ResetTask {
 		category: ResetCategory,
 		skipCategoryUpdate: boolean = false
 	) {
+		// Update the check state and persist it until its reset.
 		this.checked = value;
 
-		if (!skipCategoryUpdate) {
-			const displayedTasks = category.tasks.filter((task) => task.display);
-			const allDisplayedTasksChecked =
-				displayedTasks.length > 0 && displayedTasks.every((task) => task.checked);
-			category.open = !allDisplayedTasksChecked;
-		}
+		if (!skipCategoryUpdate) category.syncOpenState();
 
 		setCookie(value, this.id, CookieType.checked, interval.interval);
 	}
@@ -221,6 +229,7 @@ export class ResetTimer {
 }
 
 function createResetTimer(data: ResetTimerData): ResetTimer {
+	// Validate timer data and create its typed model.
 	const [durationHours, durationMinutes] = data.duration;
 	if (
 		data.duration.length !== 2 ||
@@ -261,6 +270,7 @@ export enum Interval {
 }
 
 function parseInterval(value: string): Interval {
+	// Convert a reset interval string to its supported enum value.
 	if (value === Interval.daily || value === Interval.weekly) {
 		return value;
 	}
@@ -274,6 +284,7 @@ enum CookieType {
 }
 
 function setCookie(value: boolean, taskId: string, type: CookieType, interval?: Interval) {
+	// Persist task preferences with the appropriate expiration time.
 	if (typeof document === 'undefined') {
 		return;
 	}

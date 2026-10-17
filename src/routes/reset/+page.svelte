@@ -19,6 +19,7 @@
 	let overlayOpen = $state(false);
 	let filter = $state('');
 
+	// Keep the shared clock in sync for all timers.
 	$effect(() => {
 		const interval = setInterval(() => {
 			clock.now = Date.now();
@@ -30,6 +31,7 @@
 	});
 
 	onMount(() => {
+		// Clear checks whose reset cookies have expired.
 		function resetExpiredChecks() {
 			for (const interval of reset.intervals) {
 				for (const category of interval.categories) {
@@ -43,11 +45,13 @@
 							task.setChecked(false, interval, category);
 						}
 					}
+					category.syncOpenState(false);
 				}
 			}
 		}
 
 		function onVisibilityChange() {
+			// Recheck expired cookies when the tab becomes visible.
 			if (document.visibilityState === 'visible') resetExpiredChecks();
 		}
 
@@ -62,6 +66,7 @@
 	});
 
 	function toggleOverlay() {
+		// Toggle the task settings panel.
 		overlayOpen = !overlayOpen;
 	}
 </script>

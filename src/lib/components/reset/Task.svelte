@@ -2,13 +2,15 @@
 	import { ResetTask, ResetCategory, ResetInterval } from '../../../routes/reset/Reset.svelte';
 	import EventTimer from '#lib/components/reset/EventTimer.svelte';
 
-	let { task, interval, category } = $props<{
+	let { task, interval, category }: {
 		task: ResetTask;
 		category: ResetCategory;
 		interval: ResetInterval;
-	}>();
+	} = $props();
 
-	function copyToClipBoard(chatcode: string) {
+	function copyToClipBoard(chatcode: string | undefined) {
+		// Copy the task's waypoint code.
+		if (!chatcode) return;
 		navigator.clipboard.writeText(chatcode);
 	}
 </script>

@@ -10,7 +10,7 @@
 	const TONE_GAP_SECONDS = 0.12;
 
 	const clock = getResetClock();
-	let { timer } = $props<{ timer: ResetTimer }>();
+	let { timer }: { timer: ResetTimer } = $props();
 	let nextEventTime = $state(0);
 	let duration = $state<[number, number]>([0, 0]);
 	let add = $state('');
@@ -54,6 +54,7 @@
 	});
 
 	function updateEventTime(now: number) {
+		// Recalculate the next event countdown from the current time.
 		const [newTime, newDuration, newAdd] = getNextEventTime(timer, now);
 		nextEventTime = newTime.getTime();
 		duration = newDuration;
@@ -63,10 +64,12 @@
 	}
 
 	function getDurationMilliseconds() {
+		// Convert the configured event duration to milliseconds.
 		return duration[0] * 60 * 60 * 1000 + duration[1] * 60 * 1000;
 	}
 
 	function toggleAlert(event: MouseEvent) {
+		// Toggle sound and notification alerts for this timer.
 		event.preventDefault();
 		event.stopPropagation();
 
@@ -91,6 +94,7 @@
 	}
 
 	function requestNotificationPermission() {
+		// Request permission before showing browser notifications.
 		if (typeof window === 'undefined' || !('Notification' in window)) return;
 
 		if (window.Notification.permission === 'default') {
@@ -99,6 +103,7 @@
 	}
 
 	function showNotification(stage: 'soon' | 'start') {
+		// Show a notification for the selected event stage.
 		if (
 			typeof window === 'undefined' ||
 			!('Notification' in window) ||
@@ -119,6 +124,7 @@
 	}
 
 	function prepareAudio() {
+		// Prepare audio playback after a user interaction.
 		if (typeof window === 'undefined' || typeof window.AudioContext === 'undefined') return;
 
 		audioContext ??= new window.AudioContext();
@@ -128,6 +134,7 @@
 	}
 
 	function playAlert(count: number) {
+		// Play the alert sound the requested number of times.
 		if (!audioContext || audioContext.state === 'closed') return;
 
 		const toneSpacing = TONE_DURATION_SECONDS + TONE_GAP_SECONDS;
@@ -150,6 +157,7 @@
 	}
 
 	function getNextEventTime(timer: ResetTimer, now: number): [Date, [number, number], string] {
+		// Find the next scheduled event and its display details.
 		let startOfNextDay = getUTCTimeForStartOfNextDay();
 		let startOfThisDay = startOfNextDay.getTime() - 24 * 60 * 60 * 1000;
 
