@@ -96,10 +96,7 @@ export class Reset {
 						}
 					});
 
-					const displayedTasks = category.tasks.filter((task) => task.display);
-					const allDisplayedTasksChecked =
-						displayedTasks.length > 0 && displayedTasks.every((task) => task.checked);
-					category.open = !allDisplayedTasksChecked;
+					category.syncOpenState();
 				});
 			});
 		}
@@ -148,6 +145,19 @@ export class ResetCategory {
 	toggleOpen() {
 		// Toggle this category's expanded state.
 		this.open = !this.open;
+	}
+
+	syncOpenState(openIncomplete = true) {
+		// Collapse completed categories and optionally open incomplete ones.
+		const displayedTasks = this.tasks.filter((task) => task.display);
+		const allDisplayedTasksChecked =
+			displayedTasks.length > 0 && displayedTasks.every((task) => task.checked);
+
+		if (allDisplayedTasksChecked) {
+			this.open = false;
+		} else if (openIncomplete) {
+			this.open = true;
+		}
 	}
 }
 
@@ -202,12 +212,7 @@ export class ResetTask {
 		// Update the check state and persist it until its reset.
 		this.checked = value;
 
-		if (!skipCategoryUpdate) {
-			const displayedTasks = category.tasks.filter((task) => task.display);
-			const allDisplayedTasksChecked =
-				displayedTasks.length > 0 && displayedTasks.every((task) => task.checked);
-			category.open = !allDisplayedTasksChecked;
-		}
+		if (!skipCategoryUpdate) category.syncOpenState();
 
 		setCookie(value, this.id, CookieType.checked, interval.interval);
 	}

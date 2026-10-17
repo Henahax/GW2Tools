@@ -45,6 +45,7 @@
 							task.setChecked(false, interval, category);
 						}
 					}
+					category.syncOpenState(false);
 				}
 			}
 		}
