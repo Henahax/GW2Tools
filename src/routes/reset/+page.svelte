@@ -8,6 +8,7 @@
 	} from '#lib/helpers/ResetFunctions.js';
 	import Interval from '#lib/components/reset/Interval.svelte';
 	import { setResetClock } from '#lib/components/reset/ResetClock.js';
+	import { onMount } from 'svelte';
 
 	import Timer from '#lib/components/reset/Timer.svelte';
 
@@ -25,6 +26,38 @@
 
 		return () => {
 			clearInterval(interval);
+		};
+	});
+
+	onMount(() => {
+		function resetExpiredChecks() {
+			for (const interval of reset.intervals) {
+				for (const category of interval.categories) {
+					for (const task of category.tasks) {
+						if (
+							task.checked &&
+							!document.cookie
+								.split('; ')
+								.some((cookie) => cookie.startsWith(`${task.id}.${interval.interval}=`))
+						) {
+							task.setChecked(false, interval, category);
+						}
+					}
+				}
+			}
+		}
+
+		function onVisibilityChange() {
+			if (document.visibilityState === 'visible') resetExpiredChecks();
+		}
+
+		resetExpiredChecks();
+		window.addEventListener('pageshow', resetExpiredChecks);
+		document.addEventListener('visibilitychange', onVisibilityChange);
+
+		return () => {
+			window.removeEventListener('pageshow', resetExpiredChecks);
+			document.removeEventListener('visibilitychange', onVisibilityChange);
 		};
 	});
 
