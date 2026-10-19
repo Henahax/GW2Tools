@@ -38,7 +38,7 @@
 </script>
 
 <div class="flex grow flex-col justify-center gap-8">
-	<h1 class="self-center text-3xl">GW2Tools</h1>
+	<h1 class="self-center text-3xl">GW2 Tools</h1>
 	<section class="flex flex-col">
 		<div class="grid w-fit grid-cols-2 gap-4 self-center max-sm:grid-cols-1">
 			{#each internal as item (item.title)}

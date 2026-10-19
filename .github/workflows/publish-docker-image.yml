@@ -48,5 +48,5 @@ jobs:
           context: .
           push: true
           tags: |
-            henahax/gw2tools:latest
-            henahax/gw2tools:${{ steps.version.outputs.value }}
+            henahax/gw2-tools:latest
+            henahax/gw2-tools:${{ steps.version.outputs.value }}

@@ -114,7 +114,7 @@
 
 		const notification = new window.Notification(add || 'Guild Wars 2 event', {
 			body: stage === 'soon' ? 'Starts in under 5 minutes' : 'Starting now',
-			tag: `gw2tools-${nextEventTime}-${stage}`,
+			tag: `gw2-tools-${nextEventTime}-${stage}`,
 			silent: document.visibilityState === 'visible'
 		});
 		notification.onclick = () => {
