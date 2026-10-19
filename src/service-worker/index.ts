@@ -2,7 +2,7 @@ import { version } from '$app/env';
 import { assets, immutable } from '$app/manifest';
 import { self } from '$app/service-worker';
 
-const CACHE_NAME = `gw2tools-${version}`;
+const CACHE_NAME = `gw2-tools-${version}`;
 const APP_ASSETS = [...new Set([...assets, ...immutable].map(({ path }) => path))];
 
 self.addEventListener('install', (event) => {
@@ -14,7 +14,7 @@ self.addEventListener('activate', (event) => {
     caches.keys().then((cacheNames) =>
       Promise.all(
         cacheNames
-          .filter((cacheName) => cacheName.startsWith('gw2tools-') && cacheName !== CACHE_NAME)
+          .filter((cacheName) => cacheName.startsWith('gw2-tools-') && cacheName !== CACHE_NAME)
           .map((cacheName) => caches.delete(cacheName))
       )
     )

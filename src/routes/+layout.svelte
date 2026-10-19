@@ -5,7 +5,7 @@
 
 <app class="flex h-dvh min-h-dvh flex-col">
 	<header class="flex items-center justify-between px-4 py-2">
-		<a class="btn btn-ghost text-xl font-bold" href="/">GW2Tools</a>
+		<a class="btn btn-ghost text-xl font-bold" href="/">GW2 Tools</a>
 		<nav class="flex">
 			<a class="btn btn-ghost" href="/reset">
 				<i class="fa-solid fa-arrows-rotate"></i>
@@ -27,7 +27,7 @@
 		<div class="grow text-center">© henahax.de 2026</div>
 		<a
 			class="btn btn-ghost btn-square text-xs"
-			href="https://github.com/Henahax/GW2Tools"
+			href="https://github.com/Henahax/gw2-tools"
 			aria-label="GitHub"
 		>
 			<i class="fa-brands fa-github"></i>
