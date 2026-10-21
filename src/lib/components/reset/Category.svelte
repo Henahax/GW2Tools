@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { ResetTask, ResetCategory, ResetInterval } from '../../../routes/reset/Reset.svelte';
+	import { ResetTask, ResetCategory, ResetInterval } from '#lib/reset/Reset.svelte.js';
 	import Task from './Task.svelte';
 
 	let { interval, category }: {

@@ -1,7 +1,19 @@
+interface MagicFindItemData {
+	id?: string;
+	type: string;
+	[key: string]: unknown;
+}
+
+interface MagicFindCategoryData {
+	id: string;
+	name: string;
+	items: MagicFindItemData[];
+}
+
 export class MagicFind {
 	categories = $state<MagicFindCategory[]>([]);
 
-	constructor(data?: MagicFindCategory[]) {
+	constructor(data?: MagicFindCategoryData[]) {
 		if (data) {
 			this.categories = data.map((seedCategory) => {
 				const category = Object.assign(new MagicFindCategory(), {
@@ -9,36 +21,27 @@ export class MagicFind {
 					name: seedCategory.name
 				});
 
-				category.items = seedCategory.items.map(
-					(
-						seedItem:
-							| MagicFindItem
-							| MagicFindItemNumber
-							| MagicFindItemBool
-							| MagicFindItemRadio
-							| MagicFindItemSelect
-					) => {
-						let item: MagicFindItem;
+				category.items = seedCategory.items.map((seedItem) => {
+					let item: MagicFindItem;
 
-						switch (seedItem.type) {
-							case 'number':
-								item = Object.assign(new MagicFindItemNumber(), seedItem);
-								break;
-							case 'select':
-								item = Object.assign(new MagicFindItemSelect(), seedItem);
-								break;
-							case 'bool':
-								item = Object.assign(new MagicFindItemBool(), seedItem);
-								break;
-							case 'radio':
-								item = Object.assign(new MagicFindItemRadio(), seedItem);
-								break;
-							default:
-								item = Object.assign(new MagicFindItem(), seedItem);
-						}
-						return item;
+					switch (seedItem.type) {
+						case 'number':
+							item = Object.assign(new MagicFindItemNumber(), seedItem);
+							break;
+						case 'select':
+							item = Object.assign(new MagicFindItemSelect(), seedItem);
+							break;
+						case 'bool':
+							item = Object.assign(new MagicFindItemBool(), seedItem);
+							break;
+						case 'radio':
+							item = Object.assign(new MagicFindItemRadio(), seedItem);
+							break;
+						default:
+							item = Object.assign(new MagicFindItem(), seedItem);
 					}
-				);
+					return item;
+				});
 				return category;
 			});
 		}

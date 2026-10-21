@@ -2,7 +2,7 @@
 	import { onDestroy } from 'svelte';
 	import Timer from './Timer.svelte';
 	import { getResetClock } from './ResetClock.js';
-	import { ResetTimer } from '../../../routes/reset/Reset.svelte';
+	import { ResetTimer } from '#lib/reset/Reset.svelte.js';
 	import { getUTCTimeForStartOfNextDay } from '#lib/helpers/ResetFunctions.js';
 
 	const SOON_TIME_MS = 5 * 60 * 1000;
