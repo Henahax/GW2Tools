@@ -4,8 +4,8 @@ import {
 } from '#lib/helpers/ResetFunctions.js';
 
 interface ResetTimerData {
-	duration: [number, number];
-	times: [number, number, string?][];
+	duration: number[];
+	times: (number | string)[][];
 }
 
 interface ResetTaskData {
@@ -28,7 +28,7 @@ interface ResetCategoryData {
 
 export interface ResetIntervalData {
 	id: string;
-	interval: Interval;
+	interval: string;
 	timer: string;
 	tasks: string;
 	reset: string;
