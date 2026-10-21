@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { PageProps } from './$types';
 	import resetData from './reset.json';
-	import { Reset, type ResetInterval, type ResetIntervalData } from './Reset.svelte';
+	import { Reset, type ResetInterval, type ResetIntervalData } from '#lib/reset/Reset.svelte.js';
 	import {
 		getUTCTimeForStartOfNextDay,
 		getUTCTimeForStartOfNextWeek
